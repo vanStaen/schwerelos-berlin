@@ -23,6 +23,7 @@ module.exports = {
     }),
     new CopyPlugin({
       patterns: [
+        { from: "public/feder_logo.png" },
         { from: "public/manifest.webmanifest" },
       ],
     }),
