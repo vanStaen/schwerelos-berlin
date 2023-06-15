@@ -48,7 +48,7 @@ export const Welcome = observer(() => {
 
       <div className="container">
         <div className="link">
-          <Tooltip title="Instagram" color="#39E7A0">
+          <Tooltip title="Instagram" color="#2bc487">
             <a
               href="https://www.instagram.com/schwerelos_berlin/"
               target="_blank"
