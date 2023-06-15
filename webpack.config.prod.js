@@ -19,14 +19,10 @@ module.exports = {
       template: "./public/index.html",
     }),
     new webpack.DefinePlugin({
-      "process.env.API_URL": JSON.stringify("https://kinkograph.com"),
-      "process.env.API_URL_UPLOAD": JSON.stringify("https://kinkograph.com/pictures"),
+      "process.env.API_URL": JSON.stringify("https://###ADD_YOUR_URL_HERE###.com")
     }),
     new CopyPlugin({
       patterns: [
-        { from: "public/black-heart-shaped.png" },
-        { from: "public/white-heart-128.png" },
-        { from: "public/white-heart-512.png" },
         { from: "public/manifest.webmanifest" },
       ],
     }),

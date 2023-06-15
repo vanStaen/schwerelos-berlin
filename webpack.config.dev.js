@@ -7,7 +7,7 @@ module.exports = {
   devtool: "source-map",
   devServer: {
     historyApiFallback: true,
-    port: 9000,
+    port: 5000,
     liveReload: true,
     hot: false,
   },
@@ -22,14 +22,10 @@ module.exports = {
       template: "./public/index.html",
     }),
     new webpack.DefinePlugin({
-      "process.env.API_URL": JSON.stringify("http://localhost:5009"),
-      "process.env.API_URL_UPLOAD": JSON.stringify("http://localhost:5009/pictures"),
-    }),
+      "process.env.API_URL": JSON.stringify("http://localhost:5000")
+      }),
     new CopyPlugin({
       patterns: [
-        { from: "public/black-heart-shaped.png" },
-        { from: "public/white-heart-128.png" },
-        { from: "public/white-heart-512.png" },
         { from: "public/manifest.webmanifest" },
       ],
     }),
