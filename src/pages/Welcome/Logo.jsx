@@ -1,5 +1,4 @@
 import React from "react";
-import { TweenMax, Cubic } from "gsap/all";
 
 import logoSchwerelos from "../../img/image00006.jpeg";
 
