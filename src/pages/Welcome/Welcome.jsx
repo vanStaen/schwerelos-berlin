@@ -1,9 +1,14 @@
 import React from "react";
+import { Tooltip } from "antd";
 import { observer } from "mobx-react";
 
 import { pageStore } from "../../store/pageStore";
 import { Artist } from "../Artist/Artist";
 import { Logo } from "./Logo";
+
+import InstaLogo from "../../img/instaLogo.png";
+import LinkTreeLogo from "../../img/linkTreeLogo.png";
+import ResidentAdvisorLogo from "../../img/residentAdvisorLogo.png";
 
 import "./Welcome.less";
 
@@ -43,24 +48,34 @@ export const Welcome = observer(() => {
 
       <div className="container">
         <div className="link">
-          <a
-            href="https://www.instagram.com/schwerelos_berlin/"
-            target="_blank"
-          >
-            insta
-          </a>
+          <Tooltip title="Instagram" color="#39E7A0">
+            <a
+              href="https://www.instagram.com/schwerelos_berlin/"
+              target="_blank"
+            >
+              <img src={InstaLogo} className="logoInsta" />
+            </a>
+          </Tooltip>
         </div>
         <div className="link">
-          <a href="https://linktr.ee/schwerelos_berlin" target="_blank">
-            Linktree
-          </a>
+          <Tooltip title="Linktr.ee" color="#9F44D9">
+            <a href="https://linktr.ee/schwerelos_berlin" target="_blank">
+              <img src={LinkTreeLogo} className="logoLinkTree" />
+            </a>
+          </Tooltip>
         </div>
         <div className="link">
-          <a href="https://ra.co/labels/21798" target="_blank">
-            resident advisor
-          </a>
+          <Tooltip title="Resident Advisor" color="#F70069">
+            <a href="https://ra.co/labels/21798" target="_blank">
+              <img src={ResidentAdvisorLogo} className="logoRa" />
+            </a>
+          </Tooltip>
         </div>
       </div>
+
+      <br />
+      <br />
+      <br />
     </div>
   );
 });
