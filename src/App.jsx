@@ -1,12 +1,17 @@
 import React, { useLayoutEffect } from "react";
 import { observer } from "mobx-react";
-import { createBrowserRouter, createRoutesFromElements, Route, RouterProvider } from "react-router-dom";
+import {
+  createBrowserRouter,
+  createRoutesFromElements,
+  Route,
+  RouterProvider,
+} from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
 import { Welcome } from "./pages/Welcome/Welcome";
 
 import "../src/lib/i18n";
-import "./App.css";
+import "./App.less";
 
 const defineVariableHeight = () => {
   let vh = window.innerHeight * 0.01;
@@ -24,13 +29,14 @@ const App = observer(() => {
   }, []);
 
   const router = createBrowserRouter(
-    createRoutesFromElements(
-      <Route path="/" element={<Welcome />}>
-      </Route>
-    )
+    createRoutesFromElements(<Route path="/" element={<Welcome />}></Route>)
   );
 
-  return <RouterProvider router={router} />;
+  return (
+    <div className="App">
+      <RouterProvider router={router} />
+    </div>
+  );
 });
 
 export default App;
