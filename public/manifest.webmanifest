@@ -1,0 +1,10 @@
+{
+  "short_name": "Schwerelos",
+  "name": "Schwerelos Berlin",
+  "description" : "Schwerelos | Techno kollektiv aus Berlin: DJs, Parties und Openairs",
+  "start_url": "https://clementvanstaen.com",
+  "display": "standalone",
+  "theme_color": "#ffffff",
+  "background_color": "#ffffff",
+  "clipboardWrite": true
+}
