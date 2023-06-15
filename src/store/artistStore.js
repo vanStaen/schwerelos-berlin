@@ -10,7 +10,14 @@ export class ArtistStore {
     'Sommersonnenwende', 
     'van Staen'
   ];  
-  artistBios = [];
+  artistBios = [
+    {},
+    {},
+    {},
+    {},
+    {},
+    {en: '', de: ''},  
+  ];
   artistPics = [
     {},
     {},

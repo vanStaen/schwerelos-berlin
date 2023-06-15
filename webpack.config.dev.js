@@ -23,7 +23,7 @@ module.exports = {
     }),
     new webpack.DefinePlugin({
       "process.env.API_URL": JSON.stringify("http://localhost:5000")
-      }),
+    }),
     new CopyPlugin({
       patterns: [
         { from: "public/feder_logo.png" },

@@ -1,10 +1,6 @@
 import React, { useLayoutEffect } from "react";
-import {
-  createBrowserRouter,
-  createRoutesFromElements,
-  Route,
-  RouterProvider,
-} from "react-router-dom";
+import { observer } from "mobx-react";
+import { createBrowserRouter, createRoutesFromElements, Route, RouterProvider } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
 import { Welcome } from "./pages/Welcome/Welcome";
@@ -19,7 +15,7 @@ const defineVariableHeight = () => {
 
 window.addEventListener("resize", defineVariableHeight);
 
-const App = () => {
+const App = observer(() => {
   const { i18n } = useTranslation();
 
   useLayoutEffect(() => {
@@ -35,6 +31,6 @@ const App = () => {
   );
 
   return <RouterProvider router={router} />;
-};
+});
 
 export default App;
