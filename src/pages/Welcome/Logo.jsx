@@ -1,6 +1,8 @@
 import React, { useEffect, useState, useRef } from "react";
 import fx from "glfx";
 
+import { randomInteger }  from '../../helpers/randomInteger'
+
 import logoSchwerelos from "../../img/image00006.jpeg";
 
 import "./Logo.less";
@@ -14,33 +16,9 @@ const drawCanvas = (ctx, source) => {
 export const Logo = () => {
   const [sourceImg, setSourceImg] = useState(null);
   const canvasRef = React.useRef(null);
-  const canvasRotationRadius = React.useRef(2);
+  const canvasRotationRadius = React.useRef(randomInteger(-30,30) / 10 );
 
-  useEffect(() => {
-    document.addEventListener("mousemove", onMouseMove);
-    return () => {
-      document.removeEventListener("mousemove", onMouseMove);
-    };
-  }, []);
-
-  const onMouseMove = (mouse) => {
-    const windowWidth = window.innerWidth;
-    const windowWidthMiddle = Math.ceil(window.innerWidth / 2);
-    const mousePositionWidth = mouse.screenX;
-
-    if (mousePositionWidth > windowWidthMiddle) {
-      //rotation will be positive
-      canvasRotationRadius.current = 3;
-    } else {
-      //rotation will be positive
-      canvasRotationRadius.current = 10;
-    }
-
-    console.log("mousePositionWidth", mousePositionWidth);
-    console.log("windowWidth", windowWidth);
-    console.log("windowWidthMiddle", windowWidthMiddle);
-    console.log("windowWidthMiddle", windowWidthMiddle);
-  };
+  console.log('canvasRotationRadius', canvasRotationRadius);
 
   useEffect(() => {
     if (!sourceImg) {
@@ -70,7 +48,7 @@ export const Logo = () => {
         .swirl(
           LogoPosMiddleWidth,
           LogoPosMiddleHeight,
-          radius,
+          radius + 100,
           canvasRotationRadius.current
         )
         .update();
@@ -82,13 +60,6 @@ export const Logo = () => {
       drawCanvas(ctx, canvas);
     }
   }, [sourceImg, canvasRotationRadius]);
-
-  useEffect(() => {
-    document.addEventListener("mousemove", onMouseMove);
-    return () => {
-      document.removeEventListener("mousemove", onMouseMove);
-    };
-  }, []);
 
   return (
     <div>
