@@ -1,9 +1,9 @@
 import React, { useEffect, useState, useRef } from "react";
 import fx from "glfx";
 
-import { randomInteger }  from '../../helpers/randomInteger'
+import { randomInteger } from '../../helpers/randomInteger'
 
-import logoSchwerelos from "../../img/image00006.jpeg";
+import logoSchwerelos from "../../img/schwerelosLogo.png";
 
 import "./Logo.less";
 
@@ -15,10 +15,8 @@ const drawCanvas = (ctx, source) => {
 
 export const Logo = () => {
   const [sourceImg, setSourceImg] = useState(null);
-  const canvasRef = React.useRef(null);
-  const canvasRotationRadius = React.useRef(randomInteger(-30,30) / 10 );
-
-  console.log('canvasRotationRadius', canvasRotationRadius);
+  const canvasRef = useRef(null);
+  const canvasRotationRadius = useRef(randomInteger(-30, 30) / 10);
 
   useEffect(() => {
     if (!sourceImg) {
