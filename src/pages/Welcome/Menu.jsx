@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 
+import TelegramLogo from "../../img/telegramLogo.png";
+
 import "./Menu.less";
 
 export const Menu = () => {
@@ -20,6 +22,11 @@ export const Menu = () => {
                         <li><a href="#">Presskit</a></li>
                         <li><a href="#">Booking</a></li>
                         <li><a href="#">About</a></li>
+                        <li>
+                            <a href='https://t.me/SCHWERELOS_BERLIN' target='_blank'>
+                                <img src={TelegramLogo} className="logoTelegram" />
+                            </a>
+                        </li>
                     </ul>
                 </nav>
             </div >
