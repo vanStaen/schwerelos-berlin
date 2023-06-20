@@ -34,7 +34,11 @@ const App = observer(() => {
 
   return (
     <div className="App">
-      <RouterProvider router={router} />
+      <div className="background"></div>
+      <div className="backgroundOpacity"></div>
+      <div className="main">
+        <RouterProvider router={router} />
+      </div>
     </div>
   );
 });
