@@ -11,17 +11,21 @@ import LinkTreeLogo from "../../img/linkTreeLogo.png";
 import ResidentAdvisorLogo from "../../img/residentAdvisorLogo.png";
 
 import "./Welcome.less";
+import { Menu } from "./Menu";
 
 export const Welcome = observer(() => {
   const artistClickHandler = (id) => {
     pageStore.setSelectedArtistId(id);
   };
 
+  // return <Menu />;
+
   return pageStore.selectedArtistId ? (
     <Artist id={pageStore.selectedArtistId} />
   ) : (
     <div className="welcome">
       <div className="container">
+        <Menu />
         <div className="artistLinks">
           <div className="artistLink" onClick={() => artistClickHandler(1)}>
             b0ys_cry
@@ -72,10 +76,6 @@ export const Welcome = observer(() => {
           </Tooltip>
         </div>
       </div>
-
-      <br />
-      <br />
-      <br />
     </div>
   );
 });
