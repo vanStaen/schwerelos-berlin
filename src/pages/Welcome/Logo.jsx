@@ -7,16 +7,13 @@ import logoSchwerelos from "../../img/schwerelosLogo.png";
 
 import "./Logo.less";
 
-const drawCanvas = (ctx, source) => {
-  if (!source) return;
-
-  ctx.drawImage(source, 0, 0);
-};
-
 export const Logo = () => {
   const [sourceImg, setSourceImg] = useState(null);
+  const [radius, setRadius] = useState(null);
+  const [logoPosMiddleWidth, setLogoPosMiddleWidth] = useState(null);
+  const [logoPosMiddleHeight, setLogoPosMiddleHeight] = useState(null);
+  const [canvasRotationRadius, setCanvasRotationRadius] = useState(randomInteger(-30, 30) / 10);
   const canvasRef = useRef(null);
-  const canvasRotationRadius = useRef(randomInteger(-30, 30) / 10);
 
   useEffect(() => {
     if (!sourceImg) {
@@ -24,40 +21,63 @@ export const Logo = () => {
       image.crossOrigin = "Anonymous";
       image.onload = () => {
         setSourceImg(image);
+        console.log('image', image);
       };
       image.src = logoSchwerelos;
     } else {
-      var canvas = fx.canvas();
-      var texture = canvas.texture(sourceImg);
-
       const logo = document.getElementById("Logo");
       const top = logo.getBoundingClientRect().top + window.scrollY;
       const left = logo.getBoundingClientRect().left + window.scrollX;
       const width = logo.clientWidth;
       const height = logo.clientHeight;
-      const radius = width > height ? width : height;
-      const LogoPosMiddleWidth = left + width / 2;
-      const LogoPosMiddleHeight = top + height / 2;
-
-      // apply the ink filter
-      canvas.draw(texture).ink(0.52).update();
+      setRadius(width > height ? width : height);
+      setLogoPosMiddleWidth(left + width / 2);
+      setLogoPosMiddleHeight(top + height / 2);
+      const canvas = fx.canvas();
+      const texture = canvas.texture(sourceImg);
       canvas
         .draw(texture)
-        .swirl(
-          LogoPosMiddleWidth,
-          LogoPosMiddleHeight,
-          radius + 100,
-          canvasRotationRadius.current
-        )
         .update();
-
       const displayCanvas = canvasRef.current;
       displayCanvas.width = sourceImg.width;
       displayCanvas.height = sourceImg.height;
       const ctx = displayCanvas.getContext("2d");
-      drawCanvas(ctx, canvas);
+      ctx.drawImage(canvas, 0, 0);
     }
-  }, [sourceImg, canvasRotationRadius]);
+  }, [sourceImg]);
+
+  useEffect(() => {
+    document.addEventListener("mousemove", onMouseMoveHandler);
+    return () => {
+      document.removeEventListener("mousemove", onMouseMoveHandler);
+    };
+  }, []);
+
+  const onMouseMoveHandler = (event) => {
+    console.log('event', event);
+    console.log('sourceImg', sourceImg);
+    //udpateImage(sourceImg);
+  }
+
+  const udpateImage = (sourceImgRef) => {
+    const canvas = fx.canvas();
+    const texture = canvas.texture(sourceImgRef);
+    canvas
+      .draw(texture)
+      .swirl(
+        logoPosMiddleWidth,
+        logoPosMiddleHeight,
+        radius + 100,
+        canvasRotationRadius,
+      )
+      .update();
+
+    const displayCanvas = canvasRef.current;
+    displayCanvas.width = sourceImgRef.width;
+    displayCanvas.height = sourceImgRef.height;
+    const ctx = displayCanvas.getContext("2d");
+    ctx.drawImage(canvas, 0, 0);
+  }
 
   return (
     <div>
