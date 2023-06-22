@@ -1,8 +1,14 @@
 import React from "react";
 
+import { pageStore } from "../../store/pageStore";
+
 import "./LinksProfiles.less";
 
 export const LinksProfiles = () => {
+
+    const artistClickHandler = (id) => {
+        pageStore.setSelectedArtistId(id);
+    };
 
     return (
         <div className="artistLinks">

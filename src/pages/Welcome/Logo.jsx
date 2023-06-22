@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState, useRef, useCallback } from "react";
 import fx from "glfx";
 
 import { randomInteger } from '../../helpers/randomInteger'
@@ -9,10 +9,8 @@ import "./Logo.less";
 
 export const Logo = () => {
   const [sourceImg, setSourceImg] = useState(null);
-  const [radius, setRadius] = useState(null);
-  const [logoPosMiddleWidth, setLogoPosMiddleWidth] = useState(null);
-  const [logoPosMiddleHeight, setLogoPosMiddleHeight] = useState(null);
-  const [canvasRotationRadius, setCanvasRotationRadius] = useState(randomInteger(-30, 30) / 10);
+  const radius = useRef(null);
+  const canvasRotationRadius = useRef(2); //useRef(randomInteger(-30, 30) / 10);
   const canvasRef = useRef(null);
 
   useEffect(() => {
@@ -21,18 +19,17 @@ export const Logo = () => {
       image.crossOrigin = "Anonymous";
       image.onload = () => {
         setSourceImg(image);
-        console.log('image', image);
       };
       image.src = logoSchwerelos;
     } else {
       const logo = document.getElementById("Logo");
-      const top = logo.getBoundingClientRect().top + window.scrollY;
-      const left = logo.getBoundingClientRect().left + window.scrollX;
+      //const top = logo.getBoundingClientRect().top + window.scrollY;
+      //const left = logo.getBoundingClientRect().left + window.scrollX;
       const width = logo.clientWidth;
       const height = logo.clientHeight;
-      setRadius(width > height ? width : height);
-      setLogoPosMiddleWidth(left + width / 2);
-      setLogoPosMiddleHeight(top + height / 2);
+      radius.current = width > height ? width : height;
+      //logoPosMiddleWidth.current = left + width / 2;
+      //logoPosMiddleHeight.curren = top + height / 2;
       const canvas = fx.canvas();
       const texture = canvas.texture(sourceImg);
       canvas
@@ -55,29 +52,32 @@ export const Logo = () => {
 
   const onMouseMoveHandler = (event) => {
     console.log('event', event);
-    console.log('sourceImg', sourceImg);
-    //udpateImage(sourceImg);
+
+    udpateImage(event.screenX, event.screenY);
   }
 
-  const udpateImage = (sourceImgRef) => {
+  const udpateImage = (screenX, screenY) => {
+    const image = new Image();
+    image.crossOrigin = "Anonymous";
+    image.src = logoSchwerelos;
     const canvas = fx.canvas();
-    const texture = canvas.texture(sourceImgRef);
+    const texture = canvas.texture(image);
     canvas
       .draw(texture)
       .swirl(
-        logoPosMiddleWidth,
-        logoPosMiddleHeight,
-        radius + 100,
-        canvasRotationRadius,
+        screenX,
+        screenY,
+        radius.current + 150,
+        canvasRotationRadius.current,
       )
       .update();
 
     const displayCanvas = canvasRef.current;
-    displayCanvas.width = sourceImgRef.width;
-    displayCanvas.height = sourceImgRef.height;
+    displayCanvas.width = image.width;
+    displayCanvas.height = image.height;
     const ctx = displayCanvas.getContext("2d");
     ctx.drawImage(canvas, 0, 0);
-  }
+  };
 
   return (
     <div>

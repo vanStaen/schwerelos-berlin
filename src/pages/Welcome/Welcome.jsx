@@ -15,9 +15,6 @@ import ResidentAdvisorLogo from "../../img/residentAdvisorLogo.png";
 import "./Welcome.less";
 
 export const Welcome = observer(() => {
-  const artistClickHandler = (id) => {
-    pageStore.setSelectedArtistId(id);
-  };
 
   return pageStore.selectedArtistId ? (
     <Artist id={pageStore.selectedArtistId} />
