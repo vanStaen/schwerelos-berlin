@@ -1,16 +1,19 @@
 import React, { useEffect, useState, useRef } from "react";
 import fx from "glfx";
 
-import { randomInteger } from '../../helpers/randomInteger'
-
 import logoSchwerelos from "../../img/schwerelosLogo.png";
 
 import "./Logo.less";
 
+const MAX_CANVAS_ROTATION_RADIUS = 3;
+
 export const Logo = () => {
   const [sourceImg, setSourceImg] = useState(null);
   const radius = useRef(null);
-  const canvasRotationRadius = useRef(2); //useRef(randomInteger(-30, 30) / 10);
+  const screenX = useRef(1);
+  const screenY = useRef(1);
+  const canvasRotationRadius = useRef(2);
+  const lastCanvasRotationRadius = useRef(0);
   const canvasRef = useRef(null);
 
   useEffect(() => {
@@ -51,10 +54,33 @@ export const Logo = () => {
   }, []);
 
   const onMouseMoveHandler = (event) => {
-    udpateImage(event.screenX, event.screenY);
+    screenX.current = event.screenX;
+    screenY.current = event.screenY;
+    udpateImage();
   }
 
-  const udpateImage = (screenX, screenY) => {
+  useEffect(() => {
+    /*setInterval(() => {
+      if (canvasRotationRadius.current >= MAX_CANVAS_ROTATION_RADIUS) {
+        lastCanvasRotationRadius.current = canvasRotationRadius.current;
+        canvasRotationRadius.current = lastCanvasRotationRadius.current - 0.1;
+      }
+      else if (canvasRotationRadius.current <= -MAX_CANVAS_ROTATION_RADIUS) {
+        lastCanvasRotationRadius.current = canvasRotationRadius.current;
+        canvasRotationRadius.current = lastCanvasRotationRadius.current + 0.1;
+      }
+      else if (lastCanvasRotationRadius.current < canvasRotationRadius.current) {
+        lastCanvasRotationRadius.current = canvasRotationRadius.current;
+        canvasRotationRadius.current = lastCanvasRotationRadius.current + 0.1;
+      }
+      else if (lastCanvasRotationRadius.current > canvasRotationRadius.current) {
+        lastCanvasRotationRadius.current = canvasRotationRadius.current;
+        canvasRotationRadius.current = lastCanvasRotationRadius.current - 0.1;
+      }
+    }, 10);*/
+  }, []);
+
+  const udpateImage = () => {
     const image = new Image();
     image.crossOrigin = "Anonymous";
     image.src = logoSchwerelos;
@@ -63,8 +89,8 @@ export const Logo = () => {
     canvas
       .draw(texture)
       .swirl(
-        screenX,
-        screenY,
+        screenX.current,
+        screenY.current,
         radius.current + 150,
         canvasRotationRadius.current,
       )
