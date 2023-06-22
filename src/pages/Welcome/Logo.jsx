@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef, useCallback } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import fx from "glfx";
 
 import { randomInteger } from '../../helpers/randomInteger'
@@ -51,8 +51,6 @@ export const Logo = () => {
   }, []);
 
   const onMouseMoveHandler = (event) => {
-    console.log('event', event);
-
     udpateImage(event.screenX, event.screenY);
   }
 
