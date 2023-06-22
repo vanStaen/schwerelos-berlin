@@ -1,38 +1,42 @@
 import { makeObservable, observable } from "mobx";
 
 export class ArtistStore {
- 
+
   artistNames = [
+    null,
     'b0ys_cry',
-    'Johannes Hillmer', 
-    'MEEMA', 
-    'Nostique', 
-    'Sommersonnenwende', 
+    'Johannes Hillmer',
+    'MEEMA',
+    'Nostique',
+    'Sommersonnenwende',
     'van Staen'
-  ];  
+  ];
   artistBios = [
+    null,
     {},
     {},
     {},
     {},
     {},
-    {en: '', de: ''},  
+    { en: '', de: '' },
   ];
   artistPics = [
+    null,
     {},
     {},
     {},
     {},
     {},
-    {small: '', big: ''},  
+    { small: '', big: '' },
   ];
   artistLinks = [
+    null,
     {},
     {},
     {},
     {},
     {},
-    {insta: '', ra: '', soundcloud: '', spotify: ''},         
+    { insta: '', ra: '', soundcloud: '', spotify: '' },
   ];
 
   constructor() {

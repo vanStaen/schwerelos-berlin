@@ -5,7 +5,7 @@ import { observer } from "mobx-react";
 import { pageStore } from "../../store/pageStore";
 import { Artist } from "../Artist/Artist";
 import { Logo } from "./Logo";
-import { LinksProfiles } from "./LinksProfiles";
+import { LinkProfile } from "./LinkProfile";
 import { Menu } from "./Menu";
 
 import InstaLogo from "../../img/instaLogo.png";
@@ -20,7 +20,14 @@ export const Welcome = observer(() => {
     <Artist id={pageStore.selectedArtistId} />
   ) : (
     <div className="welcome">
-      <LinksProfiles />
+      <div className="artistLinks">
+        <LinkProfile id={1} color='green' />
+        <LinkProfile id={2} color='purple' />
+        <LinkProfile id={3} color='pink' />
+        <LinkProfile id={4} color='green' />
+        <LinkProfile id={5} color='purple' />
+        <LinkProfile id={6} color='pink' />
+      </div>
       <Menu />
       <Logo />
       <div className="container">

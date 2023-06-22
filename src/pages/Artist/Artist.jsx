@@ -10,10 +10,10 @@ export const Artist = observer((props) => {
     pageStore.setSelectedArtistId(null);
   }
 
-  const artistName = artistStore.artistNames[props.id - 1];
-  const artistBio = artistStore.artistBios[props.id - 1];
-  const artistPic = artistStore.artistPics[props.id - 1];
-  const artistLink = artistStore.artistLinks[props.id - 1];
+  const artistName = artistStore.artistNames[props.id];
+  const artistBio = artistStore.artistBios[props.id];
+  const artistPic = artistStore.artistPics[props.id];
+  const artistLink = artistStore.artistLinks[props.id];
 
   return (
     <div>
