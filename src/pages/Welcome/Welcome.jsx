@@ -11,6 +11,7 @@ import { Menu } from "./Menu";
 import InstaLogo from "../../img/instaLogo.png";
 import LinkTreeLogo from "../../img/linkTreeLogo.png";
 import ResidentAdvisorLogo from "../../img/residentAdvisorLogo.png";
+import TelegramLogo from "../../img/telegramLogo.png";
 
 import "./Welcome.less";
 
@@ -31,6 +32,13 @@ export const Welcome = observer(() => {
       <Menu />
       <Logo />
       <div className="container">
+        <div className="link">
+          <Tooltip title="Telegram Chanel" color="#F70069">
+            <a href="https://t.me/SCHWERELOS_BERLIN" target="_blank">
+              <img src={TelegramLogo} className="logoTelegram" />
+            </a>
+          </Tooltip>
+        </div>
         <div className="link">
           <Tooltip title="Instagram" color="#2bc487">
             <a
