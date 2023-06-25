@@ -9,6 +9,7 @@ import {
 import { useTranslation } from "react-i18next";
 
 import { Welcome } from "./pages/Welcome/Welcome";
+import { pageStore } from "./store/pageStore";
 
 import "../src/lib/i18n";
 import "./App.less";
@@ -27,6 +28,16 @@ const App = observer(() => {
     // Define variable height
     defineVariableHeight();
   }, []);
+
+  useEffect(() => {
+    if (pageStore.language === "fr-FR") {
+      i18n.changeLanguage("fr-FR");
+    } else if (pageStore.language === "de-DE") {
+      i18n.changeLanguage("de-DE");
+    } else {
+      i18n.changeLanguage("en-US");
+    }
+  }, [pageStore.language, i18n]);
 
   const router = createBrowserRouter(
     createRoutesFromElements(<Route path="/" element={<Welcome />}></Route>)
