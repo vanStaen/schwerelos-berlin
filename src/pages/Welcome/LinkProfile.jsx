@@ -9,11 +9,11 @@ export const LinkProfile = (props) => {
 
     const mouseOverHandler = () => {
         if (props.color === 'green') {
-            document.documentElement.style.setProperty('--color', "#2bc487");
+            document.documentElement.style.setProperty('--bgcolor', "#2bc487");
         } else if (props.color === 'purple') {
-            document.documentElement.style.setProperty('--color', "#9F44D9");
+            document.documentElement.style.setProperty('--bgcolor', "#9F44D9");
         } else if (props.color === 'pink') {
-            document.documentElement.style.setProperty('--color', "#F70069");
+            document.documentElement.style.setProperty('--bgcolor', "#F70069");
         } else {
             console.log('Error', 'Missing color props')
         }
