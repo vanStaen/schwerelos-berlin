@@ -1,4 +1,9 @@
 import React, { useState } from "react";
+import {
+  MailOutlined,
+  QuestionOutlined,
+  FileTextOutlined,
+} from "@ant-design/icons";
 
 import federLogo from "../../img/federLogo.png";
 
@@ -23,13 +28,19 @@ export const Menu = () => {
         <nav className={showMenu ? "nav" : "nav change"}>
           <ul className="list">
             <li>
-              <a href="#">Presskit</a>
+              <a href="#">
+                <FileTextOutlined /> Presskit
+              </a>
             </li>
             <li>
-              <a href="#">Booking</a>
+              <a href="#">
+                <MailOutlined /> Booking
+              </a>
             </li>
             <li>
-              <a href="#">About</a>
+              <a href="#">
+                <QuestionOutlined /> About
+              </a>
             </li>
             <img src={federLogo} className="federLogo" />
           </ul>
