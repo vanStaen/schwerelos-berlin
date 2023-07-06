@@ -6,14 +6,12 @@ import { artistStore } from "../../store/artistStore";
 
 import vs1 from "../../img/artists/vs1.jpg";
 
-
-import './Artist.less';
+import "./Artist.less";
 
 export const Artist = observer((props) => {
-
   const closeHandler = () => {
     pageStore.setSelectedArtistId(null);
-  }
+  };
 
   const artistName = artistStore.artistNames[props.id];
   const artistBio = artistStore.artistBios[props.id];
@@ -22,23 +20,25 @@ export const Artist = observer((props) => {
 
   return (
     <div className="artistContainer">
-      <div className="artist">
-        <img src={vs1} className="artistPicture" />
-      </div>
-      <div className="artist">
-        <img src={vs1} className="artistPicture" />
-      </div>
-      <div className="artist">
-        <img src={vs1} className="artistPicture" />
-      </div>
-      <div className="artist">
-        <img src={vs1} className="artistPicture" />
-      </div>
-      <div className="artist">
-        <img src={vs1} className="artistPicture" />
-      </div>
-      <div className="artist">
-        <img src={vs1} className="artistPicture" />
+      <div className="artists">
+        <div className="artist">
+          <img src={vs1} className="artistPicture" />
+        </div>
+        <div className="artist">
+          <img src={vs1} className="artistPicture" />
+        </div>
+        <div className="artist">
+          <img src={vs1} className="artistPicture" />
+        </div>
+        <div className="artist">
+          <img src={vs1} className="artistPicture" />
+        </div>
+        <div className="artist">
+          <img src={vs1} className="artistPicture" />
+        </div>
+        <div className="artist">
+          <img src={vs1} className="artistPicture" />
+        </div>
       </div>
     </div>
   );
