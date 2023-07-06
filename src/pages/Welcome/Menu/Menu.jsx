@@ -3,9 +3,10 @@ import {
   MailOutlined,
   QuestionOutlined,
   FileTextOutlined,
+  TeamOutlined,
 } from "@ant-design/icons";
 
-import federLogo from "../../img/federLogo.png";
+import federLogo from "../../../img/federLogo.png";
 
 import "./Menu.less";
 
@@ -27,6 +28,11 @@ export const Menu = () => {
         </div>
         <nav className={showMenu ? "nav" : "nav change"}>
           <ul className="list">
+            <li>
+              <a href="#">
+                <TeamOutlined /> Artists
+              </a>
+            </li>
             <li>
               <a href="#">
                 <FileTextOutlined /> Presskit

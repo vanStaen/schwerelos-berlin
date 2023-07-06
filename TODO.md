@@ -6,3 +6,6 @@
 - [ ] Quicklinks 
     - [ ] Instagram
     - [ ] Resident Advisor
+    - [ ] Soundcloud
+- [ ] Make responsive
+- [ ] Link with schwerelos-berlin.com

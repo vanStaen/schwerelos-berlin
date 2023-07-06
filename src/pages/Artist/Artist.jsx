@@ -17,6 +17,14 @@ export const Artist = observer((props) => {
 
   return (
     <div>
+      <div className="artistLinks">
+        <LinkProfile id={1} color='green' />
+        <LinkProfile id={2} color='purple' />
+        <LinkProfile id={3} color='pink' />
+        <LinkProfile id={4} color='green' />
+        <LinkProfile id={5} color='purple' />
+        <LinkProfile id={6} color='pink' />
+      </div>
       <div>
         {artistName}
       </div>

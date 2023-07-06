@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from "react";
 import fx from "glfx";
 
-import logoSchwerelos from "../../img/schwerelosLogo.png";
+import logoSchwerelos from "../../../img/schwerelosLogo.png";
 
 import "./Logo.less";
 
