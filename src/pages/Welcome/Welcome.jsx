@@ -4,17 +4,23 @@ import { observer } from "mobx-react";
 import { Logo } from "./Logo/Logo";
 import { Menu } from "./Menu/Menu";
 import { Links } from "./Links/Links";
+import { Artist } from "../Artist/Artist";
 
 import "./Welcome.less";
 
 export const Welcome = observer(() => {
 
-  return (<div className="welcome">
-    <Menu />
-    <Logo />
+  return (<>
+
     <div className="container">
-      <Links />
+      <div className="background"></div>
+      <div className="backgroundOpacity"></div>
+      <div className="welcome">
+        <Menu />
+        <Logo />
+        <Links />
+      </div>
     </div>
-    <br />
-  </div>)
+    <Artist />
+  </>)
 });

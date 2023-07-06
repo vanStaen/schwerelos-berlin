@@ -45,8 +45,6 @@ const App = observer(() => {
 
   return (
     <div className="App">
-      <div className="background"></div>
-      <div className="backgroundOpacity"></div>
       <div className="main">
         <RouterProvider router={router} />
       </div>

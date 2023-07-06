@@ -4,6 +4,11 @@ import { observer } from "mobx-react";
 import { pageStore } from "../../store/pageStore";
 import { artistStore } from "../../store/artistStore";
 
+import vs1 from "../../img/artists/vs1.jpg";
+
+
+import './Artist.less';
+
 export const Artist = observer((props) => {
 
   const closeHandler = () => {
@@ -16,20 +21,24 @@ export const Artist = observer((props) => {
   const artistLink = artistStore.artistLinks[props.id];
 
   return (
-    <div>
-      <div className="artistLinks">
-        <LinkProfile id={1} color='green' />
-        <LinkProfile id={2} color='purple' />
-        <LinkProfile id={3} color='pink' />
-        <LinkProfile id={4} color='green' />
-        <LinkProfile id={5} color='purple' />
-        <LinkProfile id={6} color='pink' />
+    <div className="artistContainer">
+      <div className="artist">
+        <img src={vs1} className="artistPicture" />
       </div>
-      <div>
-        {artistName}
+      <div className="artist">
+        <img src={vs1} className="artistPicture" />
       </div>
-      <div onClick={closeHandler}>
-        close
+      <div className="artist">
+        <img src={vs1} className="artistPicture" />
+      </div>
+      <div className="artist">
+        <img src={vs1} className="artistPicture" />
+      </div>
+      <div className="artist">
+        <img src={vs1} className="artistPicture" />
+      </div>
+      <div className="artist">
+        <img src={vs1} className="artistPicture" />
       </div>
     </div>
   );
