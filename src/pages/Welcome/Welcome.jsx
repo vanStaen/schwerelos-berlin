@@ -19,6 +19,8 @@ export const Welcome = observer(() => {
         <Menu />
         <Logo />
         <Links />
+        <br/>
+        <br/>
       </div>
     </div>
     <Artist />
