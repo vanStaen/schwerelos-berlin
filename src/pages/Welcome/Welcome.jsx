@@ -4,6 +4,7 @@ import { observer } from "mobx-react";
 import { Logo } from "./Logo/Logo";
 import { Menu } from "./Menu/Menu";
 import { Links } from "./Links/Links";
+import { NextGigsBanner } from "./NextGigsBanner/NextGigsBanner";
 import { Artist } from "../Artist/Artist";
 
 import "./Welcome.less";
@@ -19,6 +20,7 @@ export const Welcome = observer(() => {
           <Menu />
           <Logo />
           <Links />
+          <NextGigsBanner />
           <br />
           <br />
         </div>
