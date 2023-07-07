@@ -15,12 +15,13 @@ export const Welcome = observer(() => {
     <div className="container">
       <div className="background"></div>
       <div className="backgroundOpacity"></div>
+      <div className="backgroundDegrade"></div>
       <div className="welcome">
         <Menu />
         <Logo />
         <Links />
-        <br/>
-        <br/>
+        <br />
+        <br />
       </div>
     </div>
     <Artist />

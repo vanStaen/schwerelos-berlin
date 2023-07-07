@@ -1,0 +1,248 @@
+
+artist-effect.grid {
+	position: relative;
+	clear: both;
+	margin: 0 auto;
+	padding: 1em 0 4em;
+	max-width: 1000px;
+	list-style: none;
+	text-align: center;
+	margin-top: 50px;
+}
+.mobilelink{
+	position: absolute;
+	left:0px;
+	top: 0px;
+	padding: 20px;
+	margin: 0;
+	height: 100%;
+	width: 100%;
+	font-size: 1em;
+	font-family: 'Bitter', serif;
+	display: none;
+}
+.grid figure {
+	position: relative;
+	float: left;
+	overflow: hidden;
+	margin: 10px 1%;
+	min-width: 320px;
+	max-width: 480px;
+	max-height: 260px;
+	//width: 48%;
+	height: auto;
+	background: #3085a3;
+	text-align: center;
+}
+
+.grid figure img {
+	position: relative;
+	display: block;
+	min-height: 100%;
+	max-width: 100%;
+	opacity: 0.8;
+	-webkit-filter: grayscale(100%);
+	filter: grayscale(100%);
+}
+
+.grid figure figcaption {
+	padding: 2em;
+	color: #fff;
+	text-transform: uppercase;
+	font-size: 1.25em;
+	-webkit-backface-visibility: hidden;
+	backface-visibility: hidden;
+}
+
+.grid figure figcaption::before,
+.grid figure figcaption::after {
+	pointer-events: none;
+}
+
+.grid figure figcaption,
+.grid figure figcaption > a {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
+.grid figure figcaption > a {
+	z-index: 1000;
+	text-indent: 200%;
+	white-space: nowrap;
+	font-size: 0;
+}
+
+.grid figure h2 {
+	word-spacing: -0.15em;
+	font-weight: 300;
+	opacity: 0;
+}
+
+.grid figure h2 span {
+	font-weight: 800;
+}
+
+.grid figure h2,
+.grid figure a{
+	margin: 0;
+}
+
+.grid figure a{
+	cursor: pointer;
+	border-bottom: 3px solid #cb2b2b;
+}
+
+
+
+figure.artist-effect {
+	background: #2f3238;
+}
+
+figure.artist-effect img {
+	max-width: none;
+	height: 260px;
+	-webkit-transition: opacity 1s, -webkit-transform 1s;
+	transition: opacity 1s, transform 1s;
+	-webkit-backface-visibility: hidden;
+	backface-visibility: hidden;
+}
+
+figure.artist-effect figcaption {
+	text-align: left;
+}
+
+figure.artist-effect h2 {
+	position: relative;
+	padding: 0.5em 0;
+	font-family: 'Bitter', serif;
+}
+
+.small{
+	font-size: 1.4em;
+}
+
+figure.artist-effect a{
+	font-family: 'Open Sans', sans-serif;
+	display: inline-block;
+	margin: 0 0 0.25em;
+	letter-spacing: 1px;
+	padding:10px 18px;
+	background: #e84545;
+	color: #fff;
+	text-transform: none;
+	font-weight: 800;
+	font-size: 0.6em;
+	-webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+	transition: opacity 0.35s, transform 0.35s;
+	-webkit-transform: translate3d(-400px,0,0);
+	transform: translate3d(-400px,0,0);
+	text-decoration: none;
+}
+
+
+figure.artist-effect p:first-child {
+	-webkit-transition-delay: 0.15s;
+	transition-delay: 0.15s;
+}
+
+figure.artist-effect p:nth-of-type(2) {
+	-webkit-transition-delay: 0.1s;
+	transition-delay: 0.1s;
+}
+
+figure.artist-effect p:nth-of-type(3) {
+	-webkit-transition-delay: 0.05s;
+	transition-delay: 0.05s;
+}
+
+figure.artist-effect:hover p:first-child {
+	-webkit-transition-delay: 0s;
+	transition-delay: 0s;
+}
+
+figure.artist-effect:hover h2 {
+	opacity: 1;
+}
+
+figure.artist-effect:hover p:nth-of-type(2) {
+	-webkit-transition-delay: 0.05s;
+	transition-delay: 0.05s;
+}
+
+figure.artist-effect:hover p:nth-of-type(3) {
+	-webkit-transition-delay: 0.1s;
+	transition-delay: 0.1s;
+}
+
+figure.artist-effect:hover img {
+	opacity: 0.8;
+	-webkit-transform: scale3d(1.1,1.1,1);
+	transform: scale3d(1.1,1.1,1);
+	-webkit-filter: grayscale(0%);
+	filter: grayscale(0%);
+}
+
+figure.artist-effect:hover a{
+	opacity: 1;
+	-webkit-transform: translate3d(0,0,0);
+	transform: translate3d(0,0,0);
+}
+
+@media only all and (max-width: 1000px) {
+	.grid figure{
+		float: none;
+		width: 100%;
+		min-width: 100%;
+		margin: 0px;
+		margin-top: 10px;
+		max-height: 360px;
+	}
+		.grid {
+		float: none;
+		width: 100%;
+	}
+
+	.grid figure img {
+width: 100%;
+height: auto;
+}
+
+figure.artist-effect:hover img {
+	opacity: 0.8;
+	-webkit-transform: scale3d(1);
+	transform: scale3d(1);
+	-webkit-filter: grayscale(0%);
+	filter: grayscale(0%);
+}
+ }
+
+ @media only screen 
+  and (min-device-width: 320px) 
+  and (max-device-width: 480px)
+{
+	.grid figure{
+
+		max-height: 200px;
+	}
+
+	.grid figure h2 {
+	display: none;
+}
+
+.grid figure figcaption {
+	padding: 70px 1em;
+}
+
+    .small{
+        font-size: 1em;
+    }
+
+    .mobilelink{
+    	display: block;
+    }
+	}
+
+
