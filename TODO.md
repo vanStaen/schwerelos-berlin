@@ -10,6 +10,7 @@
 - [ ] Make responsive
 - [ ] Link with schwerelos-berlin.com
 - [ ] banner gigs :
+  - [ ] make banner responsive
   - [ ] use dazjs for dates
   - [ ] check if date is over
     - [ ] dont show if over
