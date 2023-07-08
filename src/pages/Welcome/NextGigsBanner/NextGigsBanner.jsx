@@ -28,11 +28,13 @@ export const NextGigsBanner = observer(() => {
   });
 
   return (
-    <div id="scroll-container">
-      <div id="scroll-text">
-        <span className="opacity">Upcoming events:&nbsp;&nbsp;</span>
+    <p>
+      <marquee className="marquee-container">
+        <span className="opacity">
+          Upcoming events:&nbsp;&nbsp;
+        </span>
         {gigHtml}
-      </div>
-    </div>
+      </marquee>
+    </p>
   );
 });

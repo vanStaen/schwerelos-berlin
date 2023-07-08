@@ -1,5 +1,6 @@
-#scroll-container {
+.marquee-container {
 width: 100vw;
+max-height: 20px;
 overflow: hidden;
 position: absolute;
 bottom: 30px;
@@ -13,46 +14,19 @@ font-size: 18px;
     }
 
     a:hover {
-        text-decoration: underline;
+        color: #2BC487;
+    }
+
+    a:hover:nth-child(4n) {
+
+        color: #9F44D9;
+    }
+
+    a:hover:nth-child(3n) {
+        color: #F70069;
     }
 
     .opacity {
         opacity: .5;
     }
-}
-
-#scroll-text {
-/* animation properties */
--moz-transform: translateX(100%);
--webkit-transform: translateX(100%);
-transform: translateX(100%);
-
--moz-animation: my-animation 30s linear infinite;
--webkit-animation: my-animation 30s linear infinite;
-animation: my-animation 30s linear infinite;
-}
-
-/* for Firefox */
-@-moz-keyframes my-animation {
-from { -moz-transform: translateX(100%); }
-to { -moz-transform: translateX(-100%); }
-}
-
-/* for Chrome */
-@-webkit-keyframes my-animation {
-from { -webkit-transform: translateX(100%); }
-to { -webkit-transform: translateX(-100%); }
-}
-  
-@keyframes my-animation {
-from {
-    -moz-transform: translateX(100%);
-    -webkit-transform: translateX(100%);
-    transform: translateX(100%);
-}
-to {
-    -moz-transform: translateX(-100%);
-    -webkit-transform: translateX(-100%);
-    transform: translateX(-100%);
-}
 }
