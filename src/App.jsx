@@ -8,7 +8,7 @@ import {
 } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
-import { Welcome } from "./pages/Welcome/Welcome";
+import { Main } from "./pages/Main";
 import { pageStore } from "./store/pageStore";
 
 import "../src/lib/i18n";
@@ -40,7 +40,7 @@ const App = observer(() => {
   }, [pageStore.language, i18n]);
 
   const router = createBrowserRouter(
-    createRoutesFromElements(<Route path="/" element={<Welcome />}></Route>)
+    createRoutesFromElements(<Route path="/" element={<Main />}></Route>)
   );
 
   return (

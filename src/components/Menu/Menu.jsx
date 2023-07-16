@@ -6,9 +6,10 @@ import {
   TeamOutlined,
 } from "@ant-design/icons";
 
-import federLogo from "../../../img/federLogo.png";
+import federLogo from "../../img/federLogo.png";
 
 import "./Menu.less";
+import { cubeSliderStore } from "../CubeSlider/cubeSliderStore";
 
 export const Menu = () => {
   const [showMenu, setShowMenu] = useState(true);
@@ -29,7 +30,11 @@ export const Menu = () => {
         <nav className={showMenu ? "nav" : "nav change"}>
           <ul className="list">
             <li>
-              <a href="#">
+              <a
+                onClick={() => {
+                  cubeSliderStore.showRight(1);
+                }}
+              >
                 <TeamOutlined /> Artists
               </a>
             </li>
