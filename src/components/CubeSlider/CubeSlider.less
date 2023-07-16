@@ -1,5 +1,6 @@
 @cube-face-width: 100vw;
 @cube-face-height: 100vh;
+@cube-background-color: #000;
 
 .cubeContainer {
   width: @cube-face-width;
@@ -14,6 +15,16 @@
     position: relative;
     transform-style: preserve-3d;
     transform: translateZ(calc((@cube-face-width / 2) * -1));
+  }
+  
+  .cube__full--screen {
+    width: @cube-face-width;
+    height: @cube-face-height;
+    background-color: @cube-background-color;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
   }
 
   .cube.show-right  { transform: translateZ(calc((@cube-face-width / 2) * -1)) rotateY( -90deg); }

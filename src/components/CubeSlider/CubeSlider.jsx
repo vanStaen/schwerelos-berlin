@@ -50,13 +50,19 @@ export const CubeSlider = observer((props) => {
       >
         <div className="cube">
           <div className="cube__face cube__face--left">
-            {pages[cubeSliderStore.pagePrev]}
+            <div className="cube__full--screen">
+              {pages[cubeSliderStore.pagePrev]}
+            </div>
           </div>
           <div className="cube__face cube__face--front">
-            {pages[cubeSliderStore.pageShown]}
+            <div className="cube__full--screen">
+              {pages[cubeSliderStore.pageShown]}
+            </div>
           </div>
           <div className="cube__face cube__face--right">
-            {pages[cubeSliderStore.pageNext]}
+            <div className="cube__full--screen">
+              {pages[cubeSliderStore.pageNext]}
+            </div>
           </div>
         </div>
       </div>
