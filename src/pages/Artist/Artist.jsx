@@ -9,8 +9,7 @@ import vs2 from "../../img/artists/vs2.jpg";
 import "./Artist.less";
 
 export const Artist = observer(() => {
-  const artistPics = artistStore.artists.map((artist, index) => {
-    console.log(artist.name);
+  const artistPics = artistStore.artists.map((artist) => {
     return (
       <div className="artist">
         {artist.name}
@@ -19,5 +18,17 @@ export const Artist = observer(() => {
     );
   });
 
-  return <div className="artistContainer">{artistPics}</div>;
+  return (
+    <div className="artistPageContainer">
+      <div className="artistTitle">
+        <span className="weAre">We are</span>
+        <div className="schwerelos" style={{ "--stacks": 3 }}>
+          <span style={{ "--index": 0 }}>SCHWERELOS</span>
+          <span style={{ "--index": 1 }}>SCHWERELOS</span>
+          <span style={{ "--index": 2 }}>SCHWERELOS</span>
+        </div>
+      </div>
+      <div className="artistContainer">{artistPics}</div>
+    </div>
+  );
 });
