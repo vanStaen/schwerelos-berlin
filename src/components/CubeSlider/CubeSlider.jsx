@@ -7,7 +7,7 @@ import { cubeSliderStore } from "./cubeSliderStore";
 import "./CubeSlider.less";
 
 export const CubeSlider = observer((props) => {
-  const { pages, defaultPage } = props;
+  const { pages, defaultPageIndex } = props;
 
   const [touchStart, setTouchStart] = useState(null);
   const [touchEnd, setTouchEnd] = useState(null);
@@ -36,12 +36,12 @@ export const CubeSlider = observer((props) => {
 
   useEffect(() => {
     cubeSliderStore.setPagesLength(pages.length);
-    cubeSliderStore.setPageShown(defaultPage ? defaultPage : 0);
+    cubeSliderStore.setPageShown(defaultPageIndex ? defaultPageIndex : 0);
   }, [pages]);
 
   return (
     <>
-      <Buttons color="#6a6a6a" numPages={pages.length} />
+      <Buttons color="#fff" numPages={pages.length} />
       <div
         className="cubeContainer"
         onTouchStart={onTouchStart}

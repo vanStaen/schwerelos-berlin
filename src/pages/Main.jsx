@@ -12,17 +12,11 @@ export const Main = () => {
     <div key="artistsPage">
       <Artist />
     </div>,
-    <div
-      style={{ backgroundColor: "Pink", height: "100vh" }}
-      key="placeholder3"
-    >
-      placeholder 3
-    </div>,
   ];
 
   return (
     <>
-      <CubeSlider pages={pages} defaultPage={0} />
+      <CubeSlider pages={pages} defaultPageIndex={1} />
     </>
   );
 };

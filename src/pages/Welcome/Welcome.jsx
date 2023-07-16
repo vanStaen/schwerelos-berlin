@@ -25,7 +25,6 @@ export const Welcome = observer(() => {
           <br />
         </div>
       </div>
-      <Artist />
     </>
   );
 });
