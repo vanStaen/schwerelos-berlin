@@ -1,3 +1,7 @@
+@schwerelos-green: #2BC487;
+@schwerelos-purple: #9F44D9;
+@schwerelos-pink: #F70069;
+
 .eventsContainer {
 
     .background {
@@ -60,5 +64,48 @@
         position: absolute;
         top: 0;
         left: 0;
+
+        .title {
+            letter-spacing: 5px;
+            font-size: 18px;
+            font-weight: 300;
+            padding: 20px;
+            font-style: italic;
+        }
+
+        .table {
+            width: 100vw;
+            font-size: 18px;
+            font-weight: 300;
+            letter-spacing: 2px;
+            .row {
+                cursor: pointer;
+                &:hover {
+                    color: @schwerelos-purple;
+                }            
+                &:hover:nth-child(3n-1) {
+            
+                    color: @schwerelos-green;
+                }            
+                &:hover:nth-child(3n) {
+                    color: @schwerelos-pink;
+                }                
+                .col_left {
+                    width: 400px;
+                    text-align: right;
+                    display: inline-block;
+                }
+                .col_mid {
+                    text-align: center;
+                    display: inline-block;
+                    width: 30px;
+                }
+                .col_right {
+                    width: 400px;
+                    text-align: left;
+                    display: inline-block;
+                }
+            }
+        }
     }
 }
