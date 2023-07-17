@@ -1,4 +1,5 @@
 import React from "react";
+import dayjs from "dayjs";
 
 import SaveTheDate from "../../img/saveTheDate.png";
 import { gigStore } from "../../store/gigStore";
@@ -6,32 +7,39 @@ import { gigStore } from "../../store/gigStore";
 import "./Events.less";
 
 export const Events = () => {
-  const upcommingEvents = gigStore.gigs.map((gig) => {
-    const handleEventClick = () => {
-      window.open(`https://ra.co/events/${gig.raEventNumber}`, "_blank");
-    };
+  const now = dayjs();
 
-    return (
-      <div className="row link" onClick={handleEventClick}>
-        <div className="col_left">
-          {gig.date}, {gig.location}
-        </div>
-        <div className="col_mid"></div>
-        <div className="col_right">{gig.name}</div>
-      </div>
-    );
-  });
+  let upcommingEvents = [];
+  let pastEvents = [];
 
-  const pastEvents = gigStore.gigs.map((gig) => {
-    return (
-      <div className="row">
-        <div className="col_left strikeThrough">
-          {gig.date}, {gig.location}
+  gigStore.gigs.map((gig) => {
+    const gigDate = dayjs(gig.date, "YYYY-MM-DD");
+    const gigIsInPast = dayjs(gigDate).isBefore(dayjs(now));
+
+    if (gigIsInPast) {
+      pastEvents.push(
+        <div className="row">
+          <div className="col_left strikeThrough">
+            {dayjs(gig.date, "YYYY-MM-DD").format("DD.MM")}, {gig.location}
+          </div>
+          <div className="col_mid"></div>
+          <div className="col_right strikeThrough">{gig.name}</div>
         </div>
-        <div className="col_mid"></div>
-        <div className="col_right strikeThrough">{gig.name}</div>
-      </div>
-    );
+      );
+    } else {
+      const handleEventClick = () => {
+        window.open(`https://ra.co/events/${gig.raEventNumber}`, "_blank");
+      };
+      upcommingEvents.push(
+        <div className="row link" onClick={handleEventClick}>
+          <div className="col_left">
+            {dayjs(gig.date, "YYYY-MM-DD").format("DD.MM")}, {gig.location}
+          </div>
+          <div className="col_mid"></div>
+          <div className="col_right">{gig.name}</div>
+        </div>
+      );
+    }
   });
 
   return (
