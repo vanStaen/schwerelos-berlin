@@ -8,6 +8,7 @@ import "./Logo.less";
 const MAX_CANVAS_ROTATION_RADIUS = 3;
 
 export const Logo = () => {
+  const [showMovingLogo, setShowMovingLogo] = useState(false);
   const [sourceImg, setSourceImg] = useState(null);
   const radius = useRef(null);
   const screenX = useRef(1);
@@ -17,39 +18,43 @@ export const Logo = () => {
   const canvasRef = useRef(null);
 
   useEffect(() => {
-    if (!sourceImg) {
-      const image = new Image();
-      image.crossOrigin = "Anonymous";
-      image.onload = () => {
-        setSourceImg(image);
-      };
-      image.src = logoSchwerelos;
-    } else {
-      const logo = document.getElementById("Logo");
-      //const top = logo.getBoundingClientRect().top + window.scrollY;
-      //const left = logo.getBoundingClientRect().left + window.scrollX;
-      const width = logo.clientWidth;
-      const height = logo.clientHeight;
-      radius.current = width > height ? width : height;
-      //logoPosMiddleWidth.current = left + width / 2;
-      //logoPosMiddleHeight.curren = top + height / 2;
-      const canvas = fx.canvas();
-      const texture = canvas.texture(sourceImg);
-      canvas.draw(texture).update();
-      const displayCanvas = canvasRef.current;
-      displayCanvas.width = sourceImg.width;
-      displayCanvas.height = sourceImg.height;
-      const ctx = displayCanvas.getContext("2d");
-      ctx.drawImage(canvas, 0, 0);
+    if (showMovingLogo) {
+      if (!sourceImg) {
+        const image = new Image();
+        image.crossOrigin = "Anonymous";
+        image.onload = () => {
+          setSourceImg(image);
+        };
+        image.src = logoSchwerelos;
+      } else {
+        const logo = document.getElementById("Logo");
+        //const top = logo.getBoundingClientRect().top + window.scrollY;
+        //const left = logo.getBoundingClientRect().left + window.scrollX;
+        const width = logo.clientWidth;
+        const height = logo.clientHeight;
+        radius.current = width > height ? width : height;
+        //logoPosMiddleWidth.current = left + width / 2;
+        //logoPosMiddleHeight.curren = top + height / 2;
+        const canvas = fx.canvas();
+        const texture = canvas.texture(sourceImg);
+        canvas.draw(texture).update();
+        const displayCanvas = canvasRef.current;
+        displayCanvas.width = sourceImg.width;
+        displayCanvas.height = sourceImg.height;
+        const ctx = displayCanvas.getContext("2d");
+        ctx.drawImage(canvas, 0, 0);
+      }
     }
-  }, [sourceImg]);
+  }, [sourceImg, showMovingLogo]);
 
   useEffect(() => {
-    document.addEventListener("mousemove", onMouseMoveHandler);
-    return () => {
-      document.removeEventListener("mousemove", onMouseMoveHandler);
-    };
-  }, []);
+    if (showMovingLogo) {
+      document.addEventListener("mousemove", onMouseMoveHandler);
+      return () => {
+        document.removeEventListener("mousemove", onMouseMoveHandler);
+      };
+    }
+  }, [showMovingLogo]);
 
   const onMouseMoveHandler = (event) => {
     screenX.current = event.screenX;
@@ -102,13 +107,22 @@ export const Logo = () => {
   };
 
   return (
-    <div>
-      <canvas
-        id="Logo"
-        ref={canvasRef}
-        className="Logo"
-        alt="Logo Schwerelos Berlin"
-      />
+    <div className="logoContainer">
+      {showMovingLogo ?
+        <canvas
+          id="Logo"
+          ref={canvasRef}
+          className="Logo"
+          alt="Logo Schwerelos Berlin"
+        /> :
+        <img
+          className="Logo"
+          src={logoSchwerelos}
+          alt="Schwerelos Berlin"
+          style={{ cursor: "pointer" }}
+          onClick={() => { setShowMovingLogo(true) }}
+        />
+      }
     </div>
   );
 };
