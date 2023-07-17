@@ -38,6 +38,12 @@
         height: 250px;
         max-height: 20vh;
 
+        @media all and (max-width: 520px) {
+            left: 15px;
+            top: 15px;
+            height: 100px;
+          }
+
         &:hover {
             filter: hue-rotate(0deg);
             animation-name: logoHover;
@@ -53,7 +59,7 @@
     }
 
     .content {
-        z-index: 4;
+        z-index: 2;
         text-align: center;
         display: flex;
         flex-direction: column;
