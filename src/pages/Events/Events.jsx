@@ -12,11 +12,11 @@ export const Events = () => {
     };
 
     return (
-      <div className="row" onClick={handleEventClick}>
+      <div className="row link" onClick={handleEventClick}>
         <div className="col_left">
           {gig.date}, {gig.location}
         </div>
-        <div className="col_mid"> | </div>
+        <div className="col_mid"></div>
         <div className="col_right">{gig.name}</div>
       </div>
     );
@@ -25,11 +25,11 @@ export const Events = () => {
   const pastEvents = gigStore.gigs.map((gig) => {
     return (
       <div className="row">
-        <div className="col_left">
+        <div className="col_left strikeThrough">
           {gig.date}, {gig.location}
         </div>
-        <div className="col_mid"> | </div>
-        <div className="col_right">{gig.name}</div>
+        <div className="col_mid"></div>
+        <div className="col_right strikeThrough">{gig.name}</div>
       </div>
     );
   });
