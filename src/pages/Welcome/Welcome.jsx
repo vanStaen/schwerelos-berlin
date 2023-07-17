@@ -5,7 +5,9 @@ import { Logo } from "./Logo/Logo";
 import { Menu } from "../../components/Menu/Menu";
 import { Links } from "./Links/Links";
 import { NextGigsBanner } from "./NextGigsBanner/NextGigsBanner";
-import { Artist } from "../Artist/Artist";
+import { pageStore } from "../../store/pageStore";
+
+import swipe from "../../img/logos/swipe.png";
 
 import "./Welcome.less";
 
@@ -22,7 +24,16 @@ export const Welcome = observer(() => {
           <Links />
           <NextGigsBanner />
           <br />
-          <br />
+          {pageStore.showSwipe && (
+            <img
+              className="swipe"
+              src={swipe}
+              alt="Swipe right & left"
+              onClick={() => {
+                pageStore.setShowSwipe(false);
+              }}
+            />
+          )}
         </div>
       </div>
     </>

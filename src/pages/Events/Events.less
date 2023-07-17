@@ -70,31 +70,26 @@
         position: absolute;
         top: 0;
         left: 0;
-
+        font-size: 18px;
+        font-weight: 300;     
+                
+        @media all and (max-width: 520px) {
+            font-size: 12px;
+            font-weight: 400;    
+          }
 
         .title {
             letter-spacing: 5px;
-            font-size: 18px;
-            font-weight: 300;
             padding: 20px;
             font-style: italic;
         }
 
         .table {
             width: 100vw;
-            font-size: 18px;
-            font-weight: 300;
             letter-spacing: 2px;
 
-            @media all and (max-width: 520px) {
-                border-bottom: 1px solid rgba(255,255,255, .25);
-              }
-              
             .row {   
                 padding-bottom: 5px;
-                @media all and (max-width: 520px) {
-                    border-top: 1px solid rgba(255,255,255, .25);
-                  }
                 .col_left {
                     width: calc(50vw - 20px);
                     text-align: right;
@@ -130,6 +125,7 @@
             
             .strikeThrough {
                 text-decoration: line-through;
+                text-decoration-color: rgba(255,255,255, .6);
             }
         }
     }

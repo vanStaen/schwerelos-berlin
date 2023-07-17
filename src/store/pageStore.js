@@ -1,9 +1,13 @@
 import { makeObservable, observable, action } from "mobx";
+import Cookies from 'universal-cookie';
+
+const cookies = new Cookies();
 
 export class PageStore {
 
   selectedArtistId = null;  
   language = navigator.language || navigator.userLanguage;
+  showSwipe = cookies.get('showSwipe');
 
   constructor() {
     makeObservable(this, {
@@ -11,6 +15,8 @@ export class PageStore {
       setSelectedArtistId: action,
       language: observable,
       setLanguage: action,
+      showSwipe: observable,
+      setShowSwipe: action,
     });
   }
 
@@ -20,6 +26,13 @@ export class PageStore {
 
   setLanguage = (language) => {
     this.language = language;
+  };
+
+  setShowSwipe = (showSwipe) => {
+    this.showSwipe = showSwipe;
+    if (showSwipe === false) {
+      cookies.set('showSwipe', showSwipe, { path: '/' });
+    }
   };
 
 }
