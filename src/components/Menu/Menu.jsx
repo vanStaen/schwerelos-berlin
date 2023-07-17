@@ -6,7 +6,7 @@ import {
   TeamOutlined,
 } from "@ant-design/icons";
 
-import federLogo from "../../img/federLogo.png";
+import federLogo from "../../img/logos/federLogo.png";
 
 import "./Menu.less";
 import { cubeSliderStore } from "../CubeSlider/cubeSliderStore";

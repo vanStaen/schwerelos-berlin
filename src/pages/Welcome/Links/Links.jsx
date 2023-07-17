@@ -1,11 +1,11 @@
 import React from "react";
 import { Tooltip } from "antd";
 
-import InstaLogo from "../../../img/instaLogo.png";
-import LinkTreeLogo from "../../../img/linkTreeLogo.png";
-import ResidentAdvisorLogo from "../../../img/residentAdvisorLogo.png";
-import SoundcloudLogo from "../../../img/soundcloudLogo.png";
-import TelegramLogo from "../../../img/telegramLogo.png";
+import InstaLogo from "../../../img/logos/instaLogo.png";
+import LinkTreeLogo from "../../../img/logos/linkTreeLogo.png";
+import ResidentAdvisorLogo from "../../../img/logos/residentAdvisorLogo.png";
+import SoundcloudLogo from "../../../img/logos/soundcloudLogo.png";
+import TelegramLogo from "../../../img/logos/telegramLogo.png";
 
 import "./Links.less";
 

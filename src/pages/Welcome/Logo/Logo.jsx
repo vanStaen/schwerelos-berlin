@@ -35,9 +35,7 @@ export const Logo = () => {
       //logoPosMiddleHeight.curren = top + height / 2;
       const canvas = fx.canvas();
       const texture = canvas.texture(sourceImg);
-      canvas
-        .draw(texture)
-        .update();
+      canvas.draw(texture).update();
       const displayCanvas = canvasRef.current;
       displayCanvas.width = sourceImg.width;
       displayCanvas.height = sourceImg.height;
@@ -57,7 +55,7 @@ export const Logo = () => {
     screenX.current = event.screenX;
     screenY.current = event.screenY;
     udpateImage();
-  }
+  };
 
   useEffect(() => {
     /*setInterval(() => {
@@ -92,7 +90,7 @@ export const Logo = () => {
         screenX.current,
         screenY.current,
         radius.current + 150,
-        canvasRotationRadius.current,
+        canvasRotationRadius.current
       )
       .update();
 
