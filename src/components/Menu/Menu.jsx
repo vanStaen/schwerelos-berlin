@@ -3,13 +3,13 @@ import {
   MailOutlined,
   QuestionOutlined,
   FileTextOutlined,
-  TeamOutlined,
+  BarcodeOutlined,
 } from "@ant-design/icons";
 
 import federLogo from "../../img/logos/federLogo.png";
+import { cubeSliderStore } from "../CubeSlider/cubeSliderStore";
 
 import "./Menu.less";
-import { cubeSliderStore } from "../CubeSlider/cubeSliderStore";
 
 export const Menu = () => {
   const [showMenu, setShowMenu] = useState(true);
@@ -32,24 +32,25 @@ export const Menu = () => {
             <li>
               <a
                 onClick={() => {
-                  cubeSliderStore.showRight(1);
+                  setShowMenu(!showMenu);
+                  cubeSliderStore.showLeft(4);
                 }}
               >
-                <TeamOutlined /> Artists
+                <BarcodeOutlined /> Tickets
               </a>
             </li>
             <li>
-              <a href="#">
+              <a>
                 <FileTextOutlined /> Presskit
               </a>
             </li>
             <li>
-              <a href="#">
+              <a>
                 <MailOutlined /> Booking
               </a>
             </li>
             <li>
-              <a href="#">
+              <a>
                 <QuestionOutlined /> About
               </a>
             </li>

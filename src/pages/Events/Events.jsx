@@ -11,8 +11,8 @@ export const Events = () => {
       <div className="backgroundOpacity"></div>
       <img src={SaveTheDate} className="imgSavetheDate" />
       <div className="content">
-        <div>Next events</div>
-        <div>Past events</div>
+        <div>Upcomming</div>
+        <div>Past</div>
       </div>
     </div>
   );

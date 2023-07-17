@@ -6,6 +6,7 @@ import { artistStore } from "../../store/artistStore";
 
 import meema from "../../img/artists/meema.jpg";
 import vanstaen from "../../img/artists/vanstaen.jpg";
+import { GlitchText } from "../../components/GlitchText/GlitchText";
 
 import "./Artist.less";
 
@@ -21,15 +22,8 @@ export const Artist = observer(() => {
 
   return (
     <div className="artistPageContainer">
-      <div className="artistTitle">
-        <span className="weAre">We are</span>
-        <div className="schwerelos" style={{ "--stacks": 3 }}>
-          <span style={{ "--index": 0 }}>SCHWERELOS</span>
-          <span style={{ "--index": 1 }}>SCHWERELOS</span>
-          <span style={{ "--index": 2 }}>SCHWERELOS</span>
-        </div>
-      </div>
-      <div className="artistContainer">{artistPics}</div>
+      <GlitchText glitchText="Schwerelos" overText="we are" />
+      <div className="artistContainer">{/*artistPics*/}</div>
     </div>
   );
 });
