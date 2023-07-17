@@ -1,0 +1,18 @@
+@schwerelos-purple: #9F44D9;
+
+.pageMerchContainer {
+    overflow-y: scroll;
+    height: 100vh;
+    width: 100vw;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+    background-color: @schwerelos-purple;
+
+    .merchContainer {
+        width: min(90vw, 1500px);
+    }
+}
+
+.pageMerchContainer::-webkit-scrollbar {
+    display: none;
+}

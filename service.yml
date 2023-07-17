@@ -4,6 +4,6 @@ services:
     git_url: <https://github.com/vanStaen/schwerelos-berlin>
     git_branch: master
     ports:
-    - container: 8080
+    - container: 5000
       http: 80
     dockerfile_path: Dockerfile

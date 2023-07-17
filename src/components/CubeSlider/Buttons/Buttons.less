@@ -1,0 +1,138 @@
+@control-button-width: 10%;
+@control-button-height: 25%;
+@control-button-opacity: 0.5;
+@control-button-opacity-hover: 0.9;
+@control-button-background: transparent;
+@transition-bezier: cubic-bezier(0.5, 0.075, 0.25, 0.95);
+@organic-arrow-thickness: 4px;
+@organic-arrow-height: 40px;
+@organic-arrow-border-radius: 0;
+@cos45: 0.7071;
+
+:root {
+  --organic-arrow-color: #fff;
+}
+
+
+.controls {
+
+  .next, .prev {
+    z-index: 2;
+
+    @media all and (max-width: 520px) {
+      visibility: hidden;
+    }
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: @control-button-width;
+    height: @control-button-height;
+    position: fixed;     
+    background-color: @control-button-background;
+    color: #fff;
+    cursor: pointer;
+    outline-color: 0;
+    outline-style: none;
+    outline-width: 0;
+    top: calc(50% - (0.5 * @control-button-height));  
+  
+    .arrowLeft, .arrowRight {
+      width: 100%;
+      height: @organic-arrow-height;
+      opacity: @control-button-opacity;
+      position: relative;
+      display: block;
+      transition: transform 0.2s ease-out 0.125s, opacity 0.2s ease-out;
+
+      &:before, &:after { 
+        content: ' ';
+        position: absolute;
+        border-radius: @organic-arrow-border-radius;
+        right: calc(
+          50% -
+            (@cos45 * (@organic-arrow-height + @organic-arrow-thickness)) / 2);
+        height: 100%;
+        width: @organic-arrow-thickness;
+        background-color: var(--organic-arrow-color);
+        transition: transform 0.15s ease-out, background-color 0.15s ease-out;
+      }
+
+      &:before {
+        transform-origin: 100% 100% 0;
+        top: -50%;
+        transform: rotate(-45deg);
+      }
+      &:after {
+        transform-origin: 100% 0% 0;
+        top: 50%;
+        transform: rotate(45deg);
+      }
+    }   
+
+    .arrowLeft {
+      &:before,
+      &:after {
+        right: auto;
+        left: calc(
+          50% - (@cos45 * (@organic-arrow-height + @organic-arrow-thickness)) / 2);
+      }
+      &:before {
+        transform-origin: 0 100% 0;
+        top: -50%;
+        transform: rotate(45deg);
+      }
+      &:after {
+        transform-origin: 0 0 0;
+        top: 50%;
+        transform: rotate(-45deg);
+      }
+      &:hover {
+        opacity: @control-button-opacity-hover;
+        &:before {
+          transform: rotate(30deg);
+        }
+        &:after {
+          transform: rotate(-30deg);
+        }
+      }
+    }
+    .arrowRight {
+      &:hover {
+        opacity: @control-button-opacity-hover;
+        &:before {
+          transform: rotate(-30deg);
+        }
+        &:after {
+          transform: rotate(30deg);
+        }
+    }
+    }
+  } 
+
+  .next {
+    right: 0;
+    .active {
+      transform: translate3d(100%, 0, 0);
+      &:after {
+        transform: rotate(90deg) translate3d(50%, 0, 0) !important;
+      }
+      &:before {
+        transform: rotate(-90deg) translate3d(50%, 0, 0) !important;
+      }
+    }
+  }
+
+  .prev {
+    left: 0;
+    .active {
+      transform: translate3d(-100%, 0, 0);
+      &:after {
+        transform: rotate(-90deg) translate3d(-50%, 0, 0) !important;
+      }
+      &:before {
+        transform: rotate(90deg) translate3d(-50%, 0, 0) !important;
+      }
+    }
+  }
+}

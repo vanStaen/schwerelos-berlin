@@ -2,6 +2,7 @@ import React from "react";
 import { observer } from "mobx-react";
 
 import { gigStore } from "../../../store/gigStore";
+import { cubeSliderStore } from "../../../components/CubeSlider/cubeSliderStore";
 
 import "./NextGigsBanner.less";
 
@@ -30,9 +31,10 @@ export const NextGigsBanner = observer(() => {
   return (
     <p>
       <marquee className="marquee-container">
-        <span className="opacity">
-          Upcoming events:&nbsp;&nbsp;
+        <span className="title" onClick={() => cubeSliderStore.showRight(1)}>
+          Upcoming events
         </span>
+        :&nbsp;&nbsp;
         {gigHtml}
       </marquee>
     </p>

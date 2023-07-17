@@ -2,7 +2,7 @@ import React from "react";
 import { observer } from "mobx-react";
 
 import { Logo } from "./Logo/Logo";
-import { Menu } from "./Menu/Menu";
+import { Menu } from "../../components/Menu/Menu";
 import { Links } from "./Links/Links";
 import { NextGigsBanner } from "./NextGigsBanner/NextGigsBanner";
 import { Artist } from "../Artist/Artist";
@@ -25,7 +25,6 @@ export const Welcome = observer(() => {
           <br />
         </div>
       </div>
-      <Artist />
     </>
   );
 });
