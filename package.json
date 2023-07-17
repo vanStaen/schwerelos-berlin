@@ -3,10 +3,12 @@
   "version": "1.0",
   "description": "Schwerelos webpage",
   "scripts": {
-    "start": "webpack serve --config webpack.config.dev.js --hot --open",
-    "server": "npm run build; pm2 start server/index.js",
+    "devstart": "webpack serve --config webpack.config.dev.js --hot --open",
+    "start": "npm run build; pm2 start server/index.js",
     "prebuild": "rm -rf ./build",
-    "build": "webpack --config webpack.config.prod.js --mode production"
+    "build": "webpack --config webpack.config.prod.js --mode production",
+    "deploy": "npm i; npm run build; heroku git:remote -a schwerelos; git push heroku master",
+    "log": "heroku logs --tail"
   },
   "eslintConfig": {
     "extends": [
