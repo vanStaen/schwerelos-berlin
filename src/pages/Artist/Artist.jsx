@@ -4,7 +4,8 @@ import { observer } from "mobx-react";
 import { pageStore } from "../../store/pageStore";
 import { artistStore } from "../../store/artistStore";
 
-import vs2 from "../../img/artists/vs2.jpg";
+import meema from "../../img/artists/meema.jpg";
+import vanstaen from "../../img/artists/vanstaen.jpg";
 
 import "./Artist.less";
 
@@ -13,7 +14,7 @@ export const Artist = observer(() => {
     return (
       <div className="artist">
         {artist.name}
-        <img src={vs2} alt={artist.name} />
+        <img src={meema} alt={artist.name} />
       </div>
     );
   });
