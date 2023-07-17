@@ -13,9 +13,19 @@ export const Buttons = (props) => {
     if (throttling.current === false) {
       throttling.current = true;
       if (keyPressed === "arrowright") {
-        cubeSliderStore.showRight();
+        const element = document.getElementById("arrowRight");
+        element.classList.add("active");
+        setTimeout(() => {
+          cubeSliderStore.showRight();
+          element.classList.remove("active");
+        }, 500);
       } else if (keyPressed === "arrowleft") {
-        cubeSliderStore.showLeft();
+        const element = document.getElementById("arrowLeft");
+        element.classList.add("active");
+        setTimeout(() => {
+          cubeSliderStore.showLeft();
+          element.classList.remove("active");
+        }, 500);
       }
       setTimeout(() => {
         throttling.current = false;
