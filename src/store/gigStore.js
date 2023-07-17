@@ -37,7 +37,7 @@ export class GigStore {
       raEventNumber: "1741681" },
     { date: '2023-09-02', 
       location: "Secret location", 
-      name: "Schwerelos sommer's openair", 
+      name: "Schwerelos soli openair", 
       raEventNumber: "1724976" },
     { date: '2023-09-21', 
       location: "Renate", 

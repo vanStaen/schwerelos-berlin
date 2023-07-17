@@ -7,7 +7,8 @@ export class PageStore {
 
   selectedArtistId = null;  
   language = navigator.language || navigator.userLanguage;
-  showSwipe = cookies.get('showSwipe');
+  //showSwipe = cookies.get('showSwipe');
+  showSwipe = true;
 
   constructor() {
     makeObservable(this, {
@@ -31,7 +32,7 @@ export class PageStore {
   setShowSwipe = (showSwipe) => {
     this.showSwipe = showSwipe;
     if (showSwipe === false) {
-      cookies.set('showSwipe', showSwipe, { path: '/' });
+      //cookies.set('showSwipe', showSwipe, { path: '/' });
     }
   };
 

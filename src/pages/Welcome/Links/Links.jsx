@@ -36,13 +36,13 @@ export const Links = () => {
           </a>
         </Tooltip>
       </div>
-      <div className="link">
+      {/*<div className="link">
         <Tooltip title="Resident Advisor" color="#2BC487">
           <a href="https://ra.co/labels/21798" target="_blank">
             <img src={ResidentAdvisorLogo} className="logoRa" />
           </a>
         </Tooltip>
-      </div>
+      </div>*/}
       {/*<div className="link">
             <Tooltip title="Soundcloud" color="#9F44D9">
                 <a href="https://soundcloud.com/schwerelos-berlin" target="_blank">
