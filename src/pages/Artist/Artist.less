@@ -1,18 +1,15 @@
+@schwerelos-green: #2BC487;
+
 .artistPageContainer {
     overflow-y: scroll;
     height: 100vh;
+    width: calc(100vh - 115px);
     -ms-overflow-style: none;  /* IE and Edge */
     scrollbar-width: none;  /* Firefox */
+    background-color: @schwerelos-green;
 
     .artistContainer {
-        background-color: black;
-        width: min(80vw, 1500px);
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-evenly;  
-        row-gap: 20px;
-        column-gap: 20px;
-        margin-bottom: 50px;
+        width: min(90vw, 1500px);
 
         .artist {
             width: 450px;
@@ -22,9 +19,10 @@
                 max-width: 100%;
             }
         }
-    } 
+    }
 }
 
-.artistPageContainer::-webkit-scrollbar {
+.pageContainer::-webkit-scrollbar {
     display: none;
 }
+

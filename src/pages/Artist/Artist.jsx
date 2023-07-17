@@ -22,8 +22,10 @@ export const Artist = observer(() => {
 
   return (
     <div className="artistPageContainer">
-      <GlitchText glitchText="Schwerelos" overText="we are" />
-      <div className="artistContainer">{/*artistPics*/}</div>
+      <div className="artistContainer">
+        <GlitchText glitchText="Schwerelos" overText="we are" />
+        {/*artistPics*/}
+      </div>
     </div>
   );
 });

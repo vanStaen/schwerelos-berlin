@@ -6,8 +6,10 @@ import "./Tickets.less";
 
 export const Tickets = observer(() => {
   return (
-    <div className="pageContainer">
-      <GlitchText overText="want some" glitchText="Tickets?" />
+    <div className="pageTicketContainer">
+      <div className="ticketContainer">
+        <GlitchText overText="want some" glitchText="Tickets?" />
+      </div>
     </div>
   );
 });
