@@ -8,7 +8,7 @@ export const Merch = observer(() => {
   return (
     <div className="pageMerchContainer">
       <div className="merchContainer">
-        <GlitchText glitchText="Merch" overText="you need" />
+        <GlitchText glitchText="Merch" overText="come get some" />
       </div>
     </div>
   );

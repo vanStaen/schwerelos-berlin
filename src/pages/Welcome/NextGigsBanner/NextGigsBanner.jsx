@@ -31,17 +31,11 @@ export const NextGigsBanner = observer(() => {
   return (
     <p>
       <marquee className="marquee-container">
-        <span className="opacity">
-          &#62;&#62;&#62;&#62;&#62;&#62;&nbsp;&nbsp;
-        </span>
         <span className="title" onClick={() => cubeSliderStore.showRight(1)}>
           Upcoming events
         </span>
         :&nbsp;&nbsp;
         {gigHtml}
-        <span className="opacity">
-          &nbsp;&nbsp;&#60;&#60;&#60;&#60;&#60;&#60;
-        </span>
       </marquee>
     </p>
   );

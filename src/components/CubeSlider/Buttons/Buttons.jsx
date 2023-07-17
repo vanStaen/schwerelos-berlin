@@ -1,10 +1,35 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 
 import { cubeSliderStore } from "../cubeSliderStore";
 
 import "./Buttons.less";
 
 export const Buttons = (props) => {
+  const throttling = useRef(false);
+
+  const keyDownHandler = (event) => {
+    event.preventDefault();
+    const keyPressed = event.key.toLowerCase();
+    if (throttling.current === false) {
+      throttling.current = true;
+      if (keyPressed === "arrowright") {
+        cubeSliderStore.showRight();
+      } else if (keyPressed === "arrowleft") {
+        cubeSliderStore.showLeft();
+      }
+      setTimeout(() => {
+        throttling.current = false;
+      }, 1000);
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener("keydown", keyDownHandler);
+    return () => {
+      document.removeEventListener("keydown", keyDownHandler);
+    };
+  }, [keyDownHandler]);
+
   useEffect(() => {
     if (props.color) {
       document
