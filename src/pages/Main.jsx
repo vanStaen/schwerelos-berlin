@@ -8,23 +8,34 @@ import { Merch } from "./Merch/Merch";
 import { Tickets } from "./Tickets/Tickets";
 
 export const Main = () => {
-  const pages = [
-    <div key="welcomePage">
-      <Welcome />
-    </div>,
-    <div key="eventPage">
-      <Events />
-    </div>,
-    <div key="artistsPage">
-      <Artist />
-    </div>,
-    <div key="merchPage">
-      <Merch />
-    </div>,
-    <div key="ticketPage">
-      <Tickets />
-    </div>,
-  ];
+  const isProduction = process.env.NODE_ENV === "production";
+
+  const pages = isProduction
+    ? [
+        <div key="welcomePage">
+          <Welcome />
+        </div>,
+        <div key="eventPage">
+          <Events />
+        </div>,
+      ]
+    : [
+        <div key="welcomePage">
+          <Welcome />
+        </div>,
+        <div key="eventPage">
+          <Events />
+        </div>,
+        <div key="artistsPage">
+          <Artist />
+        </div>,
+        <div key="merchPage">
+          <Merch />
+        </div>,
+        <div key="ticketPage">
+          <Tickets />
+        </div>,
+      ];
 
   return (
     <>
