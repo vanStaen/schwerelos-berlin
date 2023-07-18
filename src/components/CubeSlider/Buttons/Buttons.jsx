@@ -49,16 +49,22 @@ export const Buttons = (props) => {
   }, []);
 
   const handleControlClick = (elementId) => {
-    const element = document.getElementById(elementId);
-    element.classList.add("active");
-    setTimeout(() => {
-      if (elementId === "arrowRight") {
-        cubeSliderStore.showRight();
-      } else if (elementId === "arrowLeft") {
-        cubeSliderStore.showLeft();
-      }
-      element.classList.remove("active");
-    }, 500);
+    if (throttling.current === false) {
+      throttling.current = true;
+      const element = document.getElementById(elementId);
+      element.classList.add("active");
+      setTimeout(() => {
+        if (elementId === "arrowRight") {
+          cubeSliderStore.showRight();
+        } else if (elementId === "arrowLeft") {
+          cubeSliderStore.showLeft();
+        }
+        element.classList.remove("active");
+      }, 500);
+      setTimeout(() => {
+        throttling.current = false;
+      }, 1000);
+    }
   };
 
   return (
