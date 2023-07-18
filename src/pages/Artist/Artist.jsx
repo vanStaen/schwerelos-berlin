@@ -15,7 +15,7 @@ export const Artist = observer(() => {
     return (
       <div className="artist">
         {artist.name}
-        <img src={meema} alt={artist.name} />
+        {/*<img src={meema} alt={artist.name} />*/}
       </div>
     );
   });

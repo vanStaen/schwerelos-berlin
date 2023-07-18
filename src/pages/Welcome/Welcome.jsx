@@ -25,14 +25,7 @@ export const Welcome = observer(() => {
           <NextGigsBanner />
           <br />
           {pageStore.showSwipe && (
-            <img
-              className="swipe"
-              src={swipe}
-              alt="Swipe right & left"
-              onClick={() => {
-                pageStore.setShowSwipe(false);
-              }}
-            />
+            <img className="swipe" src={swipe} alt="Swipe right & left" />
           )}
         </div>
       </div>

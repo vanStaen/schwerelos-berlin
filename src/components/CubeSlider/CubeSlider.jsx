@@ -3,6 +3,7 @@ import { observer } from "mobx-react";
 
 import { Buttons } from "./Buttons/Buttons";
 import { cubeSliderStore } from "./cubeSliderStore";
+import { pageStore } from "../../store/pageStore";
 
 import "./CubeSlider.less";
 
@@ -24,17 +25,18 @@ export const CubeSlider = observer((props) => {
   const onTouchMove = (e) => setTouchEnd(e.targetTouches[0].clientX);
 
   const onTouchEnd = () => {
+    if (!touchStart || !touchEnd) return;
+    const distance = touchStart - touchEnd;
+    const isLeftSwipe = distance > minSwipeDistance;
+    const isRightSwipe = distance < -minSwipeDistance;
     if (throttling.current === false) {
       throttling.current = true;
-      if (!touchStart || !touchEnd) return;
-      const distance = touchStart - touchEnd;
-      const isLeftSwipe = distance > minSwipeDistance;
-      const isRightSwipe = distance < -minSwipeDistance;
       if (isRightSwipe) {
         cubeSliderStore.showLeft();
       } else if (isLeftSwipe) {
         cubeSliderStore.showRight();
       }
+      pageStore.showSwipe && pageStore.setShowSwipe(false);
       setTimeout(() => {
         throttling.current = false;
       }, 1000);

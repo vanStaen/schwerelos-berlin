@@ -1,4 +1,6 @@
 @schwerelos-green: #2BC487;
+@schwerelos-purple: #9F44D9;
+@schwerelos-pink: #F70069;
 
 .artistPageContainer {
     overflow-y: scroll;
@@ -12,8 +14,19 @@
         width: min(90vw, 1500px);
 
         .artist {
-            width: 450px;
-            border: 1px solid blue;
+            width: max(450px, 100vw);
+            padding: 0 0 20px 150px;
+
+            @media all and (max-width: 520px) {
+                padding-left: 30px;
+            }
+
+            &:hover {
+                color: @schwerelos-purple;
+            }            
+            &:hover:nth-child(2n) {
+                color: @schwerelos-pink;
+            }   
 
             img {
                 max-width: 100%;
