@@ -88,6 +88,7 @@ export const Events = () => {
     <div className="eventsContainer">
       <div className="background"></div>
       <div className="backgroundOpacity"></div>
+      <div className="backgroundDegrade"></div>
       <img src={SaveTheDate} className="imgSavetheDate" />
       <div className="content">
         <div className="title">Upcomming</div>
