@@ -10,7 +10,7 @@ import "./NextGigsBanner.less";
 export const NextGigsBanner = observer(() => {
   const now = dayjs();
 
-  const gigHtml = gigStore.gigs.map((gig, index) => {
+  const gigHtml = gigStore.gigs.map((gig) => {
     const gigDate = dayjs(gig.date, "YYYY-MM-DD");
     const gigIsInPast = dayjs(gigDate).isBefore(dayjs(now));
 
@@ -26,15 +26,19 @@ export const NextGigsBanner = observer(() => {
     }
   });
 
+  const gigHtmlCleaned = gigHtml.filter((x) => x !== undefined);
+
   return (
     <p>
-      <marquee className="marquee-container">
-        <span className="title" onClick={() => cubeSliderStore.showRight(1)}>
-          Upcoming events
-        </span>
-        &nbsp;:&nbsp;&nbsp;
-        {gigHtml}
-      </marquee>
+      {gigHtmlCleaned.length !== 0 && (
+        <marquee className="marquee-container">
+          <span className="title" onClick={() => cubeSliderStore.showRight(1)}>
+            Upcoming events
+          </span>
+          &nbsp;:&nbsp;&nbsp;
+          {gigHtmlCleaned}
+        </marquee>
+      )}
     </p>
   );
 });
