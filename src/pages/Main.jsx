@@ -9,7 +9,8 @@ import { Tickets } from "./Tickets/Tickets";
 import { showDev } from "../helpers/showDev";
 
 export const Main = () => {
-  const isProduction = process.env.NODE_ENV === "production";
+  //const isProduction = process.env.NODE_ENV === "production";
+  const isProduction = 0;
 
   const pages =
     isProduction && showDev()
