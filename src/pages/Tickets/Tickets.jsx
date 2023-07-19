@@ -1,18 +1,22 @@
 import React, { useState } from "react";
 import { observer } from "mobx-react";
-import { Input } from "antd";
+import { Button } from "antd";
 import QRCode from "react-qr-code";
+import { v4 as uuidv4 } from "uuid";
 
 import { GlitchText } from "../../components/GlitchText/GlitchText";
 
 import "./Tickets.less";
 
 export const Tickets = observer(() => {
-  const [qrCodeValue, setQrCodeValue] = useState("https://github.com/vanStaen");
+  const [qrCodeValue, setQrCodeValue] = useState(
+    process.env.API_URL + "/ticketvalidation/" + uuidv4()
+  );
 
-  const handleInputEnter = (event) => {
-    setQrCodeValue(event.target.value);
+  const handleButtonClick = () => {
+    setQrCodeValue(process.env.API_URL + "/ticketvalidation/" + uuidv4());
   };
+
   return (
     <div className="pageTicketContainer">
       <div className="ticketContainer">
@@ -39,11 +43,9 @@ export const Tickets = observer(() => {
           />
           <br />
           <br />
-          <Input
-            size="large"
-            placeholder={qrCodeValue}
-            onPressEnter={(event) => handleInputEnter(event)}
-          />
+          <Button size="large" onClick={handleButtonClick}>
+            Generate new ticket
+          </Button>
         </div>
       </div>
     </div>

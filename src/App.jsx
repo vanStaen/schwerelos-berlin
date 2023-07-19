@@ -9,6 +9,7 @@ import {
 import { useTranslation } from "react-i18next";
 
 import { Main } from "./pages/Main";
+import { TicketValidation } from "./pages/TicketValidation";
 import { pageStore } from "./store/pageStore";
 
 import "../src/lib/i18n";
@@ -40,7 +41,14 @@ const App = observer(() => {
   }, [pageStore.language, i18n]);
 
   const router = createBrowserRouter(
-    createRoutesFromElements(<Route path="/" element={<Main />}></Route>)
+    createRoutesFromElements(
+      <Route path="/" element={<Main />}>
+        <Route
+          path="ticketvalidation/:ticketId"
+          element={<TicketValidation />}
+        />
+      </Route>
+    )
   );
 
   return (
