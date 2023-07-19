@@ -8,7 +8,7 @@ export const Buttons = (props) => {
   const throttling = useRef(false);
 
   const keyDownHandler = (event) => {
-    event.preventDefault();
+    //event.preventDefault();
     const keyPressed = event.key.toLowerCase();
     if (throttling.current === false) {
       throttling.current = true;
