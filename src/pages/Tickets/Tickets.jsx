@@ -22,12 +22,18 @@ export const Tickets = observer(() => {
             height: "auto",
             margin: "50px auto 0 auto",
             maxWidth: "50vw",
+            maxHeight: "50vh",
             width: "100%",
           }}
         >
           <QRCode
             size={256}
-            style={{ height: "auto", maxWidth: "100%", width: "100%" }}
+            style={{
+              maxHeight: "50vh",
+              height: "100%",
+              maxWidth: "50vw",
+              width: "100%",
+            }}
             value={qrCodeValue}
             viewBox={`0 0 256 256`}
           />
