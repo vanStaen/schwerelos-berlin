@@ -28,6 +28,7 @@ export const Tickets = observer(() => {
             maxWidth: "50vw",
             maxHeight: "50vh",
             width: "100%",
+            border: "1px solid red",
           }}
         >
           <QRCode

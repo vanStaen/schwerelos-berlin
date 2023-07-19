@@ -10,7 +10,7 @@ import "./NextGigsBanner.less";
 export const NextGigsBanner = observer(() => {
   const now = dayjs();
 
-  const gigHtml = gigStore.gigs.map((gig) => {
+  const gigHtml = gigStore.gigs.map((gig, index) => {
     const gigDate = dayjs(gig.date, "YYYY-MM-DD");
     const gigIsInPast = dayjs(gigDate).isBefore(dayjs(now));
 

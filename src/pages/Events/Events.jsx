@@ -48,9 +48,9 @@ export const Events = () => {
     const upcommingEventsSorted = sortDate(upcommingEvents, true);
     const pastEventsSorted = sortDate(pastEvents, false);
 
-    const pastEventsSortedFormated = pastEventsSorted.map((gig) => {
+    const pastEventsSortedFormated = pastEventsSorted.map((gig, index) => {
       return (
-        <div className="row">
+        <div className="row" key={`pastEvent${index}`}>
           <div className="col_left strikeThrough">
             {dayjs(gig.date, "YYYY-MM-DD").format("DD.MM.YY")}, {gig.location}
           </div>
@@ -61,20 +61,26 @@ export const Events = () => {
     });
     setPastEventsSortedFormated(pastEventsSortedFormated);
 
-    const upcommingEventsSortedFormated = upcommingEventsSorted.map((gig) => {
-      const handleEventClick = () => {
-        window.open(`https://ra.co/events/${gig.raEventNumber}`, "_blank");
-      };
-      return (
-        <div className="row link" onClick={handleEventClick}>
-          <div className="col_left">
-            {dayjs(gig.date, "YYYY-MM-DD").format("DD.MM")}, {gig.location}
+    const upcommingEventsSortedFormated = upcommingEventsSorted.map(
+      (gig, index) => {
+        const handleEventClick = () => {
+          window.open(`https://ra.co/events/${gig.raEventNumber}`, "_blank");
+        };
+        return (
+          <div
+            className="row link"
+            key={`upcommingEvent${index}`}
+            onClick={handleEventClick}
+          >
+            <div className="col_left">
+              {dayjs(gig.date, "YYYY-MM-DD").format("DD.MM")}, {gig.location}
+            </div>
+            <div className="col_mid"></div>
+            <div className="col_right">{gig.name}</div>
           </div>
-          <div className="col_mid"></div>
-          <div className="col_right">{gig.name}</div>
-        </div>
-      );
-    });
+        );
+      }
+    );
     setUpcommingEventsSortedFormated(upcommingEventsSortedFormated);
   }, []);
 
