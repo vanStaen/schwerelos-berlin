@@ -29,9 +29,9 @@ export const TicketValidation = () => {
             ? "Checking that"
             : isValid
             ? "This ticket is"
-            : "No-no, my friend!"
+            : "No-go, my friend!"
         }
-        glitchText={isLoading ? "Ticket" : isValid ? "Valid" : "Error"}
+        glitchText={isLoading ? "Ticket" : isValid ? "Valid" : "Invalid"}
       />
       {isLoading ? (
         <>
