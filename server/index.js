@@ -1,6 +1,6 @@
 const express = require("express");
 const path = require("path");
-const db = require("./models");
+//const db = require("./models");
 
 const PORT = process.env.PORT || 5009;
 require("dotenv/config");
@@ -16,7 +16,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 // Sync sequelize
-db.sequelize.sync();
+//db.sequelize.sync();
 
 // Router to API endpoints
 app.use("/ticket", require("./api/controller/ticketController"));
