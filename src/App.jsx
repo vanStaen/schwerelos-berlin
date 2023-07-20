@@ -46,7 +46,7 @@ const App = observer(() => {
         <div className="main">
           <Routes>
             <Route index element={<Main />} />
-            <Route path="ticketvalidation/:ticketId" element={<TicketValidation />} />
+            <Route path="ticket/:event/:ticketId" element={<TicketValidation />} />
             <Route path="admin/" element={<Admin />} />
             <Route path="*" element={<p>There's nothing here: 404!</p>} />
           </Routes>

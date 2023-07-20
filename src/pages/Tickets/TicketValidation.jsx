@@ -8,7 +8,7 @@ import { CustomLoader } from "../../components/CustomLoader/CustomLoader";
 import "./Tickets.less";
 
 export const TicketValidation = () => {
-  let { ticketId } = useParams();
+  let { event, ticketId } = useParams();
   const [isLoading, setLoading] = useState(true);
   const [isValid, setIsValid] = useState(null);
 
@@ -17,8 +17,8 @@ export const TicketValidation = () => {
     isLoading
       ? (element.style.backgroundColor = "Black")
       : isValid
-      ? (element.style.backgroundColor = "LimeGreen")
-      : (element.style.backgroundColor = "FireBrick");
+        ? (element.style.backgroundColor = "LimeGreen")
+        : (element.style.backgroundColor = "FireBrick");
   }, [isLoading, isValid]);
 
   return (
@@ -28,8 +28,8 @@ export const TicketValidation = () => {
           isLoading
             ? "Checking that"
             : isValid
-            ? "This ticket is"
-            : "No-go, my friend!"
+              ? "This ticket is"
+              : "No-go, my friend!"
         }
         glitchText={isLoading ? "Ticket" : isValid ? "Valid" : "Invalid"}
       />
@@ -37,7 +37,7 @@ export const TicketValidation = () => {
         <>
           <CustomLoader />
           <div className="ticketId">
-            <div style={{ opacity: 0.4 }}>ticket id </div>
+            <div style={{ opacity: 0.4, paddingBottom: "7px" }}>{event} -  ticket id: </div>
             {ticketId}
           </div>
         </>
@@ -50,7 +50,7 @@ export const TicketValidation = () => {
               <CloseOutlined className="icon" />
             )}
             <div className="ticketId">
-              <div style={{ opacity: 0.4 }}>ticket id </div>
+              <div style={{ opacity: 0.4, paddingBottom: "7px" }}>{event} -  ticket id: </div>
               {ticketId}
             </div>
           </div>

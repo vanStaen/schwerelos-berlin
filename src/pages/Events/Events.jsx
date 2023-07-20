@@ -7,6 +7,7 @@ dayjs.extend(customParseFormat);
 
 import SaveTheDate from "../../img/saveTheDate.png";
 import { gigStore } from "../../store/gigStore";
+import { GlitchText } from "../../components/GlitchText/GlitchText";
 
 import "./Events.less";
 
@@ -84,18 +85,13 @@ export const Events = () => {
     setUpcommingEventsSortedFormated(upcommingEventsSortedFormated);
   }, []);
 
-  /*
-  
-
-  
-  */
-
   return (
     <div className="eventsContainer">
       <div className="background"></div>
       <div className="backgroundOpacity"></div>
       <div className="backgroundDegrade"></div>
       <img src={SaveTheDate} className="imgSavetheDate" />
+      <GlitchText glitchText="Shows" overText="come to our" />
       <div className="content">
         <div className="title">Upcomming</div>
         <div className="table">{upcommingEventsSortedFormated}</div>

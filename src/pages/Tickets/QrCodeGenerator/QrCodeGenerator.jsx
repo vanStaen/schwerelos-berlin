@@ -3,14 +3,15 @@ import { Button } from "antd";
 import QRCode from 'qrcode.react';
 import { v4 as uuidv4 } from "uuid";
 
-export const QrCodeGenerator = () => {
+export const QrCodeGenerator = (props) => {
+    const { route, event } = props;
     const [ticketIdValue, setTicketIdValue] = useState(uuidv4());
     const [ticketNumberValue, setTicketNumberValue] = useState(1);
-    const [qrCodeValue, setQrCodeValue] = useState("https://schwerelos-berlin.com/ticketvalidation/" + ticketIdValue);
+    const [qrCodeValue, setQrCodeValue] = useState("https://schwerelos-berlin.com/" + route + "/" + event + "/" + ticketIdValue);
 
     const handleGenerateButtonClick = () => {
         setTicketIdValue(uuidv4());
-        setQrCodeValue("https://schwerelos-berlin.com/ticketvalidation/" + ticketIdValue);
+        setQrCodeValue("https://schwerelos-berlin.com/ticketvalidation/ticket/" + route + "/" + event + "/" + ticketIdValue);
         downloadQrCode();
     };
 

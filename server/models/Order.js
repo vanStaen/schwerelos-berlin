@@ -36,7 +36,7 @@ const Order = sequelize.define("order", {
     allowNull: false,
   },
   value: {
-    type: DataTypes.NUMBER,
+    type: DataTypes.DECIMAL,
     allowNull: false,
   },
   payment_type: {
