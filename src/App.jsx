@@ -1,15 +1,15 @@
 import React, { useLayoutEffect, useEffect } from "react";
 import { observer } from "mobx-react";
 import {
-  createBrowserRouter,
-  createRoutesFromElements,
   Route,
-  RouterProvider,
+  Routes,
+  BrowserRouter,
 } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
 import { Main } from "./pages/Main";
-import { TicketValidation } from "./pages/TicketValidation";
+import { TicketValidation } from "./pages/Tickets/TicketValidation";
+import { Admin } from "./pages/Admin/Admin";
 import { pageStore } from "./store/pageStore";
 
 import "../src/lib/i18n";
@@ -40,23 +40,19 @@ const App = observer(() => {
     }
   }, [pageStore.language, i18n]);
 
-  const router = createBrowserRouter(
-    createRoutesFromElements(
-      <Route path="/" element={<Main />}>
-        <Route
-          path="ticketvalidation/:ticketId"
-          element={<TicketValidation />}
-        />
-      </Route>
-    )
-  );
-
   return (
-    <div className="App">
-      <div className="main">
-        <RouterProvider router={router} />
+    <BrowserRouter>
+      <div className="App">
+        <div className="main">
+          <Routes>
+            <Route index element={<Main />} />
+            <Route path="ticketvalidation/:ticketId" element={<TicketValidation />} />
+            <Route path="admin/" element={<Admin />} />
+            <Route path="*" element={<p>There's nothing here: 404!</p>} />
+          </Routes>
+        </div>
       </div>
-    </div>
+    </BrowserRouter>
   );
 });
 
