@@ -5,7 +5,7 @@
 @schwerelos-pink: #F70069;
 
 #loader {
-  animation: animate 1.5s linear infinite;
+  animation: loaderAnimation 1.5s linear infinite;
   clip: rect(0, @loader-size, @loader-size, @loader-size-half); 
   height: @loader-size;
   width: @loader-size;
@@ -13,7 +13,7 @@
   left: calc(50% - @loader-size-half);
   top: calc(50% - @loader-size-half);
 }
-@keyframes animate {
+@keyframes loaderAnimation {
   0% { 
     transform: rotate(0deg)
   }
@@ -22,7 +22,7 @@
   }
 }
 #loader:after {
-  animation: animate2 1.5s ease-in-out infinite;
+  animation: loaderAnimation2 1.5s ease-in-out infinite;
   clip: rect(0, @loader-size, @loader-size, @loader-size-half);
   content:'';
   border-radius: 50%; 
@@ -30,7 +30,7 @@
   width: @loader-size;
   position: absolute; 
 } 
-@keyframes animate2 {
+@keyframes loaderAnimation2 {
   0% {
     box-shadow: inset @schwerelos-green 0 0 0 22px;
     transform: rotate(-140deg);
