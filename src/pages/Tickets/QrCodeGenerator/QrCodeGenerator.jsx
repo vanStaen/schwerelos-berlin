@@ -2,17 +2,22 @@ import React, { useState } from "react";
 import { Button } from "antd";
 import QRCode from 'qrcode.react';
 import { v4 as uuidv4 } from "uuid";
+import axios from "axios";
 
 export const QrCodeGenerator = (props) => {
     const { route, event } = props;
-    const [ticketIdValue, setTicketIdValue] = useState(uuidv4());
     const [ticketNumberValue, setTicketNumberValue] = useState(1);
-    const [qrCodeValue, setQrCodeValue] = useState("https://schwerelos-berlin.com/" + route + "/" + event + "/" + ticketIdValue);
+    const [qrCodeValue, setQrCodeValue] = useState("https://schwerelos-berlin.com/" + route + "/" + event + "/" + uuidv4());
 
     const handleGenerateButtonClick = () => {
-        setTicketIdValue(uuidv4());
-        setQrCodeValue("https://schwerelos-berlin.com/ticketvalidation/ticket/" + route + "/" + event + "/" + ticketIdValue);
-        downloadQrCode();
+        try {
+            const ticketIdValue = uuidv4();
+            setQrCodeValue("https://schwerelos-berlin.com/ticketvalidation/ticket/" + route + "/" + event + "/" + ticketIdValue);
+            saveTicketIdInDatabase(ticketIdValue);
+            downloadQrCode();
+        } catch (e) {
+            throw new Error(`Error! ${e}`);
+        }
     };
 
     const downloadQrCode = () => {
@@ -28,8 +33,29 @@ export const QrCodeGenerator = (props) => {
         setTicketNumberValue(ticketNumberValue + 1);
     }
 
-    const saveTicketIdInDatabase = () => {
-        //todo api call
+    const saveTicketIdInDatabase = async (ticketIdValue) => {
+        const apiUrl = process.env.API_URL + "/ticket";
+        console.log(apiUrl);
+
+        const response = await axios(
+            {
+                url: apiUrl,
+                method: "POST",
+                data: { ticketId: ticketIdValue },
+            },
+            {
+                headers: {
+                    "Content-Type": "application/json",
+                },
+            }
+        );
+        if ((response.status !== 200) & (response.status !== 201)) {
+            if (response.status === 401) {
+                throw new Error(`Error! Unauthorized(401)`);
+            } else {
+                throw new Error(`Error! Status ${response.status}`);
+            }
+        }
     }
 
     return (
