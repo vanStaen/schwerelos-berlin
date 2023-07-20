@@ -4,7 +4,9 @@ const { ticketService } = require("../service/ticketService");
 // Get Ticket
 router.get("/", async (req, res) => {
   try {
-    console.log('req.body.ticketId', req.body.ticketId)
+    if (!req.body.ticketId) {
+      throw new Error(`No ticketId was provided`);
+    }
     const getTicket = await ticketService.getTicket(req.body.ticketId);
     res.status(200).json({
       getTicket,
@@ -49,6 +51,9 @@ router.post("/", async (req, res) => {
 // POST update Ticket validity
 router.patch("/", async (req, res) => {
   try {
+    if (!req.body.ticketId) {
+      throw new Error(`No ticketId was provided`);
+    }
     await ticketService.updateTicket(req.body.ticketId);
     res.status(201).json({ message: "Success! The ticket validity has been updated" });
   } catch (err) {
@@ -57,5 +62,21 @@ router.patch("/", async (req, res) => {
     });
   }
 });
+
+// DELETE Ticket
+router.delete("/", async (req, res) => {
+  try {
+    if (!req.body.ticketId) {
+      throw new Error(`No ticketId was provided`);
+    }
+    await ticketService.deleteTicket(req.body.ticketId);
+    res.status(201).json({ message: "Success! The ticket has been deleted" });
+  } catch (err) {
+    res.status(400).json({
+      error: `${err}`,
+    });
+  }
+});
+
 
 module.exports = router;

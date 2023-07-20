@@ -45,4 +45,14 @@ exports.ticketService = {
       console.log(err)
     }
   },
+
+  async deleteTicket(ticketId, req) {
+    await Ticket.destroy({
+      where: {
+        uuid: ticketId
+      }
+    })
+    return true
+  },
+
 }
