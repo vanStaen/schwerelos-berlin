@@ -47,14 +47,13 @@ export const QrCodeGenerator = () => {
                 size={256}
                 id={"qrCodeGenerated"}
                 style={{
-                    maxHeight: "50vh",
                     height: "100%",
                     maxWidth: "50vw",
-                    width: "100%",
                 }}
                 value={qrCodeValue}
                 viewBox={`0 0 256 256`}
             />
+            <br />
             <Button size="large" onClick={handleGenerateButtonClick}>
                 Generate and download new ticket
             </Button>
