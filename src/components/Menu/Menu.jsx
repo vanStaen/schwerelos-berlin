@@ -4,6 +4,7 @@ import {
   QuestionOutlined,
   FileTextOutlined,
   BarcodeOutlined,
+  SkinOutlined,
 } from "@ant-design/icons";
 
 import federLogo from "../../img/logos/federLogo.png";
@@ -33,10 +34,10 @@ export const Menu = () => {
               <a
                 onClick={() => {
                   setShowMenu(!showMenu);
-                  cubeSliderStore.showLeft(4);
+                  cubeSliderStore.showLeft(3);
                 }}
               >
-                <BarcodeOutlined /> Tickets
+                <SkinOutlined /> Merch
               </a>
             </li>
             <li>

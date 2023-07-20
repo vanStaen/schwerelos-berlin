@@ -12,7 +12,7 @@ export const Tickets = observer(() => {
     <div className="pageTicketContainer">
       <div className="ticketContainer">
         <GlitchText overText="want some" glitchText="Tickets?" />
-        <QrCodeGenerator />
+        {/*<QrCodeGenerator />*/}
       </div>
     </div>
   );
