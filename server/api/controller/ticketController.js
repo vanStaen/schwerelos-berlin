@@ -32,12 +32,6 @@ router.post("/", async (req, res) => {
 
 // POST update Ticket validity
 router.patch("/", async (req, res) => {
-  if (!req.isAuth) {
-    res.status(401).json({
-      error: "Unauthorized",
-    });
-    return;
-  }
   try {
     await ticketService.updateTicket(req.ticketId);
     res.status(201).json({ message: "Success! The ticket validity has been updated" });
