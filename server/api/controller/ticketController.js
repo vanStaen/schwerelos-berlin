@@ -4,9 +4,25 @@ const { ticketService } = require("../service/ticketService");
 // Get Ticket
 router.get("/", async (req, res) => {
   try {
-    const getTicket = await ticketService.getTicket(req.ticketId);
+    console.log('req.body.ticketId', req.body.ticketId)
+    const getTicket = await ticketService.getTicket(req.body.ticketId);
     res.status(200).json({
       getTicket,
+    });
+  } catch (err) {
+    res.status(400).json({
+      error: `${err}`,
+    });
+  }
+});
+
+
+// Get all Ticket
+router.get("/all", async (req, res) => {
+  try {
+    const getAllTicket = await ticketService.getTickets();
+    res.status(200).json({
+      getAllTicket,
     });
   } catch (err) {
     res.status(400).json({
@@ -33,7 +49,7 @@ router.post("/", async (req, res) => {
 // POST update Ticket validity
 router.patch("/", async (req, res) => {
   try {
-    await ticketService.updateTicket(req.ticketId);
+    await ticketService.updateTicket(req.body.ticketId);
     res.status(201).json({ message: "Success! The ticket validity has been updated" });
   } catch (err) {
     res.status(400).json({

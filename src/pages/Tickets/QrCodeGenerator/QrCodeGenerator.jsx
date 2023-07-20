@@ -21,7 +21,7 @@ export const QrCodeGenerator = (props) => {
             .replace("image/png", "image/octet-stream");
         let aEl = document.createElement("a");
         aEl.href = qrCodeURL;
-        aEl.download = `SchwerelosTicket_${ticketNumberValue}.png`;
+        aEl.download = `schwerelos_ticket_${event}${ticketNumberValue}.png`;
         document.body.appendChild(aEl);
         aEl.click();
         document.body.removeChild(aEl);
@@ -31,7 +31,6 @@ export const QrCodeGenerator = (props) => {
     const saveTicketIdInDatabase = () => {
         //todo api call
     }
-
 
     return (
         <div

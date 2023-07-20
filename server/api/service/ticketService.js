@@ -1,6 +1,13 @@
 const { Ticket } = require('../../models/Ticket');
 
-exports.userService = {
+exports.ticketService = {
+  async getTickets() {
+    return await Ticket.findAll({
+      order: [
+        ['id', 'ASC'],
+      ]
+    })
+  },
 
   async getTicket(ticketId) {
     return await Ticket.findAll({
@@ -28,7 +35,7 @@ exports.userService = {
         { valid: false },
         {
           where: {
-            id: userId
+            uuid: ticketId
           },
           returning: true,
           plain: true
