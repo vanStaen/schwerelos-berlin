@@ -3,6 +3,7 @@ const path = require("path");
 const db = require("./models");
 
 const PORT = process.env.PORT || 5009;
+require("dotenv/config");
 
 // Init Express
 const app = express();
@@ -18,7 +19,7 @@ app.use(express.urlencoded({ extended: false }));
 db.sequelize.sync();
 
 // Router to API endpoints
-app.use("/ticket", require("./api/controller/ticket"));
+app.use("/ticket", require("./api/controller/ticketController"));
 
 
 // Set up for React

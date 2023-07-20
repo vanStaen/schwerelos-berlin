@@ -11,6 +11,8 @@
  * MIT Licensed
  */
 
+/*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/facebook/regenerator/blob/main/LICENSE */
+
 /**
  * @license React
  * react-dom.production.min.js
@@ -39,6 +41,12 @@
  *
  * This source code is licensed under the MIT license found in the
  * LICENSE file in the root directory of this source tree.
+ */
+
+/**
+ * @license qrcode.react
+ * Copyright (c) Paul O'Shannessy
+ * SPDX-License-Identifier: ISC
  */
 
 /**
