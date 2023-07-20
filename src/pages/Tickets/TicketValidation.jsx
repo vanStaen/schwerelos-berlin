@@ -3,5 +3,5 @@ import { useParams } from "react-router-dom";
 
 export const TicketValidation = () => {
   let { ticketId } = useParams();
-  return <>Your ticket UUid number is : {ticketId}</>;
+  return <>Your ticket ID is : {ticketId}</>;
 };

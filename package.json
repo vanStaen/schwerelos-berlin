@@ -38,6 +38,7 @@
     "react-i18next": "^13.0.0",
     "react-router-dom": "^6.13.0",
     "regenerator-runtime": "^0.13.11",
+    "sequelize": "^6.32.1",
     "universal-cookie": "^4.0.4",
     "uuid": "^9.0.0"
   },

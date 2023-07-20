@@ -1,5 +1,6 @@
 const express = require("express");
 const path = require("path");
+const db = require("./models");
 
 const PORT = process.env.PORT || 5009;
 
@@ -12,6 +13,13 @@ app.set("trust proxy", true);
 // Body Parser Middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+
+// Sync sequelize
+db.sequelize.sync();
+
+// Router to API endpoints
+app.use("/ticket", require("./api/controller/ticket"));
+
 
 // Set up for React
 app.use(express.static(path.join(__dirname, "../build")));
