@@ -1,0 +1,96 @@
+{
+	"info": {
+		"_postman_id": "69f602f1-ce90-4298-aa4e-668e3ee141fd",
+		"name": "Schwerelos",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Schwerelos: localhost:5007/ticket",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"ticketId\": \"123\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5009/ticket",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5009",
+					"path": [
+						"ticket"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Schwerelos: localhost:5007/ticket",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"ticketId\": \"123\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5009/ticket",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5009",
+					"path": [
+						"ticket"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Schwerelos: localhost:5007/ticket",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"ticketId\": \"123\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5009/ticket",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5009",
+					"path": [
+						"ticket"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
