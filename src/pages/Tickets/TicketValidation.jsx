@@ -13,16 +13,20 @@ export const TicketValidation = () => {
 
   useEffect(() => {
     const element = document.getElementById("pageTicketContainer");
-    isLoading ? element.style.backgroundColor = "Silver" :
-      isValid ? element.style.backgroundColor = "Lime" : element.style.backgroundColor = "Tomato";
+    isLoading ? element.style.backgroundColor = "Black" :
+      isValid ? element.style.backgroundColor = "LimeGreen" : element.style.backgroundColor = "FireBrick";
   }, [isLoading, isValid])
 
   return (
     <div id="pageTicketContainer" className="pageTicketContainer">
-      <GlitchText overText="Check that" glitchText="Tickets" />
-      {isLoading ?
-        <CustomLoader /> :
-        <div className="ticketContainer">Your ticket ID is : {ticketId}</div>
+      <GlitchText
+        overText={isLoading ? "Checking that" : isValid ? "This ticket is" : "No-no, my friend!"}
+        glitchText={isLoading ? "Ticket" : isValid ? "Valid" : "Error"}
+      />
+      {
+        isLoading ?
+          <CustomLoader /> :
+          <div className="ticketContainer">Your ticket ID is : {ticketId}</div>
       }
     </div>);
 };
