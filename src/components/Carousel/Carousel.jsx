@@ -2,6 +2,12 @@ import React, { useEffect, useState } from 'react';
 
 import './Carousel.less';
 
+/* 
+ressources: 
+https://codepen.io/desandro/pen/wjeBpp
+https://3dtransforms.desandro.com/carousel
+*/
+
 export const Carousel = () => {
     const [selectedFace, setSelectedFace] = useState(1);
     const [radius, setRadius] = useState(null);
@@ -28,7 +34,7 @@ export const Carousel = () => {
 
     return (
         <>
-            <div className="next" onClick={handleNextFaceClick}>next</div>
+            <div className="nextTemp" onClick={handleNextFaceClick}>next</div>
             <div className="scene">
                 <div className="carousel">
                     <div className="carousel__cell">1</div>
