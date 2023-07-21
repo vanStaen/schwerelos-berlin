@@ -1,0 +1,60 @@
+@schwerelos-green: #2BC487;
+@schwerelos-purple: #9F44D9;
+@schwerelos-pink: #F70069;
+
+.qrCodeMainContainer {    
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    position: absolute;
+
+    .qrCodeContainer {
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 600px;
+        width: 600px;
+        border: 2px solid ;
+        background-color: white;
+    }
+
+    .ticketText {
+        font-size: 15px;
+        color: black;
+        letter-spacing: 3px;    }
+
+    .textTop {
+        padding-top: 20px;
+        padding-bottom: 5px;
+        text-shadow: 5px 5px rgba(@schwerelos-green, .3), -5px -5px rgba(@schwerelos-pink, .3);
+      
+    }
+
+    .textBottom {
+        padding-top: 20px;
+        padding-bottom: 5px;
+        rotate: 180deg;
+    }
+
+    .textRight {
+        top: 250px;
+        left: 270px;
+        position: relative;
+        rotate: 90deg;
+    }
+
+    .textLeft {
+        top: -250px;
+        right: 270px;
+        position: relative;
+        rotate: -90deg;;
+    }    
+}
