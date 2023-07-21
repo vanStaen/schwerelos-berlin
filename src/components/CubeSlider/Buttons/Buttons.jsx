@@ -71,13 +71,13 @@ export const Buttons = (props) => {
     <>
       <div className="controls">
         {cubeSliderStore.pagePrev !== null && (
-          <div className="prev" onClick={() => handleControlClick("arrowLeft")}>
+          <div className="prevButtonCube" onClick={() => handleControlClick("arrowLeft")}>
             <span id="arrowLeft" className="arrowLeft" />
           </div>
         )}
         {cubeSliderStore.pageNext !== null && (
           <div
-            className="next"
+            className="nextButtonCube"
             onClick={() => handleControlClick("arrowRight")}
           >
             <span id="arrowRight" className="arrowRight" />
