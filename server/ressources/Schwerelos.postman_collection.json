@@ -2,8 +2,7 @@
 	"info": {
 		"_postman_id": "69f602f1-ce90-4298-aa4e-668e3ee141fd",
 		"name": "Schwerelos",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "9603966"
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
 		{
@@ -39,6 +38,38 @@
 		},
 		{
 			"name": "Schwerelos: localhost:5007/ticket/all",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"ticketId\": \"123\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5009/ticket/all",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5009",
+					"path": [
+						"ticket",
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Schwerelos: localhost:5007/ticket/lastid",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -132,7 +163,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"ticketId\": \"123\"\n}",
+					"raw": "{\n    \"id\": \"16\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"

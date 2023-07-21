@@ -17,6 +17,14 @@ exports.ticketService = {
     })
   },
 
+  async getLastTicketId() {
+     return await Ticket.findAll({
+      limit: 1,
+      order: [ [ 'createdAt', 'DESC' ]],
+      attributes: ['id']
+    })
+  },
+
   async addTicket(ticketId) {
     try {
       const ticket = new Ticket({

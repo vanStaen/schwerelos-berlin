@@ -33,6 +33,20 @@ router.get("/all", async (req, res) => {
   }
 });
 
+// Get all Ticket
+router.get("/lastid", async (req, res) => {
+  try {
+    const getLastTicketId = await ticketService.getLastTicketId();
+    res.status(200).json({
+      getLastTicketId,
+    });
+  } catch (err) {
+    res.status(400).json({
+      error: `${err}`,
+    });
+  }
+});
+
 // POST new Ticket
 router.post("/", async (req, res) => {
   try {

@@ -34,27 +34,32 @@
     .textTop {
         padding-top: 20px;
         padding-bottom: 5px;
-        text-shadow: 5px 5px rgba(@schwerelos-green, .3), -5px -5px rgba(@schwerelos-pink, .3);
-      
+        //text-shadow: 5px 5px rgba(@schwerelos-green, .3), -5px -5px rgba(@schwerelos-pink, .3);
     }
 
     .textBottom {
         padding-top: 20px;
         padding-bottom: 5px;
-        rotate: 180deg;
+        -moz-transform: rotate(180deg);
+        -webkit-transform: rotate(180deg) ;
+        -o-transform: rotate(180deg) ;
     }
 
     .textRight {
         top: 250px;
-        left: 270px;
+        left: 272px;
         position: relative;
-        rotate: 90deg;
+        -moz-transform: rotate(90deg);
+        -webkit-transform: rotate(90deg) ;
+        -o-transform: rotate(90deg) ;
     }
 
     .textLeft {
         top: -250px;
-        right: 270px;
+        right: 272px;
         position: relative;
-        rotate: -90deg;;
+        -moz-transform: rotate(-90deg);
+        -webkit-transform: rotate(-90deg) ;
+        -o-transform: rotate(-90deg) ;
     }    
 }
