@@ -1,12 +1,12 @@
 import React from "react";
 import { observer } from "mobx-react";
 
-import { pageStore } from "../../store/pageStore";
 import { artistStore } from "../../store/artistStore";
+import { GlitchText } from "../../components/GlitchText/GlitchText";
+import { Carousel } from "../../components/Carousel/Carousel";
 
 import meema from "../../img/artists/meema.jpg";
 import vanstaen from "../../img/artists/vanstaen.jpg";
-import { GlitchText } from "../../components/GlitchText/GlitchText";
 
 import "./Artist.less";
 
@@ -22,9 +22,13 @@ export const Artist = observer(() => {
 
   return (
     <div className="artistPageContainer">
+      <div className="background"></div>
+      <div className="backgroundOpacity"></div>
       <div className="artistContainer">
         <GlitchText glitchText="Schwerelos" overText="we are" />
-        {artistPics}
+        <div className="artistCarousel">
+          <Carousel />
+        </div>
       </div>
     </div>
   );

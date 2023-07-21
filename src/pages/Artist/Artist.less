@@ -10,26 +10,45 @@
     scrollbar-width: none;  /* Firefox */
     background-color: @schwerelos-green;
 
+    .background {
+        z-index: 0;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-image: url('../../img/richiBg.jpg'); 
+        background-size: cover;
+        background-attachment: fixed;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;    
+        width: 100vw;
+        height: 100vh;
+    }
+
+    .backgroundOpacity {
+        z-index: 1;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: @schwerelos-green;
+        width: 100vw;
+        height: 100vh;
+        opacity: .25;
+    } 
+
     .artistContainer {
+        z-index: 2;
+        position: relative;
 
-        .artist {
-            width: max(450px, 100vw);
-            padding: 0 0 20px 150px;
-
-            @media all and (max-width: 520px) {
-                padding-left: 30px;
-            }
-
-            &:hover {
-                color: @schwerelos-purple;
-            }            
-            &:hover:nth-child(2n) {
-                color: @schwerelos-pink;
-            }   
-
-            img {
-                max-width: 100%;
-            }
+        .artistCarousel {
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid red;
+            position: relative;
+            top: 15vh; 
         }
     }
 }
