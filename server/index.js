@@ -1,7 +1,8 @@
 const express = require("express");
+const cors = require("cors");
 const path = require("path");
 const db = require("./models");
-const cors = require("cors");
+const redirectTraffic = require("./helpers/redirectTraffic");
 
 const PORT = process.env.PORT || 5009;
 require("dotenv/config");
@@ -11,6 +12,7 @@ const app = express();
 
 // Redirect www trafic to root
 app.set("trust proxy", true);
+app.use(redirectTraffic);
 
 // Allow cross origin request
 app.use(function (req, res, next) {
@@ -25,6 +27,10 @@ app.use(function (req, res, next) {
       origin: [
         "https://www.schwerelos-berlin.com",
         "https://schwerelos-berlin.com",
+        "http://www.schwerelos-berlin.com",
+        "http://schwerelos-berlin.com",
+        "https://schwerelos-4706bfafeb18.herokuapp.com/",
+        "http://schwerelos-4706bfafeb18.herokuapp.com/"
       ],
       credentials: true,
       optionsSuccessStatus: 200,

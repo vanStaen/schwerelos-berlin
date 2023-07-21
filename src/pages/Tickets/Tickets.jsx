@@ -11,7 +11,7 @@ export const Tickets = () => {
     <div className="pageTicketContainer">
       <div className="ticketContainer">
         <GlitchText overText="want some" glitchText="Tickets?" />
-        <QrCodeGenerator route="ticket" event="charityrave" />
+        {/*<QrCodeGenerator route="ticket" event="charityrave"*/}
       </div>
     </div>
   );
