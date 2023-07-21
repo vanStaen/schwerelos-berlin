@@ -21,6 +21,12 @@ router.get("/", async (req, res) => {
 
 // Get all Ticket
 router.get("/all", async (req, res) => {
+  if (process.env.ENVIRONMENT === "production" ) {
+    res.status(401).json({
+      error: "You should not be calling this endpoint on production!",
+    });
+    return;
+  }
   try {
     const getAllTicket = await ticketService.getTickets();
     res.status(200).json({
@@ -35,6 +41,12 @@ router.get("/all", async (req, res) => {
 
 // Get all Ticket
 router.get("/lastid", async (req, res) => {
+  if (process.env.ENVIRONMENT === "production" ) {
+    res.status(401).json({
+      error: "You should not be calling this endpoint on production!",
+    });
+    return;
+  }
   try {
     const getLastTicketId = await ticketService.getLastTicketId();
     res.status(200).json({
@@ -49,6 +61,12 @@ router.get("/lastid", async (req, res) => {
 
 // POST new Ticket
 router.post("/", async (req, res) => {
+  if (process.env.ENVIRONMENT === "production" ) {
+    res.status(401).json({
+      error: "You should not be calling this endpoint on production!",
+    });
+    return;
+  }
   try {
     if (!req.body.ticketId) {
       throw new Error(`No ticketId was provided`);
@@ -79,6 +97,12 @@ router.patch("/", async (req, res) => {
 
 // DELETE Ticket
 router.delete("/", async (req, res) => {
+  if (process.env.ENVIRONMENT === "production" ) {
+    res.status(401).json({
+      error: "You should not be calling this endpoint on production!",
+    });
+    return;
+  }
   try {
     if (!req.body.id) {
       throw new Error(`No id was provided`);

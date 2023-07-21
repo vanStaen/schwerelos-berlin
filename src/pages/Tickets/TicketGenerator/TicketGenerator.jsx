@@ -9,13 +9,17 @@ import "./TicketGenerator.less";
 
 export const TicketGenerator = (props) => {
   const { route, event } = props;
-  const [ticketNumberValue, setTicketNumberValue] = useState(null);
+  const [ticketNumberValue, setTicketNumberValue] = useState(0);
   const [qrCodeValue, setQrCodeValue] = useState(null);
 
   useEffect(() => {
     getLastTicketId()
       .then((lastId) => {
-        setTicketNumberValue(lastId.data.getLastTicketId[0].id);
+        if (lastId.data.getLastTicketId.length === 1) {
+          setTicketNumberValue(lastId.data.getLastTicketId[0].id);
+        } else {
+          setTicketNumberValue(0);
+        }
       })
       .catch(console.error);
   }, []);
@@ -25,10 +29,8 @@ export const TicketGenerator = (props) => {
       return `${ticketNumberValue}`;
     } else if (ticketNumberValue > 9) {
       return `0${ticketNumberValue}`;
-    } else if (ticketNumberValue > 0) {
+    } else if (ticketNumberValue >= 0) {
       return `00${ticketNumberValue}`;
-    } else {
-      return null;
     }
   };
   const handleGenerateButtonClick = () => {
@@ -107,7 +109,7 @@ export const TicketGenerator = (props) => {
     <div className="qrCodeMainContainer">
       <div className="qrCodeContainer" id={"qrCodeGenerated"}>
         <div className="ticketText textTop">
-          Schwerelos Charity <em>low gravity</em> Open-air
+          Schwerelos Charity <em>low gravity</em> rave
         </div>
         <span className="ticketText textRight">www.schwerelos-berlin.com</span>
         <QRCode
