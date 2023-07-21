@@ -8,7 +8,14 @@ export const CharityRave = () => {
   return (
     <div className="pageTicketContainer">
       <div className="ticketContainer">
-        <GlitchText overText="schwerelos presents" glitchText="Charity Rave" />
+        <GlitchText
+          overText={
+            <>
+              schwerelos <em>low gravity</em>
+            </>
+          }
+          glitchText="Charity Rave"
+        />
       </div>
     </div>
   );
