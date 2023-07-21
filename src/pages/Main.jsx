@@ -12,7 +12,7 @@ export const Main = () => {
   const isProduction = process.env.NODE_ENV === "production";
 
   const pages =
-    isProduction && showDev()
+    isProduction && !showDev()
       ? [
           <div key="welcomePage">
             <Welcome />

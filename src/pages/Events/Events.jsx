@@ -91,7 +91,7 @@ export const Events = () => {
       <div className="backgroundOpacity"></div>
       <div className="backgroundDegrade"></div>
       <img src={SaveTheDate} className="imgSavetheDate" />
-      <GlitchText glitchText="Shows" overText="come to our" />
+      <GlitchText glitchText="Shows" overText="our next" />
       <div className="content">
         <div className="title">Upcomming</div>
         <div className="table">{upcommingEventsSortedFormated}</div>
