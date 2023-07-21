@@ -46,10 +46,10 @@ exports.ticketService = {
     }
   },
 
-  async deleteTicket(ticketId, req) {
+  async deleteTicket(id, req) {
     await Ticket.destroy({
       where: {
-        uuid: ticketId
+        id: id
       }
     })
     return true

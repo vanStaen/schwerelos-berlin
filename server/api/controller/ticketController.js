@@ -66,10 +66,10 @@ router.patch("/", async (req, res) => {
 // DELETE Ticket
 router.delete("/", async (req, res) => {
   try {
-    if (!req.body.ticketId) {
-      throw new Error(`No ticketId was provided`);
+    if (!req.body.id) {
+      throw new Error(`No id was provided`);
     }
-    await ticketService.deleteTicket(req.body.ticketId);
+    await ticketService.deleteTicket(req.body.id);
     res.status(201).json({ message: "Success! The ticket has been deleted" });
   } catch (err) {
     res.status(400).json({
