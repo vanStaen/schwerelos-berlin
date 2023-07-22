@@ -20,9 +20,6 @@ export const Main = () => {
           <div key="eventPage">
             <Events />
           </div>,
-          <div key="artistsPage">
-            <Artist />
-          </div>,
         ]
       : [
           <div key="welcomePage">
@@ -44,7 +41,7 @@ export const Main = () => {
 
   return (
     <>
-      <CubeSlider pages={pages} defaultPageIndex={2} />
+      <CubeSlider pages={pages} defaultPageIndex={0} />
     </>
   );
 };
