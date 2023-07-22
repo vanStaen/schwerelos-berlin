@@ -53,11 +53,11 @@ export const Carousel = () => {
     const faceNextNext = document.querySelector(
       `.carousel__cell:nth-child(${getFaceNumber(toNewFace, 2)})`
     );
-    facePrevPrev.style.display = "none";
-    facePrev.style.display = "block";
-    faceSelected.style.display = "block";
-    faceNext.style.display = "block";
-    faceNextNext.style.display = "none";
+    facePrevPrev.style.opacity = 0;
+    facePrev.style.opacity = 1;
+    faceSelected.style.opacity = 1;
+    faceNext.style.opacity = 1;
+    faceNextNext.style.opacity = 0;
   };
 
   const handleFaceChangeClick = (next) => {
