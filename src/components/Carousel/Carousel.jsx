@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 
 import "./Carousel.less";
 
@@ -10,18 +10,49 @@ https://3dtransforms.desandro.com/carousel
 
 export const Carousel = () => {
   const [selectedFace, setSelectedFace] = useState(1);
-  const [radius, setRadius] = useState(null);
+  const [rotationFace, setRotationFace] = useState(0);
+  const [touchStart, setTouchStart] = useState(null);
+  const [touchEnd, setTouchEnd] = useState(null);
+  const radius = useRef(null);
+  const throttling = useRef(false);
   const numberOfFace = 8;
   const theta = 360 / numberOfFace;
+  const minSwipeDistance = 50;
 
   useEffect(() => {
     const carousel = document.querySelector(".carousel");
     const cellSize = carousel.offsetHeight;
-    setRadius(Math.round(cellSize / 2 / Math.tan(Math.PI / numberOfFace)));
+    radius.current = Math.round(
+      cellSize / 2 / Math.tan(Math.PI / numberOfFace)
+    );
   }, []);
 
+  const onTouchStart = (e) => {
+    setTouchEnd(null);
+    setTouchStart(e.targetTouches[0].clientY);
+  };
+
+  const onTouchMove = (e) => setTouchEnd(e.targetTouches[0].clientY);
+
+  const onTouchEnd = () => {
+    if (!touchStart || !touchEnd) return;
+    const distance = touchStart - touchEnd;
+    const isUpSwipe = distance > minSwipeDistance;
+    const isDownSwipe = distance < -minSwipeDistance;
+    if (throttling.current === false) {
+      throttling.current = true;
+      if (isUpSwipe) {
+        handleFaceChange(false);
+      } else if (isDownSwipe) {
+        handleFaceChange(true);
+      }
+      setTimeout(() => {
+        throttling.current = false;
+      }, 250);
+    }
+  };
+
   const getFaceNumber = (faceSelected, moveFromSelected) => {
-    console.log(faceSelected, moveFromSelected);
     if (faceSelected + moveFromSelected < 1) {
       return numberOfFace + (faceSelected + moveFromSelected);
     } else if (faceSelected + moveFromSelected > 8) {
@@ -31,12 +62,17 @@ export const Carousel = () => {
     }
   };
 
-  const rotateCarousel = (toNewFace) => {
-    console.log("toNewFace", toNewFace);
+  const rotateCarousel = (toNewFace, toNewRotation) => {
     const carousel = document.querySelector(".carousel");
-    const angle = theta * (toNewFace - 1) * -1;
+    const angle = theta * toNewRotation * -1;
     carousel.style.transform =
-      "translateZ(" + -radius + "px) " + "rotateX" + "(" + angle + "deg)";
+      "translateZ(" +
+      -radius.current +
+      "px) " +
+      "rotateX" +
+      "(" +
+      angle +
+      "deg)";
 
     const facePrevPrev = document.querySelector(
       `.carousel__cell:nth-child(${getFaceNumber(toNewFace, -2)})`
@@ -60,27 +96,97 @@ export const Carousel = () => {
     faceNextNext.style.opacity = 0;
   };
 
-  const handleFaceChangeClick = (next) => {
+  useEffect(() => {
+    const facePrevPrev = document.querySelector(
+      `.carousel__cell:nth-child(${getFaceNumber(selectedFace, -2)})`
+    );
+    const facePrev = document.querySelector(
+      `.carousel__cell:nth-child(${getFaceNumber(selectedFace, -1)})`
+    );
+    const faceNext = document.querySelector(
+      `.carousel__cell:nth-child(${getFaceNumber(selectedFace, 1)})`
+    );
+    const faceNextNext = document.querySelector(
+      `.carousel__cell:nth-child(${getFaceNumber(selectedFace, 2)})`
+    );
+    facePrevPrev.onclick = null;
+    facePrev.onclick = () => {
+      handleFaceChange(false);
+    };
+    faceNext.onclick = () => {
+      handleFaceChange(true);
+    };
+    faceNextNext.onclick = null;
+  }, [selectedFace, rotationFace]);
+
+  const handleFaceChange = (next) => {
     if (next) {
       const nextFace = getFaceNumber(selectedFace, 1);
+      const nextRotation = rotationFace + 1;
       setSelectedFace(nextFace);
-      rotateCarousel(nextFace);
+      setRotationFace(nextRotation);
+      rotateCarousel(nextFace, nextRotation);
     } else {
       const prevFace = getFaceNumber(selectedFace, -1);
+      const prevRotation = rotationFace - 1;
       setSelectedFace(prevFace);
-      rotateCarousel(prevFace);
+      setRotationFace(prevRotation);
+      rotateCarousel(prevFace, prevRotation);
     }
   };
 
+  const keyDownHandler = (event) => {
+    //event.preventDefault();
+    const keyPressed = event.key.toLowerCase();
+    if (throttling.current === false) {
+      throttling.current = true;
+      if (keyPressed === "arrowup") {
+        handleFaceChange(true);
+      } else if (keyPressed === "arrowdown") {
+        handleFaceChange(false);
+      }
+      setTimeout(() => {
+        throttling.current = false;
+      }, 250);
+    }
+  };
+
+  const wheelHandler = (event) => {
+    if (throttling.current === false) {
+      throttling.current = true;
+      if (event.deltaY > 0) {
+        handleFaceChange(false);
+      } else if (event.deltaY < 0) {
+        handleFaceChange(true);
+      }
+      setTimeout(() => {
+        throttling.current = false;
+      }, 1000);
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener("keydown", keyDownHandler);
+    document.addEventListener("wheel", wheelHandler);
+    return () => {
+      document.removeEventListener("keydown", keyDownHandler);
+      document.removeEventListener("wheel", wheelHandler);
+    };
+  }, [keyDownHandler]);
+
   return (
-    <>
-      <div className="nextTemp" onClick={() => handleFaceChangeClick(true)}>
-        next
-      </div>
-      <div className="prevTemp" onClick={() => handleFaceChangeClick(false)}>
-        prev
-      </div>
-      <div className="scene">
+    <div
+      className="carouselContainer"
+      onTouchStart={onTouchStart}
+      onTouchMove={onTouchMove}
+      onTouchEnd={onTouchEnd}
+    >
+      <div
+        className="scene"
+        onTouchStart={onTouchStart}
+        onTouchMove={onTouchMove}
+        onTouchEnd={onTouchEnd}
+      >
         <div className="carousel">
           <div className="carousel__cell">1</div>
           <div className="carousel__cell">2</div>
@@ -92,6 +198,6 @@ export const Carousel = () => {
           <div className="carousel__cell">8</div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
