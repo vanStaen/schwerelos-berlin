@@ -1,19 +1,17 @@
-@glitch-title-height: 100px;
 @schwerelos-green: #2BC487;
 @schwerelos-purple: #9F44D9;
 @schwerelos-pink: #F70069;
 
 .glitch {
     z-index: 3;
-    position: relative;
+    position: absolute;
+    top: 50px;
+    right: 50px;
     text-align: right;
-    margin-top: 50px;
-    margin-right: 60px;
-    height: @glitch-title-height;
               
     @media all and (max-width: 520px) {
-      margin-top: 20px;
-      margin-right: 20px;
+      top: 20px;
+      right: 20px;
     }
 
     .overText{
