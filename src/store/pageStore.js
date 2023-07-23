@@ -5,7 +5,7 @@ const cookies = new Cookies();
 
 export class PageStore {
 
-  selectedArtistId = null;  
+  selectedArtistId = 0;  
   language = navigator.language || navigator.userLanguage;
   //showSwipe = cookies.get('showSwipe');
   showSwipe = true;

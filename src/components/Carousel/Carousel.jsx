@@ -1,5 +1,7 @@
 import React, { useEffect, useState, useRef } from "react";
 
+import { pageStore } from "../../store/pageStore";
+
 import "./Carousel.less";
 
 /* 
@@ -109,9 +111,9 @@ export const Carousel = (props) => {
       `.carousel__cell:nth-child(${getFaceNumber(toNewFace, 2)})`
     );
     facePrevPrev.style.opacity = 0;
-    facePrev.style.opacity = 0.3;
+    facePrev.style.opacity = 0.5;
     faceSelected.style.opacity = 1;
-    faceNext.style.opacity = 0.3;
+    faceNext.style.opacity = 0.5;
     faceNextNext.style.opacity = 0;
   };
 
@@ -145,12 +147,14 @@ export const Carousel = (props) => {
       setSelectedFace(nextFace);
       setRotationFace(nextRotation);
       rotateCarousel(nextFace, nextRotation);
+      pageStore.setSelectedArtistId(nextFace - 1); //because array index
     } else {
       const prevFace = getFaceNumber(selectedFace, -1);
       const prevRotation = rotationFace - 1;
       setSelectedFace(prevFace);
       setRotationFace(prevRotation);
       rotateCarousel(prevFace, prevRotation);
+      pageStore.setSelectedArtistId(prevFace - 1); //because array index
     }
   };
 

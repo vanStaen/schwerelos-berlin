@@ -1,4 +1,4 @@
-import { makeObservable, observable } from "mobx";
+import { makeObservable, observable, action } from "mobx";
 
 export class ArtistStore {
 
@@ -12,6 +12,7 @@ export class ArtistStore {
     { name: 'Sommersonnenwende', bio: "", pics: "", links: "" },
     { name: 'van Staen', bio: { en: '', de: '' }, pics: { small: 'vanstaen.jpg' }, links: { insta: '', ra: '', soundcloud: '', spotify: '' } },
   ];
+
 
   constructor() {
     makeObservable(this, {

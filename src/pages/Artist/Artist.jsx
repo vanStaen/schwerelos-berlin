@@ -2,6 +2,7 @@ import React from "react";
 import { observer } from "mobx-react";
 
 import { artistStore } from "../../store/artistStore";
+import { pageStore } from "../../store/pageStore";
 import { GlitchText } from "../../components/GlitchText/GlitchText";
 import { Carousel } from "../../components/Carousel/Carousel";
 
@@ -36,7 +37,9 @@ export const Artist = observer(() => {
       <div className="background"></div>
       <div className="backgroundOpacity"></div>
       <div className="artistContainer">
-        <GlitchText glitchText="Schwerelos" overText="we are" />
+        <GlitchText
+          glitchText={artistStore.artists[pageStore.selectedArtistId].name}
+        />
         <div className="artistCarousel">
           <Carousel faces={artistProfile} />
         </div>
