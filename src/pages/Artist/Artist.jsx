@@ -12,25 +12,13 @@ import vanstaen from "../../img/artists/vanstaen.jpg";
 import "./Artist.less";
 
 export const Artist = observer(() => {
-  /* const artistProfile = artistStore.artists.map((artist) => {
+  const artistProfile = artistStore.artists.map((artist) => {
     return (
-      <div className="artist">
-        {artist.name}
-        {<img src={meema} alt={artist.name} />}
+      <div className="artist" id={`div_${artist.name}`}>
+        <div className="artistName">{artist.name}</div>
       </div>
     );
-  }); */
-
-  const artistProfile = [
-    <div className="artist">1</div>,
-    <div className="artist">2</div>,
-    <div className="artist">3</div>,
-    <div className="artist">4</div>,
-    <div className="artist">5</div>,
-    <div className="artist">6</div>,
-    <div className="artist">7</div>,
-    <div className="artist">8</div>,
-  ];
+  });
 
   return (
     <div className="artistPageContainer">
@@ -39,6 +27,7 @@ export const Artist = observer(() => {
       <div className="artistContainer">
         <GlitchText
           glitchText={artistStore.artists[pageStore.selectedArtistId].name}
+          overText="schwerelos is"
         />
         <div className="artistCarousel">
           <Carousel faces={artistProfile} />

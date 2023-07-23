@@ -111,10 +111,15 @@ export const Carousel = (props) => {
       `.carousel__cell:nth-child(${getFaceNumber(toNewFace, 2)})`
     );
     facePrevPrev.style.opacity = 0;
-    facePrev.style.opacity = 0.5;
+    facePrevPrev.style.cursor = "default";
+    facePrev.style.opacity = 0.7;
+    facePrev.style.cursor = "pointer";
     faceSelected.style.opacity = 1;
-    faceNext.style.opacity = 0.5;
+    faceSelected.style.cursor = "default";
+    faceNext.style.opacity = 0.7;
+    faceNext.style.cursor = "pointer";
     faceNextNext.style.opacity = 0;
+    faceNextNext.style.cursor = "default";
   };
 
   useEffect(() => {
