@@ -19,13 +19,31 @@ export const Carousel = () => {
   const theta = 360 / numberOfFace;
   const minSwipeDistance = 50;
 
+  const defineTranslateZCarousel = () => {
+    console.log("run");
+    var scene = document.querySelector(".scene");
+    const sceneHeight = scene.offsetHeight;
+    const tan = Math.tan(((360 / (numberOfFace * 2)) * Math.PI) / 180);
+    const translateZ = sceneHeight / 2 / tan;
+    console.log("translateZ", translateZ);
+    scene.style.setProperty("--translateZ", `${translateZ}px`);
+  };
+
   useEffect(() => {
     const carousel = document.querySelector(".carousel");
     const cellSize = carousel.offsetHeight;
     radius.current = Math.round(
       cellSize / 2 / Math.tan(Math.PI / numberOfFace)
     );
+    defineTranslateZCarousel();
   }, []);
+
+  useEffect(() => {
+    window.addEventListener("resize", defineTranslateZCarousel);
+    return () => {
+      window.removeEventListener("resize", defineTranslateZCarousel);
+    };
+  }, [defineTranslateZCarousel]);
 
   const onTouchStart = (e) => {
     setTouchEnd(null);
@@ -90,9 +108,9 @@ export const Carousel = () => {
       `.carousel__cell:nth-child(${getFaceNumber(toNewFace, 2)})`
     );
     facePrevPrev.style.opacity = 0;
-    facePrev.style.opacity = 1;
+    facePrev.style.opacity = 0.3;
     faceSelected.style.opacity = 1;
-    faceNext.style.opacity = 1;
+    faceNext.style.opacity = 0.3;
     faceNextNext.style.opacity = 0;
   };
 
