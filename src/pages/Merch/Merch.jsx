@@ -7,6 +7,7 @@ import "./Merch.less";
 export const Merch = observer(() => {
   return (
     <div className="pageMerchContainer">
+      <div className="backgroundOpacity"></div>
       <div className="merchContainer">
         <GlitchText glitchText="Merch" overText="come get some" />
       </div>
