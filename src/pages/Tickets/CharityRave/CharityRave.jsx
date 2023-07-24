@@ -1,13 +1,13 @@
 import React from "react";
 
-import { GlitchText } from "../../components/GlitchText/GlitchText";
+import { GlitchText } from "../../../components/GlitchText/GlitchText";
 
-import "./Tickets.less";
+import "./CharityRave.less";
 
 export const CharityRave = () => {
   return (
-    <div className="pageTicketContainer">
-      <div className="ticketContainer">
+    <div className="pageRaveContainer">
+      <div className="raveContainer">
         <GlitchText
           overText={
             <>

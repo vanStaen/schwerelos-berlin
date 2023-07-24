@@ -10,8 +10,8 @@
     text-align: right;
               
     @media all and (max-width: 520px) {
-      top: 20px;
-      right: 20px;
+      top: 15px;
+      right: 30px;
     }
 
     .overText{
@@ -21,6 +21,9 @@
         letter-spacing: 2px;
         font-size: 1rem;
         text-transform: lowercase;
+        @media all and (max-width: 520px) {
+          font-size: .7rem;
+        }
     }
 
     .glitchText {
@@ -40,6 +43,9 @@
         --clip-bottom: calc(var(--stack-height) * var(--inverse-index));
         clip-path: inset(var(--clip-top) 0 var(--clip-bottom) 0);
         animation: stack 750ms cubic-bezier(.46,.29,0,1.24) 1 backwards calc(var(--index) * 120ms), glitch 2s ease infinite 1s alternate-reverse;
+        @media all and (max-width: 520px) {
+          font-size: 1.3rem;
+        }
       }
       
       .glitchText span:nth-child(odd) { --glitch-translate: 8px; }

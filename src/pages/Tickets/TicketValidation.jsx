@@ -4,7 +4,7 @@ import { CheckOutlined, CloseOutlined } from "@ant-design/icons";
 
 import { GlitchText } from "../../components/GlitchText/GlitchText";
 import { CustomLoader } from "../../components/CustomLoader/CustomLoader";
-import { CharityRave } from "./CharityRave";
+import { CharityRave } from "./CharityRave/CharityRave";
 
 import "./Tickets.less";
 

@@ -3,6 +3,7 @@ import React, { useEffect, useState, useRef } from "react";
 import { pageStore } from "../../store/pageStore";
 
 import "./Carousel.less";
+import { doc } from "prettier";
 
 /* 
 ressources: 
@@ -24,7 +25,7 @@ export const Carousel = (props) => {
 
   const defineTranslateZCarousel = () => {
     var scene = document.querySelector(".scene");
-    const sceneHeight = scene.offsetHeight;
+    const sceneHeight = scene.offsetHeight + 35;
     const tan = Math.tan(((360 / (numberOfFace * 2)) * Math.PI) / 180);
     const translateZ = sceneHeight / 2 / tan;
     scene.style.setProperty("--translateZ", `${translateZ}px`);
@@ -40,7 +41,7 @@ export const Carousel = (props) => {
     setTimeout(() => {
       carousel.style.transition = "transform 1s";
       for (let element of carouselCell) {
-        element.style.transition = "transform 1s, opacity 1s";
+        element.style.transition = "transform 1s, opacity .5s";
       }
     }, 250);
     defineTranslateZCarousel();
@@ -117,12 +118,12 @@ export const Carousel = (props) => {
     );
     facePrevPrev.style.opacity = 0;
     facePrevPrev.style.cursor = "default";
-    facePrev.style.opacity = 0.7;
-    facePrev.style.cursor = "pointer";
+    facePrev.style.opacity = 0.5;
+    facePrev.style.cursor = "s-resize";
     faceSelected.style.opacity = 1;
     faceSelected.style.cursor = "default";
-    faceNext.style.opacity = 0.7;
-    faceNext.style.cursor = "pointer";
+    faceNext.style.opacity = 0.5;
+    faceNext.style.cursor = "n-resize";
     faceNextNext.style.opacity = 0;
     faceNextNext.style.cursor = "default";
   };
@@ -207,30 +208,108 @@ export const Carousel = (props) => {
     };
   }, [keyDownHandler]);
 
+  const handleMouseOver = (id) => {
+    const faceId = parseInt(id.slice(-1), 10);
+    const nextFace = getFaceNumber(selectedFace, +1);
+    const prevFace = getFaceNumber(selectedFace, -1);
+    if (faceId === nextFace || faceId === prevFace) {
+      const element = document.getElementById(id);
+      element.style.opacity = ".8";
+    }
+  };
+
+  const handleMouseOut = (id) => {
+    const faceId = parseInt(id.slice(-1), 10);
+    const nextFace = getFaceNumber(selectedFace, +1);
+    const prevFace = getFaceNumber(selectedFace, -1);
+    if (faceId === nextFace || faceId === prevFace) {
+      const element = document.getElementById(id);
+      element.style.opacity = ".5";
+    }
+  };
+
   return (
-    <div
-      className="carouselContainer"
-      onTouchStart={onTouchStart}
-      onTouchMove={onTouchMove}
-      onTouchEnd={onTouchEnd}
-    >
+    <>
       <div
-        className="scene"
+        className="carouselContainer"
         onTouchStart={onTouchStart}
         onTouchMove={onTouchMove}
         onTouchEnd={onTouchEnd}
       >
-        <div className="carousel">
-          <div className="carousel__cell">{faces[0]}</div>
-          <div className="carousel__cell">{faces[1]}</div>
-          <div className="carousel__cell">{faces[2]}</div>
-          <div className="carousel__cell">{faces[3]}</div>
-          <div className="carousel__cell">{faces[4]}</div>
-          <div className="carousel__cell">{faces[5]}</div>
-          <div className="carousel__cell">{faces[6]}</div>
-          <div className="carousel__cell">{faces[7]}</div>
+        <div
+          className="scene"
+          onTouchStart={onTouchStart}
+          onTouchMove={onTouchMove}
+          onTouchEnd={onTouchEnd}
+        >
+          <div className="carousel">
+            <div
+              id="face1"
+              className="carousel__cell"
+              onMouseOver={() => handleMouseOver("face1")}
+              onMouseOut={() => handleMouseOut("face1")}
+            >
+              {faces[0]}
+            </div>
+            <div
+              id="face2"
+              className="carousel__cell"
+              onMouseOver={() => handleMouseOver("face2")}
+              onMouseOut={() => handleMouseOut("face2")}
+            >
+              {faces[7]}
+            </div>
+            <div
+              id="face3"
+              className="carousel__cell"
+              onMouseOver={() => handleMouseOver("face3")}
+              onMouseOut={() => handleMouseOut("face3")}
+            >
+              {faces[6]}
+            </div>
+            <div
+              id="face4"
+              className="carousel__cell"
+              onMouseOver={() => handleMouseOver("face4")}
+              onMouseOut={() => handleMouseOut("face4")}
+            >
+              {faces[5]}
+            </div>
+            <div
+              id="face5"
+              className="carousel__cell"
+              onMouseOver={() => handleMouseOver("face5")}
+              onMouseOut={() => handleMouseOut("face5")}
+            >
+              {faces[4]}
+            </div>
+            <div
+              id="face6"
+              className="carousel__cell"
+              onMouseOver={() => handleMouseOver("face6")}
+              onMouseOut={() => handleMouseOut("face6")}
+            >
+              {faces[3]}
+            </div>
+            <div
+              id="face7"
+              className="carousel__cell"
+              onMouseOver={() => handleMouseOver("face7")}
+              onMouseOut={() => handleMouseOut("face7")}
+            >
+              {faces[2]}
+            </div>
+            <div
+              id="face8"
+              className="carousel__cell"
+              onMouseOver={() => handleMouseOver("face8")}
+              onMouseOut={() => handleMouseOut("face8")}
+            >
+              {faces[1]}
+            </div>
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
