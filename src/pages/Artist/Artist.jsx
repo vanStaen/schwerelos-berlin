@@ -12,6 +12,9 @@ import ResidentAdvisorLogo from "../../img/logos/residentAdvisorLogo.png";
 import SoundcloudLogo from "../../img/logos/soundcloudLogo.png";
 import meema from "../../img/artists/meema.jpg";
 import vanstaen from "../../img/artists/vanstaen.jpg";
+import b0ys_cry from "../../img/artists/b0ys_cry.jpg";
+import nostique from "../../img/artists/nostique.jpg";
+import johanneshillmer from "../../img/artists/johanneshillmer.jpg";
 
 import "./Artist.less";
 
@@ -23,6 +26,15 @@ export const Artist = observer(() => {
     //vanStaen
     const vanstaenElement = document.getElementById(`div_vanstaen`);
     vanstaenElement.style.backgroundImage = `url(${vanstaen})`;
+    //b0ys_cry
+    const b0ys_cryElement = document.getElementById(`div_b0ys_cry`);
+    b0ys_cryElement.style.backgroundImage = `url(${b0ys_cry})`;
+    //nostique
+    const nostiqueElement = document.getElementById(`div_nostique`);
+    nostiqueElement.style.backgroundImage = `url(${nostique})`;
+    //vanStaen
+    const jhElement = document.getElementById(`div_johanneshillmer`);
+    jhElement.style.backgroundImage = `url(${johanneshillmer})`;
   }, []);
 
   const artistProfile = artistStore.artists.map((artist, index) => {
