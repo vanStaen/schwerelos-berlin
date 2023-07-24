@@ -23,21 +23,26 @@ export const Carousel = (props) => {
   const { faces } = props;
 
   const defineTranslateZCarousel = () => {
-    console.log("run");
     var scene = document.querySelector(".scene");
     const sceneHeight = scene.offsetHeight;
     const tan = Math.tan(((360 / (numberOfFace * 2)) * Math.PI) / 180);
     const translateZ = sceneHeight / 2 / tan;
-    console.log("translateZ", translateZ);
     scene.style.setProperty("--translateZ", `${translateZ}px`);
   };
 
   useEffect(() => {
     const carousel = document.querySelector(".carousel");
+    const carouselCell = document.getElementsByClassName("carousel__cell");
     const cellSize = carousel.offsetHeight;
     radius.current = Math.round(
       cellSize / 2 / Math.tan(Math.PI / numberOfFace)
     );
+    setTimeout(() => {
+      carousel.style.transition = "transform 1s";
+      for (let element of carouselCell) {
+        element.style.transition = "transform 1s, opacity 1s";
+      }
+    }, 250);
     defineTranslateZCarousel();
   }, []);
 

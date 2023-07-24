@@ -8,7 +8,7 @@
     width: 100vw;
     -ms-overflow-style: none;  /* IE and Edge */
     scrollbar-width: none;  /* Firefox */
-    background-color: @schwerelos_green;
+    background-image: linear-gradient(to bottom left, darken(@schwerelos_green, 800%), @schwerelos_green);
 
     .background {
         z-index: 0;
@@ -55,10 +55,8 @@
 
             .artist { 
                 box-sizing: border-box;
-                border-top: 10px solid @schwerelos_green;
-                border-bottom: 10px solid @schwerelos_green;
-                width: 75vw;
-                height: 55vh;
+                width: calc(75vw - 20px);
+                height: calc(55vh - 20px);
                 background-image: url('../../img/meemaBg.jpg'); 
                 background-size: cover;
                 background-attachment: fixed;

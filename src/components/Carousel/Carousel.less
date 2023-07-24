@@ -13,6 +13,7 @@
     left: 0;
     position: absolute;
 
+
     .scene {  
         z-index: 2;
         --translateZ : @scene_width;
@@ -28,16 +29,17 @@
             position: absolute;
             transform: translateZ(calc(var(--translateZ) * -1));
             transform-style: preserve-3d;
-            transition: transform 1s;
+            transition: none;
 
             .carousel__cell {
                 position: absolute;
-                width: @scene_width;
-                height: @scene_height;
+                width: calc(@scene_width - 20px);
+                height: calc(@scene_height - 20px);
                 left: 0;
                 top: 0;
-                transition: transform 1s, opacity 1s;
+                transition: none;
             }
+
 
             //.carousel__cell:nth-child(9n+1) { background: hsla(  0, 100%, 50%, 0.8); }
             //.carousel__cell:nth-child(9n+2) { background: hsla( 40, 100%, 50%, 0.8); }
