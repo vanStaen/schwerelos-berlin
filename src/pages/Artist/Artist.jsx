@@ -29,14 +29,14 @@ export const Artist = observer(() => {
     const handleMouseOver = () => {
       const social = document.getElementById(`social_${index}`);
       const bio = document.getElementById(`bio_${index}`);
-      //social.style.display = "block";
-      //bio.style.display = "block";
+      social.style.display = "block";
+      bio.style.display = "block";
     };
     const handleMouseOut = () => {
       const social = document.getElementById(`social_${index}`);
       const bio = document.getElementById(`bio_${index}`);
-      //social.style.display = "none";
-      //bio.style.display = "none";
+      social.style.display = "none";
+      bio.style.display = "none";
     };
 
     return (
@@ -47,10 +47,8 @@ export const Artist = observer(() => {
         onMouseOut={handleMouseOut}
       >
         <div id={`bio_${index}`} className="artistBio">
-          <div>
-            <b>{artist.name}</b>
-          </div>
-          <span>{artist.name}</span>
+          <span className="artistBioTitle">{artist.name}</span>
+          <span className="artistBioMain">{artist.bio.en}</span>
         </div>
         <div id={`social_${index}`} className="artistSocial">
           <div className="artistLink">
