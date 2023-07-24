@@ -257,7 +257,7 @@ export const Carousel = (props) => {
               onMouseOver={() => handleMouseOver("face2")}
               onMouseOut={() => handleMouseOut("face2")}
             >
-              {faces[7]}
+              {faces[1]}
             </div>
             <div
               id="face3"
@@ -265,7 +265,7 @@ export const Carousel = (props) => {
               onMouseOver={() => handleMouseOver("face3")}
               onMouseOut={() => handleMouseOut("face3")}
             >
-              {faces[6]}
+              {faces[2]}
             </div>
             <div
               id="face4"
@@ -273,7 +273,7 @@ export const Carousel = (props) => {
               onMouseOver={() => handleMouseOver("face4")}
               onMouseOut={() => handleMouseOut("face4")}
             >
-              {faces[5]}
+              {faces[3]}
             </div>
             <div
               id="face5"
@@ -289,7 +289,7 @@ export const Carousel = (props) => {
               onMouseOver={() => handleMouseOver("face6")}
               onMouseOut={() => handleMouseOut("face6")}
             >
-              {faces[3]}
+              {faces[5]}
             </div>
             <div
               id="face7"
@@ -297,7 +297,7 @@ export const Carousel = (props) => {
               onMouseOver={() => handleMouseOver("face7")}
               onMouseOut={() => handleMouseOut("face7")}
             >
-              {faces[2]}
+              {faces[6]}
             </div>
             <div
               id="face8"
@@ -305,7 +305,7 @@ export const Carousel = (props) => {
               onMouseOver={() => handleMouseOver("face8")}
               onMouseOut={() => handleMouseOut("face8")}
             >
-              {faces[1]}
+              {faces[7]}
             </div>
           </div>
         </div>

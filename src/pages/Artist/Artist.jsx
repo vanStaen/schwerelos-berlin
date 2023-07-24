@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { observer } from "mobx-react";
 import { Tooltip } from "antd";
 
@@ -10,33 +10,49 @@ import { Carousel } from "../../components/Carousel/Carousel";
 import InstaLogo from "../../img/logos/instaLogo.png";
 import ResidentAdvisorLogo from "../../img/logos/residentAdvisorLogo.png";
 import SoundcloudLogo from "../../img/logos/soundcloudLogo.png";
+import meema from "../../img/artists/meema.jpg";
+import vanstaen from "../../img/artists/vanstaen.jpg";
 
 import "./Artist.less";
 
 export const Artist = observer(() => {
-  const artistProfile = artistStore.artists.map((artist) => {
-    /*const handleMouseOver = (id) => {
-      console.log("Here", id);
-      const element = document.getElementById(id);
-      element.style.display = "block";
+  useEffect(() => {
+    //Meema
+    const meemaElement = document.getElementById(`div_meema`);
+    meemaElement.style.backgroundImage = `url(${meema})`;
+    //vanStaen
+    const vanstaenElement = document.getElementById(`div_vanstaen`);
+    vanstaenElement.style.backgroundImage = `url(${vanstaen})`;
+  }, []);
+
+  const artistProfile = artistStore.artists.map((artist, index) => {
+    const handleMouseOver = () => {
+      const social = document.getElementById(`social_${index}`);
+      const bio = document.getElementById(`bio_${index}`);
+      //social.style.display = "block";
+      //bio.style.display = "block";
     };
-    const handleMouseOut = (id) => {
-      console.log("Here", id);
-      const element = document.getElementById(id);
-      element.style.display = "none";
-    };*/
+    const handleMouseOut = () => {
+      const social = document.getElementById(`social_${index}`);
+      const bio = document.getElementById(`bio_${index}`);
+      //social.style.display = "none";
+      //bio.style.display = "none";
+    };
+
     return (
       <div
-        id={`div_${artist.name}`}
+        id={`div_${artist.name.replace(/ /g, "").toLowerCase()}`}
         className="artist"
-        /*onMouseOver={() => {
-        handleMouseOver(`social_${artist.name}`);
-        }}
-        onMouseOut={() => {
-          handleMouseOut(`social_${artist.name}`);
-        }}*/
+        onMouseOver={handleMouseOver}
+        onMouseOut={handleMouseOut}
       >
-        <div id={`social_${artist.name}`} className="artistSocial">
+        <div id={`bio_${index}`} className="artistBio">
+          <div>
+            <b>{artist.name}</b>
+          </div>
+          <span>{artist.name}</span>
+        </div>
+        <div id={`social_${index}`} className="artistSocial">
           <div className="artistLink">
             <Tooltip title="Resident Advisor">
               <a href="https://ra.co/labels/21798" target="_blank">
@@ -62,7 +78,7 @@ export const Artist = observer(() => {
             </Tooltip>
           </div>
         </div>
-        {/*<div className="artistName">{artist.name}</div>*/}
+        {/*<div className="artistFooter">{artist.name}</div>*/}
       </div>
     );
   });

@@ -3,14 +3,14 @@ import { makeObservable, observable, action } from "mobx";
 export class ArtistStore {
 
   artists = [
-    { name: 'b0ys_cry', bio: "", pics: "", links: "" },
-    { name: 'Johannes Hillmer', bio: "", pics: "", links: "" },
-    { name: 'Lukas Edler', bio: "", pics: "", links: { soundcloud: "https://soundcloud.com/stuntrising" } },
-    { name: 'MEEMA', bio: "", pics: { small: 'meema.jpg' }, links: "" },
-    { name: 'Missing DJ', bio: "", pics: { small: '' }, links: "" },
-    { name: 'Nostique', bio: "", pics: "", links: "" },
-    { name: 'Sommersonnenwende', bio: "", pics: "", links: "" },
-    { name: 'van Staen', bio: { en: '', de: '' }, pics: { small: 'vanstaen.jpg' }, links: { insta: '', ra: '', soundcloud: '', spotify: '' } },
+    { name: 'MEEMA', bio: "", links: "" },
+    { name: 'Lukas Edler', bio: "", links: { soundcloud: "https://soundcloud.com/stuntrising" } },
+    { name: 'Johannes Hillmer', bio: "", links: "" },
+    { name: 'b0ys_cry', bio: "", links: "" },
+    { name: 'van Staen', bio: { en: '', de: '' }, links: { insta: '', ra: '', soundcloud: '', spotify: '' } }, 
+    { name: 'Sommersonnenwende', bio: "", links: "" },
+    { name: 'Nostique', bio: "", links: "" },
+    { name: 'Missing DJ', bio: "", links: "" },
   ];
 
 
