@@ -18,6 +18,7 @@ import nostique from "../../img/artists/nostique.jpg";
 import johanneshillmer from "../../img/artists/johanneshillmer.jpg";
 import lukasedler from "../../img/artists/lukasedler.jpg";
 import sommersonnenwende from "../../img/artists/sommersonnenwende.jpg";
+import swipe from "../../img/logos/swipe.png";
 
 import "./Artist.less";
 
@@ -107,6 +108,9 @@ export const Artist = observer(() => {
 
   return (
     <div className="artistPageContainer">
+      {pageStore.showSwipeArtist && (
+        <img className="swipeArtist" src={swipe} alt="Swipe up & down" />
+      )}
       <div className="backgroundOpacity"></div>
       <div className="artistContainer">
         <GlitchText

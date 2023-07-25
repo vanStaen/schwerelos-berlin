@@ -75,6 +75,7 @@ export const Carousel = (props) => {
       } else if (isDownSwipe) {
         handleFaceChange(true);
       }
+      pageStore.showSwipeArtist && pageStore.setShowSwipeArtist(false);
       setTimeout(() => {
         throttling.current = false;
       }, 250);

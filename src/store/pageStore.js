@@ -9,6 +9,7 @@ export class PageStore {
   language = navigator.language || navigator.userLanguage;
   //showSwipe = cookies.get('showSwipe');
   showSwipe = true;
+  showSwipeArtist = true;
 
   constructor() {
     makeObservable(this, {
@@ -18,6 +19,8 @@ export class PageStore {
       setLanguage: action,
       showSwipe: observable,
       setShowSwipe: action,
+      showSwipeArtist: observable,
+      setShowSwipeArtist: action,
     });
   }
 
@@ -32,6 +35,13 @@ export class PageStore {
   setShowSwipe = (showSwipe) => {
     this.showSwipe = showSwipe;
     if (showSwipe === false) {
+      //cookies.set('showSwipe', showSwipe, { path: '/' });
+    }
+  };
+
+  setShowSwipeArtist = (showSwipeArtist) => {
+    this.showSwipeArtist = showSwipeArtist;
+    if (showSwipeArtist === false) {
       //cookies.set('showSwipe', showSwipe, { path: '/' });
     }
   };

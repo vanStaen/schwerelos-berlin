@@ -11,6 +11,21 @@
     background-color: @schwerelos_green;
     background-image: linear-gradient(to bottom left, darken(@schwerelos_green, 35%), @schwerelos_green 50%, darken(@schwerelos_green, 35%));
 
+    .swipeArtist {
+        display: none;
+        z-index: 3;
+        position: absolute;
+        top: 45vh;
+        right: 35vw;
+        width: 30vw;
+        transform: rotate(-90deg);
+        filter: invert(1);
+
+        @media all and (max-width: 520px) {
+            display: block;
+        }
+    }
+
     .backgroundOpacity {
         display: block;
         z-index: 1;
