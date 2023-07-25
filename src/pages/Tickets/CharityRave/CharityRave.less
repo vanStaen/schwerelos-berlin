@@ -1,32 +1,82 @@
 @schwerelos_pink: #F70069;
 
 .pageRaveContainer {
-    overflow-y: scroll;
     height: 100vh;
     width: 100vw;
-    -ms-overflow-style: none;  /* IE and Edge */
-    scrollbar-width: none;  /* Firefox */
+    max-height: 100vh;
+    overflow: hidden;
     background-image: linear-gradient(90deg, black, rgb(41,32,189) 70%);
 
-    .raveContainer 
-        {text-align: center;
+    .raveContainer {
+        text-align: center;
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        z-index: 2;
         width: 100vw;
         height: 100vh;
+        max-height: 100vh;
         top: 0;
         left: 0;
         position: absolute;
         font-size: 22px;
+        overflow: hidden;
+
+        @media all and (max-width: 520px) {
+            font-size: 12px;
+        }
 
         .raveCharityDisclaimer {
+            z-index: 5;
             font-size: .8em;
             font-weight: 300;
             letter-spacing: 3px
         }
+    }
+
+    .raveCharityTitle {
+        z-index: 5;
+        position: relative;
+        font-size: 1.8em;
+        font-weight: 500;
+        filter: drop-shadow(0px 0px 10px white);
+    }
+
+    .raveCharityDatumContainer {
+        z-index: 5;        
+        font-size: 1.5em;
+        line-height: 1.3em;
+        width: 200px;
+        text-align: center;
+        padding-bottom: 50px;
+        filter: drop-shadow(0px 0px 10px white);    
+        
+        .raveCharityInlineBlock {
+            display: inline-block;
+            margin-right: 20px;
+        }
+
+        .raveCharityTextBig {
+            font-size: 2em;
+            font-weight: 500;
+        }
+    }
+
+    .raveCharityTextlocation {
+        z-index: 4;
+        font-size: 1em;
+        font-weight: 300;
+        position: absolute;
+        bottom: 10px;
+        right: 10px;
+        opacity: .7;
+    }
+
+    .raveCharityLineUp {
+        padding-top: 50px;
+        font-size: 1em;
+        font-weight: 300;
+        letter-spacing: 5px;
     }
 
     .graphicLogo {
@@ -38,37 +88,66 @@
     }
 
     .graphicElement1 {
+        z-index: 3;
         position: absolute;
         top: -30vh;
         right: -25vw;
         width: 75vw;
+        max-width: 800px;
         animation: 5s infinite alternate rotation;
+        @media all and (max-width: 520px) {
+            width: 100vw;
+            top: -15vh;
+            right: -35vw;
+        }
     }
 
     .graphicElement2 {
+        z-index: 3;
         position: absolute;
         bottom: -20vh;
         left: -20vw;
         width: 50vw;
-        animation: 10,l, s infinite alternate rotation;
+        max-width: 700px;
+        overflow: hidden;
+        animation: 30s infinite alternate rotation;
+        @media all and (max-width: 520px) {
+            width: 100vw;
+            bottom: -25vh;
+            left: -50vw;
+        }
     }
 
     .graphicElement3 {
-        display: none;
+        z-index: 2;
         position: absolute;
-        top: 0;
-        right: 0;
-        width: 75vw;
-        animation: 5s infinite alternate rotation;
+        top: -30vh;
+        left: -20vw;
+        width: 70vw;
+        max-width: 900px;
+        overflow: hidden;
+        animation: 12s infinite alternate rotation2;
+        @media all and (max-width: 520px) {
+            width: 120vw;
+            top: -20vh;
+            left: -50vw;
+        }
     }
 
     .graphicElement4 {
-        display: none;
+        z-index: 2;
         position: absolute;
-        top: 0;
-        right: 0;
+        bottom: -30vh;
+        right: -20vw;
         width: 75vw;
-        animation: 5s infinite alternate rotation;
+        max-width: 800px;
+        opacity: .5;
+        animation: 7s infinite alternate rotation3;
+        @media all and (max-width: 520px) {
+            width: 100vw;
+            bottom: -10vh;
+            right: -40vw;
+        }
     }
 
     @keyframes rotation {
@@ -81,5 +160,29 @@
           filter: hue-rotate(30deg);
         }
       }
+    @keyframes rotation2 {
+        0% {
+          transform: rotate(0deg);
+          filter: hue-rotate(0deg);
+          opacity: .7;
+        }
+        100% {
+          transform: rotate(-40deg);
+          filter: hue-rotate(50deg);
+          opacity: .5;
+        }
+      }
+      @keyframes rotation3 {
+          0% {
+            transform: rotate(0deg);
+            filter: hue-rotate(0deg);
+            opacity: .5;
+          }
+          100% {
+            transform: rotate(5deg);
+            filter: hue-rotate(20deg);
+            opacity: .1;
+          }
+        }
 
 }

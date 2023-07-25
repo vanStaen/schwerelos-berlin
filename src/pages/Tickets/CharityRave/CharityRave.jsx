@@ -21,16 +21,40 @@ export const CharityRave = () => {
         glitchText="Charity Rave"
       />
       <div className="pageRaveContainer">
-        <img src={schwerelosLogo} className="graphicLogo" />
-        <img src={graphic1} className="graphicElement1" />
-        <img src={graphic2} className="graphicElement2" />
-        <img src={graphic3} className="graphicElement3" />
-        <img src={graphic4} className="graphicElement4" />
         <div className="raveContainer">
+          <img src={schwerelosLogo} className="graphicLogo" />
+          <div className="raveCharityDatumContainer">
+            <div className="raveCharityInlineBlock">
+              <div className="raveCharityTextBig">02</div>
+              <div>SEP</div>
+            </div>
+            <div className="raveCharityInlineBlock">
+              <div className="raveCharityTextBig">18</div>
+              <div>UHR</div>
+            </div>
+          </div>
+          <span className="raveCharityTitle">CHARITY LOW GRAVITY</span>
           <span className="raveCharityDisclaimer">
             Alle gewinne der Veranstaltung gehen an der{" "}
             <b>Berliner Stadtmission</b>
           </span>
+          <div className="raveCharityTextlocation">Secret nature Location</div>
+          <div className="raveCharityLineUp">
+            <div>GREENLAKE PROJECT [3000 Grad]</div>
+            <div>TONI HAUPT [Telekollegen]</div>
+            <div>SHLOMSEN [Sisyphus]</div>
+            <div>SOMMERSONNEWENDE</div>
+            <div>MEEMA</div>
+            <div>LUKAS EDLER</div>
+            <div>VAN STAEN</div>
+            <div>JOHANNES HILLMER</div>
+            <div>MISSING DJ</div>
+            <div>NOSTIQUE</div>
+          </div>
+          <img src={graphic1} className="graphicElement1" />
+          <img src={graphic2} className="graphicElement2" />
+          <img src={graphic3} className="graphicElement3" />
+          <img src={graphic4} className="graphicElement4" />
         </div>
       </div>
     </>
