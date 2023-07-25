@@ -6,6 +6,7 @@ import graphic1 from "../../../img/graphics/graphic1.png";
 import graphic2 from "../../../img/graphics/graphic2.png";
 import graphic3 from "../../../img/graphics/graphic3.png";
 import graphic4 from "../../../img/graphics/graphic4.png";
+import residentAdvisorLogo from "../../../img/logos/residentAdvisorLogo.png";
 
 import "./CharityRave.less";
 
@@ -51,6 +52,9 @@ export const CharityRave = () => {
             <div>MISSING DJ</div>
             <div>NOSTIQUE</div>
           </div>
+          <a href="https://ra.co/events/1724976" target="_blank">
+            <img src={residentAdvisorLogo} className="raLogo" />
+          </a>
           <img src={graphic1} className="graphicElement1" />
           <img src={graphic2} className="graphicElement2" />
           <img src={graphic3} className="graphicElement3" />
