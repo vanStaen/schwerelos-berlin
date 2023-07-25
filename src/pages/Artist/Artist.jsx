@@ -10,11 +10,14 @@ import { Carousel } from "../../components/Carousel/Carousel";
 import InstaLogo from "../../img/logos/instaLogo.png";
 import ResidentAdvisorLogo from "../../img/logos/residentAdvisorLogo.png";
 import SoundcloudLogo from "../../img/logos/soundcloudLogo.png";
+
 import meema from "../../img/artists/meema.jpg";
 import vanstaen from "../../img/artists/vanstaen.jpg";
 import b0ys_cry from "../../img/artists/b0ys_cry.jpg";
 import nostique from "../../img/artists/nostique.jpg";
 import johanneshillmer from "../../img/artists/johanneshillmer.jpg";
+import lukasedler from "../../img/artists/lukasedler.jpg";
+import sommersonnenwende from "../../img/artists/sommersonnenwende.jpg";
 
 import "./Artist.less";
 
@@ -35,6 +38,14 @@ export const Artist = observer(() => {
     //vanStaen
     const jhElement = document.getElementById(`div_johanneshillmer`);
     jhElement.style.backgroundImage = `url(${johanneshillmer})`;
+    //lukasedler
+    const lukasElement = document.getElementById(`div_lukasedler`);
+    lukasElement.style.backgroundImage = `url(${lukasedler})`;
+    //lukasedler
+    const sommersonnenwendeElement = document.getElementById(
+      `div_sommersonnenwende`
+    );
+    sommersonnenwendeElement.style.backgroundImage = `url(${sommersonnenwende})`;
   }, []);
 
   const artistProfile = artistStore.artists.map((artist, index) => {
