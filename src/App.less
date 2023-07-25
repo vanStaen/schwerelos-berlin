@@ -13,7 +13,7 @@ body {
   min-height: calc(var(--vh, 1vh) * 100);
 
   .swipe {
-    display: none;
+    display: none !important;
     z-index: 3;
     position: absolute;
     top: 50vh;
@@ -25,9 +25,10 @@ body {
     opacity: .75;
     display: table-cell;
     vertical-align: middle;
+    line-height: 15px;
 
     @media all and (max-width: 520px) {
-        display: block;
+        display: block !important;
     }
 }
 

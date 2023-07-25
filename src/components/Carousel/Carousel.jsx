@@ -57,13 +57,11 @@ export const Carousel = (props) => {
   }, [defineTranslateZCarousel]);
 
   const onTouchStart = (e) => {
-    e.preventDefault();
     setTouchEnd(null);
     setTouchStart(e.targetTouches[0].clientY);
   };
 
   const onTouchMove = (e) => {
-    e.preventDefault();
     setTouchEnd(e.targetTouches[0].clientY);
   };
 
