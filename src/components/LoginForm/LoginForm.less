@@ -1,0 +1,53 @@
+.loginFormContainer {
+    position: relative;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+
+    .loginForm {
+        z-index: 10;
+        position: relative;
+        background-color: rgba(255, 255, 255, 1);
+        padding: 30px 25px 0 25px;
+        border-radius: 5px;
+        background-image: url('../../img//graphics/graphic1.png');
+
+        .ant-btn-primary {
+            background-color: black;
+        }
+
+        .login-form-forgot {
+            color: rgba( 0, 0, 0, .5);
+             &:hover {
+                color: rgba( 0, 0, 0, 1);
+                text-decoration: underline;
+             }
+        }
+    }
+
+    .background {
+        position: absolute;
+        width: 100vw;
+        height: 100vh;
+        z-index: 9;
+        background-color: rgba( 0, 0, 0, .75);
+    }
+
+    .closeButton { 
+        z-index: 9;
+        position: absolute;
+        margin: 20px;
+        font-size: 30px;
+        right: 0;
+        top: 0;
+        cursor: pointer;
+        
+        &:hover {
+            opacity: .75;
+        }
+    }
+}

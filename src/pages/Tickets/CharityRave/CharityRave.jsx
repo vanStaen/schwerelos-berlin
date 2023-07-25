@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 
 import { GlitchText } from "../../../components/GlitchText/GlitchText";
+import { LoginForm } from "../../../components/LoginForm/LoginForm";
 import schwerelosLogo from "../../../img/schwerelosLogo.png";
 import graphic1 from "../../../img/graphics/graphic1.png";
 import graphic2 from "../../../img/graphics/graphic2.png";
@@ -11,8 +12,16 @@ import residentAdvisorLogo from "../../../img/logos/residentAdvisorLogo.png";
 import "./CharityRave.less";
 
 export const CharityRave = () => {
+  const [showPasswordForm, setShowPasswordForm] = useState(false);
+
+  const handleAdminMode = () => {
+    console.log('here')
+    setShowPasswordForm(true);
+  }
+
   return (
     <>
+      {showPasswordForm && <LoginForm close={setShowPasswordForm} />}
       <GlitchText
         overText={
           <>
@@ -23,7 +32,7 @@ export const CharityRave = () => {
       />
       <div className="pageRaveContainer">
         <div className="raveContainer">
-          <img src={schwerelosLogo} className="graphicLogo" />
+          <img src={schwerelosLogo} className="schwerelosLogo" onClick={handleAdminMode} />
           <div className="raveCharityDatumContainer">
             <div className="raveCharityInlineBlock">
               <div className="raveCharityTextBig">02</div>
@@ -43,7 +52,7 @@ export const CharityRave = () => {
           <div className="raveCharityLineUp">
             <div>GREENLAKE PROJECT [3000 Grad]</div>
             <div>TONI HAUPT [Telekollegen]</div>
-            <div>SHLOMSEN [Sisyphus]</div>
+            <div>SHLOMSEN [Sisyphos]</div>
             <div>SOMMERSONNEWENDE</div>
             <div>MEEMA</div>
             <div>LUKAS EDLER</div>
