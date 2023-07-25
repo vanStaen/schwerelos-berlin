@@ -18,7 +18,6 @@ import nostique from "../../img/artists/nostique.jpg";
 import johanneshillmer from "../../img/artists/johanneshillmer.jpg";
 import lukasedler from "../../img/artists/lukasedler.jpg";
 import sommersonnenwende from "../../img/artists/sommersonnenwende.jpg";
-import swipe from "../../img/logos/swipe.png";
 
 import "./Artist.less";
 
@@ -108,15 +107,13 @@ export const Artist = observer(() => {
 
   return (
     <div className="artistPageContainer">
-      {pageStore.showSwipeArtist && (
-        <img className="swipeArtist" src={swipe} alt="Swipe up & down" />
-      )}
+      <GlitchText
+        glitchText={artistStore.artists[pageStore.selectedArtistId].name}
+        overText="schwerelos is"
+      />
       <div className="backgroundOpacity"></div>
       <div className="artistContainer">
-        <GlitchText
-          glitchText={artistStore.artists[pageStore.selectedArtistId].name}
-          overText="schwerelos is"
-        />
+        {pageStore.showSwipeArtist && <span className="swipe">↓ SWIPE ↓</span>}
         <div className="artistCarousel">
           <Carousel faces={artistProfile} />
         </div>

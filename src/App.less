@@ -11,6 +11,24 @@ body {
   min-height: 100vh;
   /* Fallback for browsers that do not support Custom Properties */
   min-height: calc(var(--vh, 1vh) * 100);
+
+  .swipe {
+    display: none;
+    z-index: 3;
+    position: absolute;
+    top: 50vh;
+    background-color: black;
+    padding: 2px 5px;
+    font-size: 14px;
+    font-weight: 300;
+    letter-spacing: 3px;
+    opacity: .75;
+
+    @media all and (max-width: 520px) {
+        display: block;
+    }
+}
+
 }
 
 .link {

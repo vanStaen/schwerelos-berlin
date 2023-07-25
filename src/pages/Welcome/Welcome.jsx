@@ -7,8 +7,6 @@ import { Links } from "./Links/Links";
 import { NextGigsBanner } from "./NextGigsBanner/NextGigsBanner";
 import { pageStore } from "../../store/pageStore";
 
-import swipe from "../../img/logos/swipe.png";
-
 import "./Welcome.less";
 
 export const Welcome = observer(() => {
@@ -24,9 +22,7 @@ export const Welcome = observer(() => {
           <Links />
           <NextGigsBanner />
           <br />
-          {pageStore.showSwipe && (
-            <img className="swipe" src={swipe} alt="Swipe right & left" />
-          )}
+          {pageStore.showSwipe && <span className="swipe">← SWIPE →</span>}
         </div>
       </div>
     </>
