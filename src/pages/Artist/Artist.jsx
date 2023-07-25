@@ -113,7 +113,7 @@ export const Artist = observer(() => {
       />
       <div className="backgroundOpacity"></div>
       <div className="artistContainer">
-        {pageStore.showSwipeArtist && <span className="swipe">↓ SWIPE ↓</span>}
+        {pageStore.showSwipeArtist && <div className="swipe">↓ SWIPE ↓</div>}
         <div className="artistCarousel">
           <Carousel faces={artistProfile} />
         </div>

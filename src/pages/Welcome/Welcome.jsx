@@ -22,7 +22,7 @@ export const Welcome = observer(() => {
           <Links />
           <NextGigsBanner />
           <br />
-          {pageStore.showSwipe && <span className="swipe">← SWIPE →</span>}
+          {pageStore.showSwipe && <div className="swipe">← SWIPE →</div>}
         </div>
       </div>
     </>
