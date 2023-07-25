@@ -1,6 +1,36 @@
 @scene_width: 75vw;
 @scene_height: 70vh;
 
+.randomSpin {
+    z-index: 2;
+    position: absolute;
+    bottom: 20px;
+    right: 15px;
+    width: 30px;
+    height: 30px;    
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    opacity: .25;
+
+    &:hover {
+        opacity: .75;
+    }
+
+    .randomSpinIcon {
+        position: absolute;
+        top: 0;
+        left: 0;
+        font-size: 30px;
+    }
+    .randomSpinQuestionMark {
+        font-size: 15px;
+    }
+}
+
 .carouselContainer {
     text-align: center;
     display: flex;
@@ -41,40 +71,32 @@
             .carousel__cell:nth-child(1) { 
                 transform: rotateX(0deg) translateZ(var(--translateZ)); 
                 opacity: 1; 
-                cursor: default;
             }
             .carousel__cell:nth-child(2) { 
                 transform: rotateX(45deg) translateZ(var(--translateZ)); 
                 opacity: .5;
-                cursor: n-resize;
             }
             .carousel__cell:nth-child(3) { 
                 transform: rotateX(90deg) translateZ(var(--translateZ)); 
                 opacity: 0;
-                cursor: default;
             }
             .carousel__cell:nth-child(4) { 
                 transform: rotateX(135deg) translateZ(var(--translateZ)); 
                 opacity: 0;
-                cursor: default;
             }
             .carousel__cell:nth-child(5) { 
                 transform: rotateX(180deg) translateZ(var(--translateZ)); 
                 opacity: 0;
-                cursor: default;
             }
             .carousel__cell:nth-child(6) { 
                 transform: rotateX(225deg) translateZ(var(--translateZ)); 
                 opacity: 0;
-                cursor: default;
             }
             .carousel__cell:nth-child(7) { transform: rotateX(270deg) translateZ(var(--translateZ)); 
-                opacity: 0;            
-                cursor: default;
+                opacity: 0;      
             }
             .carousel__cell:nth-child(8) { transform: rotateX(315deg) translateZ(var(--translateZ)); 
                 opacity: .5;
-                cursor: s-resize;
             }
 
         }

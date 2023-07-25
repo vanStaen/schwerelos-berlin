@@ -1,9 +1,10 @@
 import React, { useEffect, useState, useRef } from "react";
+import { SyncOutlined } from "@ant-design/icons";
+import { Tooltip } from "antd";
 
 import { pageStore } from "../../store/pageStore";
 
 import "./Carousel.less";
-import { doc } from "prettier";
 
 /* 
 ressources: 
@@ -45,6 +46,7 @@ export const Carousel = (props) => {
       }
     }, 250);
     defineTranslateZCarousel();
+    XPathEvaluator;
   }, []);
 
   useEffect(() => {
@@ -90,18 +92,10 @@ export const Carousel = (props) => {
   };
 
   const rotateCarousel = (toNewFace, toNewRotation) => {
-    const carousel = document.querySelector(".carousel");
-    const angle = theta * toNewRotation * -1;
-    carousel.style.transform =
-      "translateZ(" +
-      -radius.current +
-      "px) " +
-      "rotateX" +
-      "(" +
-      angle +
-      "deg)";
-
-    const facePrevPrev = document.querySelector(
+    const facePrev3 = document.querySelector(
+      `.carousel__cell:nth-child(${getFaceNumber(toNewFace, -3)})`
+    );
+    const facePrev2 = document.querySelector(
       `.carousel__cell:nth-child(${getFaceNumber(toNewFace, -2)})`
     );
     const facePrev = document.querySelector(
@@ -113,19 +107,46 @@ export const Carousel = (props) => {
     const faceNext = document.querySelector(
       `.carousel__cell:nth-child(${getFaceNumber(toNewFace, 1)})`
     );
-    const faceNextNext = document.querySelector(
+    const faceNext2 = document.querySelector(
       `.carousel__cell:nth-child(${getFaceNumber(toNewFace, 2)})`
     );
-    facePrevPrev.style.opacity = 0;
-    facePrevPrev.style.cursor = "default";
-    facePrev.style.opacity = 0.5;
-    facePrev.style.cursor = "s-resize";
+    const faceNext3 = document.querySelector(
+      `.carousel__cell:nth-child(${getFaceNumber(toNewFace, 3)})`
+    );
+    const faceNext4 = document.querySelector(
+      `.carousel__cell:nth-child(${getFaceNumber(toNewFace, 4)})`
+    );
+
+    facePrev3.style.opacity = 1;
+    facePrev2.style.opacity = 1;
+    facePrev.style.opacity = 1;
     faceSelected.style.opacity = 1;
-    faceSelected.style.cursor = "default";
-    faceNext.style.opacity = 0.5;
-    faceNext.style.cursor = "n-resize";
-    faceNextNext.style.opacity = 0;
-    faceNextNext.style.cursor = "default";
+    faceNext.style.opacity = 1;
+    faceNext2.style.opacity = 1;
+    faceNext3.style.opacity = 1;
+    faceNext4.style.opacity = 1;
+
+    const carousel = document.querySelector(".carousel");
+    const angle = theta * toNewRotation * -1;
+    carousel.style.transform =
+      "translateZ(" +
+      -radius.current +
+      "px) " +
+      "rotateX" +
+      "(" +
+      angle +
+      "deg)";
+
+    setTimeout(() => {
+      facePrev3.style.opacity = 0;
+      facePrev2.style.opacity = 0;
+      facePrev.style.opacity = 0.5;
+      faceSelected.style.opacity = 1;
+      faceNext.style.opacity = 0.5;
+      faceNext2.style.opacity = 0;
+      faceNext3.style.opacity = 0;
+      faceNext4.style.opacity = 0;
+    }, 500);
   };
 
   useEffect(() => {
@@ -228,8 +249,26 @@ export const Carousel = (props) => {
     }
   };
 
+  const randomSpinClick = () => {
+    const randomNum =
+      (Math.floor(Math.random() * (numberOfFace - 1)) + 1) *
+      (Math.round(Math.random()) ? 1 : -1);
+    const randomFace = getFaceNumber(selectedFace, randomNum);
+    const randomRotation = rotationFace + randomNum;
+    setSelectedFace(randomFace);
+    setRotationFace(randomRotation);
+    rotateCarousel(randomFace, randomRotation);
+    pageStore.setSelectedArtistId(randomFace - 1); //because array index
+  };
+
   return (
     <>
+      <Tooltip title="Random spin | take a chance" placement="left">
+        <div className="randomSpin" onClick={randomSpinClick}>
+          <SyncOutlined className="randomSpinIcon" />
+          <div className="randomSpinQuestionMark">?</div>
+        </div>
+      </Tooltip>
       <div
         className="carouselContainer"
         onTouchStart={onTouchStart}

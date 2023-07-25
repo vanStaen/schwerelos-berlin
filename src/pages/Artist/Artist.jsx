@@ -42,10 +42,11 @@ export const Artist = observer(() => {
     const lukasElement = document.getElementById(`div_lukasedler`);
     lukasElement.style.backgroundImage = `url(${lukasedler})`;
     //lukasedler
-    const sommersonnenwendeElement = document.getElementById(
-      `div_sommersonnenwende`
-    );
-    sommersonnenwendeElement.style.backgroundImage = `url(${sommersonnenwende})`;
+    const sswdElement = document.getElementById(`div_sommersonnenwende`);
+    sswdElement.style.backgroundImage = `url(${sommersonnenwende})`;
+    //missingdj
+    const missingdjElement = document.getElementById(`div_missingdj`);
+    missingdjElement.style.backgroundImage = `url(${sommersonnenwende})`;
   }, []);
 
   const artistProfile = artistStore.artists.map((artist, index) => {
