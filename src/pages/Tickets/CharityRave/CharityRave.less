@@ -8,8 +8,78 @@
     scrollbar-width: none;  /* Firefox */
     background-image: linear-gradient(90deg, black, rgb(41,32,189) 70%);
 
-    .RaveContainer {
-       // width: min(90vw, 1500px);
+    .raveContainer 
+        {text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        z-index: 2;
+        width: 100vw;
+        height: 100vh;
+        top: 0;
+        left: 0;
+        position: absolute;
+        font-size: 22px;
+
+        .raveCharityDisclaimer {
+            font-size: .8em;
+            font-weight: 300;
+            letter-spacing: 3px
+        }
     }
+
+    .graphicLogo {
+        position: absolute;
+        top: 0;
+        left: 30px;
+        width: 220px;
+        max-width: 30vw;
+    }
+
+    .graphicElement1 {
+        position: absolute;
+        top: -30vh;
+        right: -25vw;
+        width: 75vw;
+        animation: 5s infinite alternate rotation;
+    }
+
+    .graphicElement2 {
+        position: absolute;
+        bottom: -20vh;
+        left: -20vw;
+        width: 50vw;
+        animation: 10,l, s infinite alternate rotation;
+    }
+
+    .graphicElement3 {
+        display: none;
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 75vw;
+        animation: 5s infinite alternate rotation;
+    }
+
+    .graphicElement4 {
+        display: none;
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 75vw;
+        animation: 5s infinite alternate rotation;
+    }
+
+    @keyframes rotation {
+        0% {
+          transform: rotate(0deg);
+          filter: hue-rotate(0deg);
+        }
+        100% {
+          transform: rotate(20deg);
+          filter: hue-rotate(30deg);
+        }
+      }
 
 }
