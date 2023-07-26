@@ -3,8 +3,10 @@ const cors = require("cors");
 const path = require("path");
 const db = require("./models");
 const redirectTraffic = require("./helpers/redirectTraffic");
+const cookieSession = require("./helpers/cookieSession");
+const isAuth = require("./helpers/isAuth");
 
-const PORT = process.env.PORT || 5009;
+const PORT = process.env.PORT || 5000;
 require("dotenv/config");
 
 // Init Express
@@ -14,10 +16,20 @@ const app = express();
 app.set("trust proxy", true);
 app.use(redirectTraffic);
 
+// Body Parser Middleware
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+
+// Session Cookie Middleware
+app.use(cookieSession);
+
+// Authorization Middleware
+app.use(isAuth);
+
 // Allow cross origin request
 app.use(function (req, res, next) {
   let corsOptions = {};
-  if (req.get("host") === "localhost:5009") {
+  if (req.get("host") === "localhost:5000") {
     corsOptions = {
       origin: "http://localhost:5000",
       optionsSuccessStatus: 200,
@@ -47,6 +59,7 @@ app.use(express.urlencoded({ extended: false }));
 db.sequelize.sync();
 
 // Router to API endpoints
+app.use("/auth", require("./api/controller/authController"));
 app.use("/ticket", require("./api/controller/ticketController"));
 
 // Set up for React
