@@ -27,6 +27,12 @@ router.get("/all", async (req, res) => {
     });
     return;
   }
+  if (!req.isAuth) {
+    res.status(401).json({
+      error: "Unauthorized",
+    });
+    return;
+  }
   try {
     const getAllTicket = await ticketService.getTickets();
     res.status(200).json({
@@ -47,6 +53,12 @@ router.get("/lastid", async (req, res) => {
     });
     return;
   }
+  if (!req.isAuth) {
+    res.status(401).json({
+      error: "Unauthorized",
+    });
+    return;
+  }
   try {
     const getLastTicketId = await ticketService.getLastTicketId();
     res.status(200).json({
@@ -64,6 +76,12 @@ router.post("/", async (req, res) => {
   if (process.env.ENVIRONMENT === "production" ) {
     res.status(401).json({
       error: "You should not be calling this endpoint on production!",
+    });
+    return;
+  }
+  if (!req.isAuth) {
+    res.status(401).json({
+      error: "Unauthorized",
     });
     return;
   }
@@ -100,6 +118,12 @@ router.delete("/", async (req, res) => {
   if (process.env.ENVIRONMENT === "production" ) {
     res.status(401).json({
       error: "You should not be calling this endpoint on production!",
+    });
+    return;
+  }
+  if (!req.isAuth) {
+    res.status(401).json({
+      error: "Unauthorized",
     });
     return;
   }

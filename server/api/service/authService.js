@@ -30,7 +30,7 @@ exports.authService = {
 
       // Set token in session cookie
       const accessToken = await jsonwebtoken.sign(
-        { userId: foundUser.id, isAdmin: foundUser.is_admin },
+        { userId: foundUser.id },
         process.env.AUTH_SECRET_KEY,
         { expiresIn: "15m" }
       );
@@ -38,7 +38,7 @@ exports.authService = {
 
       // Set refreshtoken in session cookie
       const refreshToken = await jsonwebtoken.sign(
-        { userId: foundUser.id, isAdmin: foundUser.is_admin },
+        { userId: foundUser.id },
         process.env.AUTH_SECRET_KEY_REFRESH,
         { expiresIn: "7d" }
       );
