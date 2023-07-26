@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 
 import { GlitchText } from "../../../components/GlitchText/GlitchText";
-import { LoginForm } from "../../../components/LoginForm/LoginForm";
 import schwerelosLogo from "../../../img/schwerelosLogo.png";
 import graphic1 from "../../../img/graphics/graphic1.png";
 import graphic2 from "../../../img/graphics/graphic2.png";

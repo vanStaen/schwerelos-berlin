@@ -5,18 +5,24 @@ import { CloseOutlined } from "@ant-design/icons";
 
 import { validateEmail } from "../../helpers/validateEmail";
 import { postLogin } from "./postLogin";
+import { userStore } from '../../store/userStore';
 
 import "./LoginForm.less";
 
 export const LoginForm = (props) => {
-  const onFinish = (values) => {
+
+  const onFinish = async (values) => {
     const isEmail = validateEmail(values.username);
-    const loginRes = postLogin(
+    const loginRes = await postLogin(
       isEmail ? null : values.username,
       isEmail ? values.username : null,
       values.password
     );
-    console.log("loginRes", loginRes);
+    if (loginRes) {
+      userStore.setIsAdmin(loginRes);
+      props.close(false);
+      // Todo: show succes popup
+    }
   };
 
   return (

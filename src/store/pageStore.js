@@ -5,10 +5,9 @@ const cookies = new Cookies();
 
 export class PageStore {
 
-  selectedArtistId = 0;  
+  selectedArtistId = 0;
   language = navigator.language || navigator.userLanguage;
-  //showSwipe = cookies.get('showSwipe');
-  showSwipe = true;
+  showSwipe = cookies.get('showSwipe');
   showSwipeArtist = true;
 
   constructor() {
@@ -35,7 +34,7 @@ export class PageStore {
   setShowSwipe = (showSwipe) => {
     this.showSwipe = showSwipe;
     if (showSwipe === false) {
-      //cookies.set('showSwipe', showSwipe, { path: '/' });
+      cookies.set('showSwipe', showSwipe);
     }
   };
 

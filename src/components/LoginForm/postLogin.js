@@ -1,12 +1,12 @@
 import axios from "axios";
 
 export const postLogin = async (username, email, pwd) => {
-    const apiUrl = process.env.API_URL + "/ticket";
+    const apiUrl = process.env.API_URL + "/auth/login";
     const response = await axios(
         {
             url: apiUrl,
             method: "POST",
-            data: { 
+            data: {
                 username: username,
                 email: email,
                 pwd: pwd,
@@ -25,5 +25,5 @@ export const postLogin = async (username, email, pwd) => {
             throw new Error(`Error! Status ${response.status}`);
         }
     }
-    return response;
+    return response.data.result.access
 };

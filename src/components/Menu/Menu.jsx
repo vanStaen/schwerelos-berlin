@@ -9,6 +9,7 @@ import {
 } from "@ant-design/icons";
 
 import federLogo from "../../img/logos/federLogo.png";
+import { userStore } from '../../store/userStore';
 
 import "./Menu.less";
 
@@ -48,10 +49,10 @@ export const Menu = (props) => {
             <li>
               <a
                 onClick={() => {
-                  props.showLoginForm(true);
+                  userStore.isAdmin ? console.log('TODO: logout') : props.showLoginForm(true);
                 }}
               >
-                <LockOutlined /> Login
+                <LockOutlined /> {userStore.isAdmin ? 'Logout' : 'Login'}
               </a>
             </li>
             <img src={federLogo} className="federLogo" />
