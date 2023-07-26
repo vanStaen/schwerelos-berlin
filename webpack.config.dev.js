@@ -7,7 +7,7 @@ module.exports = {
   devtool: "source-map",
   devServer: {
     historyApiFallback: true,
-    port: 5000,
+    port: 9000,
     liveReload: true,
     hot: false,
   },
@@ -22,7 +22,7 @@ module.exports = {
       template: "./public/index.html",
     }),
     new webpack.DefinePlugin({
-      "process.env.API_URL": JSON.stringify("http://localhost:5000")
+      "process.env.API_URL": JSON.stringify("http://localhost:9000")
     }),
     new CopyPlugin({
       patterns: [
