@@ -29,9 +29,10 @@ app.use(isAuth);
 // Allow cross origin request
 app.use(function (req, res, next) {
   let corsOptions = {};
+  console.log("host", req.get("host"));
   if (req.get("host") === "localhost:5000") {
     corsOptions = {
-      origin: "http://localhost:8080",
+      origin: "http://localhost:9000",
       optionsSuccessStatus: 200,
     };
   } else {

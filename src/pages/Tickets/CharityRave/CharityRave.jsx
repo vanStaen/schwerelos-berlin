@@ -15,7 +15,6 @@ export const CharityRave = () => {
   const [showPasswordForm, setShowPasswordForm] = useState(false);
 
   const handleAdminMode = () => {
-    console.log("here");
     setShowPasswordForm(true);
   };
 
