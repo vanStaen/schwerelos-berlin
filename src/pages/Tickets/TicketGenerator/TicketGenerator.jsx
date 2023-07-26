@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
 import html2canvas from "html2canvas";
 import QRCode from "qrcode.react";
 import { Button } from "antd";
 import { v4 as uuidv4 } from "uuid";
+
+import { getLastTicketId } from "./getLastTicketId";
+import { saveTicketIdInDatabase } from "./saveTicketIdInDatabase";
 
 import "./TicketGenerator.less";
 
@@ -59,45 +61,6 @@ export const TicketGenerator = (props) => {
     });
 
     setTicketNumberValue(ticketNumberValue + 1);
-  };
-
-  const saveTicketIdInDatabase = async (uuidValue) => {
-    const apiUrl = process.env.API_URL + "/ticket";
-
-    const response = await axios(
-      {
-        url: apiUrl,
-        method: "POST",
-        data: { uuid: uuidValue },
-      },
-      {
-        headers: {
-          "Content-Type": "application/json",
-        },
-      }
-    );
-    if ((response.status !== 200) & (response.status !== 201)) {
-      if (response.status === 401) {
-        throw new Error(`Error! Unauthorized(401)`);
-      } else {
-        throw new Error(`Error! Status ${response.status}`);
-      }
-    }
-  };
-
-  const getLastTicketId = async () => {
-    const apiUrl = process.env.API_URL + "/ticket/lastid";
-    return await axios(
-      {
-        url: apiUrl,
-        method: "Get",
-      },
-      {
-        headers: {
-          "Content-Type": "application/json",
-        },
-      }
-    );
   };
 
   return (
