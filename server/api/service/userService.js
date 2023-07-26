@@ -1,8 +1,6 @@
 const { User } = require('../../models/User')
-const checkUsernameforbidden = require('../../helpers/checkUsernameforbidden')
 const jsonwebtoken = require('jsonwebtoken')
 const bcrypt = require('bcryptjs')
-const { mailService } = require('./mailService')
 
 exports.userService = {
   async getUsers () {

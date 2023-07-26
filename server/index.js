@@ -60,6 +60,7 @@ db.sequelize.sync();
 
 // Router to API endpoints
 app.use("/auth", require("./api/controller/authController"));
+app.use("/user", require("./api/controller/userController"));
 app.use("/ticket", require("./api/controller/ticketController"));
 
 // Set up for React
