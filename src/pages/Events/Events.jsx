@@ -45,9 +45,16 @@ export const Events = () => {
   };
 
   useEffect(() => {
+    upcommingEvents = [];
+    pastEvents = [];
+
     splitGigPerDate();
     const upcommingEventsSorted = sortDate(upcommingEvents, true);
     const pastEventsSorted = sortDate(pastEvents, false);
+
+    console.log("gigStore.gigs", gigStore.gigs.length);
+    console.log("upcommingEvents", upcommingEvents.length);
+    console.log("pastEventsSorted", pastEventsSorted.length);
 
     const pastEventsSortedFormated = pastEventsSorted.map((gig, index) => {
       return (
