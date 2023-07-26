@@ -5,14 +5,14 @@ import {
   FileTextOutlined,
   BarcodeOutlined,
   SkinOutlined,
+  LockOutlined,
 } from "@ant-design/icons";
 
 import federLogo from "../../img/logos/federLogo.png";
-import { cubeSliderStore } from "../CubeSlider/cubeSliderStore";
 
 import "./Menu.less";
 
-export const Menu = () => {
+export const Menu = (props) => {
   const [showMenu, setShowMenu] = useState(true);
 
   return (
@@ -31,16 +31,6 @@ export const Menu = () => {
         <nav className={showMenu ? "nav" : "nav change"}>
           <ul className="list">
             <li>
-              <a
-                onClick={() => {
-                  setShowMenu(!showMenu);
-                  cubeSliderStore.showLeft(3);
-                }}
-              >
-                <SkinOutlined /> Merch
-              </a>
-            </li>
-            <li>
               <a>
                 <FileTextOutlined /> Presskit
               </a>
@@ -53,6 +43,15 @@ export const Menu = () => {
             <li>
               <a>
                 <QuestionOutlined /> About
+              </a>
+            </li>
+            <li>
+              <a
+                onClick={() => {
+                  props.showLoginForm(true);
+                }}
+              >
+                <LockOutlined /> Login
               </a>
             </li>
             <img src={federLogo} className="federLogo" />

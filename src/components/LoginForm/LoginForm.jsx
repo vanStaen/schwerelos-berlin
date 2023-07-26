@@ -21,7 +21,7 @@ export const LoginForm = (props) => {
 
   return (
     <div className="loginFormContainer">
-      <div className="background"></div>
+      <div className="background" onClick={() => props.close(false)}></div>
       <div className="closeButton" onClick={() => props.close(false)}>
         <CloseOutlined />
       </div>

@@ -12,15 +12,8 @@ import residentAdvisorLogo from "../../../img/logos/residentAdvisorLogo.png";
 import "./CharityRave.less";
 
 export const CharityRave = () => {
-  const [showPasswordForm, setShowPasswordForm] = useState(false);
-
-  const handleAdminMode = () => {
-    setShowPasswordForm(true);
-  };
-
   return (
     <>
-      {showPasswordForm && <LoginForm close={setShowPasswordForm} />}
       <GlitchText
         overText={
           <>
@@ -31,11 +24,7 @@ export const CharityRave = () => {
       />
       <div className="pageRaveContainer">
         <div className="raveContainer">
-          <img
-            src={schwerelosLogo}
-            className="schwerelosLogo"
-            onClick={handleAdminMode}
-          />
+          <img src={schwerelosLogo} className="schwerelosLogo" />
           <div className="raveCharityDatumContainer">
             <div className="raveCharityInlineBlock">
               <div className="raveCharityTextBig">02</div>
