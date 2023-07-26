@@ -15,9 +15,9 @@ export const CharityRave = () => {
   const [showPasswordForm, setShowPasswordForm] = useState(false);
 
   const handleAdminMode = () => {
-    console.log('here')
+    console.log("here");
     setShowPasswordForm(true);
-  }
+  };
 
   return (
     <>
@@ -32,7 +32,11 @@ export const CharityRave = () => {
       />
       <div className="pageRaveContainer">
         <div className="raveContainer">
-          <img src={schwerelosLogo} className="schwerelosLogo" onClick={handleAdminMode} />
+          <img
+            src={schwerelosLogo}
+            className="schwerelosLogo"
+            onClick={handleAdminMode}
+          />
           <div className="raveCharityDatumContainer">
             <div className="raveCharityInlineBlock">
               <div className="raveCharityTextBig">02</div>
@@ -45,7 +49,7 @@ export const CharityRave = () => {
           </div>
           <span className="raveCharityTitle">CHARITY LOW GRAVITY</span>
           <span className="raveCharityDisclaimer">
-            Alle gewinne der Veranstaltung gehen an der{" "}
+            Alle gewinne der Veranstaltung gehen an die{" "}
             <b>Berliner Stadtmission</b>
           </span>
           <div className="raveCharityTextlocation">Secret nature Location</div>
