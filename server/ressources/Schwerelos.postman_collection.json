@@ -12,7 +12,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"userInput\": {\n        \"username\": \"nostique\",\n        \"email\": \"test@gmail.com\",\n        \"pwd\": \"123456\",\n        \"language\": \"de\"\n    }\n}",
+					"raw": "{\n    \"userInput\": {\n        \"username\": \"test\",\n        \"email\": \"test@gmail.com\",\n        \"pwd\": \"pwd\",\n        \"language\": \"de\"\n    }\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -105,7 +105,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"username\": \"clement\",    \n    \"pwd\": \"123456\"\n}",
+					"raw": "{\n    \"username\": \"vanstaen\",    \n    \"pwd\": \"pwd\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -134,7 +134,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"username\": \"clement\",    \n    \"pwd\": \"123456\"\n}",
+					"raw": "",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -166,7 +166,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"username\": \"clement\",    \n    \"pwd\": \"123456\"\n}",
+					"raw": "",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -198,7 +198,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"ticketId\": \"123\"\n}",
+					"raw": "{\n    \"uuid\": \"123\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"

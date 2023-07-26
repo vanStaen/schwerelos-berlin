@@ -9,10 +9,10 @@ exports.ticketService = {
     })
   },
 
-  async getTicket(ticketId) {
+  async getTicket(uuid) {
     return await Ticket.findAll({
       where: {
-        uuid: ticketId
+        uuid: uuid
       }
     })
   },
@@ -25,10 +25,10 @@ exports.ticketService = {
     })
   },
 
-  async addTicket(ticketId) {
+  async addTicket(uuid) {
     try {
       const ticket = new Ticket({
-        uuid: ticketId,
+        uuid: uuid,
         valid: true,
       })
       return await ticket.save()
@@ -37,13 +37,13 @@ exports.ticketService = {
     }
   },
 
-  async updateTicket(ticketId) {
+  async updateTicket(uuid) {
     try {
       const updatedTicket = await Ticket.update(
         { valid: false },
         {
           where: {
-            uuid: ticketId
+            uuid: uuid
           },
           returning: true,
           plain: true

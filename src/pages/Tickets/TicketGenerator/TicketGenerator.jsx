@@ -35,16 +35,11 @@ export const TicketGenerator = (props) => {
   };
   const handleGenerateButtonClick = () => {
     try {
-      const ticketIdValue = uuidv4();
+      const uuidValue = uuidv4();
       setQrCodeValue(
-        "https://schwerelos-berlin.com/" +
-          route +
-          "/" +
-          event +
-          "/" +
-          ticketIdValue
+        "https://schwerelos-berlin.com/" + route + "/" + event + "/" + uuidValue
       );
-      saveTicketIdInDatabase(ticketIdValue);
+      saveTicketIdInDatabase(uuidValue);
       downloadQrCode();
     } catch (e) {
       throw new Error(`Error! ${e}`);
@@ -66,14 +61,14 @@ export const TicketGenerator = (props) => {
     setTicketNumberValue(ticketNumberValue + 1);
   };
 
-  const saveTicketIdInDatabase = async (ticketIdValue) => {
+  const saveTicketIdInDatabase = async (uuidValue) => {
     const apiUrl = process.env.API_URL + "/ticket";
 
     const response = await axios(
       {
         url: apiUrl,
         method: "POST",
-        data: { ticketId: ticketIdValue },
+        data: { uuid: uuidValue },
       },
       {
         headers: {
