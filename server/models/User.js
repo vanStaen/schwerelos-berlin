@@ -23,6 +23,10 @@ const User = sequelize.define("user", {
   pwd: {
     type: DataTypes.STRING,
     required: true,
+  },
+  language: {
+    type: DataTypes.STRING,
+    default: "de",
   }
 });
 

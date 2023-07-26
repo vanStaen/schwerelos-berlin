@@ -6,8 +6,7 @@ exports.userService = {
   async getUsers () {
     return await User.findAll({
       order: [
-        ['id', 'ASC'],
-        ['last_login', 'DESC']
+        ['id', 'ASC']
       ]
     })
   },
@@ -119,6 +118,21 @@ exports.userService = {
       return false
     }
   },
+
+
+  async taken (username) {
+    foundUser = await User.findOne({
+      where: { username: username }
+    })
+    if (foundUser) {
+      return true
+    }
+    if (checkUsernameforbidden(username)) {
+      return true
+    }
+    return false
+  },
+  
 
   async validtoken (token) {
     try {

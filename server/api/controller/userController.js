@@ -58,8 +58,14 @@ router.post("/", async (req, res) => {
         `Password missing!`
       );
     }
-    await userService.addUser(req.body.userInput);
-    res.status(201).json({ message: "Success! User has been created." });
+    const newUser = await userService.addUser(req.body.userInput);
+    if (newUser) {
+      res.status(201).json({ message: `Success! User ${newUser.username} has been created.` });
+    } else { 
+      res.status(400).json({
+        error: `Something happened! User was not created`,
+      });
+    }
   } catch (err) {
     res.status(400).json({
       error: `${err}`,

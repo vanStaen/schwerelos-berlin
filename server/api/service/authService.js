@@ -47,8 +47,7 @@ exports.authService = {
       // Return some data if success
       return {
         access: true,
-        id: foundUser.id,
-        nb_picture_at_last_login: foundUser.nb_picture_at_last_login
+        id: foundUser.id
       };
     }
   },
