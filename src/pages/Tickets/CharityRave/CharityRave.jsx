@@ -39,7 +39,7 @@ export const CharityRave = () => {
           </div>
           <span className="raveCharityTitle">CHARITY LOW GRAVITY</span>
           <span className="raveCharityDisclaimer">
-            Alle gewinne der Veranstaltung gehen an die{" "}
+            Alle Gewinne der Veranstaltung gehen an die{" "}
             <b>Berliner Stadtmission</b>
           </span>
           <div className="raveCharityTextlocation">Secret nature Location</div>
