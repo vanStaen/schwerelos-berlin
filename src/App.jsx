@@ -8,7 +8,7 @@ import {
 import { useTranslation } from "react-i18next";
 
 import { Main } from "./pages/Main";
-import { TicketValidation } from "./pages/Tickets/TicketValidation";
+import { TicketValidation } from "./pages/Tickets/TicketValidation/TicketValidation";
 import { Admin } from "./pages/Admin/Admin";
 import { pageStore } from "./store/pageStore";
 

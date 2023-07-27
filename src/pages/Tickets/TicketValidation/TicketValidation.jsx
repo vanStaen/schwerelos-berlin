@@ -2,17 +2,40 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { CheckOutlined, CloseOutlined } from "@ant-design/icons";
 
-import { GlitchText } from "../../components/GlitchText/GlitchText";
-import { CustomLoader } from "../../components/CustomLoader/CustomLoader";
-import { CharityRave } from "./CharityRave/CharityRave";
-import { userStore } from '../../store/userStore';
+import { GlitchText } from "../../../components/GlitchText/GlitchText";
+import { CustomLoader } from "../../../components/CustomLoader/CustomLoader";
+import { CharityRave } from "../CharityRave/CharityRave";
+import { userStore } from '../../../store/userStore';
+import { isTicketValid } from "./isTicketValid";
 
-import "./Tickets.less";
+import "../Tickets.less";
 
 export const TicketValidation = () => {
   let { event, ticketId } = useParams();
   const [isLoading, setLoading] = useState(true);
   const [isValid, setIsValid] = useState(null);
+  const [uuidNotUnique, setUuidNotUnique] = useState(false);
+
+  useEffect(() => {
+    const element = document.getElementById("pageTicketContainer");
+    element.style.backgroundImage = "none";
+
+    const fetchTicketData = async () => {
+      const isTicketValidRes = await isTicketValid(ticketId)
+      setLoading(false);
+      if (isTicketValidRes.getTicket.length === 0) {
+        setIsValid(false);
+      } else if (isTicketValidRes.getTicket.length > 1) {
+        setIsValid(isTicketValidRes.getTicket[0].valid);
+        setUuidNotUnique(true);
+      } else {
+        setIsValid(isTicketValidRes.getTicket[0].valid);
+      }
+    }
+
+    fetchTicketData();
+
+  }, []);
 
   useEffect(() => {
     const element = document.getElementById("pageTicketContainer");
@@ -51,7 +74,10 @@ export const TicketValidation = () => {
             <>
               <div className="ticketValidationContainer">
                 {isValid ? (
-                  <CheckOutlined className="icon" />
+                  <>
+                    {uuidNotUnique && <>UUID is not UNIQUE!</>}
+                    <CheckOutlined className="icon" />
+                  </>
                 ) : (
                   <CloseOutlined className="icon" />
                 )}
