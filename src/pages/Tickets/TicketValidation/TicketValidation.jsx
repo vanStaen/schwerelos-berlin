@@ -14,7 +14,6 @@ export const TicketValidation = () => {
   let { event, ticketId } = useParams();
   const [isLoading, setLoading] = useState(true);
   const [isValid, setIsValid] = useState(null);
-  const [uuidNotUnique, setUuidNotUnique] = useState(false);
 
   useEffect(() => {
     const element = document.getElementById("pageTicketContainer");
@@ -25,9 +24,6 @@ export const TicketValidation = () => {
       setLoading(false);
       if (isTicketValidRes.getTicket.length === 0) {
         setIsValid(false);
-      } else if (isTicketValidRes.getTicket.length > 1) {
-        setIsValid(isTicketValidRes.getTicket[0].valid);
-        setUuidNotUnique(true);
       } else {
         setIsValid(isTicketValidRes.getTicket[0].valid);
       }
@@ -74,10 +70,7 @@ export const TicketValidation = () => {
             <>
               <div className="ticketValidationContainer">
                 {isValid ? (
-                  <>
-                    {uuidNotUnique && <>UUID is not UNIQUE!</>}
-                    <CheckOutlined className="icon" />
-                  </>
+                  <CheckOutlined className="icon" />
                 ) : (
                   <CloseOutlined className="icon" />
                 )}
