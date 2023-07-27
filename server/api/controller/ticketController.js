@@ -2,8 +2,9 @@ const router = require("express").Router();
 const { ticketService } = require("../service/ticketService");
 
 // Get Ticket
-router.get("/", async (req, res) => {
+router.post("/valid", async (req, res) => {
   try {
+    console.log(req.body)
     if (!req.body.uuid) {
       throw new Error(`No ticketId was provided`);
     }
@@ -21,7 +22,7 @@ router.get("/", async (req, res) => {
 
 // Get all Ticket
 router.get("/all", async (req, res) => {
-  if (process.env.ENVIRONMENT === "production" ) {
+  if (process.env.ENVIRONMENT === "production") {
     res.status(401).json({
       error: "You should not be calling this endpoint on production!",
     });
@@ -47,7 +48,7 @@ router.get("/all", async (req, res) => {
 
 // Get last ticket id
 router.get("/lastid", async (req, res) => {
-  if (process.env.ENVIRONMENT === "production" ) {
+  if (process.env.ENVIRONMENT === "production") {
     res.status(401).json({
       error: "You should not be calling this endpoint on production!",
     });
@@ -73,7 +74,7 @@ router.get("/lastid", async (req, res) => {
 
 // POST new Ticket
 router.post("/", async (req, res) => {
-  if (process.env.ENVIRONMENT === "production" ) {
+  if (process.env.ENVIRONMENT === "production") {
     res.status(401).json({
       error: "You should not be calling this endpoint on production!",
     });
@@ -115,7 +116,7 @@ router.patch("/", async (req, res) => {
 
 // DELETE Ticket
 router.delete("/", async (req, res) => {
-  if (process.env.ENVIRONMENT === "production" ) {
+  if (process.env.ENVIRONMENT === "production") {
     res.status(401).json({
       error: "You should not be calling this endpoint on production!",
     });

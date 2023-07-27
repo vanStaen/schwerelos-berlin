@@ -1,15 +1,13 @@
 import axios from "axios";
 
-export const postLogin = async (username, email, pwd) => {
-    const apiUrl = process.env.API_URL + "/auth/login";
+export const isTicketValid = async (uuid) => {
+    const apiUrl = process.env.API_URL + "/ticket/valid";
     const response = await axios(
         {
             url: apiUrl,
             method: "POST",
             data: {
-                username: username,
-                email: email,
-                pwd: pwd,
+                uuid: uuid,
             },
         },
         {
@@ -27,5 +25,5 @@ export const postLogin = async (username, email, pwd) => {
         }
     }
 
-    return response.data.result
+    return response.data
 };
