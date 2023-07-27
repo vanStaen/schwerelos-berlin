@@ -18,6 +18,7 @@ import nostique from "../../img/artists/nostique.jpg";
 import johanneshillmer from "../../img/artists/johanneshillmer.jpg";
 import lukasedler from "../../img/artists/lukasedler.jpg";
 import sommersonnenwende from "../../img/artists/sommersonnenwende.jpg";
+import missingdj from "../../img/artists/missingdj.jpg";
 
 import "./Artist.less";
 
@@ -46,7 +47,7 @@ export const Artist = observer(() => {
     sswdElement.style.backgroundImage = `url(${sommersonnenwende})`;
     //missingdj
     const missingdjElement = document.getElementById(`div_missingdj`);
-    missingdjElement.style.backgroundImage = `url(${sommersonnenwende})`;
+    missingdjElement.style.backgroundImage = `url(${missingdj})`;
   }, []);
 
   const artistProfile = artistStore.artists.map((artist, index) => {
