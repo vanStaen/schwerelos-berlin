@@ -1,15 +1,20 @@
 import React from "react";
-import { LockOutlined, UserOutlined, CheckCircleOutlined, CloseOutlined, CloseCircleOutlined } from "@ant-design/icons";
+import {
+  LockOutlined,
+  UserOutlined,
+  CheckCircleOutlined,
+  CloseOutlined,
+  CloseCircleOutlined,
+} from "@ant-design/icons";
 import { Button, Form, Input, notification } from "antd";
 
 import { validateEmail } from "../../helpers/validateEmail";
-import { userStore } from '../../store/userStore';
+import { userStore } from "../../store/userStore";
 import { postLogin } from "./postLogin";
 
 import "./LoginForm.less";
 
 export const LoginForm = (props) => {
-
   const onFinish = async (values) => {
     const isEmail = validateEmail(values.username);
     try {
@@ -21,7 +26,7 @@ export const LoginForm = (props) => {
       if (loginRes.access) {
         userStore.setIsAdmin(loginRes.access);
         notification.open({
-          message: 'Login was sucessfull!',
+          message: "Login was sucessfull!",
           placement: "topRight",
           className: "blackNotification",
           duration: 3,
@@ -72,12 +77,6 @@ export const LoginForm = (props) => {
           />
         </Form.Item>
         <Form.Item>
-          <a className="login-form-forgot" href="">
-            Forgot password ?
-          </a>
-        </Form.Item>
-
-        <Form.Item>
           <Button
             type="primary"
             htmlType="submit"
@@ -86,6 +85,9 @@ export const LoginForm = (props) => {
             Log in
           </Button>
         </Form.Item>
+        <a className="login-form-forgot" href="">
+          Forgot password ?{/* TODO: forget password feature */}
+        </a>
       </Form>
     </div>
   );

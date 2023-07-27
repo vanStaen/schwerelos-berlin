@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export const postLogin = async (username, email, pwd) => {
-    const apiUrl = process.env.API_URL + "/auth/login";
+    const apiUrl = process.env.API_URL + "/auth/login/";
     const response = await axios(
         {
             url: apiUrl,
