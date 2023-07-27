@@ -38,10 +38,10 @@ app.use(function (req, res, next) {
   } else {
     corsOptions = {
       origin: [
-        "https://www.schwerelos-berlin.com",
-        "https://schwerelos-berlin.com",
-        "http://www.schwerelos-berlin.com",
-        "http://schwerelos-berlin.com",
+        "https://www.schwerelos-berlin.com/",
+        "https://schwerelos-berlin.com/",
+        "http://www.schwerelos-berlin.com/",
+        "http://schwerelos-berlin.com/",
         "https://schwerelos-4706bfafeb18.herokuapp.com/",
         "http://schwerelos-4706bfafeb18.herokuapp.com/"
       ],
