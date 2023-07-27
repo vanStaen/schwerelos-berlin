@@ -45,7 +45,7 @@ router.get("/all", async (req, res) => {
   }
 });
 
-// Get all Ticket
+// Get last ticket id
 router.get("/lastid", async (req, res) => {
   if (process.env.ENVIRONMENT === "production" ) {
     res.status(401).json({
@@ -139,6 +139,5 @@ router.delete("/", async (req, res) => {
     });
   }
 });
-
 
 module.exports = router;
