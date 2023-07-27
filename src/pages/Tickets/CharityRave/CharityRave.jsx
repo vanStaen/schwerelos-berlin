@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React from "react";
+import { Link } from "react-router-dom";
 
 import { GlitchText } from "../../../components/GlitchText/GlitchText";
 import schwerelosLogo from "../../../img/schwerelosLogo.png";
@@ -23,7 +24,9 @@ export const CharityRave = () => {
       />
       <div className="pageRaveContainer">
         <div className="raveContainer">
-          <img src={schwerelosLogo} className="schwerelosLogo" />
+          <Link to=".." reloadDocument>
+            <img src={schwerelosLogo} className="schwerelosLogo" />
+          </Link>
           <div className="raveCharityDatumContainer">
             <div className="raveCharityInlineBlock">
               <div className="raveCharityTextBig">02</div>
