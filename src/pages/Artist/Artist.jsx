@@ -10,6 +10,7 @@ import { Carousel } from "../../components/Carousel/Carousel";
 import InstaLogo from "../../img/logos/instaLogo.png";
 import ResidentAdvisorLogo from "../../img/logos/residentAdvisorLogo.png";
 import SoundcloudLogo from "../../img/logos/soundcloudLogo.png";
+import SpotifyLogo from "../../img/logos/spotifyLogo.png";
 
 import meema from "../../img/artists/meema.jpg";
 import vanstaen from "../../img/artists/vanstaen.jpg";
@@ -64,6 +65,40 @@ export const Artist = observer(() => {
       bio.style.display = "none";
     };
 
+    let artistLinks = [];
+    for (const [key, value] of Object.entries(artist.links)) {
+      let logo;
+      let classNameLogo;
+      switch (key) {
+        case "Instagram":
+          logo = InstaLogo;
+          classNameLogo = "artistLinkLogoInsta";
+          break;
+        case "ResidentAdvisor":
+          logo = ResidentAdvisorLogo;
+          classNameLogo = "artistLinkLogoRa";
+          break;
+        case "Soundcloud":
+          logo = SoundcloudLogo;
+          classNameLogo = "artistLinkLogoSc";
+          break;
+        case "Spotify":
+          logo = SpotifyLogo;
+          classNameLogo = "artistLinkLogoSpotify";
+          break;
+      }
+
+      artistLinks.push(
+        <Tooltip title={key}>
+          <div className="artistLink">
+            <a href={value} target="_blank">
+              <img src={logo} className={classNameLogo} />
+            </a>
+          </div>
+        </Tooltip>
+      );
+    }
+
     return (
       <div
         id={`div_${artist.name.replace(/ /g, "").toLowerCase()}`}
@@ -76,30 +111,7 @@ export const Artist = observer(() => {
           <span className="artistBioMain">{artist.bio.en}</span>
         </div>
         <div id={`social_${index}`} className="artistSocial">
-          <div className="artistLink">
-            <Tooltip title="Resident Advisor">
-              <a href="https://ra.co/labels/21798" target="_blank">
-                <img src={ResidentAdvisorLogo} className="artistLinkLogoRa" />
-              </a>
-            </Tooltip>
-          </div>
-          <div className="artistLink">
-            <Tooltip title="Soundcloud">
-              <a
-                href="https://soundcloud.com/schwerelos-berlin"
-                target="_blank"
-              >
-                <img src={SoundcloudLogo} className="artistLinkLogoSc" />
-              </a>
-            </Tooltip>
-          </div>
-          <div className="artistLink">
-            <Tooltip title="Instagram">
-              <a href="https://instagram.com/schwerelos_berlin" target="_blank">
-                <img src={InstaLogo} className="artistLinkLogoInsta" />
-              </a>
-            </Tooltip>
-          </div>
+          {artistLinks}
         </div>
         {/*<div className="artistFooter">{artist.name}</div>*/}
       </div>

@@ -9,9 +9,9 @@ export class ArtistStore {
         de: '',
       }, 
       links: {
-        insta: 'https://www.instagram.com/b0ys_cry/',
-        soundcloud: "https://soundcloud.com/b0ys_cry",
-        ra: 'https://ra.co/dj/b0ys_cry/',
+        Instagram: 'https://www.instagram.com/b0ys_cry/',
+        Soundcloud: "https://soundcloud.com/b0ys_cry",
+        ResidentAdvisor: 'https://ra.co/dj/b0ys_cry/',
       },
     },
     { name: 'van Staen', 
@@ -20,9 +20,9 @@ export class ArtistStore {
         de: '',
       }, 
       links: { 
-        insta: "https://www.instagram.com/vanstaenmusic/", 
-        ra: 'https://ra.co/dj/vanstaen', 
-        soundcloud: 'https://soundcloud.com/vanstaenmusic', 
+        Instagram: "https://www.instagram.com/vanstaenmusic/", 
+        ResidentAdvisor: 'https://ra.co/dj/vanstaen', 
+        Soundcloud: 'https://soundcloud.com/vanstaenmusic', 
         spotify: 'https://open.spotify.com/intl-de/artist/0dsj1Ni4YlrtmcySPpnrhp',
       } 
     }, 
@@ -32,9 +32,9 @@ export class ArtistStore {
         de: "2010 fing es für Sommersonnenwende mit dem Techno an. Seit dem laß man den Namen auf diversen Open Airs, in Berliner Clubs wie dem Sisyphos, Ritter Butzke, aboutBlank, Tresor und der Renate, sowie auf Festivals wie dem Forest Jump, Meeresrauschen, Feel und dem Mitdir Festival. Techno ist hier der Schlüssel um die Crowd zum tanzen zu bringen. Lasst Liebe da",
       }, 
       links: {
-        insta: 'https://www.instagram.com/sommersonnenwende.mp3/',
-        soundcloud: 'https://soundcloud.com/sommersonnenwende',
-        ra: 'https://ra.co/dj/sommersonnenwende',
+        Instagram: 'https://www.instagram.com/sommersonnenwende.mp3/',
+        Soundcloud: 'https://soundcloud.com/sommersonnenwende',
+        ResidentAdvisor: 'https://ra.co/dj/sommersonnenwende',
       }
     },
     { name: 'Nostique', 
@@ -43,10 +43,10 @@ export class ArtistStore {
         de: ""
       }, 
       links: {
-        insta: "https://www.instagram.com/nostique/",
-        soundcloud: "https://soundcloud.com/nostique",
-        ra: "https://ra.co/dj/nostique",
-        spotify: "https://open.spotify.com/intl-de/artist/6yg9pBGVn2EqJRQWC4yd9h",
+        Instagram: "https://www.instagram.com/nostique/",
+        Soundcloud: "https://soundcloud.com/nostique",
+        ResidentAdvisor: "https://ra.co/dj/nostique",
+        Spotify: "https://open.spotify.com/intl-de/artist/6yg9pBGVn2EqJRQWC4yd9h",
       }, 
     },
     { name: 'Missing DJ', 
@@ -55,7 +55,7 @@ export class ArtistStore {
         de: "MissingDJ shazamt sich seit über 10 Jahren durch die Berliner Clublandschaft. Ein wilder, melodischer, elektronischer Mix aus allem was gefällt. Von prolligem Tech-House über vocal-lastiges Gedudel bis hin zu feingeistigem Dub-Techno wird alles in einen Pott geschmissen und kräftig durchgerührt. Heraus kommt ein überraschend schmackhafter Eintopf, den man nicht missen sollte.",
       }, 
       links: {
-        soundcloud: "https://soundcloud.com/missingdj",
+        Soundcloud: "https://soundcloud.com/missingdj",
       }, 
     },
     { name: 'MEEMA', 
@@ -64,18 +64,18 @@ export class ArtistStore {
         de: '',
         }, 
       links: {
-        insta: "https://www.instagram.com/nur_meema/",
-        soundcloud: "https://soundcloud.com/meema_bln",
-        ra: 'https://ra.co/dj/meema'
+        Instagram: "https://www.instagram.com/nur_meema/",
+        Soundcloud: "https://soundcloud.com/meema_bln",
+        ResidentAdvisor: 'https://ra.co/dj/meema'
       }, 
     },    
     { name: 'Lukas Edler', 
       bio: "", 
       links: { 
-        insta: 'https://www.instagram.com/edler_lukas',
-        soundcloud: "https://soundcloud.com/stuntrising",
-        ra: "https://ra.co/dj/lukasedler/",
-        spotify: "https://open.spotify.com/intl-de/artist/2dwAYsbgtuGbOF8LkZRl28",
+        Instagram: 'https://www.instagram.com/edler_lukas',
+        Soundcloud: "https://soundcloud.com/stuntrising",
+        ResidentAdvisor: "https://ra.co/dj/lukasedler/",
+        Spotify: "https://open.spotify.com/intl-de/artist/2dwAYsbgtuGbOF8LkZRl28",
       }, 
     },    
     { name: 'Johannes Hillmer', 
@@ -84,8 +84,8 @@ export class ArtistStore {
         de: '',
       }, 
       links: {
-        soudncloud: "https://soundcloud.com/joh-2",
-        spotify: "https://open.spotify.com/intl-de/artist/6JJOiYhD2HuO9lxMKbCM1g",
+        Soudncloud: "https://soundcloud.com/joh-2",
+        Spotify: "https://open.spotify.com/intl-de/artist/6JJOiYhD2HuO9lxMKbCM1g",
       },
     },
   ];
