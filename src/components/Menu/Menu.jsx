@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { observer } from "mobx-react";
 import {
   MailOutlined,
   QuestionOutlined,
@@ -10,10 +11,11 @@ import {
 
 import federLogo from "../../img/logos/federLogo.png";
 import { userStore } from '../../store/userStore';
+import { logout } from './logout';
 
 import "./Menu.less";
 
-export const Menu = (props) => {
+export const Menu = observer((props) => {
   const [showMenu, setShowMenu] = useState(true);
 
   return (
@@ -49,7 +51,7 @@ export const Menu = (props) => {
             <li>
               <a
                 onClick={() => {
-                  userStore.isAdmin ? console.log('TODO: logout') : props.showLoginForm(true);
+                  userStore.isAdmin ? logout() : props.showLoginForm(true);
                 }}
               >
                 <LockOutlined /> {userStore.isAdmin ? 'Logout' : 'Login'}
@@ -65,4 +67,4 @@ export const Menu = (props) => {
       ></div>
     </>
   );
-};
+});

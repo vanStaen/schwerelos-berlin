@@ -1,11 +1,10 @@
 import React from "react";
-import { LockOutlined, UserOutlined } from "@ant-design/icons";
-import { Button, Form, Input } from "antd";
-import { CloseOutlined } from "@ant-design/icons";
+import { LockOutlined, UserOutlined, CheckCircleOutlined, CloseOutlined, CloseCircleOutlined } from "@ant-design/icons";
+import { Button, Form, Input, notification } from "antd";
 
 import { validateEmail } from "../../helpers/validateEmail";
-import { postLogin } from "./postLogin";
 import { userStore } from '../../store/userStore';
+import { postLogin } from "./postLogin";
 
 import "./LoginForm.less";
 
@@ -13,15 +12,31 @@ export const LoginForm = (props) => {
 
   const onFinish = async (values) => {
     const isEmail = validateEmail(values.username);
-    const loginRes = await postLogin(
-      isEmail ? null : values.username,
-      isEmail ? values.username : null,
-      values.password
-    );
-    if (loginRes) {
-      userStore.setIsAdmin(loginRes);
-      props.close(false);
-      // Todo: show succes popup
+    try {
+      const loginRes = await postLogin(
+        isEmail ? null : values.username,
+        isEmail ? values.username : null,
+        values.password
+      );
+      if (loginRes.access) {
+        userStore.setIsAdmin(loginRes.access);
+        notification.open({
+          message: 'Login was sucessfull!',
+          placement: "topRight",
+          className: "blackNotification",
+          duration: 3,
+          icon: <CheckCircleOutlined style={{ color: "green" }} />,
+        });
+        props.close(false);
+      }
+    } catch (e) {
+      notification.error({
+        message: e.response.data.result.error,
+        placement: "topRight",
+        className: "blackNotification",
+        duration: 3,
+        icon: <CloseCircleOutlined style={{ color: "red" }} />,
+      });
     }
   };
 

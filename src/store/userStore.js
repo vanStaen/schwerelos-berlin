@@ -16,7 +16,11 @@ export class UserStore {
 
   setIsAdmin = (isAdmin) => {
     this.isAdmin = isAdmin;
-    cookies.set('isAdmin', isAdmin);
+    if (isAdmin) {
+      cookies.set('isAdmin', isAdmin, { path: '/' });
+    } else {
+      cookies.remove('isAdmin', { path: '/' });
+    }
   };
 
 }

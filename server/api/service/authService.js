@@ -4,7 +4,7 @@ const jsonwebtoken = require("jsonwebtoken");
 const sequelize = require("sequelize");
 
 exports.authService = {
-  async login(req, email, username, password, remindMe) {
+  async login(req, email, username, password) {
     if (username) {
       foundUser = await User.findOne({
         where: sequelize.where(
@@ -22,7 +22,7 @@ exports.authService = {
       console.log("User does not exist!");
       throw new Error("User does not exist!");
     } else {
-            const isValid = await bcrypt.compare(password, foundUser.pwd);
+      const isValid = await bcrypt.compare(password, foundUser.pwd);
       if (!isValid) {
         console.log("Password is incorrect!");
         throw new Error("Password is incorrect!");

@@ -18,12 +18,16 @@ export const postLogin = async (username, email, pwd) => {
             },
         }
     );
-    if ((response.status !== 200) & (response.status !== 201)) {
+
+    if ((response.status !== 200) & (response.status !== 201) & (response.status !== 403)) {
         if (response.status === 401) {
             throw new Error(`Error! Unauthorized(401)`);
         } else {
             throw new Error(`Error! Status ${response.status}`);
         }
     }
-    return response.data.result.access
+
+    console.log(response.data.result);
+
+    return response.data.result
 };
