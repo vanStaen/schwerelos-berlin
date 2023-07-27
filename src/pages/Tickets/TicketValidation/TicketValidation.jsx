@@ -22,7 +22,10 @@ export const TicketValidation = () => {
     const fetchTicketData = async () => {
       const isTicketValidRes = await isTicketValid(ticketId)
       setLoading(false);
+      console.log('isTicketValidRes', isTicketValidRes);
       if (isTicketValidRes.getTicket.length === 0) {
+        setIsValid(false);
+      } else if (isTicketValidRes.getTicket.length > 1) {
         setIsValid(false);
       } else {
         setIsValid(isTicketValidRes.getTicket[0].valid);
