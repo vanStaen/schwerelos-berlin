@@ -39,7 +39,7 @@ export const CubeSlider = observer((props) => {
       pageStore.hideSwipe === false && pageStore.setHideSwipe(true);
       setTimeout(() => {
         throttling.current = false;
-      }, 1000);
+      }, 1500);
     }
   };
 

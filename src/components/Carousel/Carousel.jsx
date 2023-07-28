@@ -219,7 +219,7 @@ export const Carousel = (props) => {
       }
       setTimeout(() => {
         throttling.current = false;
-      }, 1000);
+      }, 1500);
     }
   };
 
