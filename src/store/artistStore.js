@@ -77,16 +77,6 @@ export class ArtistStore {
         ResidentAdvisor: "https://ra.co/dj/lukasedler/",
         Spotify: "https://open.spotify.com/intl-de/artist/2dwAYsbgtuGbOF8LkZRl28",
       }, 
-    },    
-    { name: 'Johannes Hillmer', 
-      bio: {
-        en: 'Johannes startet spinning vinyls back in 2012 and together with the new founded schwerelos project he stepped into the Berlin club scene. Over the years he developed a love for dub and groovy Techno which you can find in his sets and own productions.',
-        de: '',
-      }, 
-      links: {
-        Soudncloud: "https://soundcloud.com/joh-2",
-        Spotify: "https://open.spotify.com/intl-de/artist/6JJOiYhD2HuO9lxMKbCM1g",
-      },
     },
   ];
 

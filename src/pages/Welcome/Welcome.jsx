@@ -15,8 +15,6 @@ import "./Welcome.less";
 export const Welcome = observer(() => {
   const [showLoginForm, setShowLoginForm] = useState(false);
 
-  console.log("pageStore.hideSwipe", pageStore.hideSwipe);
-
   return (
     <>
       {showLoginForm && <LoginForm close={setShowLoginForm} />}

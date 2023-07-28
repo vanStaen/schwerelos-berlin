@@ -24,6 +24,7 @@ export class PageStore {
   }
 
   setSelectedArtistId = (selectedArtistId) => {
+    console.log("selectedArtistId", selectedArtistId);
     this.selectedArtistId = selectedArtistId;
   };
 

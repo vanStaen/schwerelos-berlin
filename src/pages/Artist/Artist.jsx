@@ -16,7 +16,6 @@ import meema from "../../img/artists/meema.jpg";
 import vanstaen from "../../img/artists/vanstaen.jpg";
 import b0ys_cry from "../../img/artists/b0ys_cry.jpg";
 import nostique from "../../img/artists/nostique.jpg";
-import johanneshillmer from "../../img/artists/johanneshillmer.jpg";
 import lukasedler from "../../img/artists/lukasedler.jpg";
 import sommersonnenwende from "../../img/artists/sommersonnenwende.jpg";
 import missingdj from "../../img/artists/missingdj.jpg";
@@ -39,13 +38,10 @@ export const Artist = observer(() => {
     //nostique
     const nostiqueElement = document.getElementById(`div_nostique`);
     nostiqueElement.style.backgroundImage = `url(${nostique})`;
-    //vanStaen
-    const jhElement = document.getElementById(`div_johanneshillmer`);
-    jhElement.style.backgroundImage = `url(${johanneshillmer})`;
     //lukasedler
     const lukasElement = document.getElementById(`div_lukasedler`);
     lukasElement.style.backgroundImage = `url(${lukasedler})`;
-    //lukasedler
+    //sommersonnenwende
     const sswdElement = document.getElementById(`div_sommersonnenwende`);
     sswdElement.style.backgroundImage = `url(${sommersonnenwende})`;
     //missingdj
@@ -115,7 +111,6 @@ export const Artist = observer(() => {
         <div id={`social_${index}`} className="artistSocial">
           {artistLinks}
         </div>
-        {/*<div className="artistFooter">{artist.name}</div>*/}
       </div>
     );
   });
