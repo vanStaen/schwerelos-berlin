@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import dayjs from "dayjs";
 import { Link } from "react-router-dom";
 
 import { GlitchText } from "../../../components/GlitchText/GlitchText";
@@ -12,6 +13,28 @@ import residentAdvisorLogo from "../../../img/logos/residentAdvisorLogo.png";
 import "./CharityRave.less";
 
 export const CharityRave = () => {
+  const raveDate = dayjs("2023-09-02 18:00");
+  const [countdown, setCountdown] = useState("loading");
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      const now = dayjs();
+      const diff = raveDate - now;
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor(
+        (diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+      );
+      const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+      setCountdown(
+        days + "d " + hours + "h " + minutes + "m " + seconds + "s "
+      );
+    }, 1000);
+    return () => {
+      clearInterval(interval);
+    };
+  }, []);
+
   return (
     <>
       <GlitchText
@@ -36,6 +59,7 @@ export const CharityRave = () => {
               <div className="raveCharityTextBig">18</div>
               <div>UHR</div>
             </div>
+            <div className="raveCharityCountdown">{countdown}</div>
           </div>
           <span className="raveCharityTitle">CHARITY LOW GRAVITY</span>
           <span className="raveCharityDisclaimer">
