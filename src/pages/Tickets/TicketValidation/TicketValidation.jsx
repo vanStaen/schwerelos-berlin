@@ -1,49 +1,69 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { CheckOutlined, CloseOutlined } from "@ant-design/icons";
+import {
+  CheckOutlined,
+  CloseOutlined,
+  ExclamationOutlined,
+  QuestionOutlined,
+} from "@ant-design/icons";
 
 import { GlitchText } from "../../../components/GlitchText/GlitchText";
 import { CustomLoader } from "../../../components/CustomLoader/CustomLoader";
 import { CharityRave } from "../CharityRave/CharityRave";
-import { userStore } from '../../../store/userStore';
+import { userStore } from "../../../store/userStore";
 import { isTicketValid } from "./isTicketValid";
+import { patchTicket } from "./patchTicket";
 
 import "../Tickets.less";
 
 export const TicketValidation = () => {
   let { event, ticketId } = useParams();
   const [isLoading, setLoading] = useState(true);
+  const [secondStepConfirm, setSecondStepConfirm] = useState(false);
   const [isValid, setIsValid] = useState(null);
+  const [isPunched, setIsPunched] = useState(null);
+
+  const fetchTicketData = async () => {
+    const isTicketValidRes = await isTicketValid(ticketId);
+    setLoading(false);
+    if (isTicketValidRes.getTicket.length === 0) {
+      setIsValid(false);
+    } else if (isTicketValidRes.getTicket.length > 1) {
+      setIsValid(false);
+    } else {
+      setIsValid(isTicketValidRes.getTicket[0].valid);
+      setIsPunched(isTicketValidRes.getTicket[0].punched);
+    }
+  };
+
+  const punchTicket = async () => {
+    setLoading(true);
+    try {
+      await patchTicket(ticketId);
+      await fetchTicketData(ticketId);
+    } catch (e) {
+      console.log(e);
+    }
+    setSecondStepConfirm(false);
+    setLoading(false);
+  };
 
   useEffect(() => {
     const element = document.getElementById("pageTicketContainer");
     element.style.backgroundImage = "none";
-
-    const fetchTicketData = async () => {
-      const isTicketValidRes = await isTicketValid(ticketId)
-      setLoading(false);
-      console.log('isTicketValidRes', isTicketValidRes);
-      if (isTicketValidRes.getTicket.length === 0) {
-        setIsValid(false);
-      } else if (isTicketValidRes.getTicket.length > 1) {
-        setIsValid(false);
-      } else {
-        setIsValid(isTicketValidRes.getTicket[0].valid);
-      }
-    }
-
     fetchTicketData();
-
   }, []);
 
   useEffect(() => {
     const element = document.getElementById("pageTicketContainer");
-    isLoading
+    isLoading || secondStepConfirm
       ? (element.style.backgroundColor = "Black")
       : isValid
-        ? (element.style.backgroundColor = "LimeGreen")
-        : (element.style.backgroundColor = "FireBrick");
-  }, [isLoading, isValid]);
+      ? isPunched
+        ? (element.style.backgroundColor = "IndianRed")
+        : (element.style.backgroundColor = "LimeGreen")
+      : (element.style.backgroundColor = "FireBrick");
+  }, [isLoading, isValid, isPunched, secondStepConfirm]);
 
   return (
     <div id="pageTicketContainer" className="pageTicketContainer">
@@ -51,13 +71,25 @@ export const TicketValidation = () => {
         <>
           <GlitchText
             overText={
-              isLoading
+              secondStepConfirm
+                ? "You are sure that you want to"
+                : isLoading
                 ? "Checking that"
                 : isValid
-                  ? "This ticket is"
-                  : "No-go, my friend!"
+                ? "This ticket is"
+                : "No-go, my friend!"
             }
-            glitchText={isLoading ? "Ticket" : isValid ? "Valid" : "Invalid"}
+            glitchText={
+              secondStepConfirm
+                ? "Use this ticket?"
+                : isLoading
+                ? "Ticket"
+                : isValid
+                ? isPunched
+                  ? "Already Used"
+                  : "Valid"
+                : "Invalid"
+            }
           />
           {isLoading ? (
             <>
@@ -72,8 +104,17 @@ export const TicketValidation = () => {
           ) : (
             <>
               <div className="ticketValidationContainer">
-                {isValid ? (
-                  <CheckOutlined className="icon" />
+                {secondStepConfirm ? (
+                  <QuestionOutlined className="icon" onClick={punchTicket} />
+                ) : isValid ? (
+                  isPunched ? (
+                    <ExclamationOutlined className="icon" />
+                  ) : (
+                    <CheckOutlined
+                      className="icon pointer"
+                      onClick={() => setSecondStepConfirm(true)}
+                    />
+                  )
                 ) : (
                   <CloseOutlined className="icon" />
                 )}

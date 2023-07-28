@@ -114,6 +114,34 @@ router.patch("/", async (req, res) => {
   }
 });
 
+
+// POST update Ticket validity
+router.patch("/reset", async (req, res) => {
+  if (process.env.ENVIRONMENT === "production") {
+    res.status(401).json({
+      error: "You should not be calling this endpoint on production!",
+    });
+    return;
+  }
+  if (!req.isAuth) {
+    res.status(401).json({
+      error: "Unauthorized",
+    });
+    return;
+  }
+  try {
+    if (!req.body.id) {
+      throw new Error(`No Id was provided`);
+    }
+    await ticketService.resetTicket(req.body.id);
+    res.status(201).json({ message: "Success! The ticket validity has been reseted" });
+  } catch (err) {
+    res.status(400).json({
+      error: `${err}`,
+    });
+  }
+});
+
 // DELETE Ticket
 router.delete("/", async (req, res) => {
   if (process.env.ENVIRONMENT === "production") {
