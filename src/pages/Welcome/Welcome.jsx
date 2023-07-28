@@ -8,10 +8,14 @@ import { NextGigsBanner } from "./NextGigsBanner/NextGigsBanner";
 import { pageStore } from "../../store/pageStore";
 import { LoginForm } from "../../components/LoginForm/LoginForm";
 
+import Swipe from "../../img/swipe.png";
+
 import "./Welcome.less";
 
 export const Welcome = observer(() => {
   const [showLoginForm, setShowLoginForm] = useState(false);
+
+  console.log("pageStore.hideSwipe", pageStore.hideSwipe);
 
   return (
     <>
@@ -26,7 +30,7 @@ export const Welcome = observer(() => {
           <Links />
           <NextGigsBanner />
           <br />
-          {pageStore.showSwipe && <div className="swipe">← SWIPE →</div>}
+          {!pageStore.hideSwipe && <img src={Swipe} className="swipe" />}
         </div>
       </div>
     </>

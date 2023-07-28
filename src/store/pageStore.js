@@ -7,8 +7,8 @@ export class PageStore {
 
   selectedArtistId = 0;
   language = navigator.language || navigator.userLanguage;
-  showSwipe = cookies.get('showSwipe');
-  showSwipeArtist = true;
+  hideSwipe = cookies.get('hideSwipe') || false;
+  hideSwipeArtist = cookies.get('hideSwipeArtist') || false;
 
   constructor() {
     makeObservable(this, {
@@ -16,10 +16,10 @@ export class PageStore {
       setSelectedArtistId: action,
       language: observable,
       setLanguage: action,
-      showSwipe: observable,
-      setShowSwipe: action,
-      showSwipeArtist: observable,
-      setShowSwipeArtist: action,
+      hideSwipe: observable,
+      setHideSwipe: action,
+      hideSwipeArtist: observable,
+      setHideSwipeArtist: action,
     });
   }
 
@@ -31,17 +31,17 @@ export class PageStore {
     this.language = language;
   };
 
-  setShowSwipe = (showSwipe) => {
-    this.showSwipe = showSwipe;
-    if (showSwipe === false) {
-      cookies.set('showSwipe', showSwipe);
+  setHideSwipe = (hideSwipe) => {
+    this.hideSwipe = hideSwipe;
+    if (hideSwipe === true) {
+      cookies.set('hideSwipe', hideSwipe, { path: '/' });
     }
   };
 
-  setShowSwipeArtist = (showSwipeArtist) => {
-    this.showSwipeArtist = showSwipeArtist;
-    if (showSwipeArtist === false) {
-      //cookies.set('showSwipe', showSwipe, { path: '/' });
+  setHideSwipeArtist = (hideSwipeArtist) => {
+    this.hideSwipeArtist = hideSwipeArtist;
+    if (hideSwipeArtist === true) {
+      cookies.set('hideSwipeArtist', hideSwipeArtist, { path: '/' });
     }
   };
 

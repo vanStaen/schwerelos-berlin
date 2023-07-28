@@ -21,6 +21,8 @@ import lukasedler from "../../img/artists/lukasedler.jpg";
 import sommersonnenwende from "../../img/artists/sommersonnenwende.jpg";
 import missingdj from "../../img/artists/missingdj.jpg";
 
+import SwipeUp from "../../img/swipeup.png";
+
 import "./Artist.less";
 
 export const Artist = observer(() => {
@@ -126,7 +128,7 @@ export const Artist = observer(() => {
       />
       <div className="backgroundOpacity"></div>
       <div className="artistContainer">
-        {pageStore.showSwipeArtist && <div className="swipe">↓ SWIPE ↓</div>}
+        {!pageStore.hideSwipeArtist && <img src={SwipeUp} className="swipe" />}{" "}
         <div className="artistCarousel">
           <Carousel faces={artistProfile} />
         </div>
