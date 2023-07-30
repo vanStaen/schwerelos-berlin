@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import dayjs from "dayjs";
 import { Link } from "react-router-dom";
+import { Spin } from "antd";
+import { LoadingOutlined } from "@ant-design/icons";
 
 import { GlitchText } from "../../../components/GlitchText/GlitchText";
 import schwerelosLogo from "../../../img/schwerelosLogo.png";
@@ -12,9 +14,12 @@ import residentAdvisorLogo from "../../../img/logos/residentAdvisorLogo.png";
 
 import "./CharityRave.less";
 
-export const CharityRave = () => {
+export const CharityRave = (props) => {
+  const { showEmail } = props;
   const raveDate = dayjs("2023-09-02 18:00");
-  const [countdown, setCountdown] = useState("loading");
+  const [countdown, setCountdown] = useState(
+    <Spin indicator={<LoadingOutlined spin />} />
+  );
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -82,6 +87,15 @@ export const CharityRave = () => {
           <a href="https://ra.co/events/1724976" target="_blank">
             <img src={residentAdvisorLogo} className="raLogo" />
           </a>
+          {showEmail && (
+            <div className="raveCharityEmail">
+              Schreibt uns -{" "}
+              <a href="mailto:info@schwerelos-berlin.com" className="link">
+                info@schwerelos-berlin.com
+              </a>{" "}
+              - um Karten zu bekommen
+            </div>
+          )}
           <img src={graphic1} className="graphicElement1" />
           <img src={graphic2} className="graphicElement2" />
           <img src={graphic3} className="graphicElement3" />
