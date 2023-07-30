@@ -89,11 +89,13 @@ export const CharityRave = (props) => {
           </a>
           {showEmail && (
             <div className="raveCharityEmail">
-              Schreibt uns -{" "}
-              <a href="mailto:info@schwerelos-berlin.com" className="link">
-                info@schwerelos-berlin.com
-              </a>{" "}
-              - um Karten zu bekommen
+              Schreibt uns an{" "}
+              <b>
+                <a href="mailto:info@schwerelos-berlin.com" className="link">
+                  info@schwerelos-berlin.com
+                </a>
+              </b>{" "}
+              um Karten zu bekommen
             </div>
           )}
           <img src={graphic1} className="graphicElement1" />
