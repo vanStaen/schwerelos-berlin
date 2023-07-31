@@ -61,6 +61,7 @@ db.sequelize.sync();
 app.use("/auth", require("./api/controller/authController"));
 app.use("/user", require("./api/controller/userController"));
 app.use("/ticket", require("./api/controller/ticketController"));
+app.use("/mail", require("./api/controller/mailController"));
 
 // Set up for React
 app.use(express.static(path.join(__dirname, "../build")));
