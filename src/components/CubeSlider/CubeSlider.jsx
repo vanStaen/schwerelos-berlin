@@ -36,10 +36,10 @@ export const CubeSlider = observer((props) => {
       } else if (isLeftSwipe) {
         cubeSliderStore.showRight();
       }
-      pageStore.showSwipe && pageStore.setShowSwipe(false);
+      pageStore.hideSwipe === false && pageStore.setHideSwipe(true);
       setTimeout(() => {
         throttling.current = false;
-      }, 1000);
+      }, 1500);
     }
   };
 

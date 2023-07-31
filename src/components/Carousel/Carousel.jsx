@@ -19,7 +19,7 @@ export const Carousel = (props) => {
   const [touchEnd, setTouchEnd] = useState(null);
   const radius = useRef(null);
   const throttling = useRef(false);
-  const numberOfFace = 8;
+  const numberOfFace = 7;
   const theta = 360 / numberOfFace;
   const minSwipeDistance = 50;
   const { faces } = props;
@@ -77,7 +77,7 @@ export const Carousel = (props) => {
       } else if (isDownSwipe) {
         handleFaceChange(true);
       }
-      pageStore.showSwipeArtist && pageStore.setShowSwipeArtist(false);
+      pageStore.hideSwipeArtist === false && pageStore.setHideSwipeArtist(true);
       setTimeout(() => {
         throttling.current = false;
       }, 250);
@@ -87,7 +87,7 @@ export const Carousel = (props) => {
   const getFaceNumber = (faceSelected, moveFromSelected) => {
     if (faceSelected + moveFromSelected < 1) {
       return numberOfFace + (faceSelected + moveFromSelected);
-    } else if (faceSelected + moveFromSelected > 8) {
+    } else if (faceSelected + moveFromSelected > numberOfFace) {
       return faceSelected + moveFromSelected - numberOfFace;
     } else {
       return faceSelected + moveFromSelected;
@@ -219,7 +219,7 @@ export const Carousel = (props) => {
       }
       setTimeout(() => {
         throttling.current = false;
-      }, 1000);
+      }, 1500);
     }
   };
 
@@ -340,14 +340,6 @@ export const Carousel = (props) => {
               onMouseOut={() => handleMouseOut("face7")}
             >
               {faces[6]}
-            </div>
-            <div
-              id="face8"
-              className="carousel__cell"
-              onMouseOver={() => handleMouseOver("face8")}
-              onMouseOut={() => handleMouseOut("face8")}
-            >
-              {faces[7]}
             </div>
           </div>
         </div>

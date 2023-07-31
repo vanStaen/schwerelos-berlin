@@ -64,7 +64,7 @@ export class CubeSliderStore {
       }
       cube.style.transition = "transform 0s";
       cube.classList.remove("show-right");
-    }, 1000);
+    }, 1500);
   }
 
   showLeft = (target) => {      
@@ -83,7 +83,7 @@ export class CubeSliderStore {
       }
       cube.style.transition = "transform 0s";
       cube.classList.remove("show-left");
-    }, 1000);
+    }, 1500);
   }
 }
 

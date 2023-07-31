@@ -10,14 +10,17 @@ import { Carousel } from "../../components/Carousel/Carousel";
 import InstaLogo from "../../img/logos/instaLogo.png";
 import ResidentAdvisorLogo from "../../img/logos/residentAdvisorLogo.png";
 import SoundcloudLogo from "../../img/logos/soundcloudLogo.png";
+import SpotifyLogo from "../../img/logos/spotifyLogo.png";
 
 import meema from "../../img/artists/meema.jpg";
 import vanstaen from "../../img/artists/vanstaen.jpg";
 import b0ys_cry from "../../img/artists/b0ys_cry.jpg";
 import nostique from "../../img/artists/nostique.jpg";
-import johanneshillmer from "../../img/artists/johanneshillmer.jpg";
 import lukasedler from "../../img/artists/lukasedler.jpg";
 import sommersonnenwende from "../../img/artists/sommersonnenwende.jpg";
+import missingdj from "../../img/artists/missingdj.jpg";
+
+import SwipeUp from "../../img/swipeup.png";
 
 import "./Artist.less";
 
@@ -35,18 +38,15 @@ export const Artist = observer(() => {
     //nostique
     const nostiqueElement = document.getElementById(`div_nostique`);
     nostiqueElement.style.backgroundImage = `url(${nostique})`;
-    //vanStaen
-    const jhElement = document.getElementById(`div_johanneshillmer`);
-    jhElement.style.backgroundImage = `url(${johanneshillmer})`;
     //lukasedler
     const lukasElement = document.getElementById(`div_lukasedler`);
     lukasElement.style.backgroundImage = `url(${lukasedler})`;
-    //lukasedler
+    //sommersonnenwende
     const sswdElement = document.getElementById(`div_sommersonnenwende`);
     sswdElement.style.backgroundImage = `url(${sommersonnenwende})`;
     //missingdj
     const missingdjElement = document.getElementById(`div_missingdj`);
-    missingdjElement.style.backgroundImage = `url(${sommersonnenwende})`;
+    missingdjElement.style.backgroundImage = `url(${missingdj})`;
   }, []);
 
   const artistProfile = artistStore.artists.map((artist, index) => {
@@ -63,6 +63,40 @@ export const Artist = observer(() => {
       bio.style.display = "none";
     };
 
+    let artistLinks = [];
+    for (const [key, value] of Object.entries(artist.links)) {
+      let logo;
+      let classNameLogo;
+      switch (key) {
+        case "Instagram":
+          logo = InstaLogo;
+          classNameLogo = "artistLinkLogoInsta";
+          break;
+        case "ResidentAdvisor":
+          logo = ResidentAdvisorLogo;
+          classNameLogo = "artistLinkLogoRa";
+          break;
+        case "Soundcloud":
+          logo = SoundcloudLogo;
+          classNameLogo = "artistLinkLogoSc";
+          break;
+        case "Spotify":
+          logo = SpotifyLogo;
+          classNameLogo = "artistLinkLogoSpotify";
+          break;
+      }
+
+      artistLinks.push(
+        <Tooltip title={key}>
+          <div className="artistLink">
+            <a href={value} target="_blank">
+              <img src={logo} className={classNameLogo} />
+            </a>
+          </div>
+        </Tooltip>
+      );
+    }
+
     return (
       <div
         id={`div_${artist.name.replace(/ /g, "").toLowerCase()}`}
@@ -75,32 +109,8 @@ export const Artist = observer(() => {
           <span className="artistBioMain">{artist.bio.en}</span>
         </div>
         <div id={`social_${index}`} className="artistSocial">
-          <div className="artistLink">
-            <Tooltip title="Resident Advisor">
-              <a href="https://ra.co/labels/21798" target="_blank">
-                <img src={ResidentAdvisorLogo} className="artistLinkLogoRa" />
-              </a>
-            </Tooltip>
-          </div>
-          <div className="artistLink">
-            <Tooltip title="Soundcloud">
-              <a
-                href="https://soundcloud.com/schwerelos-berlin"
-                target="_blank"
-              >
-                <img src={SoundcloudLogo} className="artistLinkLogoSc" />
-              </a>
-            </Tooltip>
-          </div>
-          <div className="artistLink">
-            <Tooltip title="Instagram">
-              <a href="https://instagram.com/schwerelos_berlin" target="_blank">
-                <img src={InstaLogo} className="artistLinkLogoInsta" />
-              </a>
-            </Tooltip>
-          </div>
+          {artistLinks}
         </div>
-        {/*<div className="artistFooter">{artist.name}</div>*/}
       </div>
     );
   });
@@ -113,7 +123,7 @@ export const Artist = observer(() => {
       />
       <div className="backgroundOpacity"></div>
       <div className="artistContainer">
-        {pageStore.showSwipeArtist && <div className="swipe">↓ SWIPE ↓</div>}
+        {!pageStore.hideSwipeArtist && <img src={SwipeUp} className="swipe" />}{" "}
         <div className="artistCarousel">
           <Carousel faces={artistProfile} />
         </div>

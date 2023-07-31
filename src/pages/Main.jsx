@@ -5,7 +5,7 @@ import { Welcome } from "./Welcome/Welcome";
 import { Artist } from "./Artist/Artist";
 import { Events } from "./Events/Events";
 import { Merch } from "./Merch/Merch";
-import { Tickets } from "./Tickets/Tickets";
+import { CharityRave } from "./Tickets/CharityRave/CharityRave";
 import { showDev } from "../helpers/showDev";
 
 export const Main = () => {
@@ -23,6 +23,9 @@ export const Main = () => {
           <div key="artistsPage">
             <Artist />
           </div>,
+          <div key="ticketPage">
+            <CharityRave showEmail={true} />
+          </div>,
         ]
       : [
           <div key="welcomePage">
@@ -38,7 +41,7 @@ export const Main = () => {
             <Merch />
           </div>,
           <div key="ticketPage">
-            <Tickets />
+            <CharityRave showEmail={true} />
           </div>,
         ];
 

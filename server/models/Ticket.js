@@ -15,6 +15,10 @@ const Ticket = sequelize.define("ticket", {
     type: DataTypes.BOOLEAN,
     defaultValue: false,
   },
+  punched: {
+    type: DataTypes.BOOLEAN,
+    defaultValue: false,
+  },
 });
 
 module.exports = {

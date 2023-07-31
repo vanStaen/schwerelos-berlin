@@ -1,3 +1,4 @@
+const { TRUE } = require('sass');
 const { Ticket } = require('../../models/Ticket');
 
 exports.ticketService = {
@@ -40,10 +41,27 @@ exports.ticketService = {
   async updateTicket(uuid) {
     try {
       const updatedTicket = await Ticket.update(
-        { valid: false },
+        { punched: true },
         {
           where: {
             uuid: uuid
+          },
+          returning: true,
+          plain: true
+        })
+      return updatedTicket[1]
+    } catch (err) {
+      console.log(err)
+    }
+  },
+
+  async resetTicket(id) {
+    try {
+      const updatedTicket = await Ticket.update(
+        { punched: false, valid: true },
+        {
+          where: {
+            id: id
           },
           returning: true,
           plain: true

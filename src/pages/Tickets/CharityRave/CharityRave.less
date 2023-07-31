@@ -42,23 +42,39 @@
         filter: drop-shadow(0px 0px 10px white);
     }
 
+    .raveCharityEmail {
+        z-index: 5;
+        position: relative;
+        padding-top: 5vh;
+        font-size: .7;
+        font-weight: 300;
+        max-width: 75vw;
+    }
+
     .raveCharityDatumContainer {
         z-index: 5;        
         font-size: 1.5em;
         line-height: 1.3em;
-        width: 200px;
+        padding: 5vh;
         text-align: center;
-        padding-bottom: 7vh;
-        filter: drop-shadow(0px 0px 10px white);    
         
         .raveCharityInlineBlock {
             display: inline-block;
-            margin-right: 20px;
+            margin-right: 5px;
+            margin-left: 5px;
+            filter: drop-shadow(0px 0px 10px white); 
         }
 
         .raveCharityTextBig {
             font-size: 2em;
             font-weight: 500;
+        }
+
+        .raveCharityCountdown {
+            font-size: .5em;
+            font-weight: 300;
+            letter-spacing: 2px;
+            opacity: .8;
         }
     }
 
@@ -89,7 +105,9 @@
     }
 
     .raLogo{
-        margin-top: 7vh;
+        z-index: 4;
+        position: relative;
+        margin-top: 5vh;
         width: 4em;
         cursor: pointer;
         &:hover {

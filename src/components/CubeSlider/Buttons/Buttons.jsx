@@ -30,7 +30,7 @@ export const Buttons = (props) => {
         }
         setTimeout(() => {
           throttling.current = false;
-        }, 1000);
+        }, 1500);
       }
     }
   };
@@ -65,7 +65,7 @@ export const Buttons = (props) => {
       }, 500);
       setTimeout(() => {
         throttling.current = false;
-      }, 1000);
+      }, 1500);
     }
   };
 
@@ -73,7 +73,10 @@ export const Buttons = (props) => {
     <>
       <div className="controls">
         {cubeSliderStore.pagePrev !== null && (
-          <div className="prevButtonCube" onClick={() => handleControlClick("arrowLeft")}>
+          <div
+            className="prevButtonCube"
+            onClick={() => handleControlClick("arrowLeft")}
+          >
             <span id="arrowLeft" className="arrowLeft" />
           </div>
         )}
