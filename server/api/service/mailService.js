@@ -86,7 +86,7 @@ exports.mailService = {
                   <b>If you did not request this, ignore this email</b> and nothing else will happen.<br/>
                   <br/>
                   This link will only be active for 10 minutes. <br/>
-                  https://schwerelos-berlin.com/recoverpwd/${recoveryToken}<br/>
+                  https://schwerelos-berlin.com/recoverpwd/${recoveryToken}/<br/>
                   <br/>
                   Schwerelos<br/>
                   <i>Techno kollektiv aus Berlin</i>

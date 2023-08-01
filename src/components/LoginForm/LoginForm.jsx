@@ -102,19 +102,14 @@ export const LoginForm = (props) => {
         <CloseOutlined />
       </div>
       {showRecoverPwdForm ? (
-        <Form
-          name="recover"
-          className="loginForm"
-          initialValues={{ email: 123 }}
-          onFinish={recover}
-        >
+        <Form name="recover" className="loginForm" onFinish={recover}>
           <Form.Item
             name="email"
             rules={[{ required: true, message: "Please input your email!" }]}
           >
             <Input
               prefix={<UserOutlined className="site-form-item-icon" />}
-              placeholder="email"
+              placeholder="Email"
               onChange={onRecoverEmailChange}
             />
           </Form.Item>
