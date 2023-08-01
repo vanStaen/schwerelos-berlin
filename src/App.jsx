@@ -8,6 +8,7 @@ import { TicketValidation } from "./pages/Tickets/TicketValidation/TicketValidat
 import { Admin } from "./pages/Admin/Admin";
 import { pageStore } from "./store/pageStore";
 import { NewPassword } from "./pages/NewPassword/NewPassword";
+import { LanguageDropDown } from "./components/LanguageDropDown/LanguageDropDown";
 
 import "../src/lib/i18n";
 import "./App.less";
@@ -41,6 +42,7 @@ const App = observer(() => {
     <BrowserRouter>
       <div className="App">
         <div className="main">
+          <LanguageDropDown />
           <Routes>
             <Route index element={<Main />} />
             <Route
