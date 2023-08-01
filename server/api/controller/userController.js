@@ -109,6 +109,24 @@ router.post("/taken", async (req, res) => {
   }
 });
 
+// Email exist?
+router.post("/email", async (req, res) => {
+  try {
+    if (!req.body.email) {
+      throw new Error("Please provide an email");
+    }
+    const email = req.body.email.toLowerCase();
+    const emailExist = await userService.email(email);
+    res.status(200).json({
+      exist: emailExist,
+    });
+  } catch (err) {
+    res.status(400).json({
+      error: `${err}`,
+    });
+  }
+});
+
 // Change password
 router.post("/changepassword", async (req, res) => {
   try {

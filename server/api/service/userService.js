@@ -119,6 +119,16 @@ exports.userService = {
     }
   },
 
+  async email (email) {
+    foundUser = await User.findOne({
+      where: { email: email }
+    })
+    if (!foundUser) {
+      return false
+    } else {
+      return true
+    }
+  },
 
   async taken (username) {
     foundUser = await User.findOne({

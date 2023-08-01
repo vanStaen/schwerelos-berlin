@@ -1,3 +1,6 @@
+@schwerelos_green: #2BC487;
+@schwerelos_purple: #9F44D9;
+@schwerelos_pink: #F70069;
 .loginFormContainer {
     position: absolute;
     top: 0;
@@ -13,13 +16,17 @@
     .loginForm {
         z-index: 10;
         position: relative;
-        background-color: rgba(255, 255, 255, .9);
-        padding: 30px 25px 0 25px;
+        padding: 50px 0 0 0;
         border-radius: 5px;
-        background-image: url('../../img//graphics/graphic1.png');
 
         .ant-btn-primary {
             background-color: black;
+            border: 1px solid rgba(255, 255, 255, .5);
+
+            &:disabled {
+                background-color: rgba(255, 255, 255, .5);
+                color: white;
+            }
         }
 
         .login-form-button {
@@ -27,14 +34,14 @@
         }
 
         .login-form-forgot {
-            color: rgba( 0, 0, 0, .5);
+            color: rgba(255, 255, 255, .75);
             position: absolute;
             bottom: 0px;
             left: 0px;
             width: 100%;
-            margin: 7px 0;
+            margin: 0;
              &:hover {
-                color: rgba( 0, 0, 0, 1);
+                color: rgba(255, 255, 255, 1);
              }
         }
     }
