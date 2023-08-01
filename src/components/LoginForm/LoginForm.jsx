@@ -6,8 +6,9 @@ import {
   CheckCircleOutlined,
   CloseOutlined,
   CloseCircleOutlined,
+  LoadingOutlined,
 } from "@ant-design/icons";
-import { Button, Form, Input, notification } from "antd";
+import { Button, Form, Input, notification, Spin } from "antd";
 
 import { validateEmail } from "../../helpers/validateEmail";
 import { userStore } from "../../store/userStore";
@@ -21,7 +22,9 @@ export const LoginForm = (props) => {
   const [isloading, setIsLoading] = useState(false);
   const [emailDoNotExist, setEmailDoNotExist] = useState(undefined);
   const [showRecoverPwdForm, setShowRecoverPwdForm] = useState(false);
+
   const onFinish = async (values) => {
+    setIsLoading(true);
     const isEmail = validateEmail(values.username);
     try {
       const loginRes = await postLogin(
@@ -49,9 +52,11 @@ export const LoginForm = (props) => {
         icon: <CloseCircleOutlined style={{ color: "red" }} />,
       });
     }
+    setIsLoading(false);
   };
 
   const recover = async (values) => {
+    setIsLoading(true);
     const email = values.email.toLowerCase();
     const emailExist = await postEmailExist(email);
     if (emailExist === false) {
@@ -61,26 +66,31 @@ export const LoginForm = (props) => {
       try {
         await postSendRecoverLink(email);
         notification.success({
-          message: t("login.recoverEmailSent"),
+          message: "We sent you an email with a link to recover your password!",
           placement: "topRight",
           className: "blackNotification",
         });
-        props.setIsRecovery(false);
       } catch (error) {
-        notification.warn({
+        notification.error({
           message: error.message,
           placement: "topRight",
           className: "blackNotification",
         });
       }
     }
+    setIsLoading(false);
+    setShowRecoverPwdForm(false);
   };
 
   const onRecoverEmailChange = async (value) => {
     if (emailDoNotExist === "error") {
-      const emailExist = await postEmailExist(value.target.value);
-      if (emailExist === true) {
+      if (value.target.value === "") {
         setEmailDoNotExist(null);
+      } else {
+        const emailExist = await postEmailExist(value.target.value);
+        if (emailExist === true) {
+          setEmailDoNotExist(null);
+        }
       }
     }
   };
@@ -115,9 +125,16 @@ export const LoginForm = (props) => {
               className="login-form-button"
               disabled={emailDoNotExist === "error" ? true : false}
             >
-              {emailDoNotExist === "error"
-                ? "This email does not exist!"
-                : "Send password reset email"}
+              {isloading ? (
+                <Spin
+                  indicator={<LoadingOutlined spin />}
+                  style={{ color: "white" }}
+                />
+              ) : emailDoNotExist === "error" ? (
+                "This email does not exist!"
+              ) : (
+                "Send password reset email"
+              )}
             </Button>
           </Form.Item>
           <a
@@ -154,7 +171,14 @@ export const LoginForm = (props) => {
               htmlType="submit"
               className="login-form-button"
             >
-              Log in
+              {isloading ? (
+                <Spin
+                  indicator={<LoadingOutlined spin />}
+                  style={{ color: "white" }}
+                />
+              ) : (
+                "Log in"
+              )}
             </Button>
           </Form.Item>
           <a
