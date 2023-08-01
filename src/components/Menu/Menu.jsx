@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { observer } from "mobx-react";
+import { Link } from "react-router-dom";
+import { Tooltip } from "antd";
 import {
   MailOutlined,
   QuestionOutlined,
@@ -10,8 +12,8 @@ import {
 } from "@ant-design/icons";
 
 import federLogo from "../../img/logos/federLogo.png";
-import { userStore } from '../../store/userStore';
-import { logout } from './logout';
+import { userStore } from "../../store/userStore";
+import { logout } from "./logout";
 
 import "./Menu.less";
 
@@ -54,10 +56,18 @@ export const Menu = observer((props) => {
                   userStore.isAdmin ? logout() : props.showLoginForm(true);
                 }}
               >
-                <LockOutlined /> {userStore.isAdmin ? 'Logout' : 'Login'}
+                <LockOutlined /> {userStore.isAdmin ? "Logout" : "Login"}
               </a>
             </li>
-            <img src={federLogo} className="federLogo" />
+            {userStore.isAdmin ? (
+              <Tooltip title="Administration" color="#2BC487" placement="right">
+                <Link to="/admin/">
+                  <img src={federLogo} className="federLogo" />
+                </Link>
+              </Tooltip>
+            ) : (
+              <img src={federLogo} className="federLogo" />
+            )}
           </ul>
         </nav>
       </div>
