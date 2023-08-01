@@ -2,9 +2,39 @@
 	"info": {
 		"_postman_id": "69f602f1-ce90-4298-aa4e-668e3ee141fd",
 		"name": "Schwerelos",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "9603966"
 	},
 	"item": [
+		{
+			"name": "Schwerelos: localhost:5000/mail",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"sendto\": \"clement.vanstaen@gmail.com\",\n    \"subject\": \"this is a test\",\n    \"body\": \"<b>test</b>\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/mail/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"mail",
+						""
+					]
+				}
+			},
+			"response": []
+		},
 		{
 			"name": "Schwerelos: localhost:5000/user",
 			"request": {
@@ -190,11 +220,8 @@
 		},
 		{
 			"name": "Schwerelos: localhost:5000/ticket",
-			"protocolProfileBehavior": {
-				"disableBodyPruning": true
-			},
 			"request": {
-				"method": "GET",
+				"method": "POST",
 				"header": [],
 				"body": {
 					"mode": "raw",
@@ -206,14 +233,15 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:5000/ticket",
+					"raw": "http://localhost:5000/ticket/valid",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "5000",
 					"path": [
-						"ticket"
+						"ticket",
+						"valid"
 					]
 				}
 			},
@@ -229,7 +257,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"ticketId\": \"123\"\n}",
+					"raw": "",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -253,6 +281,38 @@
 		},
 		{
 			"name": "Schwerelos: localhost:5000/ticket/lastid",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"ticketId\": \"123\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/ticket/lastid",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"ticket",
+						"lastid"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Schwerelos: localhost:5000/ticket/duplicate",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -318,7 +378,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"ticketId\": \"123\"\n}",
+					"raw": "{\n    \"uuid\": \"123\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -334,6 +394,35 @@
 					"port": "5000",
 					"path": [
 						"ticket"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Schwerelos: localhost:5000/ticket/reset",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": 1\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/ticket/reset",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"ticket",
+						"reset"
 					]
 				}
 			},
@@ -362,6 +451,35 @@
 					"port": "5000",
 					"path": [
 						"ticket"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://www.schwerelos-berlin.com/auth/login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\": \"vanstaen\",    \n    \"pwd\": \"pwd\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://schwerelos-berlin.com/auth/login",
+					"protocol": "https",
+					"host": [
+						"schwerelos-berlin",
+						"com"
+					],
+					"path": [
+						"auth",
+						"login"
 					]
 				}
 			},
