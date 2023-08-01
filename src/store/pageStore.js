@@ -6,7 +6,6 @@ const cookies = new Cookies();
 export class PageStore {
 
   selectedArtistId = 0;
-  language = navigator.language || navigator.userLanguage;
   hideSwipe = cookies.get('hideSwipe') || false;
   hideSwipeArtist = cookies.get('hideSwipeArtist') || false;
 
@@ -14,8 +13,6 @@ export class PageStore {
     makeObservable(this, {
       selectedArtistId: observable,
       setSelectedArtistId: action,
-      language: observable,
-      setLanguage: action,
       hideSwipe: observable,
       setHideSwipe: action,
       hideSwipeArtist: observable,
@@ -25,10 +22,6 @@ export class PageStore {
 
   setSelectedArtistId = (selectedArtistId) => {
     this.selectedArtistId = selectedArtistId;
-  };
-
-  setLanguage = (language) => {
-    this.language = language;
   };
 
   setHideSwipe = (hideSwipe) => {

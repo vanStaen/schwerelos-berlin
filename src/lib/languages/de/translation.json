@@ -1,2 +1,15 @@
 {
+  "loginRecover": {
+    "passwordReseted": "Dein Passwort wurde zurück gesetzt. Sie werden auf die Login-Seite weitergeleitet.",
+    "passwordNotChanged": "Fehler! Das Passwort wurde nicht geändert: Bitte versuchen Sie es erneut.",
+    "linkNotValid": "Dieser Link ist ungültig. Bitte starten Sie den Passwortwiederherstellungsprozess neu.",
+    "pleaseInputNewPassword": "Bitte geben Sie Ihr neues Passwort ein!",
+    "passwordDoNotMatch": "Die Passwörter stimmen nicht überein!",
+    "pleaseConfirmNewPassword" : "Bitte bestätigen Sie Ihr neues Passwort!",
+    "updatePassword": "Passwort aktualisieren",
+    "linkNotValidAnymore": "Link ist nicht mehr gültig"
+  },
+  "welcome" : {
+    "upcommingEvent" : "Upcomming events"
+  }
 }

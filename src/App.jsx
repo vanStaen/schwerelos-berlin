@@ -29,14 +29,13 @@ const App = observer(() => {
   }, []);
 
   useEffect(() => {
-    if (pageStore.language === "fr-FR") {
-      i18n.changeLanguage("fr-FR");
-    } else if (pageStore.language === "de-DE") {
+    const language = navigator.language || navigator.userLanguage;
+    if (language === "de-DE") {
       i18n.changeLanguage("de-DE");
     } else {
       i18n.changeLanguage("en-US");
     }
-  }, [pageStore.language, i18n]);
+  }, [i18n]);
 
   return (
     <BrowserRouter>

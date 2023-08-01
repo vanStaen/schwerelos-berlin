@@ -12,8 +12,8 @@ import "./NewPassword.less";
 export const NewPassword = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [isValid, setIsValid] = useState(true);
-  const { t } = useTranslation();
   const params = useParams();
+  const { t } = useTranslation();
 
   const token = params.key;
 
@@ -24,7 +24,7 @@ export const NewPassword = () => {
       const success = await postChangePassword(token, password);
       if (success === true) {
         notification.success({
-          message: t("login.passwordReseted"),
+          message: t("loginRecover.passwordReseted"),
           placement: "topRight",
           className: "blackNotification",
         });
@@ -33,7 +33,7 @@ export const NewPassword = () => {
         }, 3000);
       } else {
         notification.warn({
-          message: t("login.passwordNotChanged"),
+          message: t("loginRecover.passwordNotChanged"),
           placement: "topRight",
           className: "blackNotification",
         });
@@ -53,7 +53,7 @@ export const NewPassword = () => {
     const tokenValid = await postTokenVerify(token);
     if (!tokenValid) {
       notification.error({
-        message: t("login.linkNotValid"),
+        message: t("loginRecover.linkNotValid"),
         placement: "topRight",
         className: "blackNotification",
         duration: 0,
@@ -82,13 +82,13 @@ export const NewPassword = () => {
           rules={[
             {
               required: true,
-              message: t("login.pleaseInputNewPassword"),
+              message: t("loginRecover.pleaseInputNewPassword"),
             },
           ]}
         >
           <Input.Password
             prefix={<LockOutlined className="site-form-item-icon" />}
-            placeholder={t("login.chooseNewPassword")}
+            placeholder={t("loginRecover.chooseNewPassword")}
           />
         </Form.Item>
 
@@ -99,21 +99,21 @@ export const NewPassword = () => {
           rules={[
             {
               required: true,
-              message: t("login.pleaseInputNewPassword"),
+              message: t("loginRecover.pleaseInputNewPassword"),
             },
             ({ getFieldValue }) => ({
               validator(_, value) {
                 if (!value || getFieldValue("password") === value) {
                   return Promise.resolve();
                 }
-                return Promise.reject(new Error(t("login.passwordDoNotMatch")));
+                return Promise.reject(new Error(t("loginRecover.passwordDoNotMatch")));
               },
             }),
           ]}
         >
           <Input.Password
             prefix={<LockOutlined className="site-form-item-icon" />}
-            placeholder={t("login.pleaseConfirmNewPassword")}
+            placeholder={t("loginRecover.pleaseConfirmNewPassword")}
           />
         </Form.Item>
 
@@ -127,9 +127,9 @@ export const NewPassword = () => {
             {isLoading ? (
               <SyncOutlined spin />
             ) : isValid ? (
-              t("login.updatePassword")
+              t("loginRecover.updatePassword")
             ) : (
-              t("login.linkNotValidAnymore")
+              t("loginRecover.linkNotValidAnymore")
             )}
           </Button>
         </Form.Item>

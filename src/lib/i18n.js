@@ -4,7 +4,6 @@ import LanguageDetector from 'i18next-browser-languagedetector';
 
 const dataEn = require('./languages/en/translation.json');
 const dataDe = require('./languages/de/translation.json');
-const dataFr = require('./languages/fr/translation.json');
 
 i18n
   .use(LanguageDetector)
@@ -23,9 +22,6 @@ i18n
       de: {
         translation: dataDe
       },
-      fr: {
-        translation: dataFr
-      }
     }
   })
 
