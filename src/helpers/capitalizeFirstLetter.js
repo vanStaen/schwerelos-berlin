@@ -1,4 +1,3 @@
-
   export function capitalizeFirstLetter(string) {
       if (string === undefined || string === null) {
           return null;

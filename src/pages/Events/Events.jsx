@@ -8,6 +8,7 @@ dayjs.extend(customParseFormat);
 import SaveTheDate from "../../img/saveTheDate.png";
 import { gigStore } from "../../store/gigStore";
 import { GlitchText } from "../../components/GlitchText/GlitchText";
+import { sortDates } from "../../helpers/sortDates.js";
 
 import "./Events.less";
 
@@ -32,25 +33,13 @@ export const Events = () => {
     });
   };
 
-  const sortDate = (array, chrono) => {
-    array.sort((a, b) => {
-      const isSameOfBefore = dayjs(a.date).isSameOrBefore(dayjs(b.date));
-      if (isSameOfBefore) {
-        return chrono ? -1 : 1;
-      } else {
-        return chrono ? 1 : -1;
-      }
-    });
-    return array;
-  };
-
   useEffect(() => {
     upcommingEvents = [];
     pastEvents = [];
 
     splitGigPerDate();
-    const upcommingEventsSorted = sortDate(upcommingEvents, true);
-    const pastEventsSorted = sortDate(pastEvents, false);
+    const upcommingEventsSorted = sortDates(upcommingEvents, true);
+    const pastEventsSorted = sortDates(pastEvents, false);
 
     const pastEventsSortedFormated = pastEventsSorted.map((gig, index) => {
       return (
@@ -68,7 +57,9 @@ export const Events = () => {
     const upcommingEventsSortedFormated = upcommingEventsSorted.map(
       (gig, index) => {
         const handleEventClick = () => {
-          window.open(`https://ra.co/events/${gig.raEventNumber}`, "_blank");
+          if (gig.raEventNumber) {
+            window.open(`https://ra.co/events/${gig.raEventNumber}`, "_blank");
+          }
         };
         return (
           <div

@@ -4,22 +4,31 @@ import dayjs from "dayjs";
 
 import { gigStore } from "../../../store/gigStore";
 import { cubeSliderStore } from "../../../components/CubeSlider/cubeSliderStore";
+import { sortDates } from "../../../helpers/sortDates";
 
 import "./NextGigsBanner.less";
 
 export const NextGigsBanner = observer(() => {
   const now = dayjs();
+  const events = gigStore.gigs.slice();
+  const eventsSorted = sortDates(events, true);
 
-  const gigHtml = gigStore.gigs.map((gig, index) => {
+  const gigHtml = eventsSorted.map((gig, index) => {
     const gigDate = dayjs(gig.date, "YYYY-MM-DD");
     const gigIsInPast = dayjs(gigDate).isBefore(dayjs(now));
 
     if (!gigIsInPast) {
       return (
         <>
-          <a href={`https://ra.co/events/${gig.raEventNumber}`}>
-            {dayjs(gig.date, "YYYY-MM-DD").format("DD.MM")} | {gig.location}
-          </a>
+          {gig.raEventNumber ? (
+            <a href={`https://ra.co/events/${gig.raEventNumber}`}>
+              {dayjs(gig.date, "YYYY-MM-DD").format("DD.MM")} | {gig.location}
+            </a>
+          ) : (
+            <>
+              {dayjs(gig.date, "YYYY-MM-DD").format("DD.MM")} | {gig.location}
+            </>
+          )}
           <span className="opacity">&nbsp;&nbsp;-&nbsp;&nbsp;</span>
         </>
       );

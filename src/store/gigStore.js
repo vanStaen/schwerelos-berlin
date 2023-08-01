@@ -231,6 +231,18 @@ export class GigStore {
       name: "Schwerelos afterparty",
       raEventNumber: null
     },
+    {
+      date: '2023-08-11',
+      location: "Openair (tba)",
+      name: "Schwerelos OpenAir",
+      raEventNumber: null
+    },
+    {
+      date: '2023-08-19',
+      location: "Rödrisch",
+      name: "Schwerelos meets friends",
+      raEventNumber: null
+    },
   ];
 
   constructor() {
