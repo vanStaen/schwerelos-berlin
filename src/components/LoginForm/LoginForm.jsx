@@ -77,9 +77,9 @@ export const LoginForm = (props) => {
           className: "blackNotification",
         });
       }
+      setShowRecoverPwdForm(false);
     }
     setIsLoading(false);
-    setShowRecoverPwdForm(false);
   };
 
   const onRecoverEmailChange = async (value) => {
