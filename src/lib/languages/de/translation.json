@@ -7,7 +7,14 @@
     "passwordDoNotMatch": "Die Passwörter stimmen nicht überein!",
     "pleaseConfirmNewPassword" : "Bitte bestätigen Sie Ihr neues Passwort!",
     "updatePassword": "Passwort aktualisieren",
-    "linkNotValidAnymore": "Link ist nicht mehr gültig"
+    "linkNotValidAnymore": "Link ist nicht mehr gültig",
+    "recoverEmailSent": "Einem email mit dem link um der Passwort zu wiedererstellen ist verschickt worden!",
+    "loginSuccess": "Erfolgreich eingelogt!",
+    "pleaseInputEmail": "Bitte gebe dein Email ein.",
+    "pleaseInputEmailOrUsername": "Bitte gebe dein Email oder Benutzername ein.",
+    "emailOrUsername": "Email oder Benutzername",
+    "pleaseInputPassword": "Bitte gebe dein Passwort ein!",
+    "forgotPassword": "Passwort vergessen?"
   },
   "welcome" : {
     "upcommingEvent" : "Upcomming events"
