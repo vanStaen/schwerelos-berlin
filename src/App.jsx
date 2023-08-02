@@ -6,11 +6,10 @@ import { useTranslation } from "react-i18next";
 import { Main } from "./pages/Main";
 import { TicketValidation } from "./pages/Tickets/TicketValidation/TicketValidation";
 import { Admin } from "./pages/Admin/Admin";
-import { pageStore } from "./store/pageStore";
 import { NewPassword } from "./pages/NewPassword/NewPassword";
 import { LanguageDropDown } from "./components/LanguageDropDown/LanguageDropDown";
 
-import "../src/lib/i18n";
+import "./lib/i18n";
 import "./App.less";
 
 const defineVariableHeight = () => {
@@ -28,14 +27,14 @@ const App = observer(() => {
     defineVariableHeight();
   }, []);
 
-  useEffect(() => {
+  /*useEffect(() => {
     const language = navigator.language || navigator.userLanguage;
     if (language === "de-DE") {
       i18n.changeLanguage("de-DE");
     } else {
       i18n.changeLanguage("en-US");
     }
-  }, [i18n]);
+  }, [i18n]);*/
 
   return (
     <BrowserRouter>

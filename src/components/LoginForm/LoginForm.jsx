@@ -9,12 +9,14 @@ import {
   LoadingOutlined,
 } from "@ant-design/icons";
 import { Button, Form, Input, notification, Spin } from "antd";
+import { useTranslation } from "react-i18next";
 
 import { validateEmail } from "../../helpers/validateEmail";
 import { userStore } from "../../store/userStore";
 import { postLogin } from "./postLogin";
 import { postEmailExist } from "./postEmailExist";
 import { postSendRecoverLink } from "./postSendRecoverLink";
+import { capitalizeFirstLetter } from "../../helpers/capitalizeFirstLetter";
 
 import "./LoginForm.less";
 
@@ -22,6 +24,7 @@ export const LoginForm = (props) => {
   const [isloading, setIsLoading] = useState(false);
   const [emailDoNotExist, setEmailDoNotExist] = useState(undefined);
   const [showRecoverPwdForm, setShowRecoverPwdForm] = useState(false);
+  const { t } = useTranslation();
 
   const onFinish = async (values) => {
     setIsLoading(true);
@@ -35,7 +38,7 @@ export const LoginForm = (props) => {
       if (loginRes.access) {
         userStore.setIsAdmin(loginRes.access);
         notification.open({
-          message: "Login was sucessfull!",
+          message: t("login.loginSuccess"),
           placement: "topRight",
           className: "blackNotification",
           duration: 3,
@@ -66,7 +69,7 @@ export const LoginForm = (props) => {
       try {
         await postSendRecoverLink(email);
         notification.success({
-          message: "We sent you an email with a link to recover your password!",
+          message: t("login.recoverEmailSent"),
           placement: "topRight",
           className: "blackNotification",
         });
@@ -105,7 +108,7 @@ export const LoginForm = (props) => {
         <Form name="recover" className="loginForm" onFinish={recover}>
           <Form.Item
             name="email"
-            rules={[{ required: true, message: "Please input your email!" }]}
+            rules={[{ required: true, message: t("login.pleaseInputEmail") }]}
           >
             <Input
               prefix={<UserOutlined className="site-form-item-icon" />}
@@ -143,21 +146,28 @@ export const LoginForm = (props) => {
         <Form name="normal_login" className="loginForm" onFinish={onFinish}>
           <Form.Item
             name="username"
-            rules={[{ required: true, message: "Please input your Username!" }]}
+            rules={[
+              {
+                required: true,
+                message: t("login.pleaseInputEmailOrUsername"),
+              },
+            ]}
           >
             <Input
               prefix={<UserOutlined className="site-form-item-icon" />}
-              placeholder="Username or email"
+              placeholder={t("login.emailOrUsername")}
             />
           </Form.Item>
           <Form.Item
             name="password"
-            rules={[{ required: true, message: "Please input your Password!" }]}
+            rules={[
+              { required: true, message: t("login.pleaseInputPassword") },
+            ]}
           >
             <Input
               prefix={<LockOutlined className="site-form-item-icon" />}
               type="password"
-              placeholder="Password"
+              placeholder={capitalizeFirstLetter(t("login.password"))}
             />
           </Form.Item>
           <Form.Item>
@@ -180,7 +190,7 @@ export const LoginForm = (props) => {
             className="login-form-forgot"
             onClick={() => setShowRecoverPwdForm(true)}
           >
-            Forgot password?
+            {t("login.forgotPassword")}
           </a>
         </Form>
       )}
