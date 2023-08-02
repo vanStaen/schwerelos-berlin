@@ -6,6 +6,7 @@ import { artistStore } from "../../store/artistStore";
 import { pageStore } from "../../store/pageStore";
 import { GlitchText } from "../../components/GlitchText/GlitchText";
 import { Carousel } from "../../components/Carousel/Carousel";
+import { useTranslation } from "react-i18next";
 
 import InstaLogo from "../../img/logos/instaLogo.png";
 import ResidentAdvisorLogo from "../../img/logos/residentAdvisorLogo.png";
@@ -25,6 +26,8 @@ import SwipeUp from "../../img/swipeup.png";
 import "./Artist.less";
 
 export const Artist = observer(() => {
+  const { t } = useTranslation();
+
   useEffect(() => {
     //Meema
     const meemaElement = document.getElementById(`div_meema`);
@@ -119,7 +122,7 @@ export const Artist = observer(() => {
     <div className="artistPageContainer">
       <GlitchText
         glitchText={artistStore.artists[pageStore.selectedArtistId].name}
-        overText="schwerelos is"
+        overText={`schwerelos ${t("artist.is")}`}
       />
       <div className="backgroundOpacity"></div>
       <div className="artistContainer">

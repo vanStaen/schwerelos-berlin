@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
 import dayjs from "dayjs";
+
 import customParseFormat from "dayjs/plugin/customParseFormat";
 import isSameOrBefore from "dayjs/plugin/isSameOrBefore";
 dayjs.extend(isSameOrBefore);
@@ -13,12 +15,13 @@ import { sortDates } from "../../helpers/sortDates.js";
 import "./Events.less";
 
 export const Events = () => {
+  const { t } = useTranslation();
   const [pastEventsSortedFormated, setPastEventsSortedFormated] = useState([]);
-  const [upcommingEventsSortedFormated, setUpcommingEventsSortedFormated] =
+  const [upcomingEventsSortedFormated, setUpcomingEventsSortedFormated] =
     useState([]);
 
   const now = dayjs();
-  let upcommingEvents = [];
+  let upcomingEvents = [];
   let pastEvents = [];
 
   const splitGigPerDate = () => {
@@ -28,17 +31,17 @@ export const Events = () => {
       if (gigIsInPast) {
         pastEvents.push(gig);
       } else {
-        upcommingEvents.push(gig);
+        upcomingEvents.push(gig);
       }
     });
   };
 
   useEffect(() => {
-    upcommingEvents = [];
+    upcomingEvents = [];
     pastEvents = [];
 
     splitGigPerDate();
-    const upcommingEventsSorted = sortDates(upcommingEvents, true);
+    const upcomingEventsSorted = sortDates(upcomingEvents, true);
     const pastEventsSorted = sortDates(pastEvents, false);
 
     const pastEventsSortedFormated = pastEventsSorted.map((gig, index) => {
@@ -54,7 +57,7 @@ export const Events = () => {
     });
     setPastEventsSortedFormated(pastEventsSortedFormated);
 
-    const upcommingEventsSortedFormated = upcommingEventsSorted.map(
+    const upcomingEventsSortedFormated = upcomingEventsSorted.map(
       (gig, index) => {
         const handleEventClick = () => {
           if (gig.raEventNumber) {
@@ -64,7 +67,7 @@ export const Events = () => {
         return (
           <div
             className="row link"
-            key={`upcommingEvent${index}`}
+            key={`upcomingEvent${index}`}
             onClick={handleEventClick}
           >
             <div className="col_left">
@@ -76,7 +79,7 @@ export const Events = () => {
         );
       }
     );
-    setUpcommingEventsSortedFormated(upcommingEventsSortedFormated);
+    setUpcomingEventsSortedFormated(upcomingEventsSortedFormated);
   }, []);
 
   return (
@@ -85,11 +88,14 @@ export const Events = () => {
       <div className="backgroundOpacity"></div>
       <div className="backgroundDegrade"></div>
       <img src={SaveTheDate} className="imgSavetheDate" />
-      <GlitchText glitchText="Shows" overText="our next" />
+      <GlitchText
+        glitchText={t("events.shows")}
+        overText={t("events.ourNext")}
+      />
       <div className="content">
-        <div className="title">Upcomming</div>
-        <div className="table">{upcommingEventsSortedFormated}</div>
-        <div className="title">Past</div>
+        <div className="title">{t("events.upcoming")}</div>
+        <div className="table">{upcomingEventsSortedFormated}</div>
+        <div className="title">{t("events.past")}</div>
         <div className="table">{pastEventsSortedFormated}</div>
       </div>
     </div>

@@ -47,7 +47,7 @@ export const Main = () => {
 
   return (
     <>
-      <CubeSlider pages={pages} defaultPageIndex={0} />
+      <CubeSlider pages={pages} />
     </>
   );
 };

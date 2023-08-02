@@ -3,6 +3,7 @@ import dayjs from "dayjs";
 import { Link } from "react-router-dom";
 import { Spin } from "antd";
 import { LoadingOutlined } from "@ant-design/icons";
+import { useTranslation } from "react-i18next";
 
 import { GlitchText } from "../../../components/GlitchText/GlitchText";
 import schwerelosLogo from "../../../img/schwerelosLogo.png";
@@ -15,6 +16,7 @@ import residentAdvisorLogo from "../../../img/logos/residentAdvisorLogo.png";
 import "./CharityRave.less";
 
 export const CharityRave = (props) => {
+  const { t } = useTranslation();
   const { showEmail } = props;
   const raveDate = dayjs("2023-09-02 18:00");
   const [countdown, setCountdown] = useState(
@@ -62,16 +64,17 @@ export const CharityRave = (props) => {
             </div>
             <div className="raveCharityInlineBlock">
               <div className="raveCharityTextBig">18</div>
-              <div>UHR</div>
+              <div>{t("charityRave.oClock")}</div>
             </div>
             <div className="raveCharityCountdown">{countdown}</div>
           </div>
           <span className="raveCharityTitle">CHARITY LOW GRAVITY</span>
           <span className="raveCharityDisclaimer">
-            Alle Gewinne der Veranstaltung gehen an die{" "}
-            <b>Berliner Stadtmission</b>
+            {t("charityRave.subTitle")} <b>Berliner Stadtmission</b>
           </span>
-          <div className="raveCharityTextlocation">Secret nature Location</div>
+          <div className="raveCharityTextlocation">
+            {t("charityRave.location")}
+          </div>
           <div className="raveCharityLineUp">
             <div>GREENLAKE PROJECT [3000 Grad]</div>
             <div>TONI HAUPT [Telekollegen]</div>
@@ -89,13 +92,13 @@ export const CharityRave = (props) => {
           </a>
           {showEmail && (
             <div className="raveCharityEmail">
-              Schreibt uns an{" "}
+              {t("charityRave.writeUsTo")}{" "}
               <b>
                 <a href="mailto:info@schwerelos-berlin.com" className="link">
                   info@schwerelos-berlin.com
                 </a>
               </b>{" "}
-              um Karten zu bekommen
+              {t("charityRave.toGetTikets")}
             </div>
           )}
           <img src={graphic1} className="graphicElement1" />

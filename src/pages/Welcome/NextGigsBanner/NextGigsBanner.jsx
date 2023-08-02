@@ -44,7 +44,7 @@ export const NextGigsBanner = observer(() => {
       {gigHtmlCleaned.length !== 0 && (
         <marquee className="marquee-container">
           <span className="title" onClick={() => cubeSliderStore.showRight(1)}>
-            {t("welcome.upcommingEvent")}
+            {t("welcome.upcomingEvent")}
           </span>
           &nbsp;:&nbsp;&nbsp;
           {gigHtmlCleaned}

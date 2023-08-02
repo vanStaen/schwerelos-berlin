@@ -20,7 +20,27 @@
     "forgotPassword": "Passwort vergessen?"
   },
   "welcome" : {
-    "upcommingEvent" : "Kommende Veranstaltungen",
+    "upcomingEvent" : "Kommende Veranstaltungen",
     "channel": "Kanal"
+  },
+  "events" : {
+    "upcoming" : "Demnächst",
+    "past": "Vergangen",
+    "ourNext": "unsere nächsten",
+    "shows": "shows"
+  },
+  "charityRave" : {
+    "subTitle": "Alle Gewinne der Veranstaltung gehen an die",
+    "writeUsTo": "Schreibt uns an",
+    "toGetTikets" : "um Karten zu bekommen",
+    "oClock": "UHR",
+    "location": "Geheimer Naturstandort"
+  },
+  "artist" : {
+    "is": "ist",
+    "randomSpin" : "Zufälliger Spin | Nichts geht mehr"
+  },
+  "menu" : {
+    "about": "Über uns"
   }
 }

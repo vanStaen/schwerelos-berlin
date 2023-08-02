@@ -20,7 +20,27 @@
     "forgotPassword": "Forgot password?"
   },
   "welcome" : {
-    "upcommingEvent" : "Upcomming events",
+    "upcomingEvent" : "Upcoming events",
     "channel": "channel"
+  },
+  "events" : {
+    "upcoming" : "Upcoming",
+    "past": "Past",
+    "ourNext": "our next",
+    "shows": "shows"
+  },
+  "charityRave" : {
+    "subTitle": "All profit of this event will be donated to the ",
+    "writeUsTo": "Write us to",
+    "toGetTikets" : "to get tickets",
+    "oClock": ":00",
+    "location": "Secret nature location"
+  },
+  "artist" : {
+    "is": "is",
+    "randomSpin" : "Random spin | take a chance"
+  },
+  "menu" : {
+    "about": "about"
   }
 }

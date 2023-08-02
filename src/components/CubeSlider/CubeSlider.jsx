@@ -45,7 +45,9 @@ export const CubeSlider = observer((props) => {
 
   useEffect(() => {
     cubeSliderStore.setPagesLength(pages.length);
-    cubeSliderStore.setPageShown(defaultPageIndex ? defaultPageIndex : 0);
+    cubeSliderStore.setPageShown(
+      defaultPageIndex ? defaultPageIndex : cubeSliderStore.pageShown
+    );
   }, [pages]);
 
   return (

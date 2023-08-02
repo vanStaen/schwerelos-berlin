@@ -3,7 +3,7 @@ import { makeObservable, observable, action } from "mobx";
 export class CubeSliderStore {
 
   pagesLength = null;
-  pageShown = null;
+  pageShown = 0;
   pagePrev = 0;
   pageNext = 2;
 

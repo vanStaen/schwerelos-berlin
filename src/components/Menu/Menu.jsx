@@ -49,7 +49,7 @@ export const Menu = observer((props) => {
             </li>
             <li>
               <a>
-                <QuestionOutlined /> About
+                <QuestionOutlined /> {t("menu.about")}
               </a>
             </li>
             <li>

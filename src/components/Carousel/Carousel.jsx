@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useRef } from "react";
 import { SyncOutlined } from "@ant-design/icons";
 import { Tooltip } from "antd";
+import { useTranslation } from "react-i18next";
 
 import { pageStore } from "../../store/pageStore";
 
@@ -13,6 +14,7 @@ https://3dtransforms.desandro.com/carousel
 */
 
 export const Carousel = (props) => {
+  const { t } = useTranslation();
   const [selectedFace, setSelectedFace] = useState(1);
   const [rotationFace, setRotationFace] = useState(0);
   const [touchStart, setTouchStart] = useState(null);
@@ -266,7 +268,7 @@ export const Carousel = (props) => {
 
   return (
     <>
-      <Tooltip title="Random spin | take a chance" placement="left">
+      <Tooltip title={t("artist.randomSpin")} placement="left">
         <div className="randomSpin" onClick={randomSpinClick}>
           <SyncOutlined className="randomSpinIcon" />
           <div className="randomSpinQuestionMark">?</div>
