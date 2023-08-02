@@ -66,7 +66,7 @@ export const Events = () => {
         };
         return (
           <div
-            className="row link"
+            className={`row ${gig.raEventNumber && "link"}`}
             key={`upcomingEvent${index}`}
             onClick={handleEventClick}
           >
