@@ -8,7 +8,9 @@
     "pleaseConfirmNewPassword": "Please confirm your new password!",
     "updatePassword": "Update password",
     "linkNotValidAnymore": "Link not valid anymore.",
-    "recoverEmailSent": "We sent you an email with a link to recover your password!",
+    "recoverEmailSent": "We sent you an email with a link to recover your password!"
+  },
+  "login": {
     "loginSuccess": "Login was sucessfull!",
     "pleaseInputEmail": "Please input your Email!",
     "pleaseInputEmailOrUsername": "Please input your Email or your Username!",
@@ -18,6 +20,7 @@
     "forgotPassword": "Forgot password?"
   },
   "welcome" : {
-    "upcommingEvent" : "Kommende Veranstaltungen"
+    "upcommingEvent" : "Upcomming events",
+    "channel": "channel"
   }
 }

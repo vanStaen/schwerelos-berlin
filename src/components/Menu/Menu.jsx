@@ -10,6 +10,7 @@ import {
   SkinOutlined,
   LockOutlined,
 } from "@ant-design/icons";
+import { useTranslation } from "react-i18next";
 
 import federLogo from "../../img/logos/federLogo.png";
 import { userStore } from "../../store/userStore";
@@ -19,6 +20,7 @@ import "./Menu.less";
 
 export const Menu = observer((props) => {
   const [showMenu, setShowMenu] = useState(true);
+  const { t } = useTranslation();
 
   return (
     <>
@@ -60,7 +62,7 @@ export const Menu = observer((props) => {
               </a>
             </li>
             {userStore.isAdmin ? (
-              <Tooltip title="Administration" color="#2BC487" placement="right">
+              <Tooltip title="Admin" color="#2BC487" placement="bottom">
                 <Link to="/admin/">
                   <img src={federLogo} className="federLogo" />
                 </Link>

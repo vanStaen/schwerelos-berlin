@@ -8,15 +8,19 @@
     "pleaseConfirmNewPassword" : "Bitte bestätigen Sie Ihr neues Passwort!",
     "updatePassword": "Passwort aktualisieren",
     "linkNotValidAnymore": "Link ist nicht mehr gültig",
-    "recoverEmailSent": "Einem email mit dem link um der Passwort zu wiedererstellen ist verschickt worden!",
+    "recoverEmailSent": "Einem email mit dem link um der Passwort zu wiedererstellen ist verschickt worden!"
+  },
+  "login": {
     "loginSuccess": "Erfolgreich eingelogt!",
     "pleaseInputEmail": "Bitte gebe dein Email ein.",
     "pleaseInputEmailOrUsername": "Bitte gebe dein Email oder Benutzername ein.",
     "emailOrUsername": "Email oder Benutzername",
     "pleaseInputPassword": "Bitte gebe dein Passwort ein!",
+    "password": "passwort",
     "forgotPassword": "Passwort vergessen?"
   },
   "welcome" : {
-    "upcommingEvent" : "Upcomming events"
+    "upcommingEvent" : "Kommende Veranstaltungen",
+    "channel": "Kanal"
   }
 }

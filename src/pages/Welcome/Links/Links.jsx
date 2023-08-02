@@ -1,5 +1,6 @@
 import React from "react";
 import { Tooltip } from "antd";
+import { useTranslation } from "react-i18next";
 
 import InstaLogo from "../../../img/logos/instaLogo.png";
 import LinkTreeLogo from "../../../img/logos/linkTreeLogo.png";
@@ -10,10 +11,11 @@ import TelegramLogo from "../../../img/logos/telegramLogo.png";
 import "./Links.less";
 
 export const Links = () => {
+  const { t } = useTranslation();
   return (
     <div className="containerLink">
       <div className="link">
-        <Tooltip title="Telegram Chanel" color="#2BC487">
+        <Tooltip title={`Telegram ${t("welcome.channel")}`} color="#2BC487">
           <a href="https://t.me/SCHWERELOS_BERLIN" target="_blank">
             <img src={TelegramLogo} className="logoTelegram" />
           </a>
