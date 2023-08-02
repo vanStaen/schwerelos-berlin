@@ -12,12 +12,17 @@
   },
   "login": {
     "loginSuccess": "Login was sucessfull!",
+    "logoutSuccess": "Logout was sucessfull!",
     "pleaseInputEmail": "Please input your Email!",
     "pleaseInputEmailOrUsername": "Please input your Email or your Username!",
     "emailOrUsername": "Email or Username",
     "pleaseInputPassword": "Please input your password!",
     "password": "password",
-    "forgotPassword": "Forgot password?"
+    "forgotPassword": "Forgot password?",
+    "remember": "Its okay, I remember now",
+    "login": "Log in",
+    "emailDoesNotExist": "This email does not exist!",
+    "sendResetPasswordEmail": "Send password reset email"
   },
   "welcome" : {
     "upcomingEvent" : "Upcoming events",

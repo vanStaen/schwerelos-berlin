@@ -129,9 +129,9 @@ export const LoginForm = (props) => {
                   style={{ color: "white" }}
                 />
               ) : emailDoNotExist === "error" ? (
-                "This email does not exist!"
+                t("login.emailDoesNotExist")
               ) : (
-                "Send password reset email"
+                t("login.sendResetPasswordEmail")
               )}
             </Button>
           </Form.Item>
@@ -139,7 +139,7 @@ export const LoginForm = (props) => {
             className="login-form-forgot"
             onClick={() => setShowRecoverPwdForm(false)}
           >
-            <ArrowLeftOutlined /> <span>Its okay, I remember now</span>
+            <ArrowLeftOutlined /> <span>{t("login.remember")}</span>
           </a>
         </Form>
       ) : (
@@ -182,7 +182,7 @@ export const LoginForm = (props) => {
                   style={{ color: "white" }}
                 />
               ) : (
-                "Log in"
+                t("login.login")
               )}
             </Button>
           </Form.Item>

@@ -5,8 +5,9 @@ import { CheckCircleOutlined } from "@ant-design/icons";
 
 import { userStore } from "../../store/userStore";
 
-export const logout = async () => {
+export const logout = async (logoutText) => { 
     const apiUrl = process.env.API_URL + "/auth/logout";
+
     const response = await axios(
         {
             url: apiUrl,
@@ -23,7 +24,7 @@ export const logout = async () => {
     userStore.setIsAdmin(false);
     if (response.data.success) {
         notification.open({
-            message: 'Logout was sucessfull!',
+            message: logoutText,
             placement: "topRight",
             className: "blackNotification",
             duration: 3,
