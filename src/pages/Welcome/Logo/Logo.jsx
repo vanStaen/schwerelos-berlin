@@ -7,7 +7,7 @@ import "./Logo.less";
 
 const MAX_CANVAS_ROTATION_RADIUS = 3;
 
-export const Logo = () => {
+export const Logo = (props) => {
   const [showMovingLogo, setShowMovingLogo] = useState(false);
   const [sourceImg, setSourceImg] = useState(null);
   const radius = useRef(null);
@@ -16,6 +16,7 @@ export const Logo = () => {
   const canvasRotationRadius = useRef(2);
   const lastCanvasRotationRadius = useRef(0);
   const canvasRef = useRef(null);
+  const { opacity } = props;
 
   useEffect(() => {
     if (showMovingLogo) {
@@ -107,7 +108,10 @@ export const Logo = () => {
   };
 
   return (
-    <div className="logoContainer">
+    <div
+      className="logoContainer"
+      style={{ opacity: opacity }}
+    >
       {showMovingLogo ?
         <canvas
           id="Logo"

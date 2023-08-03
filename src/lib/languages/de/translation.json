@@ -25,6 +25,7 @@
     "sendResetPasswordEmail": "Passwort Reset Link verschicken"
   },
   "welcome" : {
+    "about" : "Ursprünglich im Jahr 2011 gegründet, Schwerelos ist ein Kollektiv junger Stadtbewohner, die sich dafür einsetzen, sich in das Berliner Nachtleben einzubringen. Mit dem Relaunch nach der Pandemie bleibt unsere Mission und unsere Werte unverändert: unsere Liebe zur Techno-Musik - durch Clubveranstaltungen, öffentliche Open-Airs und verschiedene individuelle Projekte - zu teilen.",
     "upcomingEvent" : "Kommende Veranstaltungen",
     "channel": "Kanal"
   },

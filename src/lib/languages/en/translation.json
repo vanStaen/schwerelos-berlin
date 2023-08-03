@@ -25,6 +25,7 @@
     "sendResetPasswordEmail": "Send password reset email"
   },
   "welcome" : {
+    "about" : "Initially created in 2011, Schwerelos is a collective of young city dwellers who are dedicated to getting involved in Berlin nightlife. Relaunched after the pandemic, our mission and values stays the same: share our Love for Techno music through club events, public open airs and various individual projects.",
     "upcomingEvent" : "Upcoming events",
     "channel": "channel"
   },
@@ -46,7 +47,7 @@
     "randomSpin" : "Random spin | take a chance"
   },
   "menu" : {
-    "about": "about"
+    "about": "About"
   },
   "merch" : {
     "merch": "merch",

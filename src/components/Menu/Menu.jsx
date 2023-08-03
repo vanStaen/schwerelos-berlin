@@ -14,6 +14,7 @@ import { useTranslation } from "react-i18next";
 
 import federLogo from "../../img/logos/federLogo.png";
 import { userStore } from "../../store/userStore";
+import { pageStore } from "../../store/pageStore";
 import { logout } from "./logout";
 
 import "./Menu.less";
@@ -21,6 +22,11 @@ import "./Menu.less";
 export const Menu = observer((props) => {
   const [showMenu, setShowMenu] = useState(true);
   const { t } = useTranslation();
+
+  const handleClickAbout = () => {
+    pageStore.setShowAbout(!pageStore.showAbout);
+    if (pageStore.showAbout) { setShowMenu(!showMenu); }
+  }
 
   return (
     <>
@@ -38,18 +44,18 @@ export const Menu = observer((props) => {
         <nav className={showMenu ? "nav" : "nav change"}>
           <ul className="list">
             <li>
-              <a>
-                <FileTextOutlined /> Presskit
+              <a href='https://drive.google.com/drive/folders/16I5nQsiBJvO0Eg-2NqBtDmeOf67yyg__' target='_blank'>
+                Presskit <FileTextOutlined />
               </a>
             </li>
             <li>
-              <a>
-                <MailOutlined /> Booking
+              <a href='mailto:booking@schwerelos-berlin.com'>
+                Booking <MailOutlined />
               </a>
             </li>
-            <li>
-              <a>
-                <QuestionOutlined /> {t("menu.about")}
+            <li onClick={handleClickAbout}>
+              <a >
+                {t("menu.about")} <QuestionOutlined />
               </a>
             </li>
             <li>
@@ -60,7 +66,7 @@ export const Menu = observer((props) => {
                     : props.showLoginForm(true);
                 }}
               >
-                <LockOutlined /> {userStore.isAdmin ? "Logout" : "Login"}
+                {userStore.isAdmin ? "Logout" : "Login"} <LockOutlined />
               </a>
             </li>
             {userStore.isAdmin ? (

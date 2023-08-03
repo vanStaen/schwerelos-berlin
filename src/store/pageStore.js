@@ -6,6 +6,7 @@ const cookies = new Cookies();
 export class PageStore {
 
   selectedArtistId = 0;
+  showAbout = false;
   hideSwipe = cookies.get('hideSwipe') || false;
   hideSwipeArtist = cookies.get('hideSwipeArtist') || false;
 
@@ -17,11 +18,17 @@ export class PageStore {
       setHideSwipe: action,
       hideSwipeArtist: observable,
       setHideSwipeArtist: action,
+      showAbout: observable,
+      setShowAbout: action,
     });
   }
 
   setSelectedArtistId = (selectedArtistId) => {
     this.selectedArtistId = selectedArtistId;
+  };
+
+  setShowAbout = (showAbout) => {
+    this.showAbout = showAbout;
   };
 
   setHideSwipe = (hideSwipe) => {
