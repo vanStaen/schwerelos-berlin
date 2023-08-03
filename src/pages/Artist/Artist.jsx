@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { observer } from "mobx-react";
 import { Tooltip } from "antd";
 
@@ -26,7 +26,12 @@ import SwipeUp from "../../img/swipeup.png";
 import "./Artist.less";
 
 export const Artist = observer(() => {
-  const { t } = useTranslation();
+  const { i18n, t } = useTranslation();
+  const [language, setLanguage] = useState(i18n.language.slice(0, 2));
+
+  useEffect(() => {
+    setLanguage(i18n.language.slice(0, 2));
+  }, [i18n.language])
 
   useEffect(() => {
     //Meema
@@ -51,6 +56,7 @@ export const Artist = observer(() => {
     const missingdjElement = document.getElementById(`div_missingdj`);
     missingdjElement.style.backgroundImage = `url(${missingdj})`;
   }, []);
+
 
   const artistProfile = artistStore.artists.map((artist, index) => {
     const handleMouseOver = () => {
@@ -109,7 +115,7 @@ export const Artist = observer(() => {
       >
         <div id={`bio_${index}`} className="artistBio">
           <span className="artistBioTitle">{artist.name}</span>
-          <span className="artistBioMain">{artist.bio.en}</span>
+          <span className="artistBioMain">{artist.bio[language]}</span>
         </div>
         <div id={`social_${index}`} className="artistSocial">
           {artistLinks}
@@ -126,7 +132,7 @@ export const Artist = observer(() => {
       />
       <div className="backgroundOpacity"></div>
       <div className="artistContainer">
-        {!pageStore.hideSwipeArtist && <img src={SwipeUp} className="swipe" />}{" "}
+        {!pageStore.hideSwipeArtist && <img src={SwipeUp} className="swipe" />}
         <div className="artistCarousel">
           <Carousel faces={artistProfile} />
         </div>
