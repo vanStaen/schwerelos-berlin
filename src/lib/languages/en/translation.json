@@ -47,5 +47,9 @@
   },
   "menu" : {
     "about": "about"
+  },
+  "merch" : {
+    "merch": "merch",
+    "comeGetSome": "come get some"
   }
 }

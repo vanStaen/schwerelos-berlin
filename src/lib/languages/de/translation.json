@@ -47,5 +47,9 @@
   },
   "menu" : {
     "about": "Über uns"
+  },
+  "merch" : {
+    "merch": "merch",
+    "comeGetSome": "Willste echt jute"
   }
 }
