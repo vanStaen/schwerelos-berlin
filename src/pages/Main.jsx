@@ -1,4 +1,5 @@
 import React from "react";
+import { useParams } from "react-router-dom";
 
 import { CubeSlider } from "../components/CubeSlider/CubeSlider";
 import { Welcome } from "./Welcome/Welcome";
@@ -9,8 +10,9 @@ import { CharityRave } from "./Tickets/CharityRave/CharityRave";
 import { showDev } from "../helpers/showDev";
 
 export const Main = () => {
+  const params = useParams();
   const isProduction = process.env.NODE_ENV === "production";
-
+  const defaultPage = params.page ? params.page : 0;
   const pages =
     isProduction && !showDev()
       ? [
@@ -47,7 +49,7 @@ export const Main = () => {
 
   return (
     <>
-      <CubeSlider pages={pages} />
+      <CubeSlider pages={pages} defaultPageIndex={defaultPage} />
     </>
   );
 };

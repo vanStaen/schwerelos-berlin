@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useCallback } from "react";
+import React, { useEffect, useState } from "react";
 import { Form, Input, Button, notification } from "antd";
 import { useParams } from "react-router-dom";
 import { LockOutlined, SyncOutlined } from "@ant-design/icons";
@@ -106,7 +106,9 @@ export const NewPassword = () => {
                 if (!value || getFieldValue("password") === value) {
                   return Promise.resolve();
                 }
-                return Promise.reject(new Error(t("loginRecover.passwordDoNotMatch")));
+                return Promise.reject(
+                  new Error(t("loginRecover.passwordDoNotMatch"))
+                );
               },
             }),
           ]}

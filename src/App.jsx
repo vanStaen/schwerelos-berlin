@@ -43,6 +43,7 @@ const App = observer(() => {
           <LanguageDropDown />
           <Routes>
             <Route index element={<Main />} />
+            <Route path="/:page" index element={<Main />} />
             <Route
               path="ticket/:event/:ticketId"
               element={<TicketValidation />}
