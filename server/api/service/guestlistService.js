@@ -20,6 +20,14 @@ exports.guestlistService = {
     })
   },
 
+  async getGuestlistsCountForParty (partyId) {
+    return await Guestlist.count({
+      where: {
+        partyId: partyId,
+      },
+    })
+  },
+
   async addGuestlist (input) {
     console.log("input", input);
     try {

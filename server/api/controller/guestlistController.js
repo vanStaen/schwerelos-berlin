@@ -41,6 +41,26 @@ router.get("/", async (req, res) => {
   }
 });
 
+// Get all guestlists count for one party
+router.get("/count", async (req, res) => {
+  if (!req.isAuth) {
+    res.status(401).json({
+      error: "Unauthorized",
+    });
+    return;
+  }
+  try {
+    const getGuestlistsForParty = await guestlistService.getGuestlistsCountForParty(req.body.partyId);
+    res.status(200).json({
+      getGuestlistsForParty,
+    });
+  } catch (err) {
+    res.status(400).json({
+      error: `${err}`,
+    });
+  }
+});
+
 // PATCH a guestlist
 router.patch("/", async (req, res) => {
   if (!req.isAuth) {
@@ -119,7 +139,7 @@ router.delete("/", async (req, res) => {
   }
 });
 
-// Email exist?
+// email already in guestlist?
 router.post("/already", async (req, res) => {
   try {
     if (!req.body.email) {

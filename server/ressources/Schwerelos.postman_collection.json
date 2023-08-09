@@ -635,6 +635,38 @@
 			"response": []
 		},
 		{
+			"name": "Schwerelos: localhost:5000/guestlist/count",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"partyId\": 1\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/guestlist/count",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"guestlist",
+						"count"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "Schwerelos: localhost:5000/guestlist",
 			"request": {
 				"method": "PATCH",
