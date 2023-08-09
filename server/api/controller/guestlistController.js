@@ -83,12 +83,6 @@ router.patch("/", async (req, res) => {
 
 // POST new guestlist
 router.post("/add", async (req, res) => {
-  if (!req.isAuth) {
-    res.status(401).json({
-      error: "Unauthorized",
-    });
-    return;
-  }
   try {
     if (!req.body.guestlistInput.email) {
       throw new Error(`No email was provided`);
