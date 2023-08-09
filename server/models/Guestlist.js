@@ -1,6 +1,6 @@
 const { sequelize, DataTypes } = require('../helpers/sequelizedb');
 
-const Gig = sequelize.define("gig", {
+const Guestlist = sequelize.define("guestlist", {
   id: {
     type: DataTypes.INTEGER,
     field: "id",
@@ -10,26 +10,26 @@ const Gig = sequelize.define("gig", {
   name: {
     type: DataTypes.STRING,
     allowNull: false,
+    unique: true,
   },
-  date: {
-    type: DataTypes.DATE,
-    allowNull: false,
-  },
-  location: {
-    type: DataTypes.STRING,
-    allowNull: false,
-    defaultValue: 'tba',
-  },
-  raEventNumber: {
+  email: {
     type: DataTypes.STRING,
     allowNull: true,
+    unique: true,
+    validate: {
+      isEmail: true
+    },
   },
-  link: {
+  artist: {
     type: DataTypes.STRING,
-    allowNull: true,
+    required: true,
+  },
+  party: {
+    type: DataTypes.STRING,
+    required: true,
   }
 });
 
 module.exports = {
-  Gig
+  Guestlist
 };

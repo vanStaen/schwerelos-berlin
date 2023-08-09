@@ -82,16 +82,12 @@ exports.userService = {
     }
   },
 
-  async deleteUser (args, req) {
-    if (!req.isAuth) {
-      throw new Error('Unauthorized!')
-    }
+  async deleteUser (userId) {
     await User.destroy({
       where: {
-        id: req.userId
+        id: userId
       }
     })
-    req.session = null
     return true
   },
 

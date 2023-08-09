@@ -149,4 +149,31 @@ router.post("/changepassword", async (req, res) => {
   }
 });
 
+// DELETE User
+router.delete("/", async (req, res) => {
+  if (process.env.ENVIRONMENT === "production") {
+    res.status(401).json({
+      error: "You should not be calling this endpoint on production!",
+    });
+    return;
+  }
+  if (!req.isAuth) {
+    res.status(401).json({
+      error: "Unauthorized",
+    });
+    return;
+  }
+  try {
+    if (!req.body.id) {
+      throw new Error(`No id was provided`);
+    }
+    await userService.deleteUser(req.body.id);
+    res.status(201).json({ message: "Success! The User has been deleted" });
+  } catch (err) {
+    res.status(400).json({
+      error: `${err}`,
+    });
+  }
+});
+
 module.exports = router;
