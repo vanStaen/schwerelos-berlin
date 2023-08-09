@@ -82,7 +82,7 @@ router.patch("/", async (req, res) => {
 });
 
 // POST new guestlist
-router.post("/", async (req, res) => {
+router.post("/add", async (req, res) => {
   if (!req.isAuth) {
     res.status(401).json({
       error: "Unauthorized",

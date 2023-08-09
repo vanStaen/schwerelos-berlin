@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export const postAddGuestlist = async (name, email, ) => {
-    const apiUrl = process.env.API_URL + "/guestlist/";
+    const apiUrl = process.env.API_URL + "/guestlist/add/";
     const response = await axios(
         {
             url: apiUrl,
