@@ -1,6 +1,6 @@
 const { sequelize, DataTypes } = require('../helpers/sequelizedb');
 
-const Guestlist = sequelize.define("guestlist", {
+const ArtistGL = sequelize.define("artistGL", {
   id: {
     type: DataTypes.INTEGER,
     field: "id",
@@ -11,6 +11,10 @@ const Guestlist = sequelize.define("guestlist", {
     type: DataTypes.STRING,
     allowNull: false, 
   },
+  artist: {
+    type: DataTypes.STRING,
+    allowNull: false, 
+  },
   email: {
     type: DataTypes.STRING,
     allowNull: true,
@@ -18,20 +22,20 @@ const Guestlist = sequelize.define("guestlist", {
       isEmail: true
     },
   },
-  artistId: {
-    type: DataTypes.INTEGER,
-    required: false,
-  },
   partyId: {
     type: DataTypes.INTEGER,
     required: true,
   },
-  listType: {
+  numberOfGuestList: {
+    type: DataTypes.INTEGER,
+    required: true,
+  },
+  numberOfFriendList: {
     type: DataTypes.INTEGER,
     required: true,
   }
 });
 
 module.exports = {
-  Guestlist
+  ArtistGL
 };

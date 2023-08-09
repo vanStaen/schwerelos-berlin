@@ -34,7 +34,7 @@ exports.guestlistService = {
       const guestlist = new Guestlist({
         name: input.name,
         email: input.email,
-        artist: input.artist,
+        artistId: input.artistId,
         partyId: input.partyId,
         listType: input.listType,
       })
@@ -49,7 +49,7 @@ exports.guestlistService = {
     const updatableFields = [
       'name',
       'email',
-      'artist',
+      'artistId',
       'partyId',
       'listType',
     ]
