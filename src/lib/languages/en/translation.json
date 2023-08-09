@@ -50,8 +50,9 @@
     "reserveTicket": "Reserve a ticket",    
     "of": "of",    
     "ticketReservationSuccess": "Your ticket was sucessfully reserved! You will soon get an email from us.",
-    "ticketAlreadyReserved": "You already reserved a Ticket. Use another email to reserve a new ticket"
-
+    "ticketAlreadyReserved": "You already reserved a Ticket. Use another email to reserve a new ticket",
+    "15": "15",
+    "notMandatory": "reservation does not oblige to purchase"
   },
   "artist" : {
     "is": "is",

@@ -50,7 +50,9 @@
     "reserveTicket": "Ticket reservieren",  
     "of": "von",    
     "ticketReservationSuccess": "Die reservierung war erfolgreich! Du bekommst bald ein Email von uns.",
-    "ticketAlreadyReserved": "Du hast schon eine reservierte Karte. Nutzt eine andere email um eine neue Karte zu reservieren"
+    "ticketAlreadyReserved": "Du hast schon eine reservierte Karte. Nutzt eine andere email um eine neue Karte zu reservieren",
+    "15": "AK15",
+    "notMandatory": "reservierung verpfichtet nicht zum kauf"
   },
   "artist" : {
     "is": "ist",

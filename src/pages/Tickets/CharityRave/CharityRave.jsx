@@ -75,7 +75,11 @@ export const CharityRave = (props) => {
             {t("charityRave.subTitle")} <b>Berliner Stadtmission</b>
           </span>
           <div className="raveCharityTextlocation">
-            {t("charityRave.location")}
+            {t("charityRave.15")}€*<br/>
+            {t("charityRave.location")}<br/>
+            <span style={{fontSize: '.5em'}}>
+              *{t("charityRave.notMandatory")}
+            </span>
           </div>
           <div className="raveCharityLineUp">
             <div>GREENLAKE PROJECT [3000 Grad]</div>
