@@ -51,37 +51,6 @@ exports.userService = {
     }
   },
 
-  async updateUser (userId, data) {
-    const updateFields = []
-    const updatableFields = [
-      'username',
-      'language',
-      'pwd',
-    ]
-    updatableFields.forEach(field => {
-      if (field in data.input) {
-        updateFields[field] = data.input[field]
-      }
-    })
-    if (data.input.password) {
-      updateFields.password = await bcrypt.hash(data.input.password, 12)
-    }
-    try {
-      const updatedUser = await User.update(updateFields, {
-        where: {
-          id: userId
-        },
-        returning: true,
-        plain: true
-      })
-      // updatedUser[0]: number or row udpated
-      // updatedUser[1]: rows updated
-      return updatedUser[1]
-    } catch (err) {
-      console.log(err)
-    }
-  },
-
   async deleteUser (userId) {
     await User.destroy({
       where: {

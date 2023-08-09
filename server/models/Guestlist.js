@@ -24,8 +24,12 @@ const Guestlist = sequelize.define("guestlist", {
     type: DataTypes.STRING,
     required: true,
   },
-  party: {
-    type: DataTypes.STRING,
+  partyId: {
+    type: DataTypes.INTEGER,
+    required: true,
+  },
+  listType: {
+    type: DataTypes.INTEGER,
     required: true,
   }
 });

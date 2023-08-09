@@ -3,6 +3,14 @@
 Code hosted under: https://github.com/vanStaen/schwerelos-berlin
 Server ip/port: http://3.73.5.114:5000/
 
+## Types
+
+listType:
+1. Guestlist
+2. Friendlist
+3. Paylist
+
+
 
 ## Deployment
 ### How to deploy on AWS EC2?
