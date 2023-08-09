@@ -40,7 +40,16 @@
     "writeUsTo": "Schreibt uns an",
     "toGetTikets" : "um Karten zu bekommen",
     "oClock": "UHR",
-    "location": "Geheimer Naturstandort"
+    "location": "Geheimer Naturstandort",
+    "getATicket": "Hier klicken um eine Karte zu reservieren",
+    "left": "Karten übrig",
+    "email": "Email",
+    "name": "Name",
+    "pleaseInputName": "Bitte gebe dein Name ein!",
+    "pleaseInputEmail": "Bitte gebe dein Email ein!",
+    "reserveTicket": "Ticket reservieren",
+    "ticketReservationSuccess": "Die reservierung war erfolgreich! Du bekommst bald ein Email von uns.",
+    "ticketAlreadyReserved": "Du hast schon eine reservierte Karte. Nutzt eine andere email um eine neue Karte zu reservieren"
   },
   "artist" : {
     "is": "ist",

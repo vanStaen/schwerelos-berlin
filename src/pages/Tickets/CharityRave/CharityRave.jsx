@@ -14,11 +14,13 @@ import graphic4 from "../../../img/graphics/graphic4.png";
 import residentAdvisorLogo from "../../../img/logos/residentAdvisorLogo.png";
 
 import "./CharityRave.less";
+import { ListForm } from "./ListForm/ListForm";
 
 export const CharityRave = (props) => {
   const { t } = useTranslation();
   const { showEmail } = props;
   const raveDate = dayjs("2023-09-02 18:00");
+  const [showListForm, setShowListForm] = useState(false);
   const [countdown, setCountdown] = useState(
     <Spin indicator={<LoadingOutlined spin />} />
   );
@@ -91,14 +93,16 @@ export const CharityRave = (props) => {
             <img src={residentAdvisorLogo} className="raLogo" />
           </a>
           {showEmail && (
-            <div className="raveCharityEmail">
-              {t("charityRave.writeUsTo")}{" "}
-              <b>
-                <a href="mailto:info@schwerelos-berlin.com" className="link">
-                  info@schwerelos-berlin.com
-                </a>
-              </b>{" "}
-              {t("charityRave.toGetTikets")}
+            <div
+              className="raveCharityTicket"
+              onClick={() => {
+                setShowListForm(true);
+              }}
+            >
+              <div className="blink">
+                &#62;&#62;&#62; {t("charityRave.getATicket")} &#60;&#60;&#60;
+              </div>
+              <div className="padding">32/200 {t("charityRave.left")}</div>
             </div>
           )}
           <img src={graphic1} className="graphicElement1" />
@@ -107,6 +111,7 @@ export const CharityRave = (props) => {
           <img src={graphic4} className="graphicElement4" />
         </div>
       </div>
+      {showListForm && <ListForm close={setShowListForm} />}
     </>
   );
 };

@@ -102,10 +102,9 @@ router.post("/", async (req, res) => {
     if (!req.body.guestlistInput.listType) {
       throw new Error(`No guestlist type was provided`);
     }
-    console.log("req.body.guestlistInput", req.body.guestlistInput);
     const newGuestlist = await guestlistService.addGuestlist(req.body.guestlistInput);
     if (newGuestlist) {
-      res.status(201).json({ message: `Success! This guestlist spot has been added.` });
+      res.status(201).json({ message: `Success! This guestlist spot has been added.`, result: true });
     } else { 
       res.status(400).json({
         error: `Something happened! Guestlist was not created`,
