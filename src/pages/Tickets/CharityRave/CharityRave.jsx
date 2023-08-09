@@ -102,7 +102,9 @@ export const CharityRave = (props) => {
               <div className="blink">
                 &#62;&#62;&#62; {t("charityRave.getATicket")} &#60;&#60;&#60;
               </div>
-              <div className="padding">32/200 {t("charityRave.left")}</div>
+              <div className="padding">
+                152 {t("charityRave.of")} 200 {t("charityRave.left")}
+              </div>
             </div>
           )}
           <img src={graphic1} className="graphicElement1" />

@@ -47,7 +47,8 @@
     "name": "Name",
     "pleaseInputName": "Bitte gebe dein Name ein!",
     "pleaseInputEmail": "Bitte gebe dein Email ein!",
-    "reserveTicket": "Ticket reservieren",
+    "reserveTicket": "Ticket reservieren",  
+    "of": "von",    
     "ticketReservationSuccess": "Die reservierung war erfolgreich! Du bekommst bald ein Email von uns.",
     "ticketAlreadyReserved": "Du hast schon eine reservierte Karte. Nutzt eine andere email um eine neue Karte zu reservieren"
   },

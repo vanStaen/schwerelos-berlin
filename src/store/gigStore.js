@@ -185,7 +185,7 @@ export class GigStore {
     },
     {
       date: '2023-05-19',
-      location: "Rödrisch",
+      location: "Rodrisch",
       name: "Schwerelos meets female:pressure",
       raEventNumber: "1679609"
     },
@@ -203,7 +203,7 @@ export class GigStore {
     },
     {
       date: '2023-07-15',
-      location: "Rödrisch",
+      location: "Rodrisch",
       name: "Schwerelos meets friends",
       raEventNumber: "1718919"
     },
@@ -239,8 +239,14 @@ export class GigStore {
     },
     {
       date: '2023-08-19',
-      location: "Rödrisch",
+      location: "Rodrisch",
       name: "Schwerelos meets friends",
+      raEventNumber: null
+    },
+    {
+      date: '2023-08-26',
+      location: "Forest Jump Festival",
+      name: "Schwerelos @ForestJump",
       raEventNumber: null
     },
   ];

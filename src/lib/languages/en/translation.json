@@ -39,7 +39,7 @@
     "subTitle": "All profit of this event will be donated to the ",
     "writeUsTo": "Write us to",
     "toGetTikets" : "to get tickets",
-    "oClock": ":00",
+    "oClock": "00",
     "location": "Secret nature location",
     "getATicket": "Click here to reserve your ticket",
     "left": "ticket left",
@@ -48,6 +48,7 @@
     "pleaseInputName": "Please input your Name!",
     "pleaseInputEmail": "Please input your Email!",
     "reserveTicket": "Reserve a ticket",    
+    "of": "of",    
     "ticketReservationSuccess": "Your ticket was sucessfully reserved! You will soon get an email from us.",
     "ticketAlreadyReserved": "You already reserved a Ticket. Use another email to reserve a new ticket"
 
