@@ -22,7 +22,7 @@ const Guestlist = sequelize.define("guestlist", {
   },
   artist: {
     type: DataTypes.STRING,
-    required: true,
+    required: false,
   },
   partyId: {
     type: DataTypes.INTEGER,

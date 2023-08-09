@@ -2,8 +2,7 @@
 	"info": {
 		"_postman_id": "69f602f1-ce90-4298-aa4e-668e3ee141fd",
 		"name": "Schwerelos",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "9603966"
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
 		{
@@ -13,7 +12,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"sendto\": \"clement.vanstaen@gmail.com\",\n    \"subject\": \"this is a test\",\n    \"body\": \"<b>test</b>\"\n}",
+					"raw": "{\n    \"sendto\": \"clement.vanstaen@gmail.com\",\n    \"subject\": \"this is another test\",\n    \"body\": \"<b>test</b>\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -59,6 +58,35 @@
 					"path": [
 						"user",
 						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Schwerelos: localhost:5000/user/email",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"test@gmail.com\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/user/email",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"user",
+						"email"
 					]
 				}
 			},
@@ -480,6 +508,214 @@
 					"path": [
 						"auth",
 						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Schwerelos: localhost:5000/user",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": 4\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/user",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Schwerelos: localhost:5000/guestlist",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"guestlistInput\": {\n        \"name\": \"test\",\n        \"email\": \"test@gmail.com\",\n        \"artist\": \"vanStaen\",\n        \"partyId\": 1,\n        \"listType\": 3\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/guestlist/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"guestlist",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Schwerelos: localhost:5000/guestlist/all",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/guestlist/all",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"guestlist",
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Schwerelos: localhost:5000/guestlist/",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"partyId\": 1\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/guestlist/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"guestlist",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Schwerelos: localhost:5000/guestlist",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"guestlistId\": 1,\n    \"guestlistInput\": {\n        \"listType\": 3\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/guestlist/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"guestlist",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Schwerelos: localhost:5000/guestlist/already",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"partyId\": 1,\n    \"email\": \"test@gmail.com\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/guestlist/already",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"guestlist",
+						"already"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Schwerelos: localhost:5000/guestlist/",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"guestlistId\": 1\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/guestlist/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"guestlist",
+						""
 					]
 				}
 			},

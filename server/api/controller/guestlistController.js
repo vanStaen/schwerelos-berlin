@@ -30,7 +30,7 @@ router.get("/", async (req, res) => {
     return;
   }
   try {
-    const getGuestlistsForParty = await guestlistService.getGuestlistsForParty(req.partyId);
+    const getGuestlistsForParty = await guestlistService.getGuestlistsForParty(req.body.partyId);
     res.status(200).json({
       getGuestlistsForParty,
     });
@@ -42,7 +42,7 @@ router.get("/", async (req, res) => {
 });
 
 // PATCH a guestlist
-router.get("/", async (req, res) => {
+router.patch("/", async (req, res) => {
   if (!req.isAuth) {
     res.status(401).json({
       error: "Unauthorized",
@@ -50,7 +50,7 @@ router.get("/", async (req, res) => {
     return;
   }
   try {
-    const patchGuestlistsForParty = await guestlistService.updateGuestlist(req.partyId, req.body.guestlistInput);
+    const patchGuestlistsForParty = await guestlistService.updateGuestlist(req.body.guestlistId, req.body.guestlistInput);
     res.status(200).json({
       patchGuestlistsForParty,
     });
@@ -63,6 +63,12 @@ router.get("/", async (req, res) => {
 
 // POST new guestlist
 router.post("/", async (req, res) => {
+  if (!req.isAuth) {
+    res.status(401).json({
+      error: "Unauthorized",
+    });
+    return;
+  }
   try {
     if (!req.body.guestlistInput.email) {
       throw new Error(`No email was provided`);
@@ -70,15 +76,13 @@ router.post("/", async (req, res) => {
     if (!req.body.guestlistInput.name) {
       throw new Error(`No name was provided`);
     }
-    if (!req.body.guestlistInput.artist) {
-      throw new Error(`No refering artist was provided`);
-    }
     if (!req.body.guestlistInput.partyId) {
       throw new Error(`No refering party was provided`);
     }
     if (!req.body.guestlistInput.listType) {
       throw new Error(`No guestlist type was provided`);
     }
+    console.log("req.body.guestlistInput", req.body.guestlistInput);
     const newGuestlist = await guestlistService.addGuestlist(req.body.guestlistInput);
     if (newGuestlist) {
       res.status(201).json({ message: `Success! This guestlist spot has been added.` });
@@ -106,7 +110,7 @@ router.delete("/", async (req, res) => {
     if (!req.body.guestlistId) {
       throw new Error(`No guestlistId was provided`);
     }
-    await guestlistService.deleteGuestlist(req.body.id);
+    await guestlistService.deleteGuestlist(req.body.guestlistId);
     res.status(201).json({ message: "Success! The guestlist spot has been deleted" });
   } catch (err) {
     res.status(400).json({
@@ -125,7 +129,7 @@ router.post("/already", async (req, res) => {
       throw new Error("Please provide an email");
     }
     const email = req.body.email.toLowerCase();
-    const already = await userService.email(email, req.body.partyId);
+    const already = await guestlistService.isAreadyOnTheList(email, req.body.partyId);
     res.status(200).json({
       already: already,
     });

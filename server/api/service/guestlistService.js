@@ -1,8 +1,6 @@
 const { Guestlist } = require('../../models/Guestlist')
-const jsonwebtoken = require('jsonwebtoken')
-const bcrypt = require('bcryptjs')
 
-exports.userService = {
+exports.guestlistService = {
   async getGuestlists () {
     return await Guestlist.findAll({
       order: [
@@ -23,6 +21,7 @@ exports.userService = {
   },
 
   async addGuestlist (input) {
+    console.log("input", input);
     try {
       const guestlist = new Guestlist({
         name: input.name,
@@ -46,9 +45,10 @@ exports.userService = {
       'partyId',
       'listType',
     ]
+    console.log('updateFields', data);
     updatableFields.forEach(field => {
-      if (field in data.input) {
-        updateFields[field] = data.input[field]
+      if (field in data) {
+        updateFields[field] = data[field]
       }
     })
     try {
@@ -77,7 +77,7 @@ exports.userService = {
   },
 
   async isAreadyOnTheList (email, partyId) {
-    foundGuestlist = await User.findOne({
+    foundGuestlist = await Guestlist.findOne({
       where: { email: email, partyId: partyId }
     })
     if (!foundGuestlist) {
