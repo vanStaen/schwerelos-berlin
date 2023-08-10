@@ -247,7 +247,8 @@ export class GigStore {
       date: '2023-08-26',
       location: "Forest Jump Festival",
       name: "Schwerelos @ForestJump",
-      raEventNumber: null
+      raEventNumber: null,
+      link: 'https://forestjump-festival.de/lineup/',
     },
   ];
 

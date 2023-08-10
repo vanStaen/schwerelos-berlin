@@ -62,11 +62,13 @@ export const Events = () => {
         const handleEventClick = () => {
           if (gig.raEventNumber) {
             window.open(`https://ra.co/events/${gig.raEventNumber}`, "_blank");
+          } else if (gig.link){
+            window.open(gig.link, "_blank");
           }
         };
         return (
           <div
-            className={`row ${gig.raEventNumber && "link"}`}
+            className={`row ${(gig.raEventNumber || gig.link)  && "link"}`}
             key={`upcomingEvent${index}`}
             onClick={handleEventClick}
           >
