@@ -1,0 +1,287 @@
+(
+    '2012-06-22',
+    'Bi Nuu',
+    'Schwerelos im Bi Nuu',
+    null,
+    null
+),
+(
+    '2012-07-13',
+    'Festsaal Kreuzberg',
+    'Schwerelos im Festsaal',
+    null,
+    null
+),
+(
+    '2012-07-28',
+    'Tempelhofer Feld',
+    'Schwerelos OpenAir',
+    null,
+    null
+),
+(
+    '2012-09-08',
+    'Rosis',
+    'Schwerelos im Rosis',
+    null,
+    null
+),
+(
+    '2012-10-26',
+    'Astra Kulturhaus',
+    'Schwerelos showcase',
+    null,
+    null
+),
+(
+    '2012-12-29',
+    'Rosis',
+    'Schwerelos im Rosis',
+    null,
+    null
+),
+(
+    '2013-02-12',
+    'Magdalena',
+    'Schwerelos Labelnight',
+    null,
+    null
+),
+(
+    '2013-04-13',
+    'Arena Club',
+    'Schwerelos 2 Jahre',
+    null,
+    null
+),
+(
+    '2013-06-08',
+    'Rosis',
+    'Schwerelos Labelnight',
+    null,
+    null
+),
+(
+    '2013-10-11',
+    'Rosis',
+    'Schwerelos /w Toni Haupt',
+    null,
+    null
+),
+(
+    '2013-11-23',
+    'Arena Club',
+    'Schwerelos /w Jens Bond',
+    null,
+    null
+),
+(
+    '2014-01-18',
+    'Arena Club',
+    'Schwerelos /w Rampue',
+    null,
+    null
+),
+(
+    '2014-09-03',
+    'Rosis',
+    'Schwerelos im Rosis',
+    null,
+    null
+),
+(
+    '2015-01-17',
+    'Gretchen Club',
+    'Schwerelos im Gretchen',
+    '665926',
+    null
+),
+(
+    '2015-03-06',
+    'Rosis',
+    'Schwerelos im Rosis',
+    null,
+    null
+),
+(
+    '2015-04-05',
+    'Rosis',
+    'Schwerelos Osterfest',
+    '695399',
+    null
+),
+(
+    '2015-04-11',
+    'Hasenheide',
+    'Schwerelos im Freien',
+    null,
+    null
+),
+(
+    '2015-07-24',
+    'Loftus Hall',
+    'Schwerelos /w Mira Lykke',
+    '733574',
+    null
+),
+(
+    '2015-07-13',
+    'Wulheide',
+    'Schwerelos Openair',
+    null,
+    null
+),
+(
+    '2015-10-23',
+    'Loftus Hall',
+    'Schwerelos im Loftus Hall',
+    null,
+    null
+),
+(
+    '2015-11-14',
+    'Weekend Club',
+    'Schwerelos Labelnight',
+    null,
+    null
+),
+(
+    '2015-11-28',
+    'Rosis',
+    'Schwerelos im Rosis',
+    null,
+    null
+),
+(
+    '2016-01-02',
+    'Burg Schnabel',
+    'Schwerelos showcastle',
+    null,
+    null
+),
+(
+    '2016-03-11',
+    'Weekend Club',
+    'Schwerelos Labelnight',
+    null,
+    null
+),
+(
+    '2016-10-06',
+    'Weekend Club',
+    'Schwerelos x Love on Top',
+    null,
+    null
+),
+(
+    '2017-01-07',
+    'Weekend Club',
+    'Schwerelos Labelnight',
+    null,
+    null
+),
+(
+    '2018-07-14',
+    'Polygon Berlin',
+    'Schwerelos Wonderland Summer OpenAir',
+    null,
+    null
+),
+(
+    '2023-03-18',
+    'Schokoladen',
+    'Auf 1,2,3... Bier mit Schwerelos',
+    '1670920',
+    null
+),
+(
+    '2023-04-21',
+    'Birgit&Bier',
+    'Birgits Weekender',
+    '1666734',
+    null
+),
+(
+    '2023-05-01',
+    'Suicide Club',
+    'Techno Türken 1Mai Openair',
+    '1690715',
+    null
+),
+(
+    '2023-05-19',
+    'Rodrisch',
+    'Schwerelos meets female:pressure',
+    '1679609',
+    null
+),
+(
+    '2023-06-02',
+    'Birgit&Bier',
+    'Birgits Weekender',
+    '1702920',
+    null
+),
+(
+    '2023-06-17',
+    'Schokoladen',
+    'Schwerelos meets Cetama',
+    '1702931',
+    null
+),
+(
+    '2023-07-15',
+    'Rodrisch',
+    'Schwerelos meets friends',
+    '1718919',
+    null
+),
+(
+    '2023-08-25',
+    'Schokoladen',
+    '`Waving the gun` afterparty',
+    '1741681',
+    null
+),
+(
+    '2023-09-02',
+    'Secret location',
+    'Schwerelos soli openair',
+    '1724976',
+    null
+),
+(
+    '2023-09-21',
+    'Renate',
+    'Hummmpday x Schwerelos',
+    '1706073',
+    null
+),
+(
+    '2023-08-05',
+    'Schokoladen',
+    'Schwerelos afterparty',
+    null,
+    null
+),
+(
+    '2023-08-11',
+    'Openair (tba)',
+    'Schwerelos OpenAir',
+    null,
+    null
+),
+(
+    '2023-08-19',
+    'Rodrisch',
+    'Schwerelos meets friends',
+    null,
+    null
+),
+(
+    '2023-08-26',
+    'Forest Jump Festival',
+    'Schwerelos @ForestJump',
+    null,
+    'https://forestjump-festival.de/lineup/'
+)

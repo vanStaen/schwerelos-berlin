@@ -7,13 +7,15 @@ export class GigStore {
       date: '2012-06-22',
       location: "Bi Nuu",
       name: "Schwerelos im Bi Nuu",
-      raEventNumber: null
+      raEventNumber: null,
+      link: null,
     },
     {
       date: '2012-07-13',
       location: "Festsaal Kreuzberg",
       name: "Schwerelos im Festsaal",
-      raEventNumber: null
+      raEventNumber: null,
+      link: null,
     },
     {
       date: '2012-07-28',
