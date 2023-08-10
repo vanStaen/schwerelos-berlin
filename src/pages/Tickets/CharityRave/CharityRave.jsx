@@ -15,17 +15,29 @@ import residentAdvisorLogo from "../../../img/logos/residentAdvisorLogo.png";
 
 import "./CharityRave.less";
 import { ListForm } from "./ListForm/ListForm";
+import { postGuestlistsCountForParty } from "./postGuestlistsCountForParty";
+
+const NUMBER_OF_TICKET = 200;
 
 export const CharityRave = (props) => {
   const { t } = useTranslation();
   const { showEmail } = props;
   const raveDate = dayjs("2023-09-02 18:00");
   const [showListForm, setShowListForm] = useState(false);
+  const [ticketLeft, setTicketLeft] = useState(false);
   const [countdown, setCountdown] = useState(
     <Spin indicator={<LoadingOutlined spin />} />
   );
 
   useEffect(() => {
+
+    const fetchTicketReserved = async () => {
+      const ticketReserved = await postGuestlistsCountForParty();
+      setTicketLeft(NUMBER_OF_TICKET - (ticketReserved + 20));
+    }
+
+    fetchTicketReserved();
+
     const interval = setInterval(() => {
       const now = dayjs();
       const diff = raveDate - now;
@@ -107,7 +119,7 @@ export const CharityRave = (props) => {
                 &#62; {t("charityRave.getATicket")} &#60;
               </div>
               <div className="padding">
-                152 {t("charityRave.of")} 200 {t("charityRave.left")}
+                {ticketLeft} {t("charityRave.of")} {NUMBER_OF_TICKET} {t("charityRave.left")}
               </div>
             </div>
           )}
