@@ -43,12 +43,6 @@ router.post("/all", async (req, res) => {
 
 // Post all guestlists count for one party
 router.post("/count", async (req, res) => {
-  if (!req.isAuth) {
-    res.status(401).json({
-      error: "Unauthorized",
-    });
-    return;
-  }
   try {
     console.log('req.body', req)
     const getGuestlistsForParty = await guestlistService.getGuestlistsCountForParty(req.body.partyId);

@@ -24,7 +24,7 @@ export const CharityRave = (props) => {
   const { showEmail } = props;
   const raveDate = dayjs("2023-09-02 18:00");
   const [showListForm, setShowListForm] = useState(false);
-  const [ticketLeft, setTicketLeft] = useState(false);
+  const [ticketLeft, setTicketLeft] = useState(<Spin indicator={<LoadingOutlined spin />} />);
   const [countdown, setCountdown] = useState(
     <Spin indicator={<LoadingOutlined spin />} />
   );
