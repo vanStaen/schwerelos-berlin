@@ -32,7 +32,7 @@ export const Admin = () => {
 
 
   return (
-    <div className="container">
+    <div className="adminContainer">
       {isLoading ?
         <Spin
           indicator={<LoadingOutlined spin />}

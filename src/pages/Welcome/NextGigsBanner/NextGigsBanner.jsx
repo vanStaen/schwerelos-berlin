@@ -26,6 +26,10 @@ export const NextGigsBanner = observer(() => {
             <a href={`https://ra.co/events/${gig.raEventNumber}`}>
               {dayjs(gig.date, "YYYY-MM-DD").format("DD.MM")} | {gig.location}
             </a>
+          ) : gig.link ? (
+            <a href={gig.link}>
+              {dayjs(gig.date, "YYYY-MM-DD").format("DD.MM")} | {gig.location}
+            </a>
           ) : (
             <>
               {dayjs(gig.date, "YYYY-MM-DD").format("DD.MM")} | {gig.location}
