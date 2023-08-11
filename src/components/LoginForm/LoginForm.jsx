@@ -7,6 +7,8 @@ import {
   CloseOutlined,
   CloseCircleOutlined,
   LoadingOutlined,
+  EyeTwoTone,
+  EyeInvisibleOutlined,
 } from "@ant-design/icons";
 import { Button, Form, Input, notification, Spin } from "antd";
 import { useTranslation } from "react-i18next";
@@ -164,9 +166,9 @@ export const LoginForm = (props) => {
               { required: true, message: t("login.pleaseInputPassword") },
             ]}
           >
-            <Input
+            <Input.Password
               prefix={<LockOutlined className="site-form-item-icon" />}
-              type="password"
+              iconRender={(visible) => (visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />)}
               placeholder={capitalizeFirstLetter(t("login.password"))}
             />
           </Form.Item>

@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import {
-  ArrowLeftOutlined,
   LockOutlined,
   UserOutlined,
   CheckCircleOutlined,

@@ -2,4 +2,8 @@
 
 - [ ] Newsletter abo
 - [ ] guestlist management
-- [ ] Database for merch 
+- [ ] Database for merch
+- [ ] Admin page:
+  - [ ] Ticket Management
+  - [ ] Event Management
+  - [ ] Links
