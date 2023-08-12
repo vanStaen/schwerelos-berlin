@@ -44,7 +44,6 @@ router.post("/all", async (req, res) => {
 // Post all guestlists count for one party
 router.post("/count", async (req, res) => {
   try {
-    console.log('req.body', req)
     const getGuestlistsForParty = await guestlistService.getGuestlistsCountForParty(req.body.partyId);
     res.status(200).json({
       getGuestlistsForParty,
@@ -94,7 +93,7 @@ router.post("/add", async (req, res) => {
     const newGuestlist = await guestlistService.addGuestlist(req.body.guestlistInput);
     if (newGuestlist) {
       res.status(201).json({ message: `Success! This guestlist spot has been added.`, result: true });
-    } else { 
+    } else {
       res.status(400).json({
         error: `Something happened! Guestlist was not created`,
       });

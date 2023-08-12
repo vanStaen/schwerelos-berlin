@@ -4,7 +4,6 @@ const { ticketService } = require("../service/ticketService");
 // Get Ticket
 router.post("/valid", async (req, res) => {
   try {
-    console.log(req.body)
     if (!req.body.uuid) {
       throw new Error(`No ticketId was provided`);
     }

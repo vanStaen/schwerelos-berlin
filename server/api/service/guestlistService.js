@@ -1,7 +1,7 @@
 const { Guestlist } = require('../../models/Guestlist')
 
 exports.guestlistService = {
-  async getGuestlists () {
+  async getGuestlists() {
     return await Guestlist.findAll({
       order: [
         ['id', 'ASC']
@@ -9,7 +9,7 @@ exports.guestlistService = {
     })
   },
 
-  async getGuestlistsForParty (partyId) {
+  async getGuestlistsForParty(partyId) {
     return await Guestlist.findAll({
       where: {
         partyId: partyId,
@@ -20,7 +20,7 @@ exports.guestlistService = {
     })
   },
 
-  async getGuestlistsCountForParty (partyId) {
+  async getGuestlistsCountForParty(partyId) {
     return await Guestlist.count({
       where: {
         partyId: partyId,
@@ -28,8 +28,7 @@ exports.guestlistService = {
     })
   },
 
-  async addGuestlist (input) {
-    console.log("input", input);
+  async addGuestlist(input) {
     try {
       const guestlist = new Guestlist({
         name: input.name,
@@ -44,7 +43,7 @@ exports.guestlistService = {
     }
   },
 
-  async updateGuestlist (guestlistId, data) {
+  async updateGuestlist(guestlistId, data) {
     const updateFields = []
     const updatableFields = [
       'name',
@@ -53,7 +52,6 @@ exports.guestlistService = {
       'partyId',
       'listType',
     ]
-    console.log('updateFields', data);
     updatableFields.forEach(field => {
       if (field in data) {
         updateFields[field] = data[field]
@@ -75,7 +73,7 @@ exports.guestlistService = {
     }
   },
 
-  async deleteGuestlist (guestlistId) {
+  async deleteGuestlist(guestlistId) {
     await Guestlist.destroy({
       where: {
         id: guestlistId
@@ -84,7 +82,7 @@ exports.guestlistService = {
     return true
   },
 
-  async isAreadyOnTheList (email, partyId) {
+  async isAreadyOnTheList(email, partyId) {
     foundGuestlist = await Guestlist.findOne({
       where: { email: email, partyId: partyId }
     })
@@ -93,5 +91,5 @@ exports.guestlistService = {
     } else {
       return true
     }
-  },  
+  },
 }
