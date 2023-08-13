@@ -5,7 +5,6 @@ export const getHasAccess = async () => {
     const response = await axios({
         url: process.env.API_URL + `/auth/access/`,
         method: "GET",
-        data: requestBody,
     });
 
     if ((response.status !== 200) & (response.status !== 201)) {
@@ -15,6 +14,7 @@ export const getHasAccess = async () => {
             throw new Error(`Error! Status ${response.status}`);
         }
     }
+
 
     return response.data.access;
 

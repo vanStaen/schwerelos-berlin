@@ -30,7 +30,7 @@ export const ListForm = (props) => {
         duration: 0,
         icon: <CloseCircleOutlined style={{ color: "red" }} />,
       });
-      props.close(false);
+      props.setShowLoginForm(false);
       return;
     }
     try {
@@ -43,7 +43,7 @@ export const ListForm = (props) => {
           duration: 0,
           icon: <CheckCircleOutlined style={{ color: "green" }} />,
         });
-        props.close(false);
+        props.setShowLoginForm(false);
       }
     } catch (e) {
       notification.error({
@@ -59,8 +59,8 @@ export const ListForm = (props) => {
 
   return (
     <div className="loginFormContainer">
-      <div className="background" onClick={() => props.close(false)}></div>
-      <div className="closeButton" onClick={() => props.close(false)}>
+      <div className="background" onClick={() => props.setShowLoginForm(false)}></div>
+      <div className="closeButton" onClick={() => props.setShowLoginForm(false)}>
         <CloseOutlined />
       </div>
       <Form name="ticketReservation" className="loginForm" onFinish={onFinish}>

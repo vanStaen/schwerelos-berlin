@@ -63,7 +63,7 @@ export const Menu = observer((props) => {
                 onClick={() => {
                   userStore.isAdmin
                     ? logout(t("login.logoutSuccess"))
-                    : props.showLoginForm(true);
+                    : props.setShowLoginForm(true);
                 }}
               >
                 {userStore.isAdmin ? "Logout" : "Login"} <LockOutlined />

@@ -1,7 +1,7 @@
 const jsonwebtoken = require("jsonwebtoken");
 require("dotenv/config");
 
-const devMode = true;
+const devMode = false;
 
 module.exports = async (req, res, next) => {
   // if in development mode

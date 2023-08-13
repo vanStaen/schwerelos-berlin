@@ -19,13 +19,13 @@ export const Welcome = observer(() => {
 
   return (
     <>
-      {showLoginForm && <LoginForm close={setShowLoginForm} />}
+      {showLoginForm && <LoginForm setShowLoginForm={setShowLoginForm} />}
       <div className="container">
         <div className="background"></div>
         <div className="backgroundOpacity"></div>
         <div className="backgroundDegrade"></div>
         <div className="welcome">
-          <Menu showLoginForm={setShowLoginForm} />
+          <Menu setShowLoginForm={setShowLoginForm} />
           {pageStore.showAbout && <div className="welcome__about">{t('welcome.about')}</div>}
           <Logo opacity={pageStore.showAbout ? .25 : 1} />
           <Links />

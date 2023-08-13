@@ -47,7 +47,7 @@ export const LoginForm = (props) => {
           icon: <CheckCircleOutlined style={{ color: "green" }} />,
         });
         props.setHasAccess && props.setHasAccess(true);
-        props.close(false);
+        props.setShowLoginForm(false);
       }
     } catch (e) {
       notification.error({
@@ -103,8 +103,8 @@ export const LoginForm = (props) => {
 
   return (
     <div className="loginFormContainer">
-      <div className="background" onClick={() => props.close(false)}></div>
-      <div className="closeButton" onClick={() => props.close(false)}>
+      <div className="background" onClick={() => props.setShowLoginForm(false)}></div>
+      <div className="closeButton" onClick={() => props.setShowLoginForm(false)}>
         <CloseOutlined />
       </div>
       {showRecoverPwdForm ? (
