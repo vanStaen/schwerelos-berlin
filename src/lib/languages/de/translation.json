@@ -64,5 +64,8 @@
   "merch" : {
     "merch": "merch",
     "comeGetSome": "Willste echt jute"
-  }
+  },
+  "admin": {
+    "ticketReservation" : "Karten Reservierung" 
+  } 
 }

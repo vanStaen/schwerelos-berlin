@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { postGuestlistsForParty } from "./postGuestlistsForParty";
 import { LoadingOutlined } from "@ant-design/icons";
+import { useTranslation } from "react-i18next";
 import { Spin } from "antd";
 
 import { LoginForm } from '../../components/LoginForm/LoginForm';
@@ -8,7 +9,7 @@ import { LoginForm } from '../../components/LoginForm/LoginForm';
 import './Admin.less';
 
 export const Admin = () => {
-
+  const { t } = useTranslation();
   const [isLoading, setIsLoading] = useState(true);
   const [hasAccess, setHasAccess] = useState(false);
   const [guestlist, setGuestlist] = useState(null);
@@ -28,18 +29,17 @@ export const Admin = () => {
         }
       )
       setGuestlist(guestlistFormated);
+      console.log('guestlistResult', guestlistResult);
       setIsLoading(false);
     }
 
     const fetchHasAccess = async () => {
       const resultAccess = await postGuestlistsForParty();
       setHasAccess(resultAccess);
-      if (resultAccess === true) {
-        fetchGuestlist();
-      }
     }
 
     fetchHasAccess();
+    fetchGuestlist();
 
   }, [])
 
@@ -51,10 +51,14 @@ export const Admin = () => {
           indicator={<LoadingOutlined spin />}
           style={{ color: "white" }}
         /> :
-        <div>
-          <div className="title">Charity Rave</div>
+        <>
+          <div className="title">Charity Rave
+            <div className="subTitle">
+              {t("admin.ticketReservation")}
+            </div>
+          </div>
           {guestlist}
-        </div> : <LoginForm />
+        </> : <LoginForm />
       }
     </div>
   );
