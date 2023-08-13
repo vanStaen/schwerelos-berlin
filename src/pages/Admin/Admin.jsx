@@ -58,7 +58,7 @@ export const Admin = () => {
             </div>
           </div>
           {guestlist}
-        </> : <LoginForm />
+        </> : <LoginForm hasAccess={setHasAccess} />
       }
     </div>
   );

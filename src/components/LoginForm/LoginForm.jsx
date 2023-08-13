@@ -46,6 +46,7 @@ export const LoginForm = (props) => {
           duration: 3,
           icon: <CheckCircleOutlined style={{ color: "green" }} />,
         });
+        props.setHasAccess && props.setHasAccess(true);
         props.close(false);
       }
     } catch (e) {
