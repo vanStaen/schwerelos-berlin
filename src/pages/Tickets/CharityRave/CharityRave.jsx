@@ -33,7 +33,7 @@ export const CharityRave = (props) => {
 
     const fetchTicketReserved = async () => {
       const ticketReserved = await postGuestlistsCountForParty();
-      setTicketLeft(NUMBER_OF_TICKET - (ticketReserved + 20));
+      setTicketLeft(NUMBER_OF_TICKET - (ticketReserved + 40));
     }
 
     fetchTicketReserved();
