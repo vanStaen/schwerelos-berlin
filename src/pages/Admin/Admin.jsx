@@ -3,11 +3,14 @@ import { postGuestlistsForParty } from "./postGuestlistsForParty";
 import { LoadingOutlined } from "@ant-design/icons";
 import { Spin } from "antd";
 
+import { LoginForm } from '../../components/LoginForm/LoginForm';
+
 import './Admin.less';
 
 export const Admin = () => {
 
   const [isLoading, setIsLoading] = useState(true);
+  const [hasAccess, setHasAccess] = useState(false);
   const [guestlist, setGuestlist] = useState(null);
 
   useEffect(() => {
@@ -27,13 +30,23 @@ export const Admin = () => {
       setGuestlist(guestlistFormated);
       setIsLoading(false);
     }
-    fetchGuestlist()
+
+    const fetchHasAccess = async () => {
+      const resultAccess = await postGuestlistsForParty();
+      setHasAccess(resultAccess);
+      if (resultAccess === true) {
+        fetchGuestlist();
+      }
+    }
+
+    fetchHasAccess();
+
   }, [])
 
 
   return (
     <div className="adminContainer">
-      {isLoading ?
+      {hasAccess ? isLoading ?
         <Spin
           indicator={<LoadingOutlined spin />}
           style={{ color: "white" }}
@@ -41,7 +54,7 @@ export const Admin = () => {
         <div>
           <div className="title">Charity Rave</div>
           {guestlist}
-        </div>
+        </div> : <LoginForm />
       }
     </div>
   );
