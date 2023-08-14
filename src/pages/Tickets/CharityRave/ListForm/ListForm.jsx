@@ -12,12 +12,13 @@ import { useTranslation } from "react-i18next";
 
 import { postAddGuestlist } from "./postAddGuestlist";
 import { postIsAlreadyOnTheList } from "./postIsAlreadyOnTheList";
+import { postEmail } from "./postEmail";
 
 import "./ListForm.less";
 
 export const ListForm = (props) => {
   const [isloading, setIsLoading] = useState(false);
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
 
   const onFinish = async (values) => {
     setIsLoading(true);
@@ -30,7 +31,7 @@ export const ListForm = (props) => {
         duration: 0,
         icon: <CloseCircleOutlined style={{ color: "red" }} />,
       });
-      props.setShowLoginForm(false);
+      props.setShowListForm(false);
       return;
     }
     try {
@@ -43,11 +44,12 @@ export const ListForm = (props) => {
           duration: 0,
           icon: <CheckCircleOutlined style={{ color: "green" }} />,
         });
-        props.setShowLoginForm(false);
+        postEmail(values.email, i18n.language.slice(0, 2));
+        props.setShowListForm(false);
       }
     } catch (e) {
       notification.error({
-        message: e.response.data.result.error,
+        message: e,
         placement: "topRight",
         className: "blackNotification",
         duration: 3,
@@ -59,8 +61,8 @@ export const ListForm = (props) => {
 
   return (
     <div className="loginFormContainer">
-      <div className="background" onClick={() => props.setShowLoginForm(false)}></div>
-      <div className="closeButton" onClick={() => props.setShowLoginForm(false)}>
+      <div className="background" onClick={() => props.setShowListForm(false)}></div>
+      <div className="closeButton" onClick={() => props.setShowListForm(false)}>
         <CloseOutlined />
       </div>
       <Form name="ticketReservation" className="loginForm" onFinish={onFinish}>

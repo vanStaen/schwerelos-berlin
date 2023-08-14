@@ -128,7 +128,7 @@ export const CharityRave = (props) => {
           <img src={graphic4} className="graphicElement4" />
         </div>
       </div>
-      {showListForm && <ListForm close={setShowListForm} />}
+      {showListForm && <ListForm setShowListForm={setShowListForm} />}
     </>
   );
 };
