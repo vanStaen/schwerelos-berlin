@@ -66,6 +66,7 @@
     "comeGetSome": "Willste echt jute"
   },
   "admin": {
-    "ticketReservation" : "Karten Reservierung" 
+    "ticketReservation" : "Karten Reservierung",
+    "logout": "Ausloggen"
   } 
 }

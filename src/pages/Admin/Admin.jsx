@@ -6,6 +6,7 @@ import { Spin } from "antd";
 import { LoginForm } from '../../components/LoginForm/LoginForm';
 import { postGuestlistsForParty } from "./postGuestlistsForParty";
 import { getHasAccess } from "./getHasAccess";
+import { LogoutIcon } from "./LogoutIcon/LogoutIcon";
 
 import './Admin.less';
 
@@ -35,9 +36,9 @@ export const Admin = () => {
 
   const fetchHasAccess = async () => {
     const resultAccess = await getHasAccess();
-    console.log('resultAccess', resultAccess);
     setHasAccess(resultAccess);
     if (resultAccess === true) {
+      setShowLoginForm(false);
       fetchGuestlist();
     } else {
       setShowLoginForm(true);
@@ -52,6 +53,8 @@ export const Admin = () => {
   useEffect(() => {
     if (hasAccess === true) {
       fetchGuestlist();
+    } else if (hasAccess === false) {
+      setShowLoginForm(true);
     }
   }, [hasAccess])
 
@@ -64,6 +67,7 @@ export const Admin = () => {
           style={{ color: "white" }}
         /> :
         <>
+          <LogoutIcon setHasAccess={setHasAccess} />
           <div className="title">Charity Rave
             <div className="subTitle">
               {guestlist && (guestlist.length + " ")}

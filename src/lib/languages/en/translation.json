@@ -66,6 +66,7 @@
     "comeGetSome": "come get some"
   },
   "admin": {
-    "ticketReservation" : "Ticket Reservation" 
+    "ticketReservation" : "Ticket Reservation",
+    "logout": "Logout"
   } 
 }
