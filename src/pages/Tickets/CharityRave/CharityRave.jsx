@@ -97,7 +97,7 @@ export const CharityRave = (props) => {
             <div>GREENLAKE PROJECT [3000 Grad]</div>
             <div>TONI HAUPT [Telekollegen]</div>
             <div>SHLOMSEN [Sisyphos]</div>
-            <div>SOMMERSONNEWENDE</div>
+            <div>SOMMERSONNENWENDE</div>
             <div>MEEMA</div>
             <div>LUKAS EDLER</div>
             <div>VAN STAEN</div>
