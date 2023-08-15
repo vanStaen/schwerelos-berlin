@@ -43,11 +43,11 @@
         padding: 5px;
         @media all and (max-width: 520px) {
             width: 100vw;
-            font-size: 14px;
+            font-size: 12px;
         }
 
         .col_left {
-            width: calc(20vw - 20px);
+            width: calc(30vw - 20px);
             text-align: right;
             display: inline-block;
             vertical-align:top;
@@ -65,13 +65,16 @@
             }
         }
         .col_right {
-            width: calc(30vw - 20px);
+            width: calc(40vw - 20px);
             text-align: left;
             vertical-align:top;
             display: inline-block;
             opacity: .75;
             @media all and (max-width: 520px) {
-                width: calc(60vw - 10px);
+                width: calc(60vw - 50px);
+                text-overflow: ellipsis;
+                overflow:hidden;
+                white-space:nowrap;
             }
         }
     } 

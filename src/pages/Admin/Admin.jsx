@@ -16,65 +16,49 @@ export const Admin = () => {
   const [hasAccess, setHasAccess] = useState(false);
   const [guestlist, setGuestlist] = useState(null);
 
-  useEffect(() => {
-    const fetchGuestlist = async () => {
-      const guestlistResult = await postGuestlistsForParty();
-      const guestlistFormated = guestlistResult.map(
-        (list) => {
-          return (
-            <div className="listContainer">
-              <div className="col_left">{list.name}</div>
-              <div className="col_mid"></div>
-              <div className="col_right">{list.email}</div>
-            </div>
-          )
-        }
-      )
-      setGuestlist(guestlistFormated);
-      setIsLoading(false);
-    }
-
-    const fetchHasAccess = async () => {
-      const resultAccess = await getHasAccess();
-      setHasAccess(resultAccess);
-      if (resultAccess) {
-        fetchGuestlist();
-      } else {
-        setShowLoginForm(true);
+  const fetchGuestlist = async () => {
+    const guestlistResult = await postGuestlistsForParty();
+    const guestlistFormated = guestlistResult.map(
+      (list) => {
+        return (
+          <div className="listContainer">
+            <div className="col_left">{list.name}</div>
+            <div className="col_mid"></div>
+            <div className="col_right">{list.email}</div>
+          </div>
+        )
       }
-      setIsLoading(false);
+    )
+    setGuestlist(guestlistFormated);
+    setIsLoading(false);
+  }
+
+  const fetchHasAccess = async () => {
+    const resultAccess = await getHasAccess();
+    console.log('resultAccess', resultAccess);
+    setHasAccess(resultAccess);
+    if (resultAccess === true) {
+      fetchGuestlist();
+    } else {
+      setShowLoginForm(true);
     }
+    setIsLoading(false);
+  }
 
+  useEffect(() => {
     fetchHasAccess();
-
   }, [])
 
   useEffect(() => {
-    const fetchGuestlist = async () => {
-      setIsLoading(true);
-      const guestlistResult = await postGuestlistsForParty();
-      const guestlistFormated = guestlistResult.map(
-        (list) => {
-          return (
-            <div className="listContainer">
-              <div className="col_left">{list.name}</div>
-              <div className="col_mid"></div>
-              <div className="col_right">{list.email}</div>
-            </div>
-          )
-        }
-      )
-      setGuestlist(guestlistFormated);
-      setIsLoading(false);
+    if (hasAccess === true) {
+      fetchGuestlist();
     }
-    fetchGuestlist();
   }, [hasAccess])
-
 
   return (
     <div className="adminContainer">
-      {showLoginForm && <LoginForm hasAccess={setHasAccess} setShowLoginForm={setShowLoginForm} closable={false} />}
-      {isLoading ?
+      {showLoginForm && <LoginForm setHasAccess={setHasAccess} setShowLoginForm={setShowLoginForm} closable={false} />}
+      {hasAccess === true && (isLoading ?
         <Spin
           indicator={<LoadingOutlined spin />}
           style={{ color: "white" }}
@@ -88,7 +72,7 @@ export const Admin = () => {
           </div>
           {guestlist}
         </>
-      }
+      )}
     </div>
   );
 };
