@@ -56,12 +56,40 @@
         background-color: rgba( 0, 0, 0, .75);
     }
 
-    .closeButton { 
+    .backgroundImg {
+        position: absolute;
+        width: 100vw;
+        height: 100vh;
+        z-index: 10;
+        background-image: url('../../img/graphics/graphic1.png');
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: contain;
+        animation: 6s infinite alternate opacity1, 5s infinite alternate filter1;
+        @keyframes opacity1 {
+            0% {
+              opacity: .75;
+            }
+            100% {
+              opacity: .25;
+            }
+          }
+        @keyframes filter1 {
+            0% {
+              filter: hue-rotate(45deg);
+            }
+            100% {
+              filter: hue-rotate(0deg);
+            }
+          }
+    }
+
+    .closeButton {         
         z-index: 9;
         position: absolute;
-        margin: 20px;
-        font-size: 30px;
-        right: 0;
+        margin: 10px;
+        font-size: 45px;
+        right: 10px;
         top: 0;
         cursor: pointer;
         

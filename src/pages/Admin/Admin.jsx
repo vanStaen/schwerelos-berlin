@@ -60,7 +60,14 @@ export const Admin = () => {
 
   return (
     <div className="adminContainer">
-      {showLoginForm && <LoginForm setHasAccess={setHasAccess} setShowLoginForm={setShowLoginForm} closable={false} />}
+      {showLoginForm &&
+        <LoginForm
+          setHasAccess={setHasAccess}
+          setShowLoginForm={setShowLoginForm}
+          closable={false}
+          showBackgroundImg={true}
+        />
+      }
       {hasAccess === true && (isLoading ?
         <Spin
           indicator={<LoadingOutlined spin />}

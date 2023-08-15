@@ -60,12 +60,12 @@ export const ListForm = (props) => {
   };
 
   return (
-    <div className="loginFormContainer">
+    <div className="listFormContainer">
       <div className="background" onClick={() => props.setShowListForm(false)}></div>
       <div className="closeButton" onClick={() => props.setShowListForm(false)}>
         <CloseOutlined />
       </div>
-      <Form name="ticketReservation" className="loginForm" onFinish={onFinish}>
+      <Form name="ticketReservation" className="listForm" onFinish={onFinish}>
         <Form.Item
           name="email"
           rules={[
@@ -95,7 +95,7 @@ export const ListForm = (props) => {
           <Button
             type="primary"
             htmlType="submit"
-            className="login-form-button"
+            className="list-form-button"
           >
             {isloading ? (
               <Spin
