@@ -26,6 +26,7 @@ export const LoginForm = (props) => {
   const [isloading, setIsLoading] = useState(false);
   const [emailDoNotExist, setEmailDoNotExist] = useState(undefined);
   const [showRecoverPwdForm, setShowRecoverPwdForm] = useState(false);
+  const { closable = true } = props;
   const { t } = useTranslation();
 
   const onFinish = async (values) => {
@@ -103,10 +104,10 @@ export const LoginForm = (props) => {
 
   return (
     <div className="loginFormContainer">
-      <div className="background" onClick={() => props.setShowLoginForm(false)}></div>
-      <div className="closeButton" onClick={() => props.setShowLoginForm(false)}>
+      <div className="background" onClick={() => closable && props.setShowLoginForm(false)}></div>
+      {closable && <div className="closeButton" onClick={() => props.setShowLoginForm(false)}>
         <CloseOutlined />
-      </div>
+      </div>}
       {showRecoverPwdForm ? (
         <Form name="recover" className="loginForm" onFinish={recover}>
           <Form.Item

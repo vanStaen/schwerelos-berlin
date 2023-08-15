@@ -73,7 +73,7 @@ export const Admin = () => {
 
   return (
     <div className="adminContainer">
-      {showLoginForm && <LoginForm hasAccess={setHasAccess} setShowLoginForm={setShowLoginForm} />}
+      {showLoginForm && <LoginForm hasAccess={setHasAccess} setShowLoginForm={setShowLoginForm} closable={false} />}
       {isLoading ?
         <Spin
           indicator={<LoadingOutlined spin />}
@@ -82,6 +82,7 @@ export const Admin = () => {
         <>
           <div className="title">Charity Rave
             <div className="subTitle">
+              {guestlist && (guestlist.length + " ")}
               {t("admin.ticketReservation")}
             </div>
           </div>
