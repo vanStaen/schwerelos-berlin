@@ -89,7 +89,7 @@ export const CharityRave = (props) => {
           <div className="raveCharityTextlocation">
             {t("charityRave.15")}€*<br />
             {t("charityRave.location")}<br />
-            <span style={{ fontSize: '.5em' }}>
+            <span style={{ fontSize: '.5em', verticalAlign: 'top' }}>
               *{t("charityRave.notMandatory")}
             </span>
           </div>
