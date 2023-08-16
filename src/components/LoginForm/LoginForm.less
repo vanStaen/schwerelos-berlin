@@ -65,13 +65,15 @@
         background-repeat: no-repeat;
         background-position: center;
         background-size: contain;
-        animation: 6s infinite alternate opacity1, 5s infinite alternate filter1;
-        @keyframes opacity1 {
+        animation: 6s infinite alternate opacityTranform1, 5s infinite alternate filterScale1;
+        @keyframes opacityTranform1 {
             0% {
-              opacity: .75;
+              opacity: .6;
+              transform: rotate(0deg) scale(1, 1);
             }
             100% {
-              opacity: .25;
+              opacity: .3;
+              transform: rotate(15deg) scale(1.1, 1);
             }
           }
         @keyframes filter1 {
