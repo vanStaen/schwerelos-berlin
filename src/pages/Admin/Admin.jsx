@@ -30,6 +30,7 @@ export const Admin = () => {
             <div className="col_right">
               <Text
                 copyable={{ tooltips: false }}
+                ellipsis
                 className='col_right_Text'
               >
                 {list.email}
