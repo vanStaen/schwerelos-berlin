@@ -73,7 +73,7 @@ export const LoginForm = (props) => {
       try {
         await postSendRecoverLink(email);
         notification.success({
-          message: t("login.recoverEmailSent"),
+          message: t("loginRecover.recoverEmailSent"),
           placement: "topRight",
           className: "blackNotification",
         });

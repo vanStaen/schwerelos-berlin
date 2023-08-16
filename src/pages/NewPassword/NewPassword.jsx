@@ -88,7 +88,7 @@ export const NewPassword = () => {
         >
           <Input.Password
             prefix={<LockOutlined className="site-form-item-icon" />}
-            placeholder={t("loginRecover.chooseNewPassword")}
+            placeholder={t("loginRecover.pleaseInputNewPassword")}
           />
         </Form.Item>
 
