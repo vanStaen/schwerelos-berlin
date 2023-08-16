@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import { LockOutlined, UnlockOutlined } from '@ant-design/icons';
-import { Tooltip } from 'antd';
 import { useTranslation } from "react-i18next";
+import { LockOutlined, UnlockOutlined, ArrowLeftOutlined } from '@ant-design/icons';
+import { Tooltip } from 'antd';
+import { Link } from "react-router-dom";
 
 import { logout } from "../../../components/Menu/logout";
 
@@ -23,18 +24,31 @@ export const LogoutIcon = (props) => {
         props.setHasAccess(false);
     }
 
-    return (<div
-        className='logoutIconContainer'
-        onMouseEnter={onMouseEnter}
-        onMouseLeave={onMouseLeave}
-        onClick={handleLogoutClick}
-    >
-        <Tooltip
-            title={t("admin.logout")}
-            placement='left'
-            color='magenta'
+    return (props.hasAccess ?
+        <div
+            className='logoutIconContainer'
+            onMouseEnter={onMouseEnter}
+            onMouseLeave={onMouseLeave}
+            onClick={handleLogoutClick}
         >
-            {icon}
-        </Tooltip>
-    </div>);
+            <Tooltip
+                title={t("admin.logout")}
+                placement='left'
+                color='magenta'
+            >
+                {icon}
+            </Tooltip>
+        </div>
+        :
+        <div className='logoutIconContainer'>
+            <Tooltip
+                title={t("admin.goBack")}
+                placement='left'
+                color='magenta'
+            >
+                <Link to="/">
+                    <ArrowLeftOutlined style={{ color: 'white' }} />
+                </Link>
+            </Tooltip>
+        </div>);
 } 

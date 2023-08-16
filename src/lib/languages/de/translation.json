@@ -67,6 +67,7 @@
   },
   "admin": {
     "ticketReservation" : "Karten Reservierung",
-    "logout": "Ausloggen"
+    "logout": "Ausloggen",
+    "goBack": "Admin bereich verlassen"
   } 
 }

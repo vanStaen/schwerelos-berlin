@@ -67,6 +67,7 @@
   },
   "admin": {
     "ticketReservation" : "Ticket Reservation",
-    "logout": "Logout"
+    "logout": "Logout",
+    "goBack": "Back to the main page"
   } 
 }

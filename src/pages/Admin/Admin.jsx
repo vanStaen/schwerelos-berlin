@@ -60,6 +60,7 @@ export const Admin = () => {
 
   return (
     <div className="adminContainer">
+      <LogoutIcon setHasAccess={setHasAccess} hasAccess={hasAccess} />
       {showLoginForm &&
         <LoginForm
           setHasAccess={setHasAccess}
@@ -74,7 +75,6 @@ export const Admin = () => {
           style={{ color: "white" }}
         /> :
         <>
-          <LogoutIcon setHasAccess={setHasAccess} />
           <div className="title">Charity Rave
             <div className="subTitle">
               {guestlist && (guestlist.length + " ")}
