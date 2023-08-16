@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { LoadingOutlined } from "@ant-design/icons";
 import { useTranslation } from "react-i18next";
-import { Spin } from "antd";
+import { Spin, Typography, Tooltip } from "antd";
 
 import { LoginForm } from '../../components/LoginForm/LoginForm';
 import { postGuestlistsForParty } from "./postGuestlistsForParty";
 import { getHasAccess } from "./getHasAccess";
 import { LogoutIcon } from "./LogoutIcon/LogoutIcon";
+
+const { Text } = Typography;
 
 import './Admin.less';
 
@@ -25,7 +27,14 @@ export const Admin = () => {
           <div className="listContainer">
             <div className="col_left">{list.name}</div>
             <div className="col_mid"></div>
-            <div className="col_right">{list.email}</div>
+            <div className="col_right">
+              <Text
+                copyable={{ tooltips: false }}
+                className='col_right_Text'
+              >
+                {list.email}
+              </Text>
+            </div>
           </div>
         )
       }
