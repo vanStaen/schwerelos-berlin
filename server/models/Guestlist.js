@@ -9,7 +9,7 @@ const Guestlist = sequelize.define("guestlist", {
   },
   name: {
     type: DataTypes.STRING,
-    allowNull: false, 
+    allowNull: false,
   },
   email: {
     type: DataTypes.STRING,
@@ -29,6 +29,10 @@ const Guestlist = sequelize.define("guestlist", {
   listType: {
     type: DataTypes.INTEGER,
     required: true,
+  },
+  active: {
+    type: DataTypes.BOOLEAN,
+    default: true,
   }
 });
 

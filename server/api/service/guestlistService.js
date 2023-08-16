@@ -51,6 +51,7 @@ exports.guestlistService = {
       'artistId',
       'partyId',
       'listType',
+      'active',
     ]
     updatableFields.forEach(field => {
       if (field in data) {
