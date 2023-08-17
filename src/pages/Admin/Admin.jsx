@@ -25,7 +25,14 @@ export const Admin = () => {
       (list) => {
         return (
           <div className="listContainer">
-            <div className="col_left">{list.name}</div>
+            <div className="col_left">
+              <Text
+                className='col_left_Text'
+                ellipsis={false}
+              >
+                {list.name}
+              </Text>
+            </div>
             <div className="col_mid"></div>
             <div className="col_right">
               <Text
