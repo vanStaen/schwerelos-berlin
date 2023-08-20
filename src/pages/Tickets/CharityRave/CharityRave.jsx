@@ -118,7 +118,7 @@ export const CharityRave = (props) => {
                 &#62; {t("charityRave.getATicket")} &#60;
               </div>
               <div className="padding">
-                {ticketLeft} {t("charityRave.of")} {NUMBER_OF_TICKET} {t("charityRave.left")}
+                {ticketLeft} {t("charityRave.left")}
               </div>
             </div>
           )}
