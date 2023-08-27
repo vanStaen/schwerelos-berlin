@@ -252,6 +252,12 @@ export class GigStore {
       raEventNumber: null,
       link: 'https://forestjump-festival.de/lineup/',
     },
+    {
+      date: '2023-09-30',
+      location: "AVA Club",
+      name: "Klubnacht with Red Moon Label",
+      raEventNumber: "1759907",
+    },
   ];
 
   constructor() {
