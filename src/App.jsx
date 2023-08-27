@@ -8,6 +8,7 @@ import { TicketValidation } from "./pages/Tickets/TicketValidation/TicketValidat
 import { Admin } from "./pages/Admin/Admin";
 import { NewPassword } from "./pages/NewPassword/NewPassword";
 import { LanguageDropDown } from "./components/LanguageDropDown/LanguageDropDown";
+import { consoleGreetings } from "./helpers/consoleGreetings";
 
 import "./lib/i18n";
 import "./App.less";
@@ -27,14 +28,18 @@ const App = observer(() => {
     defineVariableHeight();
   }, []);
 
-  /*useEffect(() => {
+  useEffect(() => {
     const language = navigator.language || navigator.userLanguage;
     if (language === "de-DE") {
       i18n.changeLanguage("de-DE");
     } else {
       i18n.changeLanguage("en-US");
     }
-  }, [i18n]);*/
+  }, [i18n]);
+
+  useEffect(() => {
+    consoleGreetings();
+  }, []);
 
   return (
     <BrowserRouter>
