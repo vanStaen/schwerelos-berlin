@@ -24,17 +24,18 @@ export const CharityRave = (props) => {
   const { showEmail } = props;
   const raveDate = dayjs("2023-09-02 18:00");
   const [showListForm, setShowListForm] = useState(false);
-  const [ticketLeft, setTicketLeft] = useState(<Spin indicator={<LoadingOutlined spin />} />);
+  const [ticketLeft, setTicketLeft] = useState(
+    <Spin indicator={<LoadingOutlined spin />} />
+  );
   const [countdown, setCountdown] = useState(
     <Spin indicator={<LoadingOutlined spin />} />
   );
 
   useEffect(() => {
-
     const fetchTicketReserved = async () => {
       const ticketReserved = await postGuestlistsCountForParty();
       setTicketLeft(NUMBER_OF_TICKET - (ticketReserved + 40));
-    }
+    };
 
     fetchTicketReserved();
 
@@ -87,9 +88,11 @@ export const CharityRave = (props) => {
             {t("charityRave.subTitle")} <b>Berliner Stadtmission</b>
           </span>
           <div className="raveCharityTextlocation">
-            {t("charityRave.15")}€*<br />
-            {t("charityRave.location")}<br />
-            <span style={{ fontSize: '.5em', verticalAlign: 'top' }}>
+            {t("charityRave.15")}€*
+            <br />
+            {t("charityRave.location")}
+            <br />
+            <span style={{ fontSize: ".5em", verticalAlign: "top" }}>
               *{t("charityRave.notMandatory")}
             </span>
           </div>
@@ -103,6 +106,7 @@ export const CharityRave = (props) => {
             <div>VAN STAEN</div>
             <div>MISSING DJ</div>
             <div>NOSTIQUE</div>
+            <div>YANNICK</div>
           </div>
           <a href="https://ra.co/events/1724976" target="_blank">
             <img src={residentAdvisorLogo} className="raLogo" />
