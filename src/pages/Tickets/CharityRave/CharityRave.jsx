@@ -18,6 +18,8 @@ import { ListForm } from "./ListForm/ListForm";
 import { postGuestlistsCountForParty } from "./postGuestlistsCountForParty";
 
 const NUMBER_OF_TICKET = 200;
+const TICKET_DJ_GASTLIST = 40;
+const TICKET_ADJUSTEMENT = 30;
 
 export const CharityRave = (props) => {
   const { t } = useTranslation();
@@ -34,7 +36,10 @@ export const CharityRave = (props) => {
   useEffect(() => {
     const fetchTicketReserved = async () => {
       const ticketReserved = await postGuestlistsCountForParty();
-      setTicketLeft(NUMBER_OF_TICKET - (ticketReserved + 40));
+      setTicketLeft(
+        NUMBER_OF_TICKET -
+          (ticketReserved + TICKET_DJ_GASTLIST + TICKET_ADJUSTEMENT)
+      );
     };
 
     fetchTicketReserved();
