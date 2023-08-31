@@ -28,6 +28,9 @@ module.exports = {
       patterns: [
         { from: "public/feder_logo.png" },
         { from: "public/manifest.webmanifest" },
+        { from: "public/public/gardenrules.jpg" },
+        { from: "public/public/pathfinder.jpg" },
+        { from: "public/public/timetable.jpg" },
       ],
     }),
   ],
