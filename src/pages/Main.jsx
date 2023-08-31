@@ -8,6 +8,7 @@ import { Events } from "./Events/Events";
 import { Merch } from "./Merch/Merch";
 import { CharityRave } from "./Tickets/CharityRave/CharityRave";
 import { showDev } from "../helpers/showDev";
+import { FourOfour } from "./FourOfour/FourOfour";
 
 export const Main = () => {
   const params = useParams();
@@ -49,7 +50,11 @@ export const Main = () => {
 
   return (
     <>
-      <CubeSlider pages={pages} defaultPageIndex={defaultPage} />
+      {defaultPage.length > 1 ? (
+        <FourOfour />
+      ) : (
+        <CubeSlider pages={pages} defaultPageIndex={defaultPage} />
+      )}
     </>
   );
 };
