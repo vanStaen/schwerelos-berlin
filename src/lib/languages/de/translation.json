@@ -69,5 +69,8 @@
     "ticketReservation" : "Karten Reservierung",
     "logout": "Ausloggen",
     "goBack": "Admin bereich verlassen"
-  } 
+  },
+  "404": {
+    "endOfInternet" : "Sie haben das Ende des Internets erreicht!"
+  }
 }

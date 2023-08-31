@@ -7,6 +7,7 @@ import { Main } from "./pages/Main";
 import { TicketValidation } from "./pages/Tickets/TicketValidation/TicketValidation";
 import { Admin } from "./pages/Admin/Admin";
 import { NewPassword } from "./pages/NewPassword/NewPassword";
+import { FourOfour } from "./pages/FourOfour/FourOfour";
 import { LanguageDropDown } from "./components/LanguageDropDown/LanguageDropDown";
 import { consoleGreetings } from "./helpers/consoleGreetings";
 
@@ -55,7 +56,7 @@ const App = observer(() => {
             />
             <Route path="admin/" element={<Admin />} />
             <Route path="recoverpwd/:key" element={<NewPassword />} />
-            <Route path="*" element={<p>There's nothing here: 404!</p>} />
+            <Route path="*" element={<FourOfour />} />
           </Routes>
         </div>
       </div>

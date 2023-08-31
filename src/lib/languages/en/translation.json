@@ -69,5 +69,8 @@
     "ticketReservation" : "Ticket Reservation",
     "logout": "Logout",
     "goBack": "Back to the main page"
-  } 
+  },
+  "404": {
+    "endOfInternet" : "You reach the end of the internet!"
+  }
 }
