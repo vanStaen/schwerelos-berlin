@@ -30,7 +30,9 @@ const postEmail = async (email) => {
 
 let i = 0;
 while (i < emails.length) {
-    console.log("Email sent to ", emails[i]);
+    console.log(i+1, "sent to", emails[i]);
     postEmail(emails[i])
     i++;
 }
+
+console.log("Script ran succesfully")

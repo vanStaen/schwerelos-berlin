@@ -5,11 +5,12 @@ import {
   CloseOutlined,
   ExclamationOutlined,
   QuestionOutlined,
+  LockOutlined,
 } from "@ant-design/icons";
 
 import { GlitchText } from "../../../components/GlitchText/GlitchText";
 import { CustomLoader } from "../../../components/CustomLoader/CustomLoader";
-import { CharityRave } from "../CharityRave/CharityRave";
+import { LoginForm } from "../../../components/LoginForm/LoginForm";
 import { userStore } from "../../../store/userStore";
 import { isTicketValid } from "./isTicketValid";
 import { patchTicket } from "./patchTicket";
@@ -22,6 +23,7 @@ export const TicketValidation = () => {
   const [secondStepConfirm, setSecondStepConfirm] = useState(false);
   const [isValid, setIsValid] = useState(null);
   const [isPunched, setIsPunched] = useState(null);
+  const [showLoginForm, setShowLoginForm] = useState(false);
 
   const fetchTicketData = async () => {
     const isTicketValidRes = await isTicketValid(ticketId);
@@ -129,7 +131,29 @@ export const TicketValidation = () => {
           )}
         </>
       ) : (
-        <CharityRave />
+        <div
+          className="ticketValidationContainer"
+          style={{ background: "black" }}
+        >
+          <div
+            className="logoutIconContainer"
+            onClick={() => setShowLoginForm(!showLoginForm)}
+          >
+            {showLoginForm ? <CloseOutlined /> : <LockOutlined />}
+          </div>
+          {showLoginForm && (
+            <LoginForm
+              setHasAccess={userStore.setIsAdmin}
+              setShowLoginForm={setShowLoginForm}
+              closable={false}
+              showBackgroundImg={true}
+            />
+          )}
+          <img
+            src="https://www.schwerelos-berlin.com/pathfinder.jpg"
+            width="100%"
+          />
+        </div>
       )}
     </div>
   );
