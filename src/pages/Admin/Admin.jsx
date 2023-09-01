@@ -46,10 +46,10 @@ export const Admin = () => {
     });
     setGuestlist(guestlistFormated);
     const emailsFormated = guestlistResult.map((list) => {
-      return list.email + "; ";
+      return `"${list.email}", `;
     });
     const namesFormated = guestlistResult.map((list) => {
-      return list.name + "; ";
+      return list.name + ", ";
     });
     setEmails(emailsFormated);
     setNames(namesFormated);
