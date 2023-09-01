@@ -42,7 +42,7 @@ export const TicketValidation = () => {
     setLoading(true);
     try {
       await patchTicket(ticketId);
-      await fetchTicketData(ticketId);
+      await fetchTicketData();
     } catch (e) {
       console.log(e);
     }

@@ -1,6 +1,6 @@
 
 const axios = require("axios");
-const emails = ["clement.vanstaen@gmail.com", "info@clementvanstaen.com"];
+const emails = ["email@email.com"];
 
 const postEmail = async (email) => {
     const requestBody = {
@@ -26,7 +26,6 @@ const postEmail = async (email) => {
     return count
 
 };
-
 
 let i = 0;
 while (i < emails.length) {

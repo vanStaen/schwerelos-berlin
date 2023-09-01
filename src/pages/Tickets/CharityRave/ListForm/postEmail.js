@@ -1,12 +1,12 @@
 import axios from "axios";
-import { emailContent } from './emailContent';
+import { emailContentAfterDeadline } from './emailContent';
 
 export const postEmail = async (email, language) => {
 
     const requestBody = {
         "sendto": email,
         "subject": "Schwerelos berlin | Charity Rave",
-        "body": emailContent[language],
+        "body": emailContentAfterDeadline[language],
     };
 
     const response = await axios({
