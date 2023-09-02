@@ -19,7 +19,6 @@ import { postGuestlistsCountForParty } from "./postGuestlistsCountForParty";
 
 const NUMBER_OF_TICKET = 200;
 const TICKET_DJ_GASTLIST = 40;
-const TICKET_ADJUSTEMENT = 20;
 
 export const CharityRave = (props) => {
   const { t } = useTranslation();
