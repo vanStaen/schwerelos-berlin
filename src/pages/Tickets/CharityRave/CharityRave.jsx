@@ -35,10 +35,7 @@ export const CharityRave = (props) => {
   useEffect(() => {
     const fetchTicketReserved = async () => {
       const ticketReserved = await postGuestlistsCountForParty();
-      setTicketLeft(
-        NUMBER_OF_TICKET -
-          (ticketReserved + TICKET_DJ_GASTLIST + TICKET_ADJUSTEMENT)
-      );
+      setTicketLeft(NUMBER_OF_TICKET - (ticketReserved + TICKET_DJ_GASTLIST));
     };
 
     fetchTicketReserved();
