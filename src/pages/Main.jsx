@@ -17,36 +17,33 @@ export const Main = () => {
   const pages =
     isProduction && !showDev()
       ? [
-          <div key="welcomePage">
-            <Welcome />
-          </div>,
-          <div key="eventPage">
-            <Events />
-          </div>,
-          <div key="artistsPage">
-            <Artist />
-          </div>,
-          <div key="ticketPage">
-            <CharityRave showEmail={true} />
-          </div>,
-        ]
+        <div key="welcomePage">
+          <Welcome />
+        </div>,
+        <div key="eventPage">
+          <Events />
+        </div>,
+        <div key="artistsPage">
+          <Artist />
+        </div>
+      ]
       : [
-          <div key="welcomePage">
-            <Welcome />
-          </div>,
-          <div key="eventPage">
-            <Events />
-          </div>,
-          <div key="artistsPage">
-            <Artist />
-          </div>,
-          <div key="merchPage">
-            <Merch />
-          </div>,
-          <div key="ticketPage">
-            <CharityRave showEmail={true} />
-          </div>,
-        ];
+        <div key="welcomePage">
+          <Welcome />
+        </div>,
+        <div key="eventPage">
+          <Events />
+        </div>,
+        <div key="artistsPage">
+          <Artist />
+        </div>,
+        <div key="merchPage">
+          <Merch />
+        </div>,
+        <div key="ticketPage">
+          <CharityRave showEmail={true} />
+        </div>,
+      ];
 
   return (
     <>
