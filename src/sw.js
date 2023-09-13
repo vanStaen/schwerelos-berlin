@@ -1,6 +1,6 @@
 self.addEventListener('install', (e) => {
   /*e.waitUntil(
-    caches.open('rewaer').then((cache) => cache.addAll([
+    caches.open('schwerelos-berlin').then((cache) => cache.addAll([
       './',
       './index.html',
       './index.js',

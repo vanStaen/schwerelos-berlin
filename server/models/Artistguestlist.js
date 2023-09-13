@@ -1,6 +1,6 @@
 const { sequelize, DataTypes } = require('../helpers/sequelizedb');
 
-const ArtistGL = sequelize.define("artistGL", {
+const Artistguestlist = sequelize.define("artistguestlist", {
   id: {
     type: DataTypes.INTEGER,
     field: "id",
@@ -37,5 +37,5 @@ const ArtistGL = sequelize.define("artistGL", {
 });
 
 module.exports = {
-  ArtistGL
+  Artistguestlist
 };
