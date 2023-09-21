@@ -9,8 +9,10 @@
     "start": "node server/index.js",
     "prebuild": "rm -rf ./build",
     "build": "webpack --config webpack.config.prod.js --mode production",
-    "deploy": "npm i; npm run build; heroku git:remote -a schwerelos; git push heroku master",
-    "log": "heroku logs --tail"
+    "deploy": "npm i; npm run build; heroku git:remote -a schwerelos; git push heroku master; npm run backup;",
+    "log": "heroku logs --tail",
+    "backup": "cd server/ressources/; node createDatabaseBackUpFile.js; cd ../../; npm run pushbackup;",
+    "pushbackup": "cd ../database-backups; git pull; git add -A; git commit -m 'Schwerelos - database backup files'; git push; cd ../scherelos-berlin" 
   },
   "eslintConfig": {
     "extends": [
