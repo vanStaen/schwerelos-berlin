@@ -27,7 +27,7 @@ export const Events = () => {
   const splitGigPerDate = () => {
     gigStore.gigs.map((gig) => {
       const gigDate = dayjs(gig.date, "YYYY-MM-DD");
-      const gigIsInPast = dayjs(gigDate).isBefore(dayjs(now));
+      const gigIsInPast = dayjs(gigDate).isBefore(dayjs(now).subtract(1, 'day'));
       if (gigIsInPast) {
         pastEvents.push(gig);
       } else {
