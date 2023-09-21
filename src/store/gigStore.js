@@ -258,6 +258,12 @@ export class GigStore {
       name: "Klubnacht with Red Moon Label",
       raEventNumber: "1759907",
     },
+    {
+      date: '2023-10-06',
+      location: "Dream Baby Dream",
+      name: "Schwerelos night",
+      raEventNumber: null,
+    },
   ];
 
   constructor() {
