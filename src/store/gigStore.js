@@ -262,7 +262,7 @@ export class GigStore {
       date: '2023-10-06',
       location: "Dream Baby Dream",
       name: "Schwerelos night",
-      raEventNumber: null,
+      raEventNumber: "1779019",
     },
   ];
 
