@@ -267,7 +267,7 @@ export class GigStore {
     {
       date: '2023-10-13',
       location: "Void",
-      name: "Excite. With MEEMA",
+      name: "Excite, with MEEMA",
       raEventNumber: "1772337",
     },
     {
@@ -279,7 +279,7 @@ export class GigStore {
     {
       date: '2023-10-14',
       location: "Mensch Meier",
-      name: "With MEEMA",
+      name: "3000 grad, with MEEMA",
       raEventNumber: "1782441",
     },
   ];
