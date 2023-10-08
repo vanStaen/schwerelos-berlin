@@ -1,0 +1,10 @@
+{
+  "short_name": "Schwerelos",
+  "name": "Schwerelos Berlin",
+  "description" : "Schwerelos - Techno kollektiv aus Berlin: LABEL | OPEN AIRS | CLUB | SHOWCASES",
+  "start_url": "https://schwerelos-berlin.com",
+  "display": "standalone",
+  "theme_color": "#ffffff",
+  "background_color": "#ffffff",
+  "clipboardWrite": true
+}

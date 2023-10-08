@@ -267,20 +267,20 @@ export class GigStore {
     {
       date: '2023-10-13',
       location: "Void",
-      name: "MEEMA",
-      raEventNumber: null,
+      name: "Excite. With MEEMA",
+      raEventNumber: "1772337",
     },
     {
       date: '2023-10-14',
       location: "Kultukompost",
-      name: "Sommersonnenwende / Missing DJ",
+      name: "With Sommersonnenwende / Missing DJ",
       raEventNumber: null,
     },
     {
       date: '2023-10-14',
       location: "Mensch Meier",
-      name: "MEEMA",
-      raEventNumber: null,
+      name: "With MEEMA",
+      raEventNumber: "1782441",
     },
   ];
 
