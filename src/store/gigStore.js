@@ -264,6 +264,24 @@ export class GigStore {
       name: "Schwerelos night",
       raEventNumber: "1779019",
     },
+    {
+      date: '2023-10-13',
+      location: "Void",
+      name: "MEEMA",
+      raEventNumber: null,
+    },
+    {
+      date: '2023-10-14',
+      location: "Kultukompost",
+      name: "Sommersonnenwende / Missing DJ",
+      raEventNumber: null,
+    },
+    {
+      date: '2023-10-14',
+      location: "Mensch Meier",
+      name: "MEEMA",
+      raEventNumber: null,
+    },
   ];
 
   constructor() {
