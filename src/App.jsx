@@ -1,13 +1,13 @@
 import React, { useLayoutEffect, useEffect } from "react";
 import { observer } from "mobx-react";
-import { Route, Routes, BrowserRouter } from "react-router-dom";
+//import { Route, Routes, BrowserRouter } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
 import { Main } from "./pages/Main";
-import { TicketValidation } from "./pages/Tickets/TicketValidation/TicketValidation";
-import { Admin } from "./pages/Admin/Admin";
-import { NewPassword } from "./pages/NewPassword/NewPassword";
-import { FourOfour } from "./pages/FourOfour/FourOfour";
+//import { TicketValidation } from "./pages/Tickets/TicketValidation/TicketValidation";
+//import { Admin } from "./pages/Admin/Admin";
+//import { NewPassword } from "./pages/NewPassword/NewPassword";
+//import { FourOfour } from "./pages/FourOfour/FourOfour";
 import { LanguageDropDown } from "./components/LanguageDropDown/LanguageDropDown";
 import { consoleGreetings } from "./helpers/consoleGreetings";
 
@@ -43,24 +43,27 @@ const App = observer(() => {
   }, []);
 
   return (
-    <BrowserRouter>
-      <div className="App">
-        <div className="main">
-          <LanguageDropDown />
-          <Routes>
-            <Route index element={<Main />} />
-            <Route path="/:page" index element={<Main />} />
-            <Route
-              path="ticket/:event/:ticketId"
-              element={<TicketValidation />}
-            />
-            <Route path="admin/" element={<Admin />} />
-            <Route path="recoverpwd/:key" element={<NewPassword />} />
-            <Route path="*" element={<FourOfour />} />
-          </Routes>
-        </div>
+    <div className="App">
+      <div className="main">
+        <LanguageDropDown />
+        <Main />
+        {/*
+          <BrowserRouter>
+            <Routes>
+              <Route index element={<Main />} />
+              <Route path="/:page" index element={<Main />} />
+              <Route
+                path="ticket/:event/:ticketId"
+                element={<TicketValidation />}
+              />
+              <Route path="admin/" element={<Admin />} />
+              <Route path="recoverpwd/:key" element={<NewPassword />} />
+              <Route path="*" element={<FourOfour />} />
+            </Routes>
+          </BrowserRouter>
+          */}
       </div>
-    </BrowserRouter>
+    </div>
   );
 });
 
