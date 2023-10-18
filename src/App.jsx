@@ -1,6 +1,6 @@
 import React, { useLayoutEffect, useEffect } from "react";
 import { observer } from "mobx-react";
-//import { Route, Routes, BrowserRouter } from "react-router-dom";
+import { Route, Routes, BrowserRouter } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
 import { Main } from "./pages/Main";
@@ -43,12 +43,12 @@ const App = observer(() => {
   }, []);
 
   return (
-    <div className="App">
-      <div className="main">
-        <LanguageDropDown />
-        <Main />
-        {/*
-          <BrowserRouter>
+    <BrowserRouter>
+      <div className="App">
+        <div className="main">
+          <LanguageDropDown />
+          <Main />
+          {/*
             <Routes>
               <Route index element={<Main />} />
               <Route path="/:page" index element={<Main />} />
@@ -60,10 +60,10 @@ const App = observer(() => {
               <Route path="recoverpwd/:key" element={<NewPassword />} />
               <Route path="*" element={<FourOfour />} />
             </Routes>
-          </BrowserRouter>
           */}
+        </div>
       </div>
-    </div>
+    </BrowserRouter>
   );
 });
 
