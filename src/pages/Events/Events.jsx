@@ -27,7 +27,9 @@ export const Events = () => {
   const splitGigPerDate = () => {
     gigStore.gigs.map((gig) => {
       const gigDate = dayjs(gig.date, "YYYY-MM-DD");
-      const gigIsInPast = dayjs(gigDate).isBefore(dayjs(now).subtract(1, 'day'));
+      const gigIsInPast = dayjs(gigDate).isBefore(
+        dayjs(now).subtract(1, "day")
+      );
       if (gigIsInPast) {
         pastEvents.push(gig);
       } else {
@@ -62,13 +64,13 @@ export const Events = () => {
         const handleEventClick = () => {
           if (gig.raEventNumber) {
             window.open(`https://ra.co/events/${gig.raEventNumber}`, "_blank");
-          } else if (gig.link){
+          } else if (gig.link) {
             window.open(gig.link, "_blank");
           }
         };
         return (
           <div
-            className={`row ${(gig.raEventNumber || gig.link)  && "link"}`}
+            className={`row ${(gig.raEventNumber || gig.link) && "link"}`}
             key={`upcomingEvent${index}`}
             onClick={handleEventClick}
           >
@@ -96,6 +98,9 @@ export const Events = () => {
       />
       <div className="content">
         <div className="title">{t("events.upcoming")}</div>
+        <div className="title">
+          Doing a short break! We will be back in 2024!{" "}
+        </div>
         <div className="table">{upcomingEventsSortedFormated}</div>
         <div className="title">{t("events.past")}</div>
         <div className="table">{pastEventsSortedFormated}</div>
