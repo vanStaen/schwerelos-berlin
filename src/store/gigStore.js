@@ -258,6 +258,30 @@ export class GigStore {
       name: "Klubnacht with Red Moon Label",
       raEventNumber: "1759907",
     },
+    {
+      date: '2023-10-06',
+      location: "Dream Baby Dream",
+      name: "Schwerelos night",
+      raEventNumber: "1779019",
+    },
+    {
+      date: '2023-10-13',
+      location: "Void",
+      name: "Excite, with MEEMA",
+      raEventNumber: "1772337",
+    },
+    {
+      date: '2023-10-14',
+      location: "Kultukompost",
+      name: "With Sommersonnenwende / Missing DJ",
+      raEventNumber: null,
+    },
+    {
+      date: '2023-10-14',
+      location: "Mensch Meier",
+      name: "3000 grad, with MEEMA",
+      raEventNumber: "1782441",
+    },
   ];
 
   constructor() {
