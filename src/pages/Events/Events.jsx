@@ -99,7 +99,9 @@ export const Events = () => {
       <div className="content">
         <div className="title">{t("events.upcoming")}</div>
         <div className="title">
-          Doing a short break! We will be back in 2024!{" "}
+          <br />
+          <br />
+          Doing a short break, back in 2024!{" "}
         </div>
         <div className="table">{upcomingEventsSortedFormated}</div>
         <div className="title">{t("events.past")}</div>
