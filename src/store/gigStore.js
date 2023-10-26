@@ -282,6 +282,12 @@ export class GigStore {
       name: "3000 grad, with MEEMA",
       raEventNumber: "1782441",
     },
+    {
+      date: '2023-12-20',
+      location: "AVA Club",
+      name: "Techno Mittwoch",
+      raEventNumber: "1792274",
+    },
   ];
 
   constructor() {
