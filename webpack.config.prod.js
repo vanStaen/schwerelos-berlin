@@ -28,6 +28,7 @@ module.exports = {
         { from: "public/gardenrules.jpg" },
         { from: "public/pathfinder.jpg" },
         { from: "public/timetable.jpg" },
+        { from: "public/CNAME" },
       ],
     }),
   ],
