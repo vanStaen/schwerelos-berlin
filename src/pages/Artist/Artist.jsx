@@ -35,31 +35,46 @@ export const Artist = observer(() => {
 
   useEffect(() => {
     //Meema
-    const meemaElement = document.getElementById(`div_meema`);
-    meemaElement.style.backgroundImage = `url(${meema})`;
+    const meemaElementMain = document.getElementById(`divMain_meema`);
+    const meemaElementBack = document.getElementById(`divBack_meema`);
+    meemaElementMain.style.backgroundImage = `url(${meema})`;
+    meemaElementBack.style.backgroundImage = `url(${meema})`;
     //vanStaen
-    const vanstaenElement = document.getElementById(`div_vanstaen`);
-    vanstaenElement.style.backgroundImage = `url(${vanstaen})`;
+    const vanstaenElementBack = document.getElementById(`divBack_vanstaen`);
+    const vanstaenElementMain = document.getElementById(`divMain_vanstaen`);
+    vanstaenElementBack.style.backgroundImage = `url(${vanstaen})`;
+    vanstaenElementMain.style.backgroundImage = `url(${vanstaen})`;
     //b0ys_cry
-    const b0ys_cryElement = document.getElementById(`div_b0ys_cry`);
-    b0ys_cryElement.style.backgroundImage = `url(${b0ys_cry})`;
+    const b0ys_cryElementBack = document.getElementById(`divBack_b0ys_cry`);
+    const b0ys_cryElementMain = document.getElementById(`divMain_b0ys_cry`);
+    b0ys_cryElementBack.style.backgroundImage = `url(${b0ys_cry})`;
+    b0ys_cryElementMain.style.backgroundImage = `url(${b0ys_cry})`;
     //nostique
-    const nostiqueElement = document.getElementById(`div_nostique`);
-    nostiqueElement.style.backgroundImage = `url(${nostique})`;
+    const nostiqueElementBack = document.getElementById(`divBack_nostique`);
+    const nostiqueElementMain = document.getElementById(`divMain_nostique`);
+    nostiqueElementBack.style.backgroundImage = `url(${nostique})`;
+    nostiqueElementMain.style.backgroundImage = `url(${nostique})`;
     //lukasedler
-    const lukasElement = document.getElementById(`div_lukasedler`);
-    lukasElement.style.backgroundImage = `url(${lukasedler})`;
+    const lukasElementBack = document.getElementById(`divBack_lukasedler`);
+    const lukasElementMain = document.getElementById(`divMain_lukasedler`);
+    lukasElementBack.style.backgroundImage = `url(${lukasedler})`;
+    lukasElementMain.style.backgroundImage = `url(${lukasedler})`;
     //sommersonnenwende
-    const sswdElement = document.getElementById(`div_sommersonnenwende`);
-    sswdElement.style.backgroundImage = `url(${sommersonnenwende})`;
+    const sswdElementBack = document.getElementById(`divBack_sommersonnenwende`);
+    const sswdElementMain = document.getElementById(`divMain_sommersonnenwende`);
+    sswdElementBack.style.backgroundImage = `url(${sommersonnenwende})`;
+    sswdElementMain.style.backgroundImage = `url(${sommersonnenwende})`;
     //missingdj
-    const missingdjElement = document.getElementById(`div_missingdj`);
-    missingdjElement.style.backgroundImage = `url(${missingdj})`;
+    const missingdjElementBack = document.getElementById(`divBack_missingdj`);
+    const missingdjElementMain = document.getElementById(`divMain_missingdj`);
+    missingdjElementBack.style.backgroundImage = `url(${missingdj})`;
+    missingdjElementMain.style.backgroundImage = `url(${missingdj})`;
   }, []);
 
 
   const artistProfile = artistStore.artists.map((artist, index) => {
     const handleMouseOver = () => {
+      console.log('over');
       const social = document.getElementById(`social_${index}`);
       const bio = document.getElementById(`bio_${index}`);
       social.style.display = "block";
@@ -108,11 +123,12 @@ export const Artist = observer(() => {
 
     return (
       <div
-        id={`div_${artist.name.replace(/ /g, "").toLowerCase()}`}
         className="artist"
         onMouseOver={handleMouseOver}
         onMouseOut={handleMouseOut}
       >
+        <div className="artistBackgroundPic" id={`divBack_${artist.name.replace(/ /g, "").toLowerCase()}`}></div>
+        <div className="artistMainPic" id={`divMain_${artist.name.replace(/ /g, "").toLowerCase()}`}></div>
         <div id={`bio_${index}`} className="artistBio">
           <span className="artistBioTitle">{artist.name}</span>
           <span className="artistBioMain">{artist.bio[language]}</span>
