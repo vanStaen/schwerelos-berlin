@@ -282,6 +282,12 @@ export class GigStore {
       name: "3000 grad, with MEEMA",
       raEventNumber: "1782441",
     },
+    {
+      date: '2024-11-01',
+      location: "Renate",
+      name: "Disco Futurtismo x Schwerelos",
+      raEventNumber: "1828426",
+    },
   ];
 
   constructor() {
