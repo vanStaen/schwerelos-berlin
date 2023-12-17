@@ -288,6 +288,12 @@ export class GigStore {
       name: "Disco Futurtismo x Schwerelos",
       raEventNumber: "1828426",
     },
+    {
+      date: '2023-12-20',
+      location: "AVA Club",
+      name: "Techno Mittwoch",
+      raEventNumber: "1792274",
+    },
   ];
 
   constructor() {
