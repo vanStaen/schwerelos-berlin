@@ -294,6 +294,12 @@ export class GigStore {
       name: "Techno Mittwoch",
       raEventNumber: "1792274",
     },
+    {
+      date: '2024-03-15',
+      location: "AVA Club",
+      name: "Klubnacht (Tom 🎂)",
+      raEventNumber: "1792274",
+    },
   ];
 
   constructor() {
