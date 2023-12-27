@@ -283,7 +283,7 @@ export class GigStore {
       raEventNumber: "1782441",
     },
     {
-      date: '2024-11-01',
+      date: '2024-01-11',
       location: "Renate",
       name: "Disco Futurtismo x Schwerelos",
       raEventNumber: "1828426",
