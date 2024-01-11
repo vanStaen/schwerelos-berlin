@@ -283,16 +283,22 @@ export class GigStore {
       raEventNumber: "1782441",
     },
     {
+      date: '2023-12-20',
+      location: "AVA Club",
+      name: "Techno Mittwoch",
+      raEventNumber: "1792274",
+    },
+    {
       date: '2024-01-11',
       location: "Renate",
       name: "Disco Futurtismo x Schwerelos",
       raEventNumber: "1828426",
     },
     {
-      date: '2023-12-20',
-      location: "AVA Club",
-      name: "Techno Mittwoch",
-      raEventNumber: "1792274",
+      date: '2024-01-21',
+      location: "Zur Klappe",
+      name: "State of Confusion vol.001",
+      raEventNumber: "1832531",
     },
     {
       date: '2024-03-15',
