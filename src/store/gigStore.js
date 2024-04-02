@@ -306,6 +306,39 @@ export class GigStore {
       name: "Klubnacht (Tom 🎂)",
       raEventNumber: "1792274",
     },
+    {
+      date: '2024-03-28',
+      location: "Schokoladen",
+      name: "Schwerelos Confusion",
+      raEventNumber: "1872466",
+    },
+    {
+      date: '2024-04-01',
+      location: "Hasenheide",
+      name: "Schwerelos OpenAir",
+    },
+    {
+      date: '2024-04-12',
+      location: "Void CLub",
+      name: "Schwerelos OpenAir",
+      raEventNumber: "1885696",
+    },
+    {
+      date: '2024-05-01',
+      location: "Secret Location",
+      name: "1. Mai OpenAir",
+    },
+    {
+      date: '2024-05-01',
+      location: "AVA Club",
+      name: "Techno Mittwoch 1. Mai Edition",
+      raEventNumber: "1849087",
+    },
+    {
+      date: '2024-05-09',
+      location: "Secret Location",
+      name: "Schwerelos OpenAir",
+    },
   ];
 
   constructor() {
