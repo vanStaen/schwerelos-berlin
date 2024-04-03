@@ -325,18 +325,19 @@ export class GigStore {
     },
     {
       date: '2024-05-01',
-      location: "Secret Location",
-      name: "1. Mai OpenAir",
+      location: "tba",
+      name: "1.Mai OpenAir",
+      raEventNumber: "1896354",
     },
     {
       date: '2024-05-01',
       location: "AVA Club",
-      name: "Techno Mittwoch 1. Mai Edition",
+      name: "Techno Mittwoch 1.Mai Edition",
       raEventNumber: "1849087",
     },
     {
       date: '2024-05-09',
-      location: "Secret Location",
+      location: "tba",
       name: "Schwerelos OpenAir",
     },
   ];
