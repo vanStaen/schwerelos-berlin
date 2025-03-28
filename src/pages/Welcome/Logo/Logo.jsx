@@ -8,7 +8,7 @@ import "./Logo.less";
 const MAX_CANVAS_ROTATION_RADIUS = 3;
 
 export const Logo = (props) => {
-  const [showMovingLogo, setShowMovingLogo] = useState(false);
+  const [showMovingLogo, setShowMovingLogo] = useState(true);
   const [sourceImg, setSourceImg] = useState(null);
   const radius = useRef(null);
   const screenX = useRef(1);

@@ -3,7 +3,7 @@ import { observer } from "mobx-react";
 import { Route, Routes, BrowserRouter } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
-import { Main } from "./pages/Main";
+import { Welcome } from "./pages/Welcome/Welcome";
 //import { TicketValidation } from "./pages/Tickets/TicketValidation/TicketValidation";
 //import { Admin } from "./pages/Admin/Admin";
 //import { NewPassword } from "./pages/NewPassword/NewPassword";
@@ -47,7 +47,7 @@ const App = observer(() => {
       <div className="App">
         <div className="main">
           <LanguageDropDown />
-          <Main />
+          <Welcome />
           {/*
             <Routes>
               <Route index element={<Main />} />

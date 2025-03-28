@@ -58,7 +58,7 @@ export const Menu = observer((props) => {
                 {t("menu.about")} <QuestionOutlined />
               </a>
             </li>
-            <li>
+            {/* <li>
               <a
                 onClick={() => {
                   userStore.isAdmin
@@ -68,7 +68,7 @@ export const Menu = observer((props) => {
               >
                 {userStore.isAdmin ? "Logout" : "Login"} <LockOutlined />
               </a>
-            </li>
+            </li> */}
             {userStore.isAdmin ? (
               <Tooltip title="Admin" color="#2BC487" placement="bottom">
                 <Link to="/admin/">

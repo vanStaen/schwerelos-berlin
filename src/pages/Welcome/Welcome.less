@@ -1,5 +1,5 @@
 .container {
-    .welcome {  
+    .welcome {
         text-align: center;
         display: flex;
         flex-direction: column;
@@ -19,9 +19,9 @@
             right: 15px;
             display: block;
             cursor: pointer;
-        } 
+        }
 
-        .welcome__about {   
+        .welcome__about {
             position: absolute;
             z-index: 5;
             width: 65vw;
@@ -34,6 +34,8 @@
             border-radius: 3px;
             text-align: justify;
             text-justify: inter-character;
+            letter-spacing: 3px;
+            line-height: 27px;
         }
     }
 
@@ -41,7 +43,7 @@
         z-index: 0;
         width: 100vw;
         height: 100vh;
-        background-image: url('../../img/meemaBg.jpg'); 
+        background-image: url('../../img/meemaBg.jpg');
         background-size: cover;
         background-attachment: fixed;
         background-position: center;
@@ -49,8 +51,8 @@
         background-size: cover;
         top: 0;
         left: 0;
-    } 
-    
+    }
+
     .backgroundOpacity {
         z-index: 1;
         background-color: black;
@@ -60,7 +62,7 @@
         opacity: 0.25;
         top: 0;
         left: 0;
-    } 
+    }
 
     .backgroundDegrade {
         z-index: 2;
@@ -69,6 +71,6 @@
         position: absolute;
         top: 0;
         left: 0;
-        background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 50%, rgba(0,0,0,.75) 100%);
+        background: linear-gradient(0deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, .75) 100%);
     }
 }
