@@ -5,7 +5,7 @@ import { useTranslation } from "react-i18next";
 import InstaLogo from "../../../img/logos/instaLogo.png";
 import LinkTreeLogo from "../../../img/logos/linkTreeLogo.png";
 import ResidentAdvisorLogo from "../../../img/logos/residentAdvisorLogo.png";
-import SoundcloudLogo from "../../../img/logos/soundcloudLogo.png";
+//import SoundcloudLogo from "../../../img/logos/soundcloudLogo.png";
 import TelegramLogo from "../../../img/logos/telegramLogo.png";
 
 import "./Links.less";
@@ -16,7 +16,7 @@ export const Links = () => {
     <div className="containerLink">
       <div className="link">
         <Tooltip title={`Telegram ${t("welcome.channel")}`} color="#2BC487">
-          <a href="https://t.me/+3zopKOUXZK5IMzBi" target="_blank">
+          <a href="https://t.me/+3zopKOUXZK5lMzBi" target="_blank">
             <img src={TelegramLogo} className="logoTelegram" />
           </a>
         </Tooltip>
